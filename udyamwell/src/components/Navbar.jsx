@@ -1,81 +1,91 @@
-import React from "react";
-// import './styles/Navabar.scss';
-import { logo1 } from "../assets";
+import React, { useState } from "react";
+import './styles/navbar.css';
+import { logo1, single_page_logo, menu, close, menuBlack, closeBlack  } from "../assets";
+import { Link } from "react-router-dom";
 const Navabar = () => {
-  return (
-    <header class="main_menu home_menu" style={{color:"red"}}>
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-12">
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.html">
-              {" "}
-              <img src={logo1} alt="logo" />{" "}
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
+  const [toggle, setToggle] = useState(false);
 
-            <div
-              class="collapse navbar-collapse main-menu-item justify-content-end"
-              id="navbarSupportedContent"
-            >
-              <ul class="navbar-nav align-items-center">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">
-                    Home
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">
-                    About
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="cource.html">
-                    Courses
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="blog.html">
-                    Blog
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="services.html">
-                    Services
-                  </a>
-                </li>
-                {/* <!-- <li class="nav-item dropdown">
-                                <a class="nav-link" href="services.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Services
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                                    <a class="dropdown-item" href="elements.html">Elements</a>
-                                </div>
-                            </li> --> */}
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+  window.addEventListener("scroll", function () {
+    var navbar = document.getElementById("navbar");
+    if (window.scrollY > 0) {
+      navbar.classList.add("navbar-scroll");
+      document.querySelector(".whiteLogo").style.display = "none";
+      document.querySelector(".logo").style.display = "block";
+      document.querySelector(".mobWhiteLogo").style.display = "none";
+      document.querySelector(".mobLogo").style.display = "block";
+    } else {
+      navbar.classList.remove("navbar-scroll");
+      document.querySelector(".whiteLogo").style.display = "block";
+      document.querySelector(".logo").style.display = "none";
+      document.querySelector(".mobWhiteLogo").style.display = "block";
+      document.querySelector(".mobLogo").style.display = "none";
+    }
+  });
+  return (
+    <>
+      <nav id="navbar">
+       <div  className="Maincontainer">
+        {/*  */}
+        <div className="container">
+          <div className="navbar-brand">
+            <img
+              src={single_page_logo}
+              className="whiteLogo"
+              height={"100px"}
+              width={"100px"}
+              alt=""
+            />
+            <img
+              src={logo1}
+              height={"100px"}
+              className="logo"
+              width={"100px"}
+              alt=""
+            />
+          </div>
+          <ul className="navbar-menu">
+            <li><Link to={'/'}>Home</Link></li>
+            <li><Link to='about'>About</Link></li>
+            <li><Link to='/courses'>Courses</Link></li>
+            <li><Link to='/blogs'>Blog</Link></li>
+            <li><Link to='/services'>Services</Link></li>
+            <li><Link to='/contact'>Contact</Link></li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </header>
-  )
+        {/*  */}
+        <div className="mobNav">
+          <img
+          className="mobWhiteLogo"
+            src={toggle ? close : menu}
+            alt="menu"
+            onClick={() => setToggle(!toggle)}
+          />
+            <img
+            className="mobLogo"
+            src={toggle ? closeBlack : menuBlack}
+            alt="menu"
+            onClick={() => setToggle(!toggle)}
+          />
+          <div
+            className={`${
+              !toggle ? "hidden" : "flex"
+            }`}
+          >
+            <ul className="list-none flex justify-end items-start flex-col gap-4">
+            <li  onClick={() => {setToggle(!toggle);}}><Link to={'/'}>Home</Link></li>
+            <li  onClick={() => {setToggle(!toggle);}}><Link to='about'>About</Link></li>
+            <li  onClick={() => {setToggle(!toggle);}}><Link to='/courses'>Courses</Link></li>
+            <li  onClick={() => {setToggle(!toggle);}}><Link to='/blogs'>Blog</Link></li>
+            <li  onClick={() => {setToggle(!toggle);}}><Link to='/services'>Services</Link></li>
+            <li  onClick={() => {setToggle(!toggle);}}><Link to='/contact'>Contact</Link></li>
+            
+            </ul>
+          </div>
+        </div>
+       </div>
+      </nav>
+    </>
+  );
 };
 
 export default Navabar;

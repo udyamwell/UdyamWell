@@ -1,0 +1,104 @@
+
+  nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px 0;
+	background-color: transparent;
+	transition: background-color 0.3s ease-in-out;
+	z-index: 9999;
+  }
+  .Maincontainer{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0 20px;
+  }
+  .container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	padding: 10px 20px;
+  }
+  
+  
+  .navbar-menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+  }
+  
+  .navbar-menu li a{
+	  margin-left: 20px;
+	  color: white;
+	  text-decoration: none;
+	  cursor: pointer;
+	  font-size: 18px;
+}
+  .navbar-scroll {
+	background-color: white;
+  }
+ .navbar-scroll .navbar-menu li a{
+	color: black;
+  }
+.logo{
+	display: none;
+}
+.mobNav{
+	display: none;
+}
+  @media (max-width: 768px) {
+	.navbar-menu{
+		display: none;
+	}
+	.mobLogo{
+		display: none;
+	}
+	.mobNav{
+		width: 150px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.mobNav img{
+		width: 28px;
+		height: 28px;
+		box-sizing:content-box;
+		cursor: pointer;
+		margin-bottom: 2;
+	}
+	.mobNav .hidden{
+		display: none;
+	}
+	.mobNav .flex{
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		top: 20px;
+		width: 100px;
+		background-color: aliceblue;
+		right: 0;
+		margin: 20px 40px;
+		border-radius: 20px;
+		z-index: 10;
+	}
+	.mobNav .flex ul{
+		list-style: none;
+	}
+	.mobNav .flex ul li{
+		text-decoration: none;
+		padding: 10px 25px;
+	}
+	.mobNav .flex ul li a{
+		text-decoration: none;
+		color: black;
+	}
+  }
+  

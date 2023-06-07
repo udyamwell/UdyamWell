@@ -28,6 +28,14 @@ import icon_5 from './animate_icon/icon_5.png';
 import icon_7 from './animate_icon/icon_7.png';
 import icon_8 from './animate_icon/icon_8.png';
 import icon_9 from './animate_icon/icon_9.png';
+import menu from './menu.svg';
+import close from './close.svg';
 import a from './a.png';
+import menuBlack from './menuBlack.png';
+import closeBlack from './closeBlack.png'
+import twitter from './twitter.png';
+import fb from './fb.png';
+import ig from './ig.png';
+import linkedIn from './linkedIn.png';
 import learning_img_bg from './learning_img_bg.png';
-export {a,about_overlay,advance_feature_img,advance_feature_bg,banner_bg,banner_img,breadcrumb,favicon, learning_img,learning_img_bg,LogGradientText_BlackBG,logo,logo1,Logo_Gradient_BlackBG,LogoBlackText_whiteBG,quote,service_bg_2,single_page_logo,color_star,left,play,quate,right,star,icon_1,icon_2,icon_3,icon_4,icon_5,icon_7,icon_8,icon_9 }
+export {menuBlack,closeBlack,menu,close,a,about_overlay,advance_feature_img,advance_feature_bg,banner_bg,banner_img,breadcrumb,favicon, learning_img,learning_img_bg,LogGradientText_BlackBG,logo,logo1,Logo_Gradient_BlackBG,LogoBlackText_whiteBG,quote,service_bg_2,single_page_logo,color_star,left,play,quate,right,star,icon_1,icon_2,icon_3,icon_4,icon_5,icon_7,icon_8,icon_9,twitter,ig,fb,linkedIn }

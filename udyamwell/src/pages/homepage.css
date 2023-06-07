@@ -1,0 +1,10 @@
+.HomeContainer{
+    width: 80%;
+    margin: 0 auto;
+    background-image: url('../assets/banner_bg.png');
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 68%;
+    background-position: top right;
+}
