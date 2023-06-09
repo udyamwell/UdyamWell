@@ -71,7 +71,7 @@ const Navabar = () => {
               !toggle ? "hidden" : "flex"
             }`}
           >
-            <ul className="list-none flex justify-end items-start flex-col gap-4">
+            <ul >
             <li  onClick={() => {setToggle(!toggle);}}><Link to={'/'}>Home</Link></li>
             <li  onClick={() => {setToggle(!toggle);}}><Link to='about'>About</Link></li>
             <li  onClick={() => {setToggle(!toggle);}}><Link to='/courses'>Courses</Link></li>

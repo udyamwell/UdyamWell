@@ -25,8 +25,8 @@ const Footer = () => {
                 <input
                   type="text"
                   placeholder="Enter email address"
-                  onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = 'Enter email address'"
+                  onFocus="this.placeholder = ''"
+                  onBlur="this.placeholder = 'Enter email address'"
                 />
                 <div className="btn">
                   <button type="button" className="footerBtn">
@@ -54,7 +54,7 @@ const Footer = () => {
           {/*  */}
           <div className="part3">
           <h1>Contact Us</h1>
-          <div class="contact_info">
+          <div className="contact_info">
                 <p><span> Address :</span> Catalyst Building, IIT Mandi, Himachal Pradesh - 175005</p>
                 <p><span> Phone :</span> +91 8679625300</p>
                 <p><span> Email : </span>admin@udyamwell.com </p>

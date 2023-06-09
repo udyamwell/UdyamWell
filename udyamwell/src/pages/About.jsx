@@ -12,24 +12,10 @@ const AboutCard = ({ heading, text1, text2, lists }) => {
     </div>
   );
 };
-const About = () => {
-  return (
-    <>
-      <TopSection MainHeadinig="About Us" subText="" text="About Us" />
-      <div className="videoContainer">
-        <div className="video">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/DjSj-jC-ktc"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-      <div className="aboutServices">
+
+export const AboutServices = ()=>{
+  return(
+    <div className="aboutServices">
         <div className="aboutServices1">
           <h1>UdyamWell Services</h1>
           <p>
@@ -51,6 +37,26 @@ const About = () => {
           text1="UdyamWell has a vast network of partners to help you with a range of services. If you need help with product delivery or labeling, for example, UdyamWell can connect you with the right partner to get the job done. This means that you can focus on your core business activities, while UdyamWell takes care of the rest."
         />
       </div>
+  )
+}
+const About = () => {
+  return (
+    <>
+      <TopSection MainHeadinig="About Us" subText="" text="About Us" />
+      <div className="videoContainer">
+        <div className="video">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/DjSj-jC-ktc"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <AboutServices/>
     </>
   );
 };

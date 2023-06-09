@@ -18,28 +18,28 @@ const Contact = () => {
                   type="text"
                   className="halfInput"
                   placeholder="Enter your Name"
-                  onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = 'Enter your name'"
+                  onFocus="this.placeholder = ''"
+                  onBlur="this.placeholder = 'Enter your name'"
                 />
                  <input
                   type="email"
                   className="halfInput"
                   placeholder="Enter your Email Address"
-                  onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = 'Enter email address'"
+                  onFocus="this.placeholder = ''"
+                  onBlur="this.placeholder = 'Enter email address'"
                 />
                  <input
             style={{width:"86%"}}
                   type="text"
                   placeholder="Enter Subject"
-                  onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = 'Enter email address'"
+                  onFocus="this.placeholder = ''"
+                  onBlur="this.placeholder = 'Enter email address'"
                 />
                 <textarea
                 style={{width:"86%"}}
                 placeholder="Enter Subject"
-                onfocus="this.placeholder = ''"
-                onblur="this.placeholder = 'Enter email address'"
+                onFocus="this.placeholder = ''"
+                onBlur="this.placeholder = 'Enter email address'"
                 rows={'10'}
                 />
             </form>
