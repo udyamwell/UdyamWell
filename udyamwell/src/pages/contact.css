@@ -8,10 +8,7 @@
     display: flex;
     flex-wrap: wrap;
 }
-.contactForm h1{
-    color:#2e8446;
-    margin-bottom: 20px;
-}
+
 .form{
     max-width: 60%;
 }

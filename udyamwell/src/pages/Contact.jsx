@@ -12,14 +12,14 @@ const Contact = () => {
           <div className="contact">
             <div className="contactForm">
             <div className="form">
-            <h1>Get in Touch</h1>
+            <h1 className="subHeading">Get in Touch</h1>
             <form action="">
             <input
                   type="text"
                   className="halfInput"
                   placeholder="Enter your Name"
-                  onFocus="this.placeholder = ''"
-                  onBlur="this.placeholder = 'Enter your name'"
+                  onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Enter your name'"
                 />
                  <input
                   type="email"
@@ -29,7 +29,7 @@ const Contact = () => {
                   onBlur="this.placeholder = 'Enter email address'"
                 />
                  <input
-            style={{width:"86%"}}
+                  style={{width:"86%"}}
                   type="text"
                   placeholder="Enter Subject"
                   onFocus="this.placeholder = ''"

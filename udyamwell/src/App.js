@@ -9,13 +9,15 @@ import About from './pages/About';
 import HomePage from './pages/HomePage';
 import Blog from './pages/Blog';
 import HomeNavabar from './components/HomeNavbar';
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
   const location = useLocation();
   return (
     <>
     <div>
-      {(location.pathname==='/') ? (<HomeNavabar/>) : (<Navabar/>)}
+      {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login') ? (<HomeNavabar/>) : (<Navabar/>)}
       {/* <Navabar/> */}
       <Routes>
         <Route path='/' element={<HomePage/>}/>
@@ -23,6 +25,8 @@ function App() {
         <Route path='/blogs' element={<Blog/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/courses' element={<Course/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
         <Route path='/services' element={<Service/>}/>
       </Routes>
       <Footer/> 
