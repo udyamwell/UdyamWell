@@ -1,0 +1,330 @@
+.HomeContainer{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url('../assets/banner_bg.png');
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 68%;
+    background-position: top right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner{
+    margin-top: 10rem;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.bannerText{
+    display: flex;
+    width: 45%;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+.bannerText h1{
+    color: #236836;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.bannerText h4{
+    width: 60%;
+    color: #236836;
+    font-size: 20px;
+}
+.homeButtons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.homeButtons button{
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 150px;
+    text-transform: capitalize;
+}
+.btn1{
+    box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+    background-image: linear-gradient(to left, #2e8446, #006400);
+    font-size: 14px;
+    color: #fff;
+    transition: all .4s ease-in-out;
+    margin-right: 40px;
+    background-size: 200% auto;
+    border: 1px solid transparent;
+}
+.btn2{
+    font-size: 14px;
+}
+.btn2:hover{
+    color: #fff;
+    box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+    background-image: linear-gradient(to left, #2e8446, #006400);
+    transition: all .4s ease-in-out;
+    border: 1px solid transparent;
+
+}
+.bannerImg{
+    width: 55%;
+}
+.bannerImg img{
+    width: 100%;
+    height: 100%;
+}
+/*  */
+.homeServices{
+    margin-top: 3rem;
+}
+/*  */
+.homeAbout{
+    display: flex;
+    width: 95%;
+    margin: 4rem auto;
+}
+.aboutImg{
+    background-image: url('../assets/learning_img_bg.png');
+    background-repeat: no-repeat;
+    width: 60%;
+}
+.aboutImg img{
+    margin-left: 4%;
+}
+.aboutSub{
+    display: flex;
+}
+.aboutInfo{
+    width:50%;
+    margin: 40px;
+}
+.about-Sub{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about_{
+    height: 2px;
+    width: 70px;
+    margin-top: 7px;
+    background-color: red;
+}
+.aboutInfo h1{
+    color:#236836;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-top: 15px;
+}
+.aboutKeyPoints{
+    margin-top: 30px;
+}
+.aboutKeyPoints p{
+    display: flex;
+    margin: 10px 0;
+    justify-content:start;
+    align-items: center;
+    color: grey;
+}
+.aboutKeyPoints span{
+    margin-right: 20px;
+}
+.homeAboutButton button{
+    margin-top: 50px;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 150px;
+    box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+    background-image: linear-gradient(to left, #2e8446, #006400);
+    font-size: 14px;
+    color: #fff;
+    transition: all .4s ease-in-out;
+    border: 1px solid transparent;
+}
+/*  */
+.homeFeature{
+    display: flex;
+    width: 95%;
+    margin:5rem auto !important;
+}
+.featureImg{
+    background-image: url('../assets/advance_feature_bg.png');
+    background-repeat: no-repeat;
+    width: 50%;
+}
+.feautreInfo{
+    width: 50%;
+    padding: 40px;
+}
+.homeFeature h1{
+    color:#236836;
+    font-size: 3rem;
+    font-weight: 900;
+    width: 80%;
+    margin-top: 15px;
+}
+#featureText{
+    width: 85%;
+    margin-top: 30px;
+    color: grey;
+}
+.features{
+    margin-top: 50px;
+    display: flex;
+}
+.featureIcon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #fccbd3;
+}
+.feature1{
+    width: 40%;
+    margin-right: 40px;
+}
+.feature1 h2{
+    color: #236836;
+}
+.feature1 p{
+    color: grey;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+.feature2{
+    width: 40%;
+}
+.feature2 h2{
+    color: #236836;
+}
+.feature2 p{
+    color: grey;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+@media (max-width: 1220px) {
+    .aboutImg{
+        width: 50%;
+    }
+    .aboutImg img{
+        width: 100%;
+        margin-top: 70px;
+    }
+    .aboutInfo{
+        width: 35%;
+        margin:40px 0px 0px 58px;
+    }
+    .aboutInfo h1{
+        font-size: 2rem;
+    }
+    .homeFeature h1{
+        font-size: 2rem;
+    }
+    .homeAboutButton button{
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .banner{
+        flex-direction: column-reverse;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+    }
+    .bannerImg{
+        width: 100%;
+    }
+    .bannerText{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .bannerText h1{
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 900;
+    }
+    .bannerText h4{
+        width: 90%;
+        text-align: center;
+    }
+    .homeButtons button{
+        width: 130px;
+        padding: 10px;
+    }
+    .btn1{
+        margin-right: 20px;
+    }
+    .featureImg{
+        width: 45%;
+    }
+    .featureImg img{
+        width: 100%;
+        height: 100%;
+    }
+    .feautreInfo{
+        width: 55%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    .homeAbout{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .aboutImg{
+        width: 80%;
+    }
+    .aboutInfo{
+        width: 80%;
+        margin-top: 80px;
+    }
+    .homeFeature{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .featureImg{
+        width: 80%;
+    }
+    .feautreInfo{
+        width: 80%;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 440px) {
+    .HomeContainer{
+        background-image: none;
+    }
+    .banner{
+        width: 90%;
+    }
+    .bannerText h1{
+        font-size: 2rem;
+    }
+    .btn1{
+        font-size: 12px
+    }
+    .features{
+        flex-direction: column;
+    }
+    .feature1{
+        width: 90%;
+        margin-bottom: 50px;
+    }
+    .feature2{
+        width: 90%;
+        margin-bottom: 30px;
+    }
+}

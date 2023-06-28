@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.subHeading{
+  margin-bottom: 20px;
+  color:#2e8446;
+  text-transform: capitalize;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.input{
+  border: 1px solid gray;
+  height: 40px;
+  border-radius: 5px;    
+  margin: 10px 30px 30px 0;
+  padding: 0.375rem 0.75rem;
+  background-color: transparent;
+  width: 45%;
+}
+.input:focus{
+  outline: none;
+}
+.fullInput{
+  border: 1px solid gray;
+  height: 40px;
+  border-radius: 5px;    
+  margin: 10px 30px 30px 0;
+  padding: 0.375rem 0.75rem;
+  background-color: transparent;
+  width:95% ;
+}
+.fullInput:focus{
+  outline: none;
+}
+.select{
+  width: 47%;
+  font-size: 13px;
+  height: 50px;
+}
+.select option{
+  font-size: 13px;
+  margin-top: 8px ;
+}
+.submitButton{
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  margin-right: 2rem;
+  font-size: 14px;
+  padding: 15px;
+  box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+    background-image: linear-gradient(to left, #2e8446, #006400);
+    font-size: 14px;
+    color: #fff;
+    transition: all .4s ease-in-out;
+    background-size: 200% auto;
+    border: 1px solid transparent;
+}
+@media only screen and (max-width:1390px){
+  .input{
+    width: 40%;
+  }
+  .fullInput{
+    width: 86%;
+  }
+  .select{
+    width: 43%;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width:1210px){
+  .select{
+    width: 43%;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media only screen and (max-width:700px){
+  .input{
+    width: 80%;
+  }
+  .fullInput{
+    width: 80%;
+  }
+  .select{
+    width: 85%;
+  }
+}
+@media only screen and (max-width:430px){
+  .select{
+    width: 90%;
   }
 }
