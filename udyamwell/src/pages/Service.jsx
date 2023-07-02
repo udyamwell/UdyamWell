@@ -6,9 +6,9 @@ const ServiceCard = ({heading,text1,text2,lists}) => {
         <div className="cardContainer">
             <span><i></i></span>
             <h4>{heading}</h4>
-            <p>{text1}</p>
-            <p>{text2}</p>
-            <ul>
+            <p style={{textAlign:"justify"}}>{text1}</p>
+            <p style={{textAlign:"justify"}}>{text2}</p>
+            <ul style={{textAlign:"left"}}>
                 {lists.map((item=>{return <li>{item}</li>}))}
             </ul>
         </div>

@@ -11,13 +11,16 @@ import Blog from './pages/Blog';
 import HomeNavabar from './components/HomeNavbar';
 import Login from './components/Login';
 import Register from './components/Register';
+import ColorMode from './utils/ColorMode';
+import SingleCoursePage from './components/SingleCoursePage';
 
 function App() {
   const location = useLocation();
   return (
     <>
     <div>
-      {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login') ? (<HomeNavabar/>) : (<Navabar/>)}
+      <ColorMode>
+      {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course') ? (<HomeNavabar/>) : (<Navabar/>)}
       {/* <Navabar/> */}
       <Routes>
         <Route path='/' element={<HomePage/>}/>
@@ -25,11 +28,13 @@ function App() {
         <Route path='/blogs' element={<Blog/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/courses' element={<Course/>}/>
-        {/* <Route path='/login' element={<Login/>}/> */}
-        {/* <Route path='/register' element={<Register/>}/> */}
+         <Route path='/login' element={<Login/>}/>
+         <Route path='/register' element={<Register/>}/>
         <Route path='/services' element={<Service/>}/>
+        <Route path='/course' element={<SingleCoursePage/>}/>
       </Routes>
       <Footer/> 
+      </ColorMode>
     </div>
     </>
   );
