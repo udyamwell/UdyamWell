@@ -22,17 +22,20 @@ const Enterprise = () => {
       </Box>
       <Box>
       <FormControl fullWidth>
-  <InputLabel id="demo-simple-select-label">Age</InputLabel>
+  <InputLabel id="demo-simple-select-label">Enterprise Type</InputLabel>
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     // value="age"
-    label="age"
+    label="Enterprise Type"
     // onChange={handleChange}
   >
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
+    <MenuItem value={'individual'}>Individual</MenuItem>
+    <MenuItem value={'SHG'}>SHG</MenuItem>
+    <MenuItem value={'FPO'}>FPO</MenuItem>
+    <MenuItem value={'pvt'}>Private Limited</MenuItem>
+    <MenuItem value={'OPC'}>OPC</MenuItem>
+    <MenuItem value={'LLP'}>LLP</MenuItem>
   </Select>
 </FormControl>
       </Box>
@@ -43,12 +46,13 @@ const Enterprise = () => {
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     // value="age"
-    label="age"
+    label="how do you know about us?"
     // onChange={handleChange}
   >
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
+    <MenuItem value={'Whatsapp'}>Whatsapp</MenuItem>
+    <MenuItem value={'socailMedia'}>Social Media</MenuItem>
+    <MenuItem value={'wordOfMouth'}>Word of Mouth</MenuItem>
+    <MenuItem value={'udyamwell'}>through UdyamWell</MenuItem>
   </Select>
 </FormControl>
       </Box>

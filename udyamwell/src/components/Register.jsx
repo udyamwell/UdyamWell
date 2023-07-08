@@ -88,7 +88,7 @@ const Register = () => {
               sx={{color:"white"}}
               onClick={()=>setCount(count+1)}
             >
-              {count === 1 ? "Place Order" : "Next"}
+              {count === 1 ? "Register" : "Next"}
             </Button>
             </Box>
             {/*  */}

@@ -44,7 +44,7 @@ const Login = () => {
             </Box>
           </div>
           <Box>
-            <Typography sx={{mt:3}}>Don't have an Account? <Link to='/login'>Click here to Register</Link></Typography>
+            <Typography sx={{mt:3}}>Don't have an Account? <Link to='/register'>Click here to Register</Link></Typography>
           </Box>
         </div>
       </div>

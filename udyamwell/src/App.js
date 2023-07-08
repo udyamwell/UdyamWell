@@ -13,6 +13,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import ColorMode from './utils/ColorMode';
 import SingleCoursePage from './components/SingleCoursePage';
+import Video from './pages/admin panel/Video';
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function App() {
          <Route path='/register' element={<Register/>}/>
         <Route path='/services' element={<Service/>}/>
         <Route path='/course' element={<SingleCoursePage/>}/>
+        <Route path='/dashboard' element={<Video/>}/>
       </Routes>
       <Footer/> 
       </ColorMode>
