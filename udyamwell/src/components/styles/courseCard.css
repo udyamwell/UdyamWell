@@ -1,0 +1,72 @@
+.cardImageBox{
+    position: relative;
+}
+.playIcon{
+    position: absolute;
+            height: 30%;
+            width: 100%;
+            opacity: 0.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .3s ease;
+            background-color: transparent;
+            top: 40%;
+            bottom: 0;
+            left: 0;
+            cursor: pointer;
+            right: 0;
+}
+.cardImageBox:hover {
+    .playIcon{
+        opacity: 1;
+    }
+}
+.timing{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    background-color: #454141e0;
+    color: white;
+    padding: 4px;
+    border-radius: 10px;
+}
+/* main video || single video page */
+.mainVidContainer{
+    width: 90%;
+    margin: 10rem auto;
+    display: flex;
+}
+.mainVid{
+    width: 70%;
+    height: 60vh;
+}
+.mainVid iframe{
+    width: 100%;
+    height: 100%;
+}
+.recommendations{
+    width: 35%;
+    padding-left: 2rem;
+}
+.recomVid{
+    margin: 20px;
+}
+
+@media only screen and (max-width:900px){
+    .mainVidContainer{
+        flex-direction: column;
+    }
+    .mainVid{
+        width: 100%;
+    }
+    .recommendations{
+        width: 100%;
+        margin-top: 6rem;
+        padding-left: 0;
+    }
+}

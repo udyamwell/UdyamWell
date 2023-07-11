@@ -27,14 +27,17 @@
 }
 .bannerText h1{
     color: #236836;
-    font-size: 4rem;
-    margin-bottom: 20px;
-    font-weight: 600;
+    font-size: 3.4rem;
+    line-height: 70px;
+    margin-bottom: 16px;
+    /* font-weight: 600; */
 }
-.bannerText h4{
+.bannerText h6{
     width: 60%;
+    font-weight: lighter;
     color: #236836;
     font-size: 20px;
+    text-align: justify;
 }
 .homeButtons{
     display: flex;
@@ -120,6 +123,7 @@
     margin-top: 15px;
 }
 .aboutKeyPoints{
+    text-align: justify;
     margin-top: 30px;
 }
 .aboutKeyPoints p{
@@ -169,6 +173,7 @@
 }
 #featureText{
     width: 85%;
+    text-align: justify;
     margin-top: 30px;
     color: grey;
 }
@@ -197,6 +202,7 @@
     color: grey;
     margin-top: 20px;
     line-height: 1.5;
+    text-align: justify;
 }
 .feature2{
     width: 40%;
@@ -208,6 +214,7 @@
     color: grey;
     margin-top: 20px;
     line-height: 1.5;
+    text-align: justify;
 }
 @media (max-width: 1220px) {
     .aboutImg{

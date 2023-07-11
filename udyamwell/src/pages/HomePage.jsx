@@ -12,7 +12,7 @@ const HomePage = () => {
             <div className="banner">
                 <div className="bannerText">
                     <h1>Partner in your Business Journey</h1>
-                    <h4>UdyamWell: A Platform for you to make your entrepreneurial dreams come true. </h4>
+                    <h6>UdyamWell: A Platform for you to make your entrepreneurial dreams come true. </h6>
                     <div className="homeButtons">
                         <button className="btn1">
                             View Course

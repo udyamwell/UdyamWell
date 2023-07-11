@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './styles/homeNavbar.css';
-import { logo1, single_page_logo, menu, close, menuBlack, closeBlack  } from "../assets";
+import { logo1, menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../assets";
 import { Link } from "react-router-dom";
 const HomeNavabar = () => {
   const [toggle1, setToggle1] = useState(false);
@@ -21,10 +21,10 @@ const HomeNavabar = () => {
         <div className="containerHome">
           <div className="navbar-brand">
             <img
-              src={logo1}
-              height={"100px"}
+              src={Udyamwell_Logo_Standee}
+              height={"70px"}
               className="logo1"
-              width={"100px"}
+              width={"auto"}
               alt=""
             />
           </div>
@@ -35,6 +35,7 @@ const HomeNavabar = () => {
             <li><Link to='/blogs'>Blog</Link></li>
             <li><Link to='/services'>Services</Link></li>
             <li><Link to='/contact'>Contact</Link></li>
+            <li><Link to='/register'>Register</Link></li>
           </ul>
         </div>
         {/*  */}

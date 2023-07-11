@@ -59,7 +59,7 @@
 }
 .halfInput{
     display: inline;
-    width: 40%;
+    width: 41.5%;
 }
 @media only screen and (max-width:755px){
     .contactForm{

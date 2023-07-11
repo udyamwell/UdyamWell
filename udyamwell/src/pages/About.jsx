@@ -8,7 +8,7 @@ const AboutCard = ({ heading, text1, text2, lists }) => {
         <i></i>
       </span>
       <h4>{heading}</h4>
-      <p>{text1}</p>
+      <p style={{textAlign:"justify"}}>{text1}</p>
     </div>
   );
 };
@@ -18,7 +18,7 @@ export const AboutServices = ()=>{
     <div className="aboutServices">
         <div className="aboutServices1">
           <h1>UdyamWell Services</h1>
-          <p>
+          <p style={{textAlign:"justify"}}>
             UdyamWell is a true partner that guides you on your entrepreneurial
             journey and stays with you in every step of the way to assist you in
             overcoming challenges and also in reaching new heights.

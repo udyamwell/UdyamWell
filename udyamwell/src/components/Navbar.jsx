@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './styles/navbar.css';
-import { logo1, single_page_logo, menu, close, menuBlack, closeBlack  } from "../assets";
+import { logo1, single_page_logo, menu, close, menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../assets";
 import { Link } from "react-router-dom";
 const Navabar = () => {
   const [toggle, setToggle] = useState(false);
@@ -29,17 +29,17 @@ const Navabar = () => {
         <div className="container">
           <div className="navbar-brand">
             <img
-              src={single_page_logo}
+              src={Udyamwell_Logo_Standee}
               className="whiteLogo"
-              height={"100px"}
-              width={"100px"}
+              height={"70px"}
+              width={"auto"}
               alt=""
             />
             <img
-              src={logo1}
-              height={"100px"}
+              src={Udyamwell_Logo_Standee}
+              height={"70px"}
               className="logo"
-              width={"100px"}
+              width={"auto"}
               alt=""
             />
           </div>

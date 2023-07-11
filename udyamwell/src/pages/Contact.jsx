@@ -4,6 +4,7 @@ import './contact.css';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
+import { Button } from "@mui/material";
 const Contact = () => {
     return (
         <>
@@ -36,12 +37,14 @@ const Contact = () => {
                   onBlur="this.placeholder = 'Enter email address'"
                 />
                 <textarea
-                style={{width:"86%"}}
-                placeholder="Enter Subject"
+                style={{width:"86%",resize:"none"}}
+                placeholder="Enter your message"
                 onFocus="this.placeholder = ''"
                 onBlur="this.placeholder = 'Enter email address'"
-                rows={'10'}
+                rows={'50'}
+                cols={'40'}
                 />
+                <Button variant="contained" sx={{ml:1}}>Submit</Button>
             </form>
             </div>
             {/*  */}
