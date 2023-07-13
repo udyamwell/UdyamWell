@@ -5,6 +5,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import { Button } from "@mui/material";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 const Contact = () => {
     return (
         <>
@@ -66,7 +67,14 @@ const Contact = () => {
           <div class="contact-info">
             <span class="contact-info__icon"><MailOutlinedIcon/></span>
             <div class="media-body">
-              <h3>admin@udyamwell.com</h3>
+            <a href="mailto:admin@udyamwell.com" target="_blank"><h3>admin@udyamwell.com</h3></a>
+              <p>Send us your query anytime!</p>
+            </div>
+          </div>
+          <div class="contact-info">
+            <span class="contact-info__icon"><WhatsAppIcon/></span>
+            <div class="media-body">
+              <a href='https://api.whatsapp.com/send?phone=+91 9045839741' target='_blank'><h3>Connect on Whatsapp</h3></a>
               <p>Send us your query anytime!</p>
             </div>
           </div>

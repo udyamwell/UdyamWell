@@ -5,22 +5,72 @@ import { Alert, Box, Button, Snackbar, Step, StepLabel, Stepper, Typography } fr
 import PersonalInfo from './forms/PersonalInfo';
 import Enterprise from './forms/Enterprise';
 import { Link } from 'react-router-dom';
+import axios  from 'axios';
+
 const Register = () => {
     const [count, setCount] = useState(0);
     const [step, setStep] = useState([
       { label: "Personal Info", completed: false },
       { label: "Enterprise", completed: false },
     ]);
+
+    const [enterpriseInfo,setEnterpriseInfo] = useState({
+      ename: "",
+      enterpriseType:"",
+      socials:"",
+      comment:"",
+      checked:true
+    });
+
+    const [personalInfo,setPersonalInfo] = useState({
+      name: "",
+      email:"",
+      phone_no:"",
+      location:""
+    });
+
+    const handleSubmit = async () => {
+        try {
+          const response = await axios.post('http://localhost:3000/register', {
+            enterpriseInfo,
+            personalInfo,
+          });
+
+        console.log(response.data);
+  
+        setEnterpriseInfo({
+          ename: '',
+          enterpriseType: '',
+          socials: '',
+          comment: '',
+          checked: true,
+        });
+  
+        setPersonalInfo({
+          name: '',
+          email: '',
+          phone_no: '',
+          location: '',
+        });
+  
+        setCount(count + 1);
+
+      } catch (error) {
+        console.log(error);
+      }
+
+    };
+  
     const forms = [
-        <PersonalInfo />,
-        <Enterprise/>
+        <PersonalInfo personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />,
+        <Enterprise personalInfo={enterpriseInfo} setPersonalInfo={setEnterpriseInfo} />
       ];
     //for snackbar
   const [open, setOpen] = React.useState(false);
 
-  const handleClick = () => {
-    setOpen(true);
-  };
+  // const handleClick = () => {
+  //   setOpen(true);
+  // };
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -82,11 +132,12 @@ const Register = () => {
               >
                 Back
               </Button>
-              <Button
+            <Button
             //   type={count === 2 ? "submit" : "button"}
               variant="contained"
               sx={{color:"white"}}
-              onClick={()=>setCount(count+1)}
+              // onClick={()=>setCount(count+1)}
+              onClick={handleSubmit}
             >
               {count === 1 ? "Register" : "Next"}
             </Button>
@@ -101,7 +152,7 @@ const Register = () => {
     )
 }
 
-export default Register;
+export default Register; 
 
 // import React from "react";
 // import { Link } from "react-router-dom";

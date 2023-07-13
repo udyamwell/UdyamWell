@@ -1,7 +1,17 @@
 import { Box, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import React from "react";
 
-const Enterprise = () => {
+const Enterprise = ({enterpriseInfo,setEnterpriseInfo}) => {
+
+  const handleChange = e =>{
+    const {name, value, checked} = e.target;
+    console.log(e.target);
+    setEnterpriseInfo((prevInfo) => ({
+      ...prevInfo,
+      [name]: name === "checked" ? checked : value
+    }));
+  }
+
     return (
         <>
         <Stack
@@ -12,23 +22,25 @@ const Enterprise = () => {
         <Box>
         <TextField
           variant="standard"
-        //   onChange={handleChange}
-          name="fname"
-        //   value={values?.fname}
+          onChange={handleChange}
+          name="ename"
+          value={enterpriseInfo.ename}
           fullWidth
           required
           label="Enterprise Name"
         />
       </Box>
       <Box>
-      <FormControl fullWidth>
+<FormControl fullWidth>
   <InputLabel id="demo-simple-select-label">Enterprise Type</InputLabel>
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     // value="age"
+    name="enterpriseType"
+    value={enterpriseInfo.enterpriseType}
     label="Enterprise Type"
-    // onChange={handleChange}
+    onChange={handleChange}
   >
     <MenuItem value={'individual'}>Individual</MenuItem>
     <MenuItem value={'SHG'}>SHG</MenuItem>
@@ -40,14 +52,16 @@ const Enterprise = () => {
 </FormControl>
       </Box>
       <Box>
-      <FormControl fullWidth>
+<FormControl fullWidth>
   <InputLabel id="demo-simple-select-label">How did you hear about us?</InputLabel>
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
     // value="age"
     label="how do you know about us?"
-    // onChange={handleChange}
+    name="socials"
+    value={enterpriseInfo.socials}
+    onChange={handleChange}
   >
     <MenuItem value={'Whatsapp'}>Whatsapp</MenuItem>
     <MenuItem value={'socailMedia'}>Social Media</MenuItem>
@@ -57,17 +71,18 @@ const Enterprise = () => {
 </FormControl>
       </Box>
       <Box>
-        <TextField
+      <TextField
+          type="text"
           variant="standard"
-        //   onChange={handleChange}
-          name="fname"
-        //   value={values?.fname}
+          onChange={handleChange}
+          name="comment"
+          value={enterpriseInfo.comment}
           fullWidth
           required
           label="Any additional comments?"
         />
       </Box>
-      <FormControlLabel required control={<Checkbox />} label="I agree to all terms and conditions!" />
+      <FormControlLabel required control={<Checkbox name="checked" checked={enterpriseInfo.checked} onChange={handleChange} />} label="I agree to all terms and conditions!" />
     </Stack>
         </>
     )
