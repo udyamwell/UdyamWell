@@ -31,7 +31,7 @@ const Register = () => {
 
     const handleSubmit = async () => {
         try {
-          const response = await axios.post('http://localhost:3000/register', {
+          const response = await axios.post('http://localhost:9000/users/sign-in', {
             enterpriseInfo,
             personalInfo,
           });
