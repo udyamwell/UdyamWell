@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import './styles/homeNavbar.css';
-import { logo1, menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../assets";
+import { menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../assets";
 import { Link } from "react-router-dom";
 const HomeNavabar = () => {
   const [toggle1, setToggle1] = useState(false);
 
   window.addEventListener("scroll", function () {
-    var navbar = document.getElementById("navbarHome");
+    // var navbar = document.g("navbarHome");
     if (window.scrollY > 0) {
-      navbar.classList.add("navbar-scrollHome");
+      document.querySelector('#navbarHome').setAttribute("class","navbar-scrollHome");
     } else {
-      navbar.classList.remove("navbar-scrollHome");
+      document.querySelector('#navbarHome').removeAttribute("class");
     }
   });
   return (

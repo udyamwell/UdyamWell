@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { login } from "../assets";
 import "./styles/register.css";
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material";
 import { Link } from 'react-router-dom';
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const Login = () => {
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  // password field
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  // login request
+  const handleLogin = () => {
+    const values = {
+      email,
+      password
+    }
+    console.log("login Values",values);
+  }
+
   return (
     <>
       <div className="loginContainer">
@@ -18,31 +37,58 @@ const Login = () => {
             Login Here!
           </Typography>
           <div className="mainForm">
-            <Box>
+         <Stack
+         alignSelf={"center"}
+         sx={{ width: "80%", margin: "1rem auto" }}
+         spacing={4}
+         >
+         <Box sx={{mt:3}}>
               <TextField
                 required
-                //   onChange={handleChange}
                 name="email"
-                //   value={values?.email}
-                variant="standard"
+                variant="outlined"
                 fullWidth
                 type={"email"}
                 label="Email"
+                onChange={(e)=>setEmail(e.target.value)}
+                value={email}
               />
             </Box>
             <Box>
-              <TextField
-                required
-                //   onChange={handleChange}
-                name="Enterprise Name"
-                //   value={values?.email}
-                variant="standard"
-                fullWidth
-                type={"text"}
-                label="Enterprise Name"
-              />
+            <FormControl sx={{ width:"100%" }} variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-password">
+              Password
+            </InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={showPassword ? "text" : "password"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Password"
+              name="password"
+              onChange={(e)=>setPassword(e.target.value)}
+              value={password}
+            />
+          </FormControl>
             </Box>
+         </Stack>
           </div>
+            <Box sx={{mt:3}}>
+              <Button onClick={()=>handleLogin()} variant="contained">
+                Login
+              </Button>
+            </Box>
+
           <Box>
             <Typography sx={{mt:3}}>Don't have an Account? <Link to='/register'>Click here to Register</Link></Typography>
           </Box>
@@ -51,41 +97,5 @@ const Login = () => {
     </>
   );
 };
-
-// import React from "react";
-// import { Link } from "react-router-dom";
-
-// const Login = () => {
-//   return (
-//     <>
-//       <div style={{ margin: "12rem auto 0 auto", width: "80%",height:"100%" }}>
-//           <div>
-//             <h1 className="subHeading">Login here</h1>
-//           </div>
-//           <form action="">
-//             <input
-//               type="tel"
-//               className="input"
-//               placeholder="Enter your Contact Number"
-//               onfocus="this.placeholder = ''"
-//               onblur="this.placeholder = 'Enter your Email'"
-//             />
-//             <p style={{margin:"10px 0",fontSize:"16px",fontWeight:"bold"}}>Please check to agree before you proceed.</p>
-//             <p>
-//               <input
-//                 id="terms"
-//                 type="checkbox"
-//                 name="terms"
-//                 value="on"
-//               />{"   "}
-//               Remember Me
-//             </p>
-//                 <button className="submitButton"  style={{width:"100px",marginTop:"2rem"}}>Login</button>
-//           </form>
-//           <h4 style={{marginTop:"1.4rem"}}>If don't have an account? <Link>Click here to register</Link></h4>
-//       </div>
-//     </>
-//   );
-// };
 
 export default Login;

@@ -1,7 +1,30 @@
-import { Box, Button, Modal, Paper, Stack, Table, TableCell, TableContainer, TableHead, TableRow, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Modal,
+  Paper,
+  Select,
+  Stack,
+  Table,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TextField,
+} from "@mui/material";
 import React, { useState } from "react";
 
 const Video = () => {
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [isPaid, setIsPaid] = useState(false);
+  const [link, setLink] = useState("");
+  // modal
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -15,9 +38,21 @@ const Video = () => {
     boxShadow: 24,
     p: 4,
   };
-    return (
-        <div style={{width:"90%",margin:"8rem auto"}}>
-         <Stack alignItems={"end"}>
+  // create video function
+  const handleCreate = () => {
+    let data = {
+      name,
+      image,
+      description,
+      category,
+      isPaid,
+      link
+    }
+    console.log("dataaa",data);
+  }
+  return (
+    <div style={{ width: "90%", margin: "8rem auto" }}>
+      <Stack alignItems={"end"}>
         <Button
           sx={{ width: 100, margin: "1rem 0" }}
           onClick={handleOpen}
@@ -33,17 +68,16 @@ const Video = () => {
               <TableRow>
                 <TableCell align={"center"}>Name</TableCell>
                 <TableCell align={"center"}>Description</TableCell>
-                <TableCell align={"center"}>TagS</TableCell>
-                <TableCell align={"center"}>Paid</TableCell>
+                <TableCell align={"center"}>Category</TableCell>
+                <TableCell align={"center"}>isPaid</TableCell>
                 <TableCell align={"center"}>Link</TableCell>
-                {/* <TableCell align={"center"}>CountInStock</TableCell> */}
                 <TableCell align={"center"}>Actions</TableCell>
               </TableRow>
             </TableHead>
             {/* <TableBody>
-              {all_products?.map((product) => (
-                <Cell key={product._id} product={product} />
-              ))} */}
+              {
+
+              }
             {/* </TableBody> */}
           </Table>
         </TableContainer>
@@ -55,28 +89,33 @@ const Video = () => {
         aria-describedby="modal-modal-description"
       >
         <Paper sx={style}>
-          <Stack spacing={2}>
+          <Stack spacing={3}>
             <Box>
               <label>Name: </label>
               <TextField
                 fullWidth
-                // value={name}
+                value={name}
                 variant="standard"
+                onChange={(e) => setName(e.target.value)}
               />
             </Box>
             <Box>
-              <label>Image: </label>
+              <label>Thumbnail Image: </label>
               <TextField
+                type="file"
                 fullWidth
-                // value={image}
+                value={image}
                 variant="standard"
+                onChange={(e) =>setImage(e.target.value)}
               />
             </Box>
             <Box>
-              <label>Brand: </label>
+              <label>Description: </label>
               <TextField
                 fullWidth
-                // value={brand}
+                multiline
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 variant="standard"
               />
             </Box>
@@ -84,45 +123,35 @@ const Video = () => {
               <label>Category: </label>
               <TextField
                 fullWidth
-                // value={category}
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
                 variant="standard"
               />
             </Box>
             <Box>
-              <label>Description: </label>
-              <TextField
-                // inputProps={{ type: "textarea" }}
-                // sx={{ overflowY: "scroll" }}
-                fullWidth
-                multiline
-                // value={description}
-                variant="standard"
-              />
+              <FormControl fullWidth>
+  <InputLabel id="demo-simple-select-label">Is it Paid?</InputLabel>
+              <Select name="isPaid" value={isPaid} label="Is it Paid?" onChange={(e)=>setIsPaid(e.target.value)}>
+                <MenuItem value={"true"}>True</MenuItem>
+                <MenuItem value={"false"}>False</MenuItem>
+              </Select>
+              </FormControl>
             </Box>
             <Box>
-              <label>Price: </label>
+              <label>Link: </label>
               <TextField
                 fullWidth
-                // value={price}
+                value={link}
+                onChange={(e)=>setLink(e.target.value)}
                 variant="standard"
               />
             </Box>
-            <Box>
-              <label>Count in stock: </label>
-              <TextField
-                fullWidth
-                // value={countInStock}
-                variant="standard"
-              />
-            </Box>
-            <Button variant="contained">
-              Create
-            </Button>
+            <Button onClick={handleCreate} variant="contained">Create</Button>
           </Stack>
         </Paper>
       </Modal>
-        </div>
-    );
-}
+    </div>
+  );
+};
 
 export default Video;

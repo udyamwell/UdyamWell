@@ -25,8 +25,6 @@ const Footer = () => {
                 <input
                   type="text"
                   placeholder="Enter email address"
-                  onFocus="this.placeholder = ''"
-                  onBlur="this.placeholder = 'Enter email address'"
                 />
                 <div className="btn">
                   <button type="button" className="footerBtn">
