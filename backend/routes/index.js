@@ -5,10 +5,10 @@ const router = express.Router();
 //     res.send("I am Home");
 // });
 
-router.post('/register',(req,res)=>{
-    res.send("Register");
-});
+// router.post('/register',(req,res)=>{
+//     res.send("Register");
+// });
 
-// router.use('/users',require('./users'));
+router.use('/users',require('./users'));
 
 module.exports = router;

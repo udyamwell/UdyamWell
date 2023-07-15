@@ -14,6 +14,9 @@ app.use(cors());     // communicate with ui and backend
 app.use('/',require('./routes'));
 
 
+// app.post('/register',(req,res)=>{
+//     res.send("I am live");
+// });
 
 
 app.listen(port,(err)=>{
