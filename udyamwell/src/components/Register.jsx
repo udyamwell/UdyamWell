@@ -6,78 +6,111 @@ import PersonalInfo from './forms/PersonalInfo';
 import Enterprise from './forms/Enterprise';
 import { Link } from 'react-router-dom';
 import axios  from 'axios';
+import Password from './forms/Password';
+import { useFormik } from 'formik';
 
 const Register = () => {
+  // stepper
     const [count, setCount] = useState(0);
     const [step, setStep] = useState([
       { label: "Personal Info", completed: false },
       { label: "Enterprise", completed: false },
+      { label: "Password", completed: false },
     ]);
-
-    const [enterpriseInfo,setEnterpriseInfo] = useState({
-      ename: "",
+// values
+    const initialValues ={
+      name:"",
+      email:"",
+      phoneNum:0,
+      location:"",
+      eName:"",
       enterpriseType:"",
       socials:"",
       comment:"",
-      checked:true
-    });
-
-    const [personalInfo,setPersonalInfo] = useState({
-      name: "",
-      email:"",
-      phone_no:"",
-      location:""
-    });
-
-    const handleSubmit = async () => {
-        try {
-          const response = await axios.post('http://localhost:9000/users/sign-in', {
-            enterpriseInfo,
-            personalInfo,
-          });
-
-        console.log(response.data);
-  
-        setEnterpriseInfo({
-          ename: '',
-          enterpriseType: '',
-          socials: '',
-          comment: '',
-          checked: true,
-        });
-  
-        setPersonalInfo({
-          name: '',
-          email: '',
-          phone_no: '',
-          location: '',
-        });
-  
-        setCount(count + 1);
-
-      } catch (error) {
-        console.log(error);
+      password:""
+    }
+    // submit function
+    const { handleChange, values, errors, handleSubmit } = useFormik({
+      initialValues,
+      onSubmit: (values) => {
+        console.log("entered sbmission");
+        let {
+          name,
+      email,
+      phoneNum,
+      location,
+      eName,
+      enterpriseType,
+      socials,
+      comment,
+      password
+        } = values;
+        console.log("valuessssssssss",values)
+          axios.post(`http://localhost:9000/users/sign-up`)
+          .then((res) => {
+          console.log("response",res);
+          })
+          .catch((err) => {
+            console.log("eer", err);
+          }   );
       }
-
-    };
+    })
   
     const forms = [
-        <PersonalInfo personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />,
-        <Enterprise personalInfo={enterpriseInfo} setPersonalInfo={setEnterpriseInfo} />
+        <PersonalInfo handleChange={handleChange} values={values}  />,
+        <Enterprise handleChange={handleChange} values={values}  />,
+        <Password  handleChange={handleChange} values={values} />
       ];
     //for snackbar
-  const [open, setOpen] = React.useState(false);
-
-  // const handleClick = () => {
-  //   setOpen(true);
-  // };
-
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(true);
+  };
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
 
     setOpen(false);
+  };
+  // next form
+  const nextForm = () => {
+    console.log("count",count)
+    let {
+      name,
+  email,
+  phoneNum,
+  location,
+  eName,
+  enterpriseType,
+  socials,
+    } = values;
+    console.log("vaaa",values);
+    if (
+      count === 0 &&
+      name != "" &&
+      phoneNum != 0 &&
+      email.match(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/) &&
+      location != ""
+    ) {
+      let newStep = step;
+      newStep[count].completed = true;
+      setStep([...newStep]);
+      count < 2 && setCount(count + 1);
+    }else if (
+      count === 1 &&
+      eName != "" &&
+      enterpriseType != "" &&
+      socials != "" 
+    ) {
+      let newStep = step;
+      newStep[count].completed = true;
+      setStep([...newStep]);
+      count < 2 && setCount(count + 1);
+    }
+    else {
+      handleClick();
+    }
   };
    //back form
    const backForm = () => {
@@ -103,7 +136,7 @@ const Register = () => {
             autoHideDuration={3000}
             onClose={handleClose}
             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            sx={{ mt: 14 }}
+            sx={{ mb: 5 }}
           >
             <Alert
               onClose={handleClose}
@@ -123,7 +156,7 @@ const Register = () => {
           {forms[count]}
              </div>
              {/*  */}
-               {/* bitton */}
+               {/* button */}
             <Box sx={{width:"60%",display:"flex",justifyContent:"space-between",mt:3}}>
             <Button
                 // sx={{ position: "absolute"}}
@@ -132,15 +165,20 @@ const Register = () => {
               >
                 Back
               </Button>
-            <Button
-            //   type={count === 2 ? "submit" : "button"}
+              {count===2 ? <Button   type={"button"}
+              // sx={{ position: "absolute", right: 0 }}
               variant="contained"
-              sx={{color:"white"}}
-              // onClick={()=>setCount(count+1)}
-              onClick={handleSubmit}
+              onClick={()=>handleSubmit(values)}>
+                Register
+           </Button> :
+            <Button
+              type={"button"}
+              // sx={{ position: "absolute", right: 0 }}
+              variant="contained"
+              onClick={ nextForm}
             >
-              {count === 1 ? "Register" : "Next"}
-            </Button>
+              Next
+            </Button>}
             </Box>
             {/*  */}
           <Box>
@@ -153,89 +191,3 @@ const Register = () => {
 }
 
 export default Register; 
-
-// import React from "react";
-// import { Link } from "react-router-dom";
-
-// const Register = () => {
-//   return (
-//     <>
-//       <div style={{ margin: "12rem auto 0 auto", width: "80%",height:"100%" }}>
-//           <div>
-//             <h1 className="subHeading">Register here</h1>
-//           </div>
-//           <form action="">
-//             <input
-//               type="text"
-//               className="input"
-//               placeholder="Enter your Name"
-//               onfocus="this.placeholder = ''"
-//               onblur="this.placeholder = 'Enter your name'"
-//             />
-//             <input
-//               type="email"
-//               className="input"
-//               placeholder="Enter your Email"
-//               onfocus="this.placeholder = ''"
-//               onblur="this.placeholder = 'Enter your Email'"
-//             />
-//             <input
-//               type="tel"
-//               className="input"
-//               placeholder="Enter your Contact Number"
-//               onfocus="this.placeholder = ''"
-//               onblur="this.placeholder = 'Enter your Email'"
-//             />
-//             <input
-//               type="text"
-//               className="input"
-//               placeholder="Enter your Location"
-//               onfocus="this.placeholder = ''"
-//               onblur="this.placeholder = 'Enter your name'"
-//             />
-//             <input
-//               type="text"
-//               className="fullInput"
-//               placeholder="Enterprise Name"
-//               onfocus="this.placeholder = ''"
-//               onblur="this.placeholder = 'Enter your name'"
-//             />
-//             <select className="input select">
-//               <option value="type">Entrepreneur Type</option>
-//               <option value="individual">Individual</option>
-//               <option value="shg">SHG</option>
-//               <option value="pvt">Private Limited</option>
-//               <option value="opc">OPC</option>
-//               <option value="llp">LLP</option>
-//             </select>
-//             <select className="input select">
-//               <option value="select">How do you know about Us?</option>
-//               <option value="whatsapp">Whatsapp</option>
-//               <option value="socialMeda">Social Media</option>
-//               <option value="udyamwell">through UdhyamWell</option>
-//             </select>
-//             <textarea
-//               name="comments"
-//               id=""
-//               className="fullInput"
-//               placeholder="Any additional Comments or questions?"
-//             ></textarea>
-//             <p style={{margin:"10px 0",fontSize:"16px",fontWeight:"bold"}}>Please check to agree before you proceed.</p>
-//             <p>
-//               <input
-//                 id="terms"
-//                 type="checkbox"
-//                 name="terms"
-//                 value="on"
-//               />{"   "}
-//               I agree
-//             </p>
-//                 <button className="submitButton" style={{float:"right"}}>Register</button>
-//           </form>
-//           <h4 style={{marginTop:"1.4rem"}}>If already have an account? <Link>Click here to login</Link></h4>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Register;

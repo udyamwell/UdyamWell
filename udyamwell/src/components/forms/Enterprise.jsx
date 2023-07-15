@@ -1,16 +1,7 @@
 import { Box, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import React from "react";
 
-const Enterprise = ({enterpriseInfo,setEnterpriseInfo}) => {
-
-  const handleChange = e =>{
-    const {name, value, checked} = e.target;
-    console.log(e.target);
-    setEnterpriseInfo((prevInfo) => ({
-      ...prevInfo,
-      [name]: name === "checked" ? checked : value
-    }));
-  }
+const Enterprise = ({handleChange, values}) => {
 
     return (
         <>
@@ -23,8 +14,8 @@ const Enterprise = ({enterpriseInfo,setEnterpriseInfo}) => {
         <TextField
           variant="standard"
           onChange={handleChange}
-          name="ename"
-          value={enterpriseInfo.ename}
+          name="eName"
+          value={values?.eName}
           fullWidth
           required
           label="Enterprise Name"
@@ -36,9 +27,8 @@ const Enterprise = ({enterpriseInfo,setEnterpriseInfo}) => {
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
-    // value="age"
     name="enterpriseType"
-    value={enterpriseInfo.enterpriseType}
+    value={values?.enterpriseType}
     label="Enterprise Type"
     onChange={handleChange}
   >
@@ -57,10 +47,9 @@ const Enterprise = ({enterpriseInfo,setEnterpriseInfo}) => {
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
-    // value="age"
     label="how do you know about us?"
     name="socials"
-    value={enterpriseInfo.socials}
+    value={values?.socials}
     onChange={handleChange}
   >
     <MenuItem value={'Whatsapp'}>Whatsapp</MenuItem>
@@ -76,13 +65,12 @@ const Enterprise = ({enterpriseInfo,setEnterpriseInfo}) => {
           variant="standard"
           onChange={handleChange}
           name="comment"
-          value={enterpriseInfo.comment}
+          value={values?.comment}
           fullWidth
           required
           label="Any additional comments?"
         />
       </Box>
-      <FormControlLabel required control={<Checkbox name="checked" checked={enterpriseInfo.checked} onChange={handleChange} />} label="I agree to all terms and conditions!" />
     </Stack>
         </>
     )

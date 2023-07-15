@@ -1,17 +1,7 @@
 import { Box, Stack, TextField } from "@mui/material";
 import React from "react";
 
-const PersonalInfo = ({personalInfo,setPersonalInfo}) => {
-
-  const handleChange = e =>{
-    const {name, value} = e.target;
-    console.log(e.target);
-    setPersonalInfo({
-      ...personalInfo,
-      [name]:value
-    });
-  }
-
+const PersonalInfo = ({handleChange, values }) => {
 
     return (
         <>
@@ -26,7 +16,7 @@ const PersonalInfo = ({personalInfo,setPersonalInfo}) => {
           variant="standard"
           onChange={handleChange}
           name="name"
-          value={personalInfo.name}
+          value={values?.name}
           fullWidth
           required
           label="Full Name"
@@ -37,7 +27,7 @@ const PersonalInfo = ({personalInfo,setPersonalInfo}) => {
           required
           onChange={handleChange}
           name="email"
-          value={personalInfo.email}
+          value={values?.email}
           variant="standard"
           fullWidth
           type={"email"}
@@ -48,8 +38,8 @@ const PersonalInfo = ({personalInfo,setPersonalInfo}) => {
         <TextField
           required
           onChange={handleChange}
-          name="phone_no"
-          value={personalInfo.phone_no}
+          name="phoneNum"
+          value={values?.phoneNum}
           variant="standard"
           fullWidth
           type={"number"}
@@ -61,7 +51,7 @@ const PersonalInfo = ({personalInfo,setPersonalInfo}) => {
           variant="standard"
           onChange={handleChange}
           name="location"
-          value={personalInfo.location}
+          value={values.location}
           fullWidth
           required
           type={"text"}
