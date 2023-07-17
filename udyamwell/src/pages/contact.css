@@ -51,6 +51,10 @@
     color: #2a2a2a; 
     line-height: 1.2em;
 }
+.media-body a{
+    text-decoration: none;
+    list-style: none;
+}
 .media-body p{
     color: #8a8a8a;
     line-height: 1.929;

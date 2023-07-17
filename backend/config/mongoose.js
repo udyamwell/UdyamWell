@@ -5,7 +5,7 @@ mongoose.set('strictQuery', false);
 main().catch(err=>console.log(err));
 
 async function main (){
-    await mongoose.connect("mongodb://127.0.0.1:27017/udyamwell_development");
+    await mongoose.connect("mongodb+srv://Vanshika:Vanshika@cluster0.hozpztk.mongodb.net/udyamWell?retryWrites=true&w=majority");
 }
 
 

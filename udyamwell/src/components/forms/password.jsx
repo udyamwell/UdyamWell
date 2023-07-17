@@ -9,9 +9,9 @@ import {
   import React, { useState } from "react";
   import Visibility from "@mui/icons-material/Visibility";
   import VisibilityOff from "@mui/icons-material/VisibilityOff";
+  
   const Password = ({handleChange, values}) => {
     const [showPassword, setShowPassword] = useState(false);
-  
     const [confirm, setConfirm] = useState("");
     const [confirm_err, setConfirmErr] = useState(null);
     const [showPassword1, setShowPassword1] = React.useState(false);
