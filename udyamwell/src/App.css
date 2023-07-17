@@ -21,6 +21,9 @@
 .input:focus{
   outline: none;
 }
+textarea:focus{
+  outline: none;
+}
 .fullInput{
   border: 1px solid gray;
   height: 40px;

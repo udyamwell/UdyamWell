@@ -6,7 +6,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { breadcrumb } from '../assets';
 import './styles/courseCard.css';
 import PlayCircleFilledTwoToneIcon from '@mui/icons-material/PlayCircleFilledTwoTone';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 const CourseCard = () => {
     return (
         <>

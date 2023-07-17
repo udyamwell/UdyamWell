@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
+import { Box, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import React from "react";
 
 const Enterprise = ({handleChange, values}) => {
