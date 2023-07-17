@@ -5,6 +5,7 @@ import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, Outli
 import { Link } from 'react-router-dom';
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import axios from "axios";
 
 const Login = () => {
   const [email,setEmail] = useState("");
@@ -22,6 +23,14 @@ const Login = () => {
       password
     }
     console.log("login Values",values);
+    axios
+    .post(`http://localhost:9000/users/sign-in`,values)
+    .then((res) => {
+      console.log("response", res);
+    })
+    .catch((err) => {
+      console.log("eer", err);
+    });
   }
 
   return (

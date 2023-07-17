@@ -43,20 +43,20 @@ const Register = () => {
     initialValues,
     onSubmit: (values) => {
       console.log("entered sbmission");
-      // let {
-      //   name,
-      //   email,
-      //   phoneNum,
-      //   location,
-      //   eName,
-      //   enterpriseType,
-      //   socials,
-      //   comment,
-      //   password,
-      // } = values;
-      // console.log("valuessssssssss", values);
+      let {
+        name,
+        email,
+        phoneNum,
+        location,
+        eName,
+        enterpriseType,
+        socials,
+        comment,
+        password,
+      } = values;
+      console.log("valuessssssssss", values);
       axios
-        .post(`http://localhost:9000/users/sign-up`)
+        .post(`http://localhost:9000/users/sign-up`,values)
         .then((res) => {
           console.log("response", res);
         })
