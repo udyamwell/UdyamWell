@@ -1,16 +1,18 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-const Users_schema = mongoose.Schema({
-    username:{
+const userschema = new mongoose.Schema({
+    name:{
         type:String,
         required:true,
     },
-    userEmail:{
+    email:{
         type:String,
         required:true,
         unique:true
     },
-    contact:{
+    phoneNum:{
         type:Number,
         required:true,
     },
@@ -18,24 +20,75 @@ const Users_schema = mongoose.Schema({
         type:String,
         required:true
     },
-    enterpriseName:{
+    eName:{
         type:String,
         required:true,
     },
-    entrepreneurType:{
+    enterpriseType:{
         type:String,
         required:true,
-        enum:["Individual","SHG","Private limited","OPC","LLP"]
+        enum:["Individual","SHG","FPO","Private limited","OPC","LLP"]
     },
-    knowaboutUs:{
+    socials:{
         type:String,
         required:true,
-        enum:["Social Media","Word of Mouth","Whatsapp"]
+        enum:["Whatsapp","Social Media","through UdyamWell"]
     },
     comment:{
          type:String,
-    }
+    },
+    password:{
+            type:String
+    },
+    tokens:[
+        {
+            token:{
+                type:String,
+                required:true
+            }
+        }
+    ]
+    
+},{
+    timestamp:true
 })
-const Users = new mongoose.model('User', Users_schema);
 
-export default Users_model;
+
+// TO HASH THE PASSWORD 
+
+userschema.pre('save', async function (next) {
+    if (this.isModified('password')) {
+        try {
+            this.password = await bcrypt.hash(this.password, 12);
+            // this.cpassword = await bcrypt.hash(this.password, 12); // You might not need this line.
+        } catch (err) {
+            return next(err);
+        }
+    }
+    next();
+});
+
+
+// we are generating token
+
+userschema.methods.generateAuthToken = async function(){
+    try{
+        let token = jwt.sign({_id: this._id}, process.env.SECRET_KEY);
+
+        this.tokens = this.tokens.concat({token:token});
+        // console.log("JWT " ,token );
+        await this.save();
+        return token;
+    }catch(err){
+        console.log('err',err);
+    }
+}
+
+
+
+const Users= mongoose.model('Users',userschema);
+
+module.exports = Users;
+
+
+
