@@ -4,11 +4,11 @@ import { breadcrumb } from "../assets";
 const TopSection = ({ MainHeadinig,subText,text }) => {
   return (
     <>
-      <section class="bgImageContainer">
+      <section className="bgImageContainer">
         <div>
             <img src={breadcrumb} className="bgImage" alt="" />
         </div>
-        <div class="textContainer">
+        <div className="textContainer">
           <h1>{MainHeadinig}</h1>
           <p>
             Home  <span>/ </span>
