@@ -26,7 +26,7 @@ module.exports.signUp = async function(req,res){
     
               if(user){
                    console.log("user alredy present ");
-                   res.send({message: "User already registerd"})
+                   res.staus(409).send({message: "User already registerd"});
                } else {
                    const user = new User({
                       name,
@@ -41,6 +41,7 @@ module.exports.signUp = async function(req,res){
                    });
                    await user.save();
                    console.log("user registered succefully");
+                   res.status(201).send({message:"user registered successfully"});
                }
          }catch(err){
               console.log("err",err);
