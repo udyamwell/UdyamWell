@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const express = require('express');
-const router = express.Router();
+// const router = express.Router();
 const User = require('../models/users');
 const bcrypt = require('bcryptjs');
 
@@ -68,7 +68,7 @@ module.exports.signIn = async function(req,res){
                   // console.log(token);
    
    
-                  res.cookie("jwtToken", token,{
+                  res.cookie("jwttoken", token,{
                        expires: new Date(Date.now()+25892000000),
                        httpOnly:true
                   })
@@ -88,4 +88,10 @@ module.exports.signIn = async function(req,res){
              console.log("err",err);
              return;
         }
+}
+
+module.exports.courses = function(req,res){
+    console.log('Here are your courses');
+    // return res.send("Here are your courses");
+    return res.send(req.rootUser)
 }
