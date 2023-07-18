@@ -4,10 +4,13 @@ mongoose.set('strictQuery', false);
 
 main().catch(err=>console.log(err));
 
-async function main (){
-    await mongoose.connect("mongodb+srv://Vanshika:Vanshika@cluster0.hozpztk.mongodb.net/udyamWell?retryWrites=true&w=majority");
-}
+// async function main (){
+//     await mongoose.connect("mongodb+srv://Vanshika:Vanshika@cluster0.hozpztk.mongodb.net/udyamWell?retryWrites=true&w=majority");
+// }
 
+async function main (){
+    await mongoose.connect("mongodb://localhost:27017/udyamwell_development");
+}
 
 
 // import dotenv from 'dotenv';
