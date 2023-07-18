@@ -35,7 +35,7 @@ const Enterprise = ({handleChange, values}) => {
     <MenuItem value={'individual'}>Individual</MenuItem>
     <MenuItem value={'SHG'}>SHG</MenuItem>
     <MenuItem value={'FPO'}>FPO</MenuItem>
-    <MenuItem value={'pvt'}>Private Limited</MenuItem>
+    <MenuItem value={'Pvt'}>Private Limited</MenuItem>
     <MenuItem value={'OPC'}>OPC</MenuItem>
     <MenuItem value={'LLP'}>LLP</MenuItem>
   </Select>

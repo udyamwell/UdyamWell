@@ -41,7 +41,7 @@ const Register = () => {
   // submit function
   const { handleChange, values, errors, handleSubmit } = useFormik({
     initialValues,
-    onSubmit: (values) => {
+    onSubmit: (values,{resetForm}) => {
       console.log("entered sbmission");
       let {
         name,
@@ -54,11 +54,11 @@ const Register = () => {
         comment,
         password,
       } = values;
-      console.log("valuessssssssss", values);
       axios
         .post(`http://localhost:9000/users/sign-up`,values)
         .then((res) => {
           console.log("response", res);
+          // resetForm({values:''})
         })
         .catch((err) => {
           console.log("eer", err);
@@ -85,10 +85,8 @@ const Register = () => {
   };
   // next form
   const nextForm = () => {
-    console.log("count", count);
     let { name, email, phoneNum, location, eName, enterpriseType, socials } =
       values;
-    console.log("vaaa", values);
     if (
       count === 0 &&
       name !== "" &&
