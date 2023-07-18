@@ -27,12 +27,12 @@ const userschema = new mongoose.Schema({
     enterpriseType:{
         type:String,
         required:true,
-        enum:["individual","SHG","FPO","Pvt","OPC","LLP"]
+        enum:["individual","SHG","FPO","pvt","OPC","LLP"]
     },
     socials:{
         type:String,
         required:true,
-        enum:["Whatsapp","socailMedia","udyamwell","wordOfMouth"]
+        enum:["Whatsapp","socailMedia","wordOfMouth","udyamwell"]
     },
     comment:{
          type:String,

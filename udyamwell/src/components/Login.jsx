@@ -6,8 +6,12 @@ import { Link } from 'react-router-dom';
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   // password field
@@ -26,6 +30,9 @@ const Login = () => {
     axios
     .post(`http://localhost:9000/users/sign-in`,values)
     .then((res) => {
+      if(res.status === 200){
+        navigate('/');
+      }
       console.log("response", res);
     })
     .catch((err) => {
