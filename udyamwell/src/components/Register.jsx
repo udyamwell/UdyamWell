@@ -17,8 +17,11 @@ import Password from "./forms/Password";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useFormik } from "formik";
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
+
   // stepper
   const [count, setCount] = useState(0);
   const [step, setStep] = useState([
@@ -58,6 +61,12 @@ const Register = () => {
       axios
         .post(`http://localhost:9000/users/sign-up`,values)
         .then((res) => {
+          if(res.status === 201){
+            navigate('/');
+          }else if(res.status === 409){
+            console.log("user alredy present");
+            navigate('sign-in');
+          }
           console.log("response", res);
         })
         .catch((err) => {
