@@ -41,31 +41,31 @@ const Contact = () => {
             </form>
             </div>
             {/*  */}
-            <div class="information">
-          <div class="contact-info">
-            <span class="contact-info__icon"><HomeOutlinedIcon/></span>
-            <div class="media-body">
+            <div className="information">
+          <div className="contact-info">
+            <span className="contact-info__icon"><HomeOutlinedIcon/></span>
+            <div className="media-body">
               <h3>Catalyst Building, IIT Mandi.</h3>
               <p>Himachal Pradesh, 175005</p>
             </div>
           </div>
-          <div class="contact-info">
-            <span class="contact-info__icon"><PhoneIphoneOutlinedIcon/></span>
-            <div class="media-body">
+          <div className="contact-info">
+            <span className="contact-info__icon"><PhoneIphoneOutlinedIcon/></span>
+            <div className="media-body">
               <h3>+91 867 9625 300</h3>
               <p>Mon to Fri 9am to 6pm</p>
             </div>
           </div>
-          <div class="contact-info">
-            <span class="contact-info__icon"><MailOutlinedIcon/></span>
-            <div class="media-body">
+          <div className="contact-info">
+            <span className="contact-info__icon"><MailOutlinedIcon/></span>
+            <div className="media-body">
             <a href="mailto:admin@udyamwell.com" target="_blank"><h3>admin@udyamwell.com</h3></a>
               <p>Send us your query anytime!</p>
             </div>
           </div>
-          <div class="contact-info">
-            <span class="contact-info__icon"><WhatsAppIcon/></span>
-            <div class="media-body">
+          <div className="contact-info">
+            <span className="contact-info__icon"><WhatsAppIcon/></span>
+            <div className="media-body">
               <a href='https://api.whatsapp.com/send?phone=+91 9045839741' target='_blank'><h3>Connect on Whatsapp</h3></a>
               <p>Send us your query anytime!</p>
             </div>

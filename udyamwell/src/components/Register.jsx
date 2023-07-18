@@ -13,9 +13,9 @@ import {
 } from "@mui/material";
 import PersonalInfo from "./forms/PersonalInfo";
 import Enterprise from "./forms/Enterprise";
+import Password from "./forms/Password";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Password from "./forms/Password";
 import { useFormik } from "formik";
 
 const Register = () => {
@@ -153,8 +153,8 @@ const Register = () => {
               </Alert>
             </Snackbar>
             <Stepper activeStep={count} color="#2e8446" sx={{ pt: 4 }}>
-              {step.map((step) => (
-                <Step completed={step.completed}>
+              {step.map((step,index) => (
+                <Step completed={step.completed} key={index}>
                   <StepLabel>{step.label}</StepLabel>
                 </Step>
               ))}
