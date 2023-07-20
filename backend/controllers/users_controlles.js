@@ -29,6 +29,7 @@ module.exports.signUp = async function(req,res){
                    console.log("user alredy present ");
                    res.staus(409).send({message: "User already registerd"});
                } else {
+                  token =await userLogin.generateAuthToken();
                    const user = new User({
                       name,
                       email,
@@ -42,7 +43,7 @@ module.exports.signUp = async function(req,res){
                    });
                    await user.save();
                    console.log("user registered succefully");
-                   res.status(201).send({message:"user registered successfully"});
+                   res.status(201).send({token:token,user:user});
                }
          }catch(err){
               console.log("err",err);
@@ -50,45 +51,39 @@ module.exports.signUp = async function(req,res){
          }
 }
 
-module.exports.signIn = async function(req,res){
-        // console.log(req.body);
-        // res.send({message: "you are here"});
-   
+module.exports.signIn = async function(req,res,next){
+        console.log(req.body);
         try{
              let token;
              const {email,password} = req.body;
-             if(!email || !password){
+             if(!email || password===""){
                   return res.status(400).json({error:"Please filled the data"});
              }
-    
              const userLogin = await User.findOne({email:email});
-   
-             if(userLogin){
-                  const isMatch =   await bcrypt.compare(password,userLogin.password);
-   
-                  token =await userLogin.generateAuthToken();
-                  // console.log(token);
-   
-   
-                  res.cookie("jwttoken", token,{
-                       expires: new Date(Date.now()+25892000000),
-                       httpOnly:true
-                  })
-   
-                  if(!isMatch){
-                       console.log("enter valid user id");
-                       return res.status(400).send("Invalid Username or Password");
-                  }else{
-                    console.log('User Loged in successfully');
-                    return res.status(200).send("password matched successfully");
+             if(!userLogin){
+               res.status(201).send({message: "Email not found"})}
+            const isMatch =   await bcrypt.compare(password,userLogin.password);
+                  if(!isMatch){   
+                       return res.status(400).send({message:"Incorrect Password"});
+                    }else{
+                       token =await userLogin.generateAuthToken();
+                       console.log(token);
+                       res.cookie("jwttoken", token,{
+                            expires: new Date(Date.now()+25892000000),
+                            httpOnly:true
+                         })
+                    // console.log('User Loged in successfully');
+                    return res.status(200).send({token:token,user:userLogin});
                   }
-             }else{
-                  return res.status(200).send("Invalid credentials");
-             }
+               // return res.status(401).send({error:"Email not found"});
+               // throw new Error("Invalid Email");
+               //    return res.status(200).send("Invalid credentials");
    
         }catch(err){
-             console.log("err",err);
-             return;
+          next(err)
+          // console.log("err",err);
+          // return;
+          //    return res.staus(400).send("Something Went Wrong")
         }
 }
 
