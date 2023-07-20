@@ -16,8 +16,12 @@ import {
   TextField,
 } from "@mui/material";
 import React, { useState } from "react";
+import axios  from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Video = () => {
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
@@ -39,8 +43,8 @@ const Video = () => {
     p: 4,
   };
   // create video function
-  const handleCreate = () => {
-    let data = {
+  const handleCreate = async () => {
+    let lectureData = {
       name,
       image,
       description,
@@ -48,7 +52,33 @@ const Video = () => {
       isPaid,
       link
     }
-    console.log("dataaa",data);
+    // console.log("dataaa",lectureData);
+
+    try{
+    let res =  await  axios.post(`http://localhost:9000/courses/lecture-data`,lectureData);
+     if(res.status === 201 ){
+      navigate('/');
+     }
+
+    }catch(err){
+      return console.log('Error: Unable to send data to backend',err);
+
+    }
+
+    // axios
+    // .post(`http://localhost:9000/users/sign-in`,values)
+    // .then((res) => {
+    //   if(res.status === 200){
+    //     navigate('/');
+    //   }
+    //   console.log("response", res);
+    // })
+    // .catch((err) => {
+    //   console.log("eer", err);
+    // });
+
+
+
   }
   return (
     <div style={{ width: "90%", margin: "8rem auto" }}>
