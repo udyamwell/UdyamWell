@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import './styles/homeNavbar.css';
 import { menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../assets";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Button, Menu, MenuItem, Typography } from "@mui/material";
 const HomeNavabar = () => {
   const [toggle1, setToggle1] = useState(false);
-
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const {user,error} = useSelector(state=>state.user);
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
   window.addEventListener("scroll", function () {
     // var navbar = document.g("navbarHome");
     if (window.scrollY > 0) {
@@ -35,7 +44,37 @@ const HomeNavabar = () => {
             <li><Link to='/blogs'>Blog</Link></li>
             <li><Link to='/services'>Services</Link></li>
             <li><Link to='/contact'>Contact</Link></li>
-            <li><Link to='/register'>Register</Link></li>
+            {user && (
+              <>
+              <li style={{fontWeight:"bold"}} onClick={handleOpenUserMenu}><Link>{user?.name}</Link></li>
+              <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {/* {settings.map((setting) => ( */}
+                <MenuItem  onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">Profile</Typography>
+                </MenuItem>
+                <MenuItem  onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">Logout</Typography>
+                </MenuItem>
+              {/* ))} */}
+            </Menu>
+              </>
+            )}
+           {!user &&  <li><Link to='/register'>Register</Link></li>}
           </ul>
         </div>
         {/*  */}

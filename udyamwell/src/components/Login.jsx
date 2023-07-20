@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { login } from "../assets";
 import "./styles/register.css";
-import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material";
+import { Alert, Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material";
 import { Link } from 'react-router-dom';
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../slices/UserSlice.js";
 
 const Login = () => {
-
+  const { user,error } = useSelector((state) => state.user);
+  useEffect(() => {
+    user && navigate("/");
+  }, [user]);
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   // password field
@@ -21,23 +25,24 @@ const Login = () => {
     event.preventDefault();
   };
   // login request
-  const handleLogin = () => {
+  const handleLogin = async(e) => {
+    e.preventDefault();
     const values = {
       email,
       password
     }
-    console.log("login Values",values);
-    axios
-    .post(`http://localhost:9000/users/sign-in`,values)
-    .then((res) => {
-      if(res.status === 200){
-        navigate('/');
-      }
-      console.log("response", res);
-    })
-    .catch((err) => {
-      console.log("eer", err);
-    });
+    dispatch(loginUser(values));
+    // axios
+    // .post(`http://localhost:9000/users/sign-in`,values)
+    // .then((res) => {
+    //   if(res.status === 200){
+    //     navigate('/');
+    //   }
+    //   console.log("response", res);
+    // })
+    // .catch((err) => {
+    //   console.log("eer", err);
+    // });
   }
 
   return (
@@ -48,14 +53,16 @@ const Login = () => {
           <img src={login} alt="" />
         </div>
         {/* form */}
-        <div className="loginForm">
+        <form onSubmit={handleLogin}>
+        <div className="loginForm" style={{width:"100%"}}> 
           <Typography variant="h4" sx={{ color: "#236836" }}>
             Login Here!
           </Typography>
           <div className="mainForm">
+          {error && <Alert severity="error">{error}</Alert>}
          <Stack
          alignSelf={"center"}
-         sx={{ width: "80%", margin: "1rem auto" }}
+         sx={{ width: "100%", margin: "1rem auto" }}
          spacing={4}
          >
          <Box sx={{mt:3}}>
@@ -100,15 +107,16 @@ const Login = () => {
          </Stack>
           </div>
             <Box sx={{mt:3}}>
-              <Button onClick={()=>handleLogin()} variant="contained">
+              <Button type='submit' variant="contained">
                 Login
               </Button>
             </Box>
-
           <Box>
             <Typography sx={{mt:3}}>Don't have an Account? <Link to='/register'>Click here to Register</Link></Typography>
           </Box>
         </div>
+        </form>
+       
       </div>
     </>
   );
