@@ -50,8 +50,8 @@ const userschema = new mongoose.Schema({
     ]
     
 },{
-    timestamp:true
-})
+    timestamps:true
+});
 
 
 // TO HASH THE PASSWORD 

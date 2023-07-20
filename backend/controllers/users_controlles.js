@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const express = require('express');
-// const router = express.Router();
+const router = express.Router();
 const User = require('../models/users');
 const bcrypt = require('bcryptjs');
 
@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs');
 // SETTING UP THE SIGN UP FUNCTIONALITY 
 
 module.exports.signUp = async function(req,res){
-        // console.log("this is req.body",req.body);
+     //    console.log("this is req.body",req.body);
     
         const { 
          name,
@@ -21,6 +21,7 @@ module.exports.signUp = async function(req,res){
          socials,
          comment,
          password} = req.body;
+
          try{
               let user = await User.findOne({email: email});
     

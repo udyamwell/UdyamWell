@@ -11,6 +11,6 @@ router.post('/sign-up',usersController.signUp);
 router.post('/sign-in',usersController.signIn);
 
 // ROUTER FOR COURSES PAGE 
-router.get('/courses',authenticate,usersController.courses);  //
+router.get('/courses',usersController.courses);  // ,authenticate
 
 module.exports = router;

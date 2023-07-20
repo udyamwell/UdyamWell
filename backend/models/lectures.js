@@ -1,24 +1,19 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const Lecture_schema = mongoose.Schema({
-    video_name:{
+const lectureSchema = new  mongoose.Schema({
+    name:{
         type:String,
         required:true,
     },
-    video_Category:{
+    image:{
+        type:Buffer,
+        required:true,
+    },
+    description:{
         type:String,
         required:true,
     },
-    video_link:{
-        type:String,
-        required:true,
-        unique:true
-    },
-    thumbnail:{
-        type:String,
-        required:true,
-    },
-    upload_date:{
+    category:{
         type:String,
         required:true,
     },
@@ -26,11 +21,16 @@ const Lecture_schema = mongoose.Schema({
         type:String,
         required:true,
     },
-    description:{
+    link:{
         type:String,
         required:true,
+        unique:true
     }
-})
-const Lecture = new mongoose.model('User', Lecture_schema);
+},{
+    timestamps:true
+});
 
-export default Lecture;
+const Lectures = mongoose.model('Lectures', lectureSchema);
+
+module.exports = Lectures;
+
