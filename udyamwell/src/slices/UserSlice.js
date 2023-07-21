@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const getUser= localStorage.getItem('user') ? localStorage.getItem('user') : null;
+const getUser= localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
 // const URL = import.meta.env.VITE_APP_URL;
 const token = localStorage.getItem('token') ? localStorage.getItem('token') : null;
 const initialState = {
@@ -18,10 +18,17 @@ export const loginUser= createAsyncThunk("user/loginUser", (data)=>{
 });
 
 
-
 const userSlice= createSlice({
     name:"user",
-    initialState,
+    initialState, reducers:{
+        logout:(state)=>{ 
+            state.user = null;
+            state.error = false;
+            state.token = null;
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+        }
+    },
     extraReducers:{
         [loginUser.pending]:(state)=>{
             state.user=null;
@@ -42,4 +49,5 @@ const userSlice= createSlice({
         },
     }
 });
-export default userSlice.reducer
+export const {logout}= userSlice.actions;
+export default userSlice.reducer;

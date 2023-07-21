@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import './styles/homeNavbar.css';
 import { menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../assets";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../slices/UserSlice.js";
 import { Button, Menu, MenuItem, Typography } from "@mui/material";
 const HomeNavabar = () => {
   const [toggle1, setToggle1] = useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const {user,error} = useSelector(state=>state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -22,6 +25,11 @@ const HomeNavabar = () => {
       document.querySelector('#navbarHome').removeAttribute("class");
     }
   });
+  const handleLogout = () => {
+    dispatch(logout());
+    handleCloseUserMenu();
+    navigate('/login');
+  }
   return (
     <>
       <nav id="navbarHome">
@@ -48,7 +56,7 @@ const HomeNavabar = () => {
               <>
               <li style={{fontWeight:"bold"}} onClick={handleOpenUserMenu}><Link>{user?.name}</Link></li>
               <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '50px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -68,7 +76,7 @@ const HomeNavabar = () => {
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
                 <MenuItem  onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Logout</Typography>
+                  <Typography textAlign="center" onClick={handleLogout}>Logout</Typography>
                 </MenuItem>
               {/* ))} */}
             </Menu>
