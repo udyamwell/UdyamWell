@@ -7,13 +7,20 @@ const token = localStorage.getItem('token') ? localStorage.getItem('token') : nu
 const initialState = {
     user: getUser,
     token: token,
-    error : false
+    error : false,
 }
+
+export const registerUser= createAsyncThunk("user/registerUser", (data)=>{
+    console.log("registerSlice",data)
+    return axios.post(`http://localhost:9000/users/sign-up`,data).then((res) =>res.data).catch((err)=>{
+        throw new Error(err.response.data.message); 
+});
+});
 
 export const loginUser= createAsyncThunk("user/loginUser", (data)=>{
     console.log("loginSlice",data)
     return axios.post(`http://localhost:9000/users/sign-in`,data).then((res) =>res.data).catch((err)=>{
-        throw new Error(err); 
+        throw new Error(err.response.data.message); 
 });
 });
 
@@ -30,6 +37,21 @@ const userSlice= createSlice({
         }
     },
     extraReducers:{
+        [registerUser.pending]:(state)=>{
+            state.user=null;
+        },
+        [registerUser.fulfilled]:(state,action)=>{
+            console.log("user",action.payload);
+            state.user=action.payload?.user;
+            state.token = action.payload?.token;
+            state.error= false;
+            localStorage.setItem("user",JSON.stringify(action.payload.user));
+            localStorage.setItem("token",action.payload.token);
+        },
+        [registerUser.rejected]:(state,action)=>{
+            console.log("aaa",action.error.message);
+            state.error=action.error.message;
+        },
         [loginUser.pending]:(state)=>{
             state.user=null;
         },
@@ -42,10 +64,7 @@ const userSlice= createSlice({
             localStorage.setItem("token",action.payload.token);
         },
         [loginUser.rejected]:(state,action)=>{
-            console.log("userdfazsd",action.error);
-            console.log("userdwsadddddddd",action.payload);
-            // state.error=action.error;
-            
+            state.error=action.error.message;
         },
     }
 });

@@ -49,7 +49,7 @@ const HomeNavabar = () => {
             <li><Link to={'/'}>Home</Link></li>
             <li><Link to='about'>About</Link></li>
             <li><Link to='/courses'>Courses</Link></li>
-            <li><Link to='/blogs'>Blog</Link></li>
+            {/* <li><Link to='/blogs'>Blog</Link></li> */}
             <li><Link to='/services'>Services</Link></li>
             <li><Link to='/contact'>Contact</Link></li>
             {user && (
@@ -105,7 +105,38 @@ const HomeNavabar = () => {
             <li  onClick={() => {setToggle1(!toggle1);}}><Link to='/blogs'>Blog</Link></li>
             <li  onClick={() => {setToggle1(!toggle1);}}><Link to='/services'>Services</Link></li>
             <li  onClick={() => {setToggle1(!toggle1);}}><Link to='/contact'>Contact</Link></li>
-            
+            {user && (
+              <>
+              <li style={{fontWeight:"bold"}} onClick={handleOpenUserMenu}><Link>{user?.name}</Link></li>
+              <Menu
+              onClick={() => {setToggle1(!toggle1);}}
+              sx={{ mt: '50px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {/* {settings.map((setting) => ( */}
+                <MenuItem  onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">Profile</Typography>
+                </MenuItem>
+                <MenuItem  onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center" onClick={handleLogout}>Logout</Typography>
+                </MenuItem>
+              {/* ))} */}
+            </Menu>
+              </>
+            )}
+            {!user &&  <li onClick={() => {setToggle1(!toggle1);}}><Link to='/register'>Register</Link></li>}
             </ul>
           </div>
         </div>

@@ -8,7 +8,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../slices/UserSlice.js";
-
+import './styles/register.css';
 const Login = () => {
   const { user,error } = useSelector((state) => state.user);
   useEffect(() => {
@@ -59,13 +59,13 @@ const Login = () => {
             Login Here!
           </Typography>
           <div className="mainForm">
-          {error && <Alert severity="error">{error}</Alert>}
+          {error && <Alert sx={{fontSize:"15px",p:0.3,mt:2,mb:0}} severity="error">{error}</Alert>}
          <Stack
          alignSelf={"center"}
          sx={{ width: "100%", margin: "1rem auto" }}
          spacing={4}
          >
-         <Box sx={{mt:3}}>
+         <Box sx={{mt:1}}>
               <TextField
                 required
                 name="email"

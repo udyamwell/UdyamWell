@@ -37,7 +37,6 @@
     font-weight: lighter;
     color: #236836;
     font-size: 20px;
-    text-align: justify;
 }
 .homeButtons{
     display: flex;
@@ -322,6 +321,13 @@
     }
     .btn1{
         font-size: 12px
+    }
+    .aboutInfo{
+        margin-left: 10px;
+    }
+    .feautreInfo{
+        width: 90%;
+        margin-top: 40px;
     }
     .features{
         flex-direction: column;

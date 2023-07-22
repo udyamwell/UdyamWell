@@ -1,27 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/register.css";
 import { register } from "../assets";
-import {
-  Alert,
-  Box,
-  Button,
-  Snackbar,
-  Step,
-  StepLabel,
-  Stepper,
-  Typography,
-} from "@mui/material";
+import { Alert,Box,Button, Snackbar, Step, StepLabel, Stepper,Typography,} from "@mui/material";
 import PersonalInfo from "./forms/PersonalInfo";
 import Enterprise from "./forms/Enterprise";
 import Password from "./forms/Password";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { useFormik } from "formik";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../slices/UserSlice";
 
 const Register = () => {
   const navigate = useNavigate();
-
+  const dispatch  = useDispatch();
+  const { user,error } = useSelector((state) => state.user);
+  useEffect(() => {
+    user && navigate("/");
+    setTimeout(() => {
+      if(error){
+        window.location.reload();
+    }
+    }, 500);
+  }, [user,error]);
   // stepper
   const [count, setCount] = useState(0);
   const [step, setStep] = useState([
@@ -42,9 +43,9 @@ const Register = () => {
     password: "",
   };
   // submit function
-  const { handleChange, values, errors, handleSubmit } = useFormik({
+  const { handleChange, values, resetForm, handleSubmit } = useFormik({
     initialValues,
-    onSubmit: (values,{resetForm}) => {
+    onSubmit: (values) => {
       console.log("entered sbmission");
       let {
         name,
@@ -57,21 +58,7 @@ const Register = () => {
         comment,
         password,
       } = values;
-      axios
-        .post(`http://localhost:9000/users/sign-up`,values)
-        .then((res) => {
-          if(res.status === 201){
-            navigate('/');
-          }else if(res.status === 409){
-            console.log("user alredy present");
-            navigate('sign-in');
-          }
-          console.log("response", res);
-          // resetForm({values:''})
-        })
-        .catch((err) => {
-          console.log("eer", err);
-        });
+      dispatch(registerUser(values));
     },
   });
 
@@ -143,6 +130,7 @@ const Register = () => {
           <Typography variant="h4" sx={{ color: "#236836" }}>
             Register with Us!
           </Typography>
+          {/* {error && <Alert sx={{fontSize:"15px",p:0.3,mt:2,mb:0}} severity="error">{error}</Alert>} */}
           <div className="mainForm">
             <Snackbar
               open={open}

@@ -27,18 +27,16 @@ import {
     const handleMouseDownPassword1 = (event) => {
       event.preventDefault();
     };
-    const handleConfirm = (value) =>{
+    const handleConfirm = (val) =>{
       let pass = values?.password;
-      setConfirm(value);
-      if(confirm===pass){
-          setConfirmErr(null)
-          return true;
-      }
-      setConfirmErr("Password doesn't match");
-      setTimeout(() => {
-          setConfirmErr(null);
-      }, 1500);
-      return false;
+      setConfirm(val);
+      if(!(val=== pass)){
+        setConfirmErr("Password should match");
+    }else {
+        setConfirmErr(null);
+        return true;
+    }
+    return false;
     }
     return (
       <>
