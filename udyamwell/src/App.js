@@ -14,6 +14,7 @@ import Register from './components/Register';
 import ColorMode from './utils/ColorMode';
 import SingleCoursePage from './components/SingleCoursePage';
 import Video from './pages/admin panel/Video';
+import Profile from './pages/Profile';
 
 function App() {
   const location = useLocation();
@@ -34,6 +35,7 @@ function App() {
         <Route path='/services' element={<Service/>}/>
         <Route path='/course' element={<SingleCoursePage/>}/>
         <Route path='/dashboard' element={<Video/>}/>
+        <Route path='/profile' element={<Profile/>}/>
       </Routes>
       <Footer/> 
       </ColorMode>

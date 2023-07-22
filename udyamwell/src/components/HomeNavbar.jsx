@@ -73,7 +73,7 @@ const HomeNavabar = () => {
             >
               {/* {settings.map((setting) => ( */}
                 <MenuItem  onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Profile</Typography>
+                  <Typography onClick={navigate('/profile')} textAlign="center">Profile</Typography>
                 </MenuItem>
                 <MenuItem  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center" onClick={handleLogout}>Logout</Typography>
@@ -127,7 +127,7 @@ const HomeNavabar = () => {
             >
               {/* {settings.map((setting) => ( */}
                 <MenuItem  onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Profile</Typography>
+                  <Typography textAlign="center" onClick={navigate('/profile')} >Profile</Typography>
                 </MenuItem>
                 <MenuItem  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center" onClick={handleLogout}>Logout</Typography>
