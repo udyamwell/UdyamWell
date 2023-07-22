@@ -22,7 +22,7 @@ function App() {
     <>
     <div>
       <ColorMode>
-      {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course') ? (<HomeNavabar/>) : (<Navabar/>)}
+      {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile') ? (<HomeNavabar/>) : (<Navabar/>)}
       {/* <Navabar/> */}
       <Routes>
         <Route path='/' element={<HomePage/>}/>

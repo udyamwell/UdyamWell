@@ -32,17 +32,6 @@ const Login = () => {
       password
     }
     dispatch(loginUser(values));
-    // axios
-    // .post(`http://localhost:9000/users/sign-in`,values)
-    // .then((res) => {
-    //   if(res.status === 200){
-    //     navigate('/');
-    //   }
-    //   console.log("response", res);
-    // })
-    // .catch((err) => {
-    //   console.log("eer", err);
-    // });
   }
 
   return (

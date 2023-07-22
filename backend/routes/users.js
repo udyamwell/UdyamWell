@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const authenticate = require('../config/jwt_auth');
+// const authenticate = require('../config/jwt_auth');
 
 const usersController = require('../controllers/users_controlles');
 
@@ -9,6 +9,8 @@ router.post('/sign-up',usersController.signUp);
 
 // USER SIGN IN 
 router.post('/sign-in',usersController.signIn);
+//user route for profile update
+router.put('/update',usersController.updateUser);
 
 // ROUTER FOR COURSES PAGE 
 router.get('/courses',usersController.courses);  // ,authenticate
