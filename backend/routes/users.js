@@ -11,6 +11,7 @@ router.post('/sign-up',usersController.signUp);
 router.post('/sign-in',usersController.signIn);
 //user route for profile update
 router.put('/update',usersController.updateUser);
+router.get('/verify',usersController.verifyMail);
 
 // ROUTER FOR COURSES PAGE 
 router.get('/courses',usersController.courses);  // ,authenticate

@@ -10,18 +10,18 @@ import { useFormik } from "formik";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../slices/UserSlice";
-
+import Swal from 'sweetalert2'
 const Register = () => {
   const navigate = useNavigate();
   const dispatch  = useDispatch();
   const { user,error } = useSelector((state) => state.user);
   useEffect(() => {
-    user && navigate("/");
     setTimeout(() => {
+      user && navigate("/");
       if(error){
         window.location.reload();
     }
-    }, 500);
+    }, 1000);
   }, [user,error]);
   // stepper
   const [count, setCount] = useState(0);
@@ -59,6 +59,7 @@ const Register = () => {
         password,
       } = values;
       dispatch(registerUser(values));
+      Swal.fire('You are registered.','Please check your Email for verification.','succuss')
     },
   });
 

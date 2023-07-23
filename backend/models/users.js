@@ -41,6 +41,14 @@ const userschema = new mongoose.Schema(
     password: {
       type: String,
     },
+    isAdmin:{
+      type:Boolean,
+      default:false,
+    },
+    isVerfied:{
+      type:Boolean,
+      default:false,
+    }
   },
   // {
   //   timestamps: true,

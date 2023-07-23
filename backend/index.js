@@ -14,7 +14,8 @@ app.use(cors());     // communicate with ui and backend
 // use express router 
 app.use('/',require('./routes'));
 app.use(errorHandler);
-
+app.set('view engine', 'ejs');
+app.set('views','./views');
 
 // app.post('/register',(req,res)=>{
 //     res.send("I am live");
