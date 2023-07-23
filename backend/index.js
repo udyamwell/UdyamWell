@@ -13,7 +13,8 @@ app.use(cors());     // communicate with ui and backend
 
 // use express router 
 app.use('/',require('./routes'));
-
+// app.use('/uploads',express.static('./uploads'));
+app.use('/uploads',express.static(__dirname +'/uploads'))
 
 // app.post('/register',(req,res)=>{
 //     res.send("I am live");
