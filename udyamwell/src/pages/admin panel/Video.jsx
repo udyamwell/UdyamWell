@@ -1,3 +1,7 @@
+// export default Video;
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -15,15 +19,28 @@ import {
   TableRow,
   TextField,
 } from "@mui/material";
-import React, { useState } from "react";
-import axios  from "axios";
-import { useNavigate } from 'react-router-dom';
 
 const Video = () => {
   const navigate = useNavigate();
 
+  const validateForm = () => {
+    const errors = {};
+    if (!name) errors.name = "Name is required";
+    if (!description) errors.description = "Description is required";
+    if (!category) errors.category = "Category is required";
+    if (!link) errors.link = "Link is required";
+    if (!image) errors.image = "Thumbnail Image is required"; // Check if image is not selected
+    if (!video) errors.video = "Video is required";
+
+    // setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+
+
   const [name, setName] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
+  const [video, setVideo] = useState(null);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [isPaid, setIsPaid] = useState(false);
@@ -44,42 +61,39 @@ const Video = () => {
   };
   // create video function
   const handleCreate = async () => {
+        // Validate form fields
+        if (!validateForm()) {
+          return;
+        }
+
     let lectureData = {
       name,
-      image,
       description,
       category,
       isPaid,
       link
+    };
+
+    try {
+      const formData = new FormData();
+      formData.append("image", image);
+      formData.append("video", video);
+      Object.entries(lectureData).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+
+      const res = await axios.post("http://localhost:9000/courses/lecture-data", formData);
+      console.log("Upload response:", res.data);
+
+      if (res.status === 201) {
+        navigate('/');
+      }
+
+    } catch (err) {
+      console.error('Error: Unable to send data to backend===> ', err);
     }
-    // console.log("dataaa",lectureData);
+  };
 
-    try{
-    let res =  await  axios.post(`http://localhost:9000/courses/lecture-data`,lectureData);
-     if(res.status === 201 ){
-      navigate('/');
-     }
-
-    }catch(err){
-      return console.log('Error: Unable to send data to backend',err);
-
-    }
-
-    // axios
-    // .post(`http://localhost:9000/users/sign-in`,values)
-    // .then((res) => {
-    //   if(res.status === 200){
-    //     navigate('/');
-    //   }
-    //   console.log("response", res);
-    // })
-    // .catch((err) => {
-    //   console.log("eer", err);
-    // });
-
-
-
-  }
   return (
     <div style={{ width: "90%", margin: "8rem auto" }}>
       <Stack alignItems={"end"}>
@@ -119,31 +133,46 @@ const Video = () => {
         aria-describedby="modal-modal-description"
       >
         <Paper sx={style}>
-          <Stack spacing={3}>
+          <Stack spacing={2}>
             <Box>
               <label>Name: </label>
               <TextField
                 fullWidth
                 value={name}
+                name="name"
                 variant="standard"
                 onChange={(e) => setName(e.target.value)}
               />
             </Box>
+
             <Box>
               <label>Thumbnail Image: </label>
               <TextField
                 type="file"
                 fullWidth
-                value={image}
+                name="image"
                 variant="standard"
-                onChange={(e) =>setImage(e.target.value)}
+                onChange={(e) => setImage(e.target.files[0])}
               />
             </Box>
+
+            <Box>
+              <label>Upload Video: </label>
+              <TextField
+                type="file"
+                fullWidth
+                name="video"
+                variant="standard"
+                onChange={(e) => setVideo(e.target.files[0])}
+              />
+            </Box>
+
             <Box>
               <label>Description: </label>
               <TextField
                 fullWidth
                 multiline
+                name="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 variant="standard"
@@ -153,6 +182,7 @@ const Video = () => {
               <label>Category: </label>
               <TextField
                 fullWidth
+                name="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 variant="standard"
@@ -160,19 +190,20 @@ const Video = () => {
             </Box>
             <Box>
               <FormControl fullWidth>
-  <InputLabel id="demo-simple-select-label">Is it Paid?</InputLabel>
-              <Select name="isPaid" value={isPaid} label="Is it Paid?" onChange={(e)=>setIsPaid(e.target.value)}>
-                <MenuItem value={"true"}>True</MenuItem>
-                <MenuItem value={"false"}>False</MenuItem>
-              </Select>
+                <InputLabel id="demo-simple-select-label">Is it Paid?</InputLabel>
+                <Select name="isPaid" value={isPaid} label="Is it Paid?" onChange={(e) => setIsPaid(e.target.value)}>
+                  <MenuItem value={"true"}>True</MenuItem>
+                  <MenuItem value={"false"}>False</MenuItem>
+                </Select>
               </FormControl>
             </Box>
             <Box>
               <label>Link: </label>
               <TextField
                 fullWidth
+                name="link"
                 value={link}
-                onChange={(e)=>setLink(e.target.value)}
+                onChange={(e) => setLink(e.target.value)}
                 variant="standard"
               />
             </Box>
@@ -185,3 +216,4 @@ const Video = () => {
 };
 
 export default Video;
+

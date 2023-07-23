@@ -16,6 +16,8 @@ app.use('/',require('./routes'));
 app.use(errorHandler);
 app.set('view engine', 'ejs');
 app.set('views','./views');
+// app.use('/uploads',express.static('./uploads'));
+app.use('/uploads',express.static(__dirname +'/uploads'))
 
 // app.post('/register',(req,res)=>{
 //     res.send("I am live");
