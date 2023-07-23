@@ -1,63 +1,15 @@
 import {  Box, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { breadcrumb } from '../assets';
+// import { breadcrumb } from '../assets';
 import './styles/courseCard.css';
 import PlayCircleFilledTwoToneIcon from '@mui/icons-material/PlayCircleFilledTwoTone';
-// import imageType from 'image-type';
-
-// const CourseCard = ({courses}) => {
-//     return (
-//       courses.map((course)=>{
-//         <>
-//          <Card sx={{ maxWidth: 275 ,borderRadius:"10px"}}>
-//             <Box className='cardImageBox'>
-//             <CardMedia
-//         component="img"
-//         height="194"
-//         image={breadcrumb}
-//         sx={{opacity:0.8}}
-//         alt="Paella dish"
-//       />
-//       <Box className='playIcon'>
-//         <PlayCircleFilledTwoToneIcon sx={{height:"100%",width:"40%"}}/>
-//       </Box>
-//       <Box className='timing'>
-//        <p>0.23</p>
-//       </Box>
-//             </Box>
-//        <CardHeader
-//         action={
-//           <IconButton aria-label="settings">
-//             <MoreVertIcon />
-//           </IconButton>
-//         }
-//         subheader="September 14, 2016"
-//       />
-//        <CardContent sx={{padding:"0 16px"}}>
-//         <Typography variant="h6">
-//           This impressive paeussels,
-//         </Typography>
-//       </CardContent>
-//       <CardActions disableSpacing>
-//         <IconButton aria-label="add to favorites">
-//           <FavoriteIcon />
-//         </IconButton>
-//         <IconButton aria-label="share">
-//           <ShareIcon />
-//         </IconButton>
-//       </CardActions>
-//     </Card>
-//         </>
-//       })
-        
-//     )
-// }
 
 
 const CourseCard = ({ courses }) => {
+let urlImage = `http://localhost:9000/uploads/course/thumbnails/`;
 
   const handleShare = async (title, url) => {
     try {
@@ -74,15 +26,14 @@ const CourseCard = ({ courses }) => {
     <>
       {courses.map((course) => (
         <Card key={course._id} sx={{ maxWidth: 275, borderRadius: "10px" }}>
-
           <Box className='cardImageBox'>
             <a href={course.link} target="_blank" rel="noopener noreferrer">
               <CardMedia
                 component="img"
                 height="194"
-                image={breadcrumb}
-                // src={`data:image/jpeg;base64,${course.image.toString('base64')}`}
-                // src={getBlobUrl(course.image)}
+                // image={breadcrumb}
+                // image= "http://localhost:9000/uploads/course/thumbnails/1690093516906_cloud3.jpg"
+                image= {urlImage + course.image}
                 sx={{ opacity: 0.8 }}
                 alt="Paella dish"
               />
@@ -131,9 +82,5 @@ const CourseCard = ({ courses }) => {
   );
 }
 
-// const getBlobUrl = (buffer) => {
-//   const blob = new Blob([buffer], { type: imageType(buffer) });
-//   return URL.createObjectURL(blob);
-// }
 
 export default CourseCard;
