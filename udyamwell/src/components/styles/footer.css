@@ -4,7 +4,7 @@
     width: 100%;
 }
 .footerContainer{
-    width: 80%;
+    width: 95%;
     padding: 3rem auto 3rem auto;
     display: flex;
     flex-wrap: wrap;
@@ -15,7 +15,7 @@
 .part1{
     padding-top: 50px;
     padding-bottom:50px ;
-   max-width: 250px;
+   max-width: 400px;
 }
 .part1 h1{
     margin: 20px 0 10px 0;
@@ -26,7 +26,7 @@
     line-height: 1.5;
 }
 .part2{
-    max-width: 500px;
+    max-width: 400px;
     padding-top: 50px;
     padding-bottom:50px ;
 }
@@ -112,4 +112,8 @@
               transform: scale(1.5);
     }
   }
-  
+  @media (max-width: 768px) {
+    .footerContainer{
+        width: 80%;
+    }
+  }

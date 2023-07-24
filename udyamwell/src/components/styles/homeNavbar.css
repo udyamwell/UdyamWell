@@ -12,7 +12,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 95%;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0 20px;
   }
@@ -47,9 +47,12 @@
 .mobNavHome{
 	display: none;
 }
-  @media (max-width: 900px) {
+  @media (max-width: 990px) {
 	.navbar-menuHome{
 		display: none;
+	}
+	.containerHome{
+		padding: 0px;
 	}
 	.mobNavHome{
 		width: 150px;
