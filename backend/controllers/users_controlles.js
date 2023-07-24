@@ -16,8 +16,8 @@ const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
       secure:false,
       requireTLS:true,
       auth:{
-        user:'vanshikabansal73@gmail.com',
-        pass:''
+        user:process.env.Email,
+        pass:process.env.Email_Password
       }
     });
     const mailOptions = {
