@@ -24,7 +24,7 @@ let urlImage = `http://localhost:9000/uploads/course/thumbnails/`;
 
   return (
     <>
-      {courses.map((course) => (
+      {courses?.map((course) => (
         <Card key={course._id} sx={{ maxWidth: 275, borderRadius: "10px" }}>
           <Box className='cardImageBox'>
             <a href={course.link} target="_blank" rel="noopener noreferrer">
