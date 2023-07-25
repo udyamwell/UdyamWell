@@ -37,7 +37,7 @@ const handleCardClick = () => {
   return (
     <>
       {courses?.map((course) => (
-        <Card key={course._id} sx={{ maxWidth: 275, borderRadius: "10px" }}>
+        <Card key={course._id} sx={{ maxWidth: 275, borderRadius: "10px",m:3 }}>
 
 <Box className='cardImageBox' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       {!showVideo ? (

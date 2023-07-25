@@ -1,8 +1,9 @@
 // export default Video;
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import {
+  Alert,
   Box,
   Button,
   FormControl,
@@ -13,38 +14,33 @@ import {
   Select,
   Stack,
   Table,
+  TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
   TextField,
+  Typography,
 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { createCourse, fetchAllCources } from "../../slices/CourseSlice";
+import VideoCell from "../../components/VideoCell";
 
 const Video = () => {
-  const navigate = useNavigate();
-
-  const validateForm = () => {
-    const errors = {};
-    if (!name) errors.name = "Name is required";
-    if (!description) errors.description = "Description is required";
-    if (!category) errors.category = "Category is required";
-    if (!link) errors.link = "Link is required";
-    if (!image) errors.image = "Thumbnail Image is required"; // Check if image is not selected
-    if (!video) errors.video = "Video is required";
-
-    // setErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-
-
+  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(fetchAllCources());
+  },[])
+  
+  const {all_courses,error} = useSelector(state=>state.courses);
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
   const [video, setVideo] = useState(null);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [isPaid, setIsPaid] = useState(false);
-  const [link, setLink] = useState("");
+  const [cost, setCost] = useState(0);
   // modal
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -59,6 +55,18 @@ const Video = () => {
     boxShadow: 24,
     p: 4,
   };
+  const validateForm = () => {
+    const errors = {};
+    if (!name) errors.name = "Name is required";
+    if (!description) errors.description = "Description is required";
+    if (!category) errors.category = "Category is required";
+    if (!image) errors.image = "Thumbnail Image is required"; // Check if image is not selected
+    if (!video) errors.video = "Video is required";
+
+    // setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   // create video function
   const handleCreate = async () => {
         // Validate form fields
@@ -71,10 +79,10 @@ const Video = () => {
       description,
       category,
       isPaid,
-      link
+      cost
     };
 
-    try {
+    // try {
       const formData = new FormData();
       formData.append("image", image);
       formData.append("video", video);
@@ -82,21 +90,22 @@ const Video = () => {
         formData.append(key, value);
       });
 
-      const res = await axios.post("http://localhost:9000/courses/lecture-data", formData);
-      console.log("Upload response:", res.data);
+      // const res = await axios.post("http://localhost:9000/courses/lecture-data", formData);
+      // console.log("Upload response:", res.data);
+      dispatch(createCourse(formData));
+      // if (res.status === 201) {
+        // navigate('/');
+      // }
 
-      if (res.status === 201) {
-        navigate('/');
-      }
-
-    } catch (err) {
-      console.error('Error: Unable to send data to backend===> ', err);
-    }
+    // } catch (err) {
+    //   console.error('Error: Unable to send data to backend===> ', err);
+    // }
   };
 
   return (
     <div style={{ width: "90%", margin: "8rem auto" }}>
       <Stack alignItems={"end"}>
+        {error && <Alert severity="error">{error}</Alert>}
         <Button
           sx={{ width: 100, margin: "1rem 0" }}
           onClick={handleOpen}
@@ -110,19 +119,23 @@ const Video = () => {
           <Table>
             <TableHead>
               <TableRow>
+              <TableCell align={"center"}>Id</TableCell>
                 <TableCell align={"center"}>Name</TableCell>
+                <TableCell align={"center"}>Thumbnail</TableCell>
                 <TableCell align={"center"}>Description</TableCell>
                 <TableCell align={"center"}>Category</TableCell>
                 <TableCell align={"center"}>isPaid</TableCell>
-                <TableCell align={"center"}>Link</TableCell>
+                <TableCell align={"center"}>Cost(Rs)</TableCell>
                 <TableCell align={"center"}>Actions</TableCell>
               </TableRow>
             </TableHead>
-            {/* <TableBody>
+            <TableBody>
               {
-
+                all_courses?.map((lecture,index)=>(
+                  <VideoCell key={index} lecture={lecture}/>
+                ))
               }
-            {/* </TableBody> */}
+            </TableBody> 
           </Table>
         </TableContainer>
       </Paper>
@@ -197,16 +210,18 @@ const Video = () => {
                 </Select>
               </FormControl>
             </Box>
-            <Box>
-              <label>Link: </label>
-              <TextField
-                fullWidth
-                name="link"
-                value={link}
-                onChange={(e) => setLink(e.target.value)}
-                variant="standard"
-              />
-            </Box>
+           {isPaid && (
+             <Box>
+             <label>Cost: </label>
+             <TextField
+               fullWidth
+               name="link"
+               value={cost}
+               onChange={(e) => setCost(e.target.value)}
+               variant="standard"
+             />
+           </Box>
+           )}
             <Button onClick={handleCreate} variant="contained">Create</Button>
           </Stack>
         </Paper>

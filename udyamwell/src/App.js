@@ -22,7 +22,7 @@ function App() {
     <>
     <div>
       <ColorMode>
-      {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile') ? (<HomeNavabar/>) : (<Navabar/>)}
+      {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' ) ? (<HomeNavabar/>) : (<Navabar/>)}
       {/* <Navabar/> */}
       <Routes>
         <Route path='/' element={<HomePage/>}/>
@@ -34,8 +34,12 @@ function App() {
          <Route path='/register' element={<Register/>}/>
         <Route path='/services' element={<Service/>}/>
         <Route path='/course' element={<SingleCoursePage/>}/>
-        <Route path='/dashboard' element={<Video/>}/>
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='/admin'>
+            <Route path='lectures' element={<Video/>}/>
+            {/* <Route path='users' element={<UserPanel/>}/> */}
+            {/* <Route path='orders' element={<OrderPanel/>}/> */}
+          </Route>
       </Routes>
       <Footer/> 
       </ColorMode>

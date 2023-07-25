@@ -44,7 +44,7 @@ module.exports.signUp = asyncHandler(async (req, res, next) => {
       throw new Error("Email already registered");
     } else {
       req.body.password = await bcrypt.hash(req.body.password, 10);
-      const { _id, name, email, phoneNum, location, eName, enterpriseType } =
+      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin  } =
         await Users.create(req.body);
       const token = generateToken(_id);
       sendVerifyEmail(name, email, _id);
@@ -53,7 +53,7 @@ module.exports.signUp = asyncHandler(async (req, res, next) => {
         .status(200)
         .send({
           token: token,
-          user: { _id, name, email, phoneNum, location, eName, enterpriseType },
+          user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin  },
         });
     }
   } catch (err) {
@@ -81,10 +81,10 @@ module.exports.signIn = asyncHandler(async (req, res, next) => {
     let check = await bcrypt.compare(password, result?.password);
     if (!check) throw new Error("Incorrect Password");
     else {
-      const { _id, name, email, phoneNum, location, eName, enterpriseType } =
+      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin } =
         result;
       res.status(200).send({
-        user: { _id, name, email, phoneNum, location, eName, enterpriseType },
+        user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin  },
         token: generateToken(result._id),
       });
     }

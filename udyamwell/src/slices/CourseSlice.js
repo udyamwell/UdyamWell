@@ -1,6 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const initialState = {
+    all_courses:null,
+    course:null,
+    error:false
+}
+
 export const fetchAllCources= createAsyncThunk("lectures/fetchAllCourses",()=>{
     return axios.get(`http://localhost:9000/courses/fetch-lecture-data`).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
@@ -12,11 +18,6 @@ export const createCourse= createAsyncThunk("lectures/createCourse",(data)=>{
 });
 });
 
-const initialState = {
-    all_courses:null,
-    course:null,
-    error:false
-}
 const userSlice= createSlice({
     name:"courses",
     initialState,
@@ -31,9 +32,9 @@ const userSlice= createSlice({
         [fetchAllCources.rejected]:(state,action)=>{
             state.error=action.error.message;
         },
-        [createCourse.pending]:(state)=>{
-            state.all_courses=null;
-        },
+        // [createCourse.pending]:(state)=>{
+        //     state.all_courses=null;
+        // },
         [createCourse.fulfilled]:(state,action)=>{
             state.all_courses.push(action.payload);
             state.error= false;

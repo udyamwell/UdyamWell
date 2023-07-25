@@ -16,12 +16,13 @@ const Register = () => {
   const dispatch  = useDispatch();
   const { user,error } = useSelector((state) => state.user);
   useEffect(() => {
+    user && navigate("/");
     setTimeout(() => {
-      user && navigate("/");
       if(error){
         window.location.reload();
+        navigate('/login');
     }
-    }, 1000);
+    }, 2000);
   }, [user,error]);
   // stepper
   const [count, setCount] = useState(0);
@@ -59,7 +60,7 @@ const Register = () => {
         password,
       } = values;
       dispatch(registerUser(values));
-      Swal.fire('You are registered.','Please check your Email for verification.','succuss')
+      if(error===null){Swal.fire('You are registered.','Please check your Email for verification.','succuss')};
     },
   });
 
@@ -131,7 +132,7 @@ const Register = () => {
           <Typography variant="h4" sx={{ color: "#236836" }}>
             Register with Us!
           </Typography>
-          {/* {error && <Alert sx={{fontSize:"15px",p:0.3,mt:2,mb:0}} severity="error">{error}</Alert>} */}
+          {error && <Alert sx={{fontSize:"15px",p:0.3,mt:2,mb:0}} severity="error">{error}</Alert>}
           <div className="mainForm">
             <Snackbar
               open={open}
