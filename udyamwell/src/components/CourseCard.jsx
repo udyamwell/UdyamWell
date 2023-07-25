@@ -10,6 +10,16 @@ import PlayCircleFilledTwoToneIcon from '@mui/icons-material/PlayCircleFilledTwo
 
 const CourseCard = ({ courses }) => {
 let urlImage = `http://localhost:9000/uploads/course/thumbnails/`;
+let urlVideo = `http://localhost:9000/uploads/course/videos/`;
+
+
+const [showVideo, setShowVideo] = useState(false);
+
+const handleCardClick = () => {
+  setShowVideo(true);
+};
+
+
 
   const handleShare = async (title, url) => {
     try {
@@ -22,11 +32,44 @@ let urlImage = `http://localhost:9000/uploads/course/thumbnails/`;
     }
   };
 
+
+
   return (
     <>
       {courses.map((course) => (
         <Card key={course._id} sx={{ maxWidth: 275, borderRadius: "10px" }}>
-          <Box className='cardImageBox'>
+
+<Box className='cardImageBox' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+      {!showVideo ? (
+        <>
+          <CardMedia
+            component="img"
+            height="194"
+            image={urlImage + course.image}
+            sx={{ opacity: 0.8 }}
+            alt="Paella dish"
+          />
+          <Box className='playIcon'>
+            <PlayCircleFilledTwoToneIcon sx={{ height: "100%", width: "40%" }} />
+          </Box>
+          <Box className='timing'>
+            <p>0.23</p>
+          </Box>
+        </>
+      ) : (
+        // Show the embedded video player when the card is clicked
+        <iframe
+          width="100%"
+          height="194"
+          src={urlVideo+ course.video}
+          title="Embedded Video Player"
+          frameBorder="0"
+          allowFullScreen
+        ></iframe>
+      )}
+    </Box>
+   
+          {/* <Box className='cardImageBox'>
             <a href={course.link} target="_blank" rel="noopener noreferrer">
               <CardMedia
                 component="img"
@@ -46,7 +89,7 @@ let urlImage = `http://localhost:9000/uploads/course/thumbnails/`;
               </Box>
 
             </a>
-          </Box>
+          </Box> */}
 
           <CardHeader
             action={
