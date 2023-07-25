@@ -1,12 +1,12 @@
-// const jwt = require('jsonwebtoken');
-// const router = express.Router();
-// const express = require('express');
-const User = require("../models/users");
+const Users = require("../models/users");
+const dotenv =  require("dotenv");
 const bcrypt = require("bcryptjs");
 const generateToken = require("../config/generateToken");
 const asyncHandler = require("express-async-handler");
 const nodemailer = require("nodemailer");
 //for send mail
+dotenv.config();
+
 const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
   console.log("name",name)
   try {
@@ -39,13 +39,13 @@ const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
  
 module.exports.signUp = asyncHandler(async (req, res, next) => {
   try {
-    let user = await User.findOne({ email: req.body.email });
-    console.log("sihndff",user)
+    let user = await Users.findOne({ email: req.body.email });
     if (user) {
       throw new Error("Email already registered");
     } else {
+      req.body.password = await bcrypt.hash(req.body.password, 10);
       const { _id, name, email, phoneNum, location, eName, enterpriseType } =
-        await User.create(req.body);
+        await Users.create(req.body);
       const token = generateToken(_id);
       sendVerifyEmail(name, email, _id);
       console.log("roken",token)
@@ -63,7 +63,7 @@ module.exports.signUp = asyncHandler(async (req, res, next) => {
 
 module.exports.verifyMail = async(req,res)=>{
   try {
-    const updateInfo = await User.updateOne({_id:req.query.id},{$set:{isVerfied :true}});
+    const updateInfo = await Users.updateOne({_id:req.query.id},{$set:{isVerfied :true}});
     console.log("ingo updated",updateInfo);
     res.render("email-verified.ejs");
   } catch (error) {
@@ -74,7 +74,7 @@ module.exports.verifyMail = async(req,res)=>{
 module.exports.signIn = asyncHandler(async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const result = await User.findOne({ email: email });
+    const result = await Users.findOne({ email: email });
     if (!result) {
       throw new Error("Email not found");
     }
@@ -95,10 +95,13 @@ module.exports.signIn = asyncHandler(async (req, res, next) => {
 
 module.exports.updateUser = asyncHandler(async (req, res, next) => {
   try {
-    const { _id } = await req.body;
+    const { _id } = await req.user;
+    console.log("id in uoadre",_id);
     const data = req.body;
+    req.body.password = await bcrypt.hash(req.body.password, 10);
+    console.log("body",req.body)
     const { name, email, phoneNum, location, eName, enterpriseType } =
-      await User.findByIdAndUpdate({ _id }, { ...data }, { new: true });
+      await Users.findByIdAndUpdate({ _id }, { ...data }, { new: true });
     res
       .status(200)
       .send({

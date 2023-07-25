@@ -17,14 +17,16 @@ export const registerUser= createAsyncThunk("user/registerUser", (data)=>{
 });
 
 export const loginUser= createAsyncThunk("user/loginUser", (data)=>{
+    console.log("data",data)
     return axios.post(`http://localhost:9000/users/sign-in`,data).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });
 
 export const updateUser= createAsyncThunk("user/updateUser", (data)=>{
+    let token = localStorage.getItem("token");
     console.log("updateSlice",data)
-    return axios.put(`http://localhost:9000/users/update`,data).then((res) =>res.data).catch((err)=>{
+    return axios.put(`http://localhost:9000/users/update`,data,{headers:{Authorization: `Bearer ${token}`}}).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });

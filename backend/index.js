@@ -5,7 +5,6 @@ const cors = require('cors');
 // adding monggose 
 const errorHandler = require('./config/errorHandler')
 const db = require('./config/mongoose');
-
 dotenv.config({path:'./config.env'})
 const app = express();
 app.use(express.urlencoded({ extended: false }));

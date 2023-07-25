@@ -15,6 +15,7 @@ import {
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../slices/UserSlice";
+import Swal from 'sweetalert2'
 
 const Profile = () => {
   const { user,error } = useSelector((state) => state.user);
@@ -27,6 +28,7 @@ const Profile = () => {
   const [phoneNum, setPhoneNum] = useState(user?.phoneNum);
   const dispatch = useDispatch();
   const handleSubmit = () => {
+    console.log("password",password);
     if(password===""){
       alert("Please fill Password field!");
       return;
@@ -42,7 +44,7 @@ const Profile = () => {
     };
     console.log("sunfff", data);
     dispatch(updateUser(data));
-    alert("User Profile Updated!");
+    Swal.fire('Profile Updated');
     window.location.reload();
   };
   return (
@@ -82,9 +84,9 @@ const Profile = () => {
                 <TextField
                   label="Password"
                   required
-                //   value={password}
+                  value={password}
                   readOnly={checked}
-                  onClick={(e) => !checked && setPassword(e.target.value)}
+                  onChange={(e) =>  !checked && setPassword(e.target.value)}
                   variant="standard"
                 />
               </Stack>
