@@ -13,7 +13,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 90%;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0 20px;
   }
@@ -66,6 +66,9 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+	}
+	.container{
+		padding: 0;
 	}
 	.mobNav img{
 		width: 28px;

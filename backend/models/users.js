@@ -1,94 +1,78 @@
 const mongoose = require("mongoose");
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-const userschema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:true,
+const userschema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    email:{
-        type:String,
-        required:true,
-        unique:true
+    email: {
+      type: String,
+      required: true,
+      unique: true,
     },
-    phoneNum:{
-        type:Number,
-        required:true,
+    phoneNum: {
+      type: Number,
+      required: true,
     },
-    location:{
-        type:String,
-        required:true
+    location: {
+      type: String,
+      required: true,
     },
-    eName:{
-        type:String,
-        required:true,
+    eName: {
+      type: String,
+      required: true,
     },
-    enterpriseType:{
-        type:String,
-        required:true,
-        enum:["individual","SHG","FPO","pvt","OPC","LLP"]
+    enterpriseType: {
+      type: String,
+      required: true,
+      enum: ["individual", "SHG", "FPO", "pvt", "OPC", "LLP"],
     },
-    socials:{
-        type:String,
-        required:true,
-        enum:["Whatsapp","socailMedia","wordOfMouth","udyamwell"]
+    socials: {
+      type: String,
+      required: true,
+      enum: ["Whatsapp", "socailMedia", "wordOfMouth", "udyamwell"],
     },
-    comment:{
-         type:String,
+    comment: {
+      type: String,
     },
-    password:{
-            type:String
+    password: {
+      type: String,
     },
-    tokens:[
-        {
-            token:{
-                type:String,
-                required:true
-            }
-        }
-    ]
-    
-},{
-    timestamps:true
-});
-
-
-// TO HASH THE PASSWORD 
-
-userschema.pre('save', async function (next) {
-    if (this.isModified('password')) {
-        try {
-            this.password = await bcrypt.hash(this.password, 12);
-            // this.cpassword = await bcrypt.hash(this.password, 12); // You might not need this line.
-        } catch (err) {
-            return next(err);
-        }
+    isAdmin:{
+      type:Boolean,
+      default:false,
+    },
+    isVerfied:{
+      type:Boolean,
+      default:false,
     }
-    next();
-});
+  },
+  // {
+  //   timestamps: true,
+  // }
+);
 
+// TO HASH THE PASSWORD
+
+userschema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    try {
+      this.password = await bcrypt.hash(this.password, 12);
+      // this.cpassword = await bcrypt.hash(this.password, 12); // You might not need this line.
+    } catch (err) {
+      return next(err);
+    }
+  }
+  next();
+});
 
 // we are generating token
 
-userschema.methods.generateAuthToken = async function(){
-    try{
-        let token = jwt.sign({_id: this._id}, process.env.SECRET_KEY);
-
-        this.tokens = this.tokens.concat({token:token});
-        // console.log("JWT " ,token );
-        await this.save();
-        return token;
-    }catch(err){
-        console.log('err',err);
-    }
-}
 
 
-
-const Users= mongoose.model('Users',userschema);
+const Users = mongoose.model("Users", userschema);
 
 module.exports = Users;
-
-
-

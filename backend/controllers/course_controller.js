@@ -7,13 +7,14 @@ module.exports.lectureData =async function (req,res){
         if(err){
           console.log("Multer err=====>",err);
         }
-        console.log(req.body.name);
+        console.log("video",req.body);
+        console.log("video",req.files);
 
          const name =  req.body.name;
          const description = req.body.description;
          const  category = req.body.category;
          const isPaid = req.body.isPaid;
-         const link = req.body.link;
+         const cost = Number(req.body.cost);
     
 
           let imagePath = req.files.image[0].filename;
@@ -26,7 +27,7 @@ module.exports.lectureData =async function (req,res){
             description,
             category,
             isPaid,
-            link
+            cost
           });
     
           lectures.save();

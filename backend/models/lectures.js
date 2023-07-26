@@ -28,14 +28,17 @@ const lectureSchema = new  mongoose.Schema({
         required:true,
     },
     isPaid:{
-        type:String,
+        type:Boolean,
         required:true,
     },
-    link:{
-        type:String,
-        required:true,
-        unique:true
-    }
+    cost:{
+        type:Number
+    },
+    // link:{
+    //     type:String,
+    //     // required:true,
+    //     // unique:true
+    // }
 },{
     timestamps:true
 });
