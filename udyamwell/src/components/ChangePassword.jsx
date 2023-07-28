@@ -1,17 +1,18 @@
-import {
-    FormControl,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    OutlinedInput,
-    Stack,
-  } from "@mui/material";
-  import React, { useState } from "react";
-  import Visibility from "@mui/icons-material/Visibility";
-  import VisibilityOff from "@mui/icons-material/VisibilityOff";
-  
-  const Password = ({handleChange, values}) => {
-    const [confirm, setConfirm] = useState("");
+import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import axios from 'axios';
+import Swal from 'sweetalert2'
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+
+const ChangePassword = () => {
+    const [password,setPassword] = useState("");
+    const [confirmPassword,setConfirmPassword] = useState("");
+    const obj= useParams();
+    const navigate = useNavigate();
+    // console.log("obj",obj.id)
+    const [error,setError] = useState(null);
     const [confirm_err, setConfirmErr] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword1, setShowPassword1] = React.useState(false);
@@ -27,24 +28,34 @@ import {
       event.preventDefault();
     };
     const handleConfirm = (val) =>{
-      let pass = values?.password;
-      setConfirm(val);
-      if(!(val=== pass)){
-        setConfirmErr("Password should match");
-    }else {
-        setConfirmErr(null);
-        return true;
+        setConfirmPassword(val);
+        if(!(val=== password)){
+          setConfirmErr("Password should match");
+      }else {
+          setConfirmErr(null);
+          return true;
+      }
+      return false;
+      }
+
+    const handleSubmit = ()=>{
+      if(password===""){
+        alert("Please enter your new password")
     }
-    return false;
+    axios.put("http://localhost:9000/users/change-password",{id:obj.id,password}).then((res)=>{
+            Swal.fire(`${res.data.message}`)
+            setTimeout(() => {
+              navigate('/login')
+            }, 1500);
+        }).catch((err)=> setError(err.response.data.message))
     }
     return (
-      <>
-        <Stack
-          alignSelf={"center"}
-          sx={{ width: "80%", margin: "1rem auto" }}
-          spacing={4}
-        >
-          <FormControl sx={{ width:"100%",mt:4 }} variant="outlined">
+        <>
+        <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",margin:"10rem auto 5rem auto"}} color={'#236836'}>
+            <Stack>
+                <Typography variant="h3">Change Your PASSWORD</Typography>
+                {error && <p>{error}</p>}
+                <FormControl sx={{ width:"100%",mt:4 }} variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
               Password
             </InputLabel>
@@ -65,13 +76,13 @@ import {
               }
               label="Password"
               name="password"
-              onChange={handleChange}
-              value={values?.password}
+              onChange={(e)=>setPassword(e.target.value)}
+              value={password}
             />
           </FormControl>
           {/*  */}
-          {confirm_err && <h6 style={{color:"red",m:0}}>{confirm_err}</h6>}
-          <FormControl sx={{width:"100%"  }} variant="outlined">
+          {confirm_err && <h5 style={{color:"red",marginTop:"30px"}}>{confirm_err}</h5>}
+          <FormControl sx={{width:"100%" ,mt:4 }} variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
               Confirm Password
             </InputLabel>
@@ -92,13 +103,16 @@ import {
               }
             onChange={(e) => handleConfirm(e.target.value)}
               label="Confirm Password"
-              value={confirm}
+              value={confirmPassword}
             />
           </FormControl>
-        </Stack>
-      </>
-    );
-  };
-  
-  export default Password;
-  
+                <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",mt:5}}>
+                    <Button type="submit" onClick={handleSubmit} variant="contained">Submit</Button>
+                </Box>
+            </Stack>
+        </Box>
+        </>
+    )
+}
+
+export default ChangePassword;

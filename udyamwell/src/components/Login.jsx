@@ -102,6 +102,7 @@ const Login = () => {
             </Box>
           <Box>
             <Typography sx={{mt:3}}>Don't have an Account? <Link to='/register'>Click here to Register</Link></Typography>
+            <Typography sx={{mt:1}}>Forgot Password? <Link to='/forgot-password'>Click here to reset your Password</Link></Typography>
           </Box>
         </div>
         </form>

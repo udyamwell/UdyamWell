@@ -4,9 +4,9 @@ const bcrypt = require("bcryptjs");
 const generateToken = require("../config/generateToken");
 const asyncHandler = require("express-async-handler");
 const nodemailer = require("nodemailer");
-//for send mail
 dotenv.config();
 
+//for send mail
 const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
   console.log("name",name)
   try {
@@ -35,6 +35,61 @@ const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
     console.log("verify",error.message);
   }
 }); 
+//for sending mail for chnging password
+module.exports.forgotPassword =  async(req,res)=>{
+  try {
+    const {email} = req.body;
+    console.log("email at reset",email);
+    const user = await Users.findOne({email:email});
+    console.log("useeee",user,user?._id)
+    if(user){
+      const transporter = nodemailer.createTransport({
+        host:'smtp.gmail.com',
+        port:587,
+        secure:false,
+        requireTLS:true,
+        auth:{
+          user:process.env.Email,
+          pass:process.env.Email_Password
+        }
+      });
+      const mailOptions = {
+        from: 'vanshikabansal73@gmail.com',
+        to:email,
+        subject:'Password Reset',
+        text:`Greeting, Click on this link to change your password: http://localhost:3000/change-password/${user?._id}`
+      }
+      transporter.sendMail(mailOptions,function(error,info){
+        if(error){console.log(error);}
+        else{
+          console.log("Email sent",info.response);
+          return res.status(201).send({message:"Email sent Succesfully"})
+        }
+      })
+    }
+    else{
+      throw new Error("user not found")
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+// change password
+module.exports.changePassword =  asyncHandler(async (req, res, next) => {
+  try {
+    const {id,password} = req.body;;
+    console.log("ifddd",id,password);
+    const newPassword = await bcrypt.hash(password, 10);
+    console.log("new",newPassword); 
+    const updateInfo = await Users.updateOne({_id:id},{$set:{password :newPassword}});
+    console.log("update",updateInfo);
+    res.status(201).send({message:"Password Updated Successfully"})
+  } catch (error) {
+    next(error);
+  }
+
+})
+
 // SETTING UP THE SIGN UP FUNCTIONALITY
  
 module.exports.signUp = asyncHandler(async (req, res, next) => {
@@ -48,7 +103,6 @@ module.exports.signUp = asyncHandler(async (req, res, next) => {
         await Users.create(req.body);
       const token = generateToken(_id);
       sendVerifyEmail(name, email, _id);
-      console.log("roken",token)
       res
         .status(200)
         .send({
@@ -112,6 +166,9 @@ module.exports.updateUser = asyncHandler(async (req, res, next) => {
     next(error);
   }
 });
+
+
+
 
 module.exports.courses = function (req, res) {
   console.log("Here are your courses");

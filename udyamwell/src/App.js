@@ -15,6 +15,8 @@ import ColorMode from './utils/ColorMode';
 import SingleCoursePage from './components/SingleCoursePage';
 import Video from './pages/admin panel/Video';
 import Profile from './pages/Profile';
+import ForgotPassword from './components/ForgotPassword';
+import ChangePassword from './components/ChangePassword';
 
 function App() {
   const location = useLocation();
@@ -35,6 +37,8 @@ function App() {
         <Route path='/services' element={<Service/>}/>
         <Route path='/course' element={<SingleCoursePage/>}/>
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='/forgot-password' element={<ForgotPassword/>}/>
+        <Route path='/change-password/:id' element={<ChangePassword/>}/>
         <Route path='/admin'>
             <Route path='lectures' element={<Video/>}/>
             {/* <Route path='users' element={<UserPanel/>}/> */}
