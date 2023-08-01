@@ -3,9 +3,10 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding: 4px 0;
-	background-color: transparent;
-	transition: background-color 0.3s ease-in-out;
+	/* padding: 0; */
+	background-color: white;
+	color: black;
+	/* transition: background-color 0.3s ease-in-out; */
 	z-index: 9999;
   }
   .MaincontainerHome{

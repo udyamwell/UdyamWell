@@ -1,14 +1,14 @@
 import { Route, Routes, useLocation } from 'react-router';
 import './App.css';
 import Footer from './components/Footer';
-import Navabar from './components/Navbar';
+// import Navabar from './components/Navbar';
 import Service from './pages/Service';
 import Contact from './pages/Contact';
 import Course from './pages/Course';
 import About from './pages/About';
 import HomePage from './pages/HomePage';
 import Blog from './pages/Blog';
-import HomeNavabar from './components/HomeNavbar';
+// import HomeNavabar from './components/HomeNavbar';
 import Login from './components/Login';
 import Register from './components/Register';
 import ColorMode from './utils/ColorMode';
@@ -17,6 +17,7 @@ import Video from './pages/admin panel/Video';
 import Profile from './pages/Profile';
 import ForgotPassword from './components/ForgotPassword';
 import ChangePassword from './components/ChangePassword';
+import NavabarMain from './components/NavbarMain';
 
 function App() {
   const location = useLocation();
@@ -24,8 +25,8 @@ function App() {
     <>
     <div>
       <ColorMode>
-      {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' ) ? (<HomeNavabar/>) : (<Navabar/>)}
-      {/* <Navabar/> */}
+      {/* {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' ) ? (<HomeNavabar/>) : (<Navabar/>)} */}
+      <NavabarMain/>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/about' element={<About/>}/>

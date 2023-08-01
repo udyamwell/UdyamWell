@@ -14,7 +14,7 @@ const Course = () => {
     return (
         <>
          <TopSection MainHeadinig="Our Courses" subText="" text="Our Various Courses" />
-         <div className="CourseContainer" style={{width:"90%",margin:"7rem auto",display:"flex"}}>
+         <div className="CourseContainer" style={{width:"90%",margin:"7rem auto",display:"flex",flexWrap:"wrap"}}>
          <CourseCard courses={all_courses} />
          </div>
         </>

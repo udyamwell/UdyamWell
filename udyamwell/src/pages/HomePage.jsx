@@ -27,9 +27,7 @@ const HomePage = () => {
                 </div>
             </div>
         </div>
-
-        {/*  */}
-
+        
         <div className="homeServices">
         <AboutServices/>
         </div>
