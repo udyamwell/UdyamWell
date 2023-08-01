@@ -12,8 +12,14 @@ export const fetchAllCources= createAsyncThunk("lectures/fetchAllCourses",()=>{
         throw new Error(err.response.data.message); 
 });
 });
+// export const createCourse= createAsyncThunk("lectures/createCourse",(data)=>{
+//     return axios.post(`http://localhost:9000/courses/lecture-data`,data).then((res) =>res.data).catch((err)=>{
+//         throw new Error(err.response.data.message); 
+// });
+// });
+
 export const createCourse= createAsyncThunk("lectures/createCourse",(data)=>{
-    return axios.post(`http://localhost:9000/courses/lecture-data`,data).then((res) =>res.data).catch((err)=>{
+    return axios.post(`http://localhost:9000/api/v1/courses/lecture-data`,data).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });

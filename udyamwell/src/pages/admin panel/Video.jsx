@@ -36,7 +36,7 @@ const Video = () => {
   const {all_courses,error} = useSelector(state=>state.courses);
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
-  const [video, setVideo] = useState(null);
+  // const [video, setVideo] = useState(null);--------------------
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [isPaid, setIsPaid] = useState(false);
@@ -61,7 +61,7 @@ const Video = () => {
     if (!description) errors.description = "Description is required";
     if (!category) errors.category = "Category is required";
     if (!image) errors.image = "Thumbnail Image is required"; // Check if image is not selected
-    if (!video) errors.video = "Video is required";
+    // if (!video) errors.video = "Video is required";------------------------------------
 
     // setErrors(errors);
     return Object.keys(errors).length === 0;
@@ -85,7 +85,7 @@ const Video = () => {
     // try {
       const formData = new FormData();
       formData.append("image", image);
-      formData.append("video", video);
+      // formData.append("video", video);--------------------------
       Object.entries(lectureData).forEach(([key, value]) => {
         formData.append(key, value);
       });
@@ -169,7 +169,7 @@ const Video = () => {
               />
             </Box>
 
-            <Box>
+            {/* <Box> ---------------------------------
               <label>Upload Video: </label>
               <TextField
                 type="file"
@@ -178,7 +178,7 @@ const Video = () => {
                 variant="standard"
                 onChange={(e) => setVideo(e.target.files[0])}
               />
-            </Box>
+            </Box> */}
 
             <Box>
               <label>Description: </label>
