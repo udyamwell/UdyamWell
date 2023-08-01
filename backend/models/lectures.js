@@ -3,7 +3,6 @@ const multer = require('multer');
 const path = require('path');
 const IMAGE_PATH =  path.join('/uploads/course/thumbnails');
 const VIDEO_PATH =  path.join('/uploads/course/videos');
-const fs = require('fs')
 
 
 const lectureSchema = new  mongoose.Schema({
