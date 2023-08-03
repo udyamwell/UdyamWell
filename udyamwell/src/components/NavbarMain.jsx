@@ -4,7 +4,7 @@ import { menuBlack, closeBlack, Udyamwell_Logo_Standee } from "../assets";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../slices/UserSlice.js";
-import { Button, Menu, MenuItem, Popover, Typography } from "@mui/material";
+import { Button, Menu, MenuItem, Popover, Stack, Typography } from "@mui/material";
 const NavabarMain = () => {
   const [toggle1, setToggle1] = useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -77,7 +77,7 @@ const NavabarMain = () => {
                     <Link>{user?.name}</Link>
                   </li>
                   <Menu
-                    sx={{ mt: "50px" }}
+                    sx={{ mt: "70px" }}
                     id="menu-appbar"
                     anchorEl={anchorElUser}
                     anchorOrigin={{
@@ -121,7 +121,7 @@ const NavabarMain = () => {
                     Admin Panel
                   </Button>
                   <Popover
-                  sx={{mt:2}}
+                  sx={{mt:4}}
                     id={id}
                     open={open}
                     anchorEl={anchorEl}
@@ -131,9 +131,19 @@ const NavabarMain = () => {
                       horizontal: "left",
                     }}
                   >
+                    <Stack>
+                      
+                    {
+                      user?.superAdmin && (
+                        <Button sx={{p:1}} onClick={()=>navigate('/admin/users') && handleClose}>
+                        Users
+                      </Button>
+                      )
+                    }
                     <Button sx={{p:1}} onClick={()=>navigate('/admin/courses') && handleClose}>
                       Lectures
                     </Button>
+                    </Stack>
                   </Popover>
                 </>
               )}
@@ -209,7 +219,7 @@ const NavabarMain = () => {
                       onClick={() => {
                         setToggle1(!toggle1);
                       }}
-                      sx={{ mt: "50px" }}
+                      sx={{ mt: "70px" }}
                       id="menu-appbar"
                       anchorEl={anchorElUser}
                       anchorOrigin={{

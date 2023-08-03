@@ -9,6 +9,7 @@ dotenv.config();
 //fetch all users
 module.exports.getAllUsers = asyncHandler(async (req, res, next) => {
   try {
+    console.log("ebters");
     const result = await Users.find();
     res.status(200).send(result);
   } catch (error) {
@@ -18,9 +19,14 @@ module.exports.getAllUsers = asyncHandler(async (req, res, next) => {
 //update admin field of user
 module.exports.updateAdmin =  asyncHandler(async (req, res, next) => {
   try {
-    const {id,admin} = req.body;
-    const updateInfo = await Users.updateOne({_id:id},{$set:{isAdmin: admin}});
-    res.status(201).send({message:"Admin status updated Successfully"})
+    const { _id } = req.params;
+    const data = req.body;
+    const user = await Users.findByIdAndUpdate(
+      { _id },
+      { ...data },
+      { new: true }
+    );
+    res.status(200).send(user);
   } catch (error) {
     next(error);
   }
@@ -43,7 +49,8 @@ const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
       from: 'udyamwell@gmail.com',
       to:email,
       subject:'Email Verification',
-      text:`Hii ${name}, Please click here to verify yourself:: http://localhost:3000/verify-success/${user_id}`
+      html:'<p>Hii '+name+', Please click here to <a href="http://localhost:9000/users/verify?id='+user_id+'">Verify </a? Your mail. </p>'
+      // text:`Hii ${name}, Please click here to verify yourself:: http://localhost:3000/verify-success/${user_id}`
     }
     transporter.sendMail(mailOptions,function(error,info){
       if(error){console.log(error);}
@@ -112,7 +119,7 @@ module.exports.signUp = asyncHandler(async (req, res, next) => {
       throw new Error("Email already registered");
     } else {
       req.body.password = await bcrypt.hash(req.body.password, 10);
-      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin  } =
+      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin,superAdmin } =
         await Users.create(req.body);
       const token = generateToken(_id);
       sendVerifyEmail(name, email, _id);
@@ -120,7 +127,7 @@ module.exports.signUp = asyncHandler(async (req, res, next) => {
         .status(200)
         .send({
           token: token,
-          user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin  },
+          user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin,superAdmin  },
         });
     }
   } catch (err) {
@@ -148,10 +155,10 @@ module.exports.signIn = asyncHandler(async (req, res, next) => {
     let check = await bcrypt.compare(password, result?.password);
     if (!check) throw new Error("Incorrect Password");
     else {
-      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin } =
+      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin,superAdmin } =
         result;
       res.status(200).send({
-        user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin  },
+        user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin,superAdmin  },
         token: generateToken(result._id),
       });
     }
@@ -183,16 +190,11 @@ module.exports.updateUser = asyncHandler(async (req, res, next) => {
 
 module.exports.deleteUser = asyncHandler(async (req, res, next) => {
   try {
-    console.log("req",req.params)
     const { _id } = req.params;
     console.log("id",_id);
     const result = await Users.findByIdAndRemove({ _id });
-    console.log("res",result.deletedCount);
-    // if (result.deletedCount === 1) {
       let users = await Users.find();
-      console.log("ds",users);
       res.status(200).send(users);
-    // } else throw new Error("something went wrong! try again.");
   } catch (error) {
     next(error);
   }

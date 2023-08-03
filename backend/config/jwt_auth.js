@@ -35,7 +35,7 @@ module.exports.superAdminAuth = expressAsyncHandler(async (req, res, next) => {
   if (!token) throw new Error("no token found");
   let { id } = jwt.verify(token.split(" ")[1], process.env.SECRET_KEY);
   if (!id) throw new Error("invlid token");
-  const { isSuperAdmin } = await Users.findOne({ _id: id });
-  if (!isSuperAdmin) throw new Error("you not authorized");
+  const { superAdmin } = await Users.findOne({ _id: id });
+  if (!superAdmin) throw new Error("you not authorized");
   next();
 });
