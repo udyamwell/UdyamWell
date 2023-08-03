@@ -60,7 +60,7 @@ const Register = () => {
         password,
       } = values;
       dispatch(registerUser(values));
-      if(error===null){Swal.fire('You are registered.','Please check your Email for verification.','succuss')};
+      !error && Swal.fire('You are registered.','Please check your Email for verification.','succuss');
     },
   });
 

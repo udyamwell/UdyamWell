@@ -28,7 +28,7 @@ const userschema = new mongoose.Schema(
     enterpriseType: {
       type: String,
       required: true,
-      enum: ["individual", "SHG", "FPO", "pvt", "OPC", "LLP"],
+      enum: ["individual", "SHG", "FPO", "Pvt", "OPC", "LLP"],
     },
     socials: {
       type: String,
@@ -43,7 +43,7 @@ const userschema = new mongoose.Schema(
     },
     isAdmin:{
       type:Boolean,
-      default:true,
+      default:false,
     },
     isVerfied:{
       type:Boolean,

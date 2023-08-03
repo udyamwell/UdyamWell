@@ -30,7 +30,8 @@ const coursesSchema = new  mongoose.Schema({
         required:true,
     },
     cost:{
-        type:Number
+        type:Number,
+        default:0
     }
 },{
     timestamps:true

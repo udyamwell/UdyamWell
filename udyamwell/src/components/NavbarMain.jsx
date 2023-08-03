@@ -17,7 +17,6 @@ const NavabarMain = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
- 
   const handleLogout = () => {
     dispatch(logout());
     handleCloseUserMenu();
@@ -132,7 +131,7 @@ const NavabarMain = () => {
                       horizontal: "left",
                     }}
                   >
-                    <Button sx={{p:1}} onClick={()=>navigate('/admin/lectures')}>
+                    <Button sx={{p:1}} onClick={()=>navigate('/admin/courses') && handleClose}>
                       Lectures
                     </Button>
                   </Popover>

@@ -18,6 +18,8 @@ import Profile from './pages/Profile';
 import ForgotPassword from './components/ForgotPassword';
 import ChangePassword from './components/ChangePassword';
 import NavabarMain from './components/NavbarMain';
+import VerifySucces from './components/VerifySuccess';
+import Lectures from './pages/admin panel/Lectures';
 
 function App() {
   const location = useLocation();
@@ -40,9 +42,10 @@ function App() {
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/forgot-password' element={<ForgotPassword/>}/>
         <Route path='/change-password/:id' element={<ChangePassword/>}/>
+        <Route path='/verify-success/:id' element={<VerifySucces/>}/>
         <Route path='/admin'>
-            <Route path='lectures' element={<Video/>}/>
-            {/* <Route path='users' element={<UserPanel/>}/> */}
+            <Route path='courses' element={<Video/>}/>
+            <Route path='course/:id' element={<Lectures/>}/>
             {/* <Route path='orders' element={<OrderPanel/>}/> */}
           </Route>
       </Routes>

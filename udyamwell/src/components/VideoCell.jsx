@@ -2,8 +2,12 @@ import {
     Box,
     Button,
     ButtonGroup,
+    FormControl,
+    InputLabel,
+    MenuItem,
     Modal,
     Paper,
+    Select,
     TableCell,
     TableRow,
     TextField,
@@ -15,16 +19,15 @@ import {
   import { useState } from "react";
   import { Stack } from "@mui/material";
   import { useDispatch } from "react-redux";
-//   import { deleteProduct, updateProduct } from "../slices/ProductSlice";
   import { useNavigate } from "react-router-dom";
+import { deleteCourse, updateCourse } from "../slices/CourseSlice";
   
   const VideoCell = ({ lecture }) => {
     const dispatch = useDispatch();
+    const [isPaid, setIsPaid] = useState(false);
+    const [cost, setCost] = useState(0);
     const [name, setName] = useState(lecture?.name);
-    const [image, setImage] = useState(lecture?.brand);
     const [description, setDescription] = useState(lecture?.category);
-    const [category, setCategory] = useState(lecture?.price);
-    const [countInStock, setStock] = useState(lecture.countInStock);
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -38,38 +41,35 @@ import {
       boxShadow: 24,
       p: 4,
     };
-    console.log("lecture",lecture);
-    // const handleUpdate = () => {
-    //   let data = {
-    //     _id: product._id,
-    //     data: {
-    //       name,
-    //       brand,
-    //       category,
-    //       price: parseInt(price),
-    //       countInStock: parseInt(countInStock),
-    //     },
-    //   };
-    //   dispatch(updateProduct(data));
-    //   handleClose();
-    // };
+    //update
+    const handleUpdate = () => {
+      let data = {
+        _id: lecture._id,
+        data: {
+          name,
+          description,
+          isPaid,
+          cost
+        },
+      };
+      dispatch(updateCourse(data));
+      handleClose();
+    };
+    //delete
+   
     return (
       <>
         <TableRow>
-          {/* <TableCell onClick={()=>(navigate(`/Product/${product._id}`))} sx={{cursor:"pointer"}} align={"center"}>{product.name}</TableCell> */}
-          <TableCell align={"center"}>{lecture?._id}</TableCell>
           <TableCell align={"center"}>{lecture?.name}</TableCell>
           <TableCell align={"center"}>
           <Box sx={{ height: "10vh" }}>
             <img
               style={{ height: "100%" }}
-              src={`http://localhost:9000/uploads/course/thumbnails/${lecture?.image}`}
+              // src={`http://localhost:9000/uploads/course/thumbnails/${lecture?.image}`}
               alt={lecture.name}
             />
           </Box>
           </TableCell>
-          <TableCell align={"center"} sx={{width:"20vw",textOverflow:"scroll"}}>{lecture?.description}</TableCell>
-          <TableCell align={"center"}>{lecture?.category}</TableCell>
           <TableCell align={"center"}>{lecture?.isPaid ? "Pay" : "Free"}</TableCell>
           <TableCell align={"center"}>{lecture?.cost ? lecture?.cost : "-"}</TableCell>
           <TableCell align={"center"}>
@@ -78,12 +78,15 @@ import {
                 <EditIcon />
               </Button>
               <Button
-                // onClick={() => dispatch(deleteProduct(product._id))}
+                onClick={() => dispatch(deleteCourse(lecture._id))}
                 size="small"
               >
                 <DeleteIcon />
               </Button>
             </ButtonGroup>
+          </TableCell>
+          <TableCell align={"center"}>
+            <Button variant="contained" sx={{color:"white"}} onClick={()=>navigate(`/admin/course/${lecture._id}`)}>View</Button>
           </TableCell>
         </TableRow>
         <Modal
@@ -103,7 +106,7 @@ import {
                   onChange={(e) => setName(e.target.value)}
                 />
               </Box>
-              <Box>
+              {/* <Box>
                 <label>Image: </label>
                 <TextField
                   fullWidth
@@ -112,7 +115,7 @@ import {
                   variant="standard"
                   onChange={(e) => setImage(e.target.value)}
                 />
-              </Box>
+              </Box> */}
               <Box>
                 <label>Description: </label>
                 <TextField
@@ -123,15 +126,27 @@ import {
                 />
               </Box>
               <Box>
-                <label>Category: </label>
-                <TextField
-                  fullWidth
-                  value={category}
-                  variant="standard"
-                  onChange={(e) => setCategory(e.target.value)}
-                />
-              </Box>
-              <Button  variant="contained">
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Is it Paid?</InputLabel>
+                <Select name="isPaid" value={isPaid} label="Is it Paid?" onChange={(e) => setIsPaid(e.target.value)}>
+                  <MenuItem value={"true"}>True</MenuItem>
+                  <MenuItem value={"false"}>False</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+           {isPaid && (
+             <Box>
+             <label>Cost: </label>
+             <TextField
+               fullWidth
+               name="link"
+               value={cost}
+               onChange={(e) => setCost(e.target.value)}
+               variant="standard"
+             />
+           </Box>
+           )}
+              <Button  variant="contained" onClick={handleUpdate}>
                 UPDATE
               </Button>
             </Stack>

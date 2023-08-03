@@ -40,10 +40,10 @@ const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
       }
     });
     const mailOptions = {
-      from: 'vanshikabansal73@gmail.com',
+      from: 'udyamwell@gmail.com',
       to:email,
       subject:'Email Verification',
-      html:'<p>Hii '+name+', Please click here to <a href="http://localhost:9000/users/verify?id='+user_id+'">Verify </a? Your mail. </p>'
+      text:`Hii ${name}, Please click here to verify yourself:: http://localhost:3000/verify-success/${user_id}`
     }
     transporter.sendMail(mailOptions,function(error,info){
       if(error){console.log(error);}
@@ -71,7 +71,7 @@ module.exports.forgotPassword =  async(req,res)=>{
         }
       });
       const mailOptions = {
-        from: 'vanshikabansal73@gmail.com',
+        from: 'udyamwell@gmail.com',
         to:email,
         subject:'Password Reset',
         text:`Greeting, Click on this link to change your password: http://localhost:3000/change-password/${user?._id}`
