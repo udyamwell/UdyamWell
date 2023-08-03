@@ -25,7 +25,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {createCourse, fetchAllCources } from "../../slices/CourseSlice";
 import VideoCell from "../../components/VideoCell";
 
-const Video = () => {
+const Video = () => {  
   // const navigate = useNavigate();
   const {all_courses,error} = useSelector(state=>state.courses);
   const dispatch = useDispatch();

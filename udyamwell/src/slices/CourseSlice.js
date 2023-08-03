@@ -3,9 +3,11 @@ import axios from "axios";
 
 const initialState = {
     all_courses:null,
+    all_courses:[],
     course:null,
     error:false
 }
+
 
 export const fetchAllCources= createAsyncThunk("lectures/fetchAllCourses",()=>{
     return axios.get(`http://localhost:9000/api/v1/courses/fetch-lecture-data`).then((res) =>res.data).catch((err)=>{
@@ -14,7 +16,6 @@ export const fetchAllCources= createAsyncThunk("lectures/fetchAllCourses",()=>{
 });
 
 export const createCourse= createAsyncThunk("lectures/createCourse",(data)=>{
-    console.log("slice",data)
     return axios.post(`http://localhost:9000/api/v1/courses/lecture-data`,data).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
@@ -88,3 +89,5 @@ const userSlice= createSlice({
     }
 });
 export default userSlice.reducer;
+
+
