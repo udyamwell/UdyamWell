@@ -48,6 +48,10 @@ const userschema = new mongoose.Schema(
     isVerfied:{
       type:Boolean,
       default:false,
+    },
+    superAdmin:{
+      type:Boolean,
+      default:false
     }
   },
   // {

@@ -83,6 +83,12 @@ const Video = () => {
       //   formData.append(key, value);
       // });
       dispatch(createCourse(formData));
+      handleClose();
+      setName("");
+      setImage(null);
+      setDescription("");
+      setIsPaid(false);
+      setCost(0);
   };
 
   return (
