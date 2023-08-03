@@ -1,7 +1,7 @@
 // export default Video;
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+// import axios from "axios";
+// import { useNavigate } from 'react-router-dom';
 import {
   Alert,
   Box,
@@ -26,7 +26,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createCourse, fetchAllCources } from "../../slices/CourseSlice";
 import VideoCell from "../../components/VideoCell";
 
-const Video = () => {
+const Video = () => {  
   // const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(()=>{
@@ -34,11 +34,14 @@ const Video = () => {
   },[])
   
   const {all_courses,error} = useSelector(state=>state.courses);
+
+  const coursesArray = all_courses?.courses || [];
+
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
   // const [video, setVideo] = useState(null);--------------------
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  // const [category, setCategory] = useState("");
   const [isPaid, setIsPaid] = useState(false);
   const [cost, setCost] = useState(0);
   // modal
@@ -59,7 +62,7 @@ const Video = () => {
     const errors = {};
     if (!name) errors.name = "Name is required";
     if (!description) errors.description = "Description is required";
-    if (!category) errors.category = "Category is required";
+    // if (!category) errors.category = "Category is required";
     if (!image) errors.image = "Thumbnail Image is required"; // Check if image is not selected
     // if (!video) errors.video = "Video is required";------------------------------------
 
@@ -77,7 +80,7 @@ const Video = () => {
     let lectureData = {
       name,
       description,
-      category,
+      // category,
       isPaid,
       cost
     };
@@ -93,8 +96,10 @@ const Video = () => {
       // const res = await axios.post("http://localhost:9000/courses/lecture-data", formData);
       // console.log("Upload response:", res.data);
       dispatch(createCourse(formData));
+
+
       // if (res.status === 201) {
-        // navigate('/');
+      //   navigate('/');
       // }
 
     // } catch (err) {
@@ -123,7 +128,7 @@ const Video = () => {
                 <TableCell align={"center"}>Name</TableCell>
                 <TableCell align={"center"}>Thumbnail</TableCell>
                 <TableCell align={"center"}>Description</TableCell>
-                <TableCell align={"center"}>Category</TableCell>
+                {/* <TableCell align={"center"}>Category</TableCell> */}
                 <TableCell align={"center"}>isPaid</TableCell>
                 <TableCell align={"center"}>Cost(Rs)</TableCell>
                 <TableCell align={"center"}>Actions</TableCell>
@@ -131,7 +136,7 @@ const Video = () => {
             </TableHead>
             <TableBody>
               {
-                all_courses?.map((lecture,index)=>(
+                coursesArray?.map((lecture,index)=>(
                   <VideoCell key={index} lecture={lecture}/>
                 ))
               }
@@ -191,7 +196,7 @@ const Video = () => {
                 variant="standard"
               />
             </Box>
-            <Box>
+            {/* <Box>
               <label>Category: </label>
               <TextField
                 fullWidth
@@ -200,7 +205,7 @@ const Video = () => {
                 onChange={(e) => setCategory(e.target.value)}
                 variant="standard"
               />
-            </Box>
+            </Box> */}
             <Box>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Is it Paid?</InputLabel>

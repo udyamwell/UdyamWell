@@ -9,15 +9,18 @@ import PlayCircleFilledTwoToneIcon from '@mui/icons-material/PlayCircleFilledTwo
 
 
 const CourseCard = ({ courses }) => {
+  console.log("Course Value ==>", courses);
 let urlImage = `http://localhost:9000/uploads/course/thumbnails/`;
-let urlVideo = `http://localhost:9000/uploads/course/videos/`;
+// let urlVideo = `http://localhost:9000/uploads/course/videos/`;
 
+// Access the courses array inside the courses object
+const coursesArray = courses?.courses || [];
 
-const [showVideo, setShowVideo] = useState(false);
+// const [showVideo, setShowVideo] = useState(false);
 
-const handleCardClick = () => {
-  setShowVideo(true);
-};
+// const handleCardClick = () => {
+//   setShowVideo(true);
+// };
 
 
 
@@ -36,10 +39,10 @@ const handleCardClick = () => {
 
   return (
     <>
-      {courses?.map((course) => (
+      {coursesArray?.map((course) => (
         <Card key={course._id} sx={{ maxWidth: 275, borderRadius: "10px",m:3 }}>
 
-<Box className='cardImageBox' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+{/* <Box className='cardImageBox' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       {!showVideo ? (
         <>
           <CardMedia
@@ -67,9 +70,9 @@ const handleCardClick = () => {
           allowFullScreen
         ></iframe>
       )}
-    </Box>
+    </Box> */}
    
-          {/* <Box className='cardImageBox'>
+          <Box className='cardImageBox'>
             <a href={course.link} target="_blank" rel="noopener noreferrer">
               <CardMedia
                 component="img"
@@ -89,7 +92,7 @@ const handleCardClick = () => {
               </Box>
 
             </a>
-          </Box> */}
+          </Box>
 
           <CardHeader
             action={
