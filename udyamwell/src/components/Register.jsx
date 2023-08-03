@@ -4,7 +4,7 @@ import { register } from "../assets";
 import { Alert,Box,Button, Snackbar, Step, StepLabel, Stepper,Typography,} from "@mui/material";
 import PersonalInfo from "./forms/PersonalInfo";
 import Enterprise from "./forms/Enterprise";
-import Password from "./forms/password";
+import Password from "./forms/Password";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { useNavigate } from 'react-router-dom';
@@ -60,7 +60,7 @@ const Register = () => {
         password,
       } = values;
       dispatch(registerUser(values));
-      if(error===null){Swal.fire('You are registered.','Please check your Email for verification.','succuss')};
+      !error && Swal.fire('You are registered.','Please check your Email for verification.','succuss');
     },
   });
 

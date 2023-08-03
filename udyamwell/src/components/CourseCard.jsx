@@ -49,7 +49,7 @@ const coursesArray = courses?.courses || [];
             component="img"
             height="194"
             image={urlImage + course.image}
-            sx={{ opacity: 0.8 }}
+            sx={{ opacity: 0.8,overflow:"hidden" }}
             alt="Paella dish"
           />
           <Box className='playIcon'>

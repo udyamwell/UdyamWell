@@ -11,8 +11,6 @@ module.exports.courseData =async function (req,res){
           console.log("Multer err=====>",err);
           return;
         }
-        // console.log("video",req.body);
-        // console.log("image",req.files);
         console.log("req.body ===>",req.body);
         console.log("req.body ===>",req.file);
          const name =  req.body.name;
@@ -34,7 +32,7 @@ module.exports.courseData =async function (req,res){
     
           courses.save();
           console.log("values saved successfully");
-          return res.status(201).json({message:"Data saved successfully"});
+          return res.status(201).send({data:courses});
       })
   }catch(err){
     res.status(500).json({message:"Unable to save data"});
@@ -64,17 +62,18 @@ module.exports.fetchData = async function(req,res){
 
 module.exports.updateData = async function(req,res){
 
-    let course = await Course.findById(req.params.id);
-
+  const _id = req.params.id;
+    let course = await Course.findById(_id);
+    console.log("couse found",course);
     try {
-        await Course.uploadCourse(req,res,async function(err){
+        // await Course.uploadCourse(req,res,async function(err){
     
-            if (!course) {
-              return res.status(404).json({
-                message: "Course not found",
-              });
-            }
-        
+        //     if (!course) {
+        //       return res.status(404).json({
+        //         message: "Course not found",
+        //       });
+        //     }
+        console.log("vod",req.body)
             // Assuming you have the updated data in the request body
             const updatedData = {
               name: req.body.name,
@@ -83,24 +82,21 @@ module.exports.updateData = async function(req,res){
               cost: req.body.cost,
             };
                   // Check if there is a new image file in the request
-    if (req.file) {
-        // Delete the previous image file from the folder
-        if (course.image) {
-          const imagePath = path.join(__dirname, '../../../',Course.imagePath, course.image);
-          fs.unlinkSync(imagePath);
-        }
+    // if (req.file) {
+    //     // Delete the previous image file from the folder
+    //     if (course.image) {
+    //       const imagePath = path.join(__dirname, '../../../',Course.imagePath, course.image);
+    //       fs.unlinkSync(imagePath);
+    //     }
   
-        // Update the image path in the updatedData object
-        updatedData.image = req.file.filename;
-      }
-
+    //     // Update the image path in the updatedData object
+    //     updatedData.image = req.file.filename;
+    //   }
             // Update the course document
-            await Course.updateOne({ _id: req.params.id }, updatedData);
-        
-            return res.status(200).json({
-              message: "Course updated successfully",
-            });
-        });
+            await Course.findByIdAndUpdate({_id}, updatedData,{new:true});
+            const result = Course.findOne({_id:_id});
+            return res.status(200).send(result);
+        // });
       } catch (err) {
         console.log("****** Error:", err);
         return res.status(500).json({
@@ -127,9 +123,7 @@ module.exports.deleteData = async function(req,res){
             })
         }
 
-            return  res.status(200).json({
-                message:"Course and associated videos deleted successfully"
-            })
+            return  res.status(200).send(course)
 
     }catch(err){
         console.log("****** Error:",err);

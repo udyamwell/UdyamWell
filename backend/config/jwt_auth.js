@@ -1,30 +1,3 @@
-// const jwt = require('jsonwebtoken');
-// const User = require('../models/users');
-
-// const Authenticate = async (req,res,next)=>{
-//     try{
-//         const token = req.cookie.jwttoken;
-//         const verifyToken = jwt.verify(token,process.env.SECRET_KEY);
-
-//         const rootUser = await User.findOne({_id:verifyToken._id,"tokens.token":token});
-
-//         if(!rootUser){
-//             console.log("User not found");
-
-//             req.token = token;
-//             req.rootUser = rootUser;
-//             req.userId = rootUser._id;
-
-//             next();
-//         }
-//     }catch(err){
-//         console.log("Plese sign in ");
-//         return res.status(401).send("Unauthorized: No token provided");
-//     }
-// }
-
-// module.exports = Authenticate ;
-
 const jwt = require("jsonwebtoken");
 const dotenv =  require("dotenv");
 const Users = require("../models/users.js");
@@ -55,7 +28,14 @@ module.exports.adminAuth = expressAsyncHandler(async (req, res, next) => {
   if (!isAdmin) throw new Error("you not authorized");
   next();
 });
-//  = {
-//     userAuth,adminAuth
-// }
-// export { userAuth, adminAuth };
+
+
+module.exports.superAdminAuth = expressAsyncHandler(async (req, res, next) => {
+  let token = req.headers.authorization;
+  if (!token) throw new Error("no token found");
+  let { id } = jwt.verify(token.split(" ")[1], process.env.SECRET_KEY);
+  if (!id) throw new Error("invlid token");
+  const { superAdmin } = await Users.findOne({ _id: id });
+  if (!superAdmin) throw new Error("you not authorized");
+  next();
+});

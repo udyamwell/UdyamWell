@@ -6,9 +6,34 @@ const asyncHandler = require("express-async-handler");
 const nodemailer = require("nodemailer");
 dotenv.config();
 
-//for send mail
+//fetch all users
+module.exports.getAllUsers = asyncHandler(async (req, res, next) => {
+  try {
+    console.log("ebters");
+    const result = await Users.find();
+    res.status(200).send(result);
+  } catch (error) {
+    next(error);
+  }
+});
+//update admin field of user
+module.exports.updateAdmin =  asyncHandler(async (req, res, next) => {
+  try {
+    const { _id } = req.params;
+    const data = req.body;
+    const user = await Users.findByIdAndUpdate(
+      { _id },
+      { ...data },
+      { new: true }
+    );
+    res.status(200).send(user);
+  } catch (error) {
+    next(error);
+  }
+
+})
+//for send mail for verification
 const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
-  console.log("name",name)
   try {
    const transporter = nodemailer.createTransport({
       host:'smtp.gmail.com',
@@ -21,10 +46,11 @@ const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
       }
     });
     const mailOptions = {
-      from: 'vanshikabansal73@gmail.com',
+      from: 'udyamwell@gmail.com',
       to:email,
       subject:'Email Verification',
       html:'<p>Hii '+name+', Please click here to <a href="http://localhost:9000/users/verify?id='+user_id+'">Verify </a? Your mail. </p>'
+      // text:`Hii ${name}, Please click here to verify yourself:: http://localhost:3000/verify-success/${user_id}`
     }
     transporter.sendMail(mailOptions,function(error,info){
       if(error){console.log(error);}
@@ -39,9 +65,7 @@ const sendVerifyEmail = asyncHandler(async (name, email, user_id) => {
 module.exports.forgotPassword =  async(req,res)=>{
   try {
     const {email} = req.body;
-    console.log("email at reset",email);
     const user = await Users.findOne({email:email});
-    console.log("useeee",user,user?._id)
     if(user){
       const transporter = nodemailer.createTransport({
         host:'smtp.gmail.com',
@@ -54,7 +78,7 @@ module.exports.forgotPassword =  async(req,res)=>{
         }
       });
       const mailOptions = {
-        from: 'vanshikabansal73@gmail.com',
+        from: 'udyamwell@gmail.com',
         to:email,
         subject:'Password Reset',
         text:`Greeting, Click on this link to change your password: http://localhost:3000/change-password/${user?._id}`
@@ -62,7 +86,6 @@ module.exports.forgotPassword =  async(req,res)=>{
       transporter.sendMail(mailOptions,function(error,info){
         if(error){console.log(error);}
         else{
-          console.log("Email sent",info.response);
           return res.status(201).send({message:"Email sent Succesfully"})
         }
       })
@@ -78,11 +101,8 @@ module.exports.forgotPassword =  async(req,res)=>{
 module.exports.changePassword =  asyncHandler(async (req, res, next) => {
   try {
     const {id,password} = req.body;;
-    console.log("ifddd",id,password);
     const newPassword = await bcrypt.hash(password, 10);
-    console.log("new",newPassword); 
     const updateInfo = await Users.updateOne({_id:id},{$set:{password :newPassword}});
-    console.log("update",updateInfo);
     res.status(201).send({message:"Password Updated Successfully"})
   } catch (error) {
     next(error);
@@ -99,7 +119,7 @@ module.exports.signUp = asyncHandler(async (req, res, next) => {
       throw new Error("Email already registered");
     } else {
       req.body.password = await bcrypt.hash(req.body.password, 10);
-      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin  } =
+      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin,superAdmin } =
         await Users.create(req.body);
       const token = generateToken(_id);
       sendVerifyEmail(name, email, _id);
@@ -107,7 +127,7 @@ module.exports.signUp = asyncHandler(async (req, res, next) => {
         .status(200)
         .send({
           token: token,
-          user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin  },
+          user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin,superAdmin  },
         });
     }
   } catch (err) {
@@ -135,10 +155,10 @@ module.exports.signIn = asyncHandler(async (req, res, next) => {
     let check = await bcrypt.compare(password, result?.password);
     if (!check) throw new Error("Incorrect Password");
     else {
-      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin } =
+      const { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin,superAdmin } =
         result;
       res.status(200).send({
-        user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin  },
+        user: { _id, name, email, phoneNum, location, eName, enterpriseType,isVerfied,isAdmin,superAdmin  },
         token: generateToken(result._id),
       });
     }
@@ -168,7 +188,17 @@ module.exports.updateUser = asyncHandler(async (req, res, next) => {
 });
 
 
-
+module.exports.deleteUser = asyncHandler(async (req, res, next) => {
+  try {
+    const { _id } = req.params;
+    console.log("id",_id);
+    const result = await Users.findByIdAndRemove({ _id });
+      let users = await Users.find();
+      res.status(200).send(users);
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports.courses = function (req, res) {
   console.log("Here are your courses");
