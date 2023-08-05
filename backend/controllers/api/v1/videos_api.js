@@ -30,6 +30,8 @@ module.exports.createVideo = async function(req,res){
               if(course){
                 course.videos.push(video);
                 course.save();
+              }else{
+                console.log("there is no course to save video");
               }
 
               video.save();
@@ -45,16 +47,36 @@ module.exports.createVideo = async function(req,res){
 }
 
 module.exports.fetchVideo = async function(req,res){
-    try{
-         let lectures = await Video.find({});
-         return res.status(200).json({
-            lectures:lectures
-        })
-    }catch(err){
-        res.status(400).json({message:"Unable to fetch data"});
-        console.log(err);
-        return;
-    }
+    // try{
+    //      let lectures = await Video.find({});
+    //      return res.status(200).json({
+    //         lectures:lectures
+    //     })
+    // }catch(err){
+    //     res.status(400).json({message:"Unable to fetch data"});
+    //     console.log(err);
+    //     return;
+    // }
+
+
+    try {
+      const courseId = req.params.id;
+      const course = await Course.findById(courseId);
+
+      if (!course) {
+          return res.status(404).json({ message: 'Course not found' });
+      }
+
+      // Fetch the videos using the video IDs stored in the course.videos array
+      const videos = await Video.find({ _id: { $in: course.videos } });
+
+      return res.status(200).json({
+          videos: videos
+      });
+  } catch (err) {
+      res.status(500).json({ message: 'Unable to fetch data', error: err });
+      console.log(err);
+  }
 }
 
 /// needa to work-----------------------------
