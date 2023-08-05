@@ -41,8 +41,22 @@ module.exports.courseData =async function (req,res){
   }
 
 }
+// fetch single course by id
+module.exports.fetchCourseById = async function(req,res){
+  let {id} = req.params();
+  try{
+     let  courses = await Course.findOne({_id:id});
+     res.status(200).json({
+         course:courses
+     });
+  }catch(err){
+      res.status(400).json({message:"Unable to fetch data"});
+      console.log(err);
+      return;
+  }
+}
 
-// -------------------> TO FETCH THE COURSE  <-----------------------
+// -------------------> TO FETCH THE COURSES  <-----------------------
 
 module.exports.fetchData = async function(req,res){
     let courses;

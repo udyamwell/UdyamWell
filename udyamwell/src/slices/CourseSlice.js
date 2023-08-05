@@ -3,7 +3,6 @@ import axios from "axios";
 
 const initialState = {
     all_courses:null,
-    all_courses:[],
     course:null,
     error:false
 }
@@ -34,7 +33,7 @@ export const deleteCourse= createAsyncThunk("lectures/deleteCourse",(_id)=>{
         throw new Error(err.response.data.message); 
 });
 });
-const userSlice= createSlice({
+const courseSlice= createSlice({
     name:"courses",
     initialState,
     extraReducers:{
@@ -88,6 +87,6 @@ const userSlice= createSlice({
           },
     }
 });
-export default userSlice.reducer;
+export default courseSlice.reducer;
 
 

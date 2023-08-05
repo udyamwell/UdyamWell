@@ -1,6 +1,6 @@
 // export default Video;
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   Alert,
   Box,
@@ -22,23 +22,23 @@ import {
   Typography,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import {createCourse, fetchAllCources } from "../../slices/CourseSlice";
-import VideoCell from "../../components/VideoCell";
+// import VideoCell from "../../components/VideoCell";
+import { createVideo, fetchSingleCource } from "../../slices/videos";
+import LectureCell from "../../components/LectureCell";
 
-const Lectures = () => {
+const Lectures = ({}) => {
+  const {id}= useParams();
   // const navigate = useNavigate();
-  const {all_courses,error} = useSelector(state=>state.courses);
+  const {course,lectures,error} = useSelector(state=>state.lectures);
   const dispatch = useDispatch();
   useEffect(()=>{
-    dispatch(fetchAllCources());
+    dispatch(fetchSingleCource(id));
   },[])
   
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
-  // const [video, setVideo] = useState(null);--------------------
   const [description, setDescription] = useState("");
-  const [isPaid, setIsPaid] = useState(false);
-  const [cost, setCost] = useState(0);
+  const [video, setVideo] = useState(null);
   // modal
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -59,7 +59,7 @@ const Lectures = () => {
     if (!name) errors.name = "Name is required";
     if (!description) errors.description = "Description is required";
     if (!image) errors.image = "Thumbnail Image is required"; // Check if image is not selected
-    // if (!video) errors.video = "Video is required";------------------------------------
+    if (!video) errors.video = "Video is required";
 
     // setErrors(errors);
     return Object.keys(errors).length === 0;
@@ -73,24 +73,19 @@ const Lectures = () => {
           return;
         }
       const formData = new FormData();
-      formData.append("image", image);
-      formData.append("name",name);
+      formData.append("videoThumbnail", image);
+      formData.append("videoName",name);
       formData.append("description",description);
-      formData.append("isPaid",isPaid);
-     formData.append("cost",Number(cost));
-      // Object.entries(lectureData).forEach(([key, value]) => {
-        console.log("FORMA",formData)
-      //   formData.append(key, value);
-      // });
-      dispatch(createCourse(formData));
+      formData.append("video",video);
+      dispatch(createVideo({id:id,data:formData}));
   };
 
   return (
     <div style={{ width: "90%", margin: "8rem auto" }}>
-        <Typography textAlign={'center'} variant="h3">Course</Typography>
-        <Typography textAlign={'center'} sx={{mt:2}} variant="body1">Description</Typography>
+        <Typography textAlign={'center'} variant="h3">{course?.course}</Typography>
+        <Typography textAlign={'center'} sx={{mt:2}} variant="body1">{course?.description}</Typography>
       <Stack alignItems={"end"}>
-        {error && <Alert severity="error">{error}</Alert>}
+        {/* {error && <Alert severity="error">{error}</Alert>} */}
         <Button
           sx={{ width: 100, margin: "1rem 0" }}
           onClick={handleOpen}
@@ -105,22 +100,23 @@ const Lectures = () => {
             <TableHead>
               <TableRow>
                 <TableCell align={"center"}>Name</TableCell>
+                <TableCell align={"center"}>Description</TableCell>
                 <TableCell align={"center"}>VideoImage</TableCell>
-                <TableCell align={"center"}>Actions</TableCell>
+                {/* <TableCell align={"center"}>Actions</TableCell> */}
                
               </TableRow>
             </TableHead>
             <TableBody>
-              {/* {
-                all_courses?.map((lecture,index)=>(
-                  <VideoCell key={index} lecture={lecture}/>
+              {
+                lectures?.map((lecture,index)=>(
+                  <LectureCell key={index} lecture={lecture}/>
                 ))
-              } */}
+              }
             </TableBody> 
           </Table>
         </TableContainer>
       </Paper>
-      {/* <Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -129,7 +125,7 @@ const Lectures = () => {
         <Paper sx={style}>
           <Stack spacing={2}>
             <Box>
-              <label>Name: </label>
+              <label>Video Name: </label>
               <TextField
                 fullWidth
                 value={name}
@@ -140,7 +136,7 @@ const Lectures = () => {
             </Box>
 
             <Box>
-              <label>Course Image: </label>
+              <label>Video Image: </label>
               <TextField
                 type="file"
                 fullWidth
@@ -161,30 +157,19 @@ const Lectures = () => {
               />
             </Box>
             <Box>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Is it Paid?</InputLabel>
-                <Select name="isPaid" value={isPaid} label="Is it Paid?" onChange={(e) => setIsPaid(e.target.value)}>
-                  <MenuItem value={"true"}>True</MenuItem>
-                  <MenuItem value={"false"}>False</MenuItem>
-                </Select>
-              </FormControl>
+            <label>Video: </label>
+              <TextField
+                type="file"
+                fullWidth
+                name="image"
+                variant="standard"
+                onChange={(e) => setVideo(e.target.files[0])}
+              />
             </Box>
-           {isPaid && (
-             <Box>
-             <label>Cost: </label>
-             <TextField
-               fullWidth
-               name="link"
-               value={cost}
-               onChange={(e) => setCost(e.target.value)}
-               variant="standard"
-             />
-           </Box>
-           )}
             <Button onClick={handleCreate} variant="contained">Create</Button>
           </Stack>
         </Paper>
-      </Modal> */}
+      </Modal>
     </div>
   );
 };

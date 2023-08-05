@@ -15,7 +15,7 @@ const AboutCard = ({ heading, text1, text2, lists }) => {
 
 export const AboutServices = ()=>{
   return(
-    <div className="aboutServices">
+    <div className="aboutServices" style={{marginTop:"5rem"}}>
         <div className="aboutServices1">
           <h1>UdyamWell Services</h1>
           <p style={{textAlign:"justify"}}>
