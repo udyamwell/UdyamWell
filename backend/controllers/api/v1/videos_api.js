@@ -5,6 +5,7 @@ const fs = require('fs');
 
 module.exports.createVideo = async function(req,res){
     let course = await Course.findById(req.params.id);
+    console.log("cour",course)
     try{
         await Video.uploadVideo(req,res,function(err){
             if(err){
@@ -37,7 +38,8 @@ module.exports.createVideo = async function(req,res){
               video.save();
 
               console.log("video saved successfully");
-              return res.status(201).send({message:"video saved successfully"});
+              return res.status(201).send({data:video});
+              // return res.status(201).send({message:"video saved successfully"});
           })
       }catch(err){
         res.status(500).json({message:"Unable to save video"});
@@ -71,7 +73,10 @@ module.exports.fetchVideo = async function(req,res){
       const videos = await Video.find({ _id: { $in: course.videos } });
 
       return res.status(200).json({
-          videos: videos
+          videos: videos,
+          description:course.description,
+          course:course.name,
+          image:course.image
       });
   } catch (err) {
       res.status(500).json({ message: 'Unable to fetch data', error: err });
