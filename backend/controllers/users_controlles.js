@@ -127,7 +127,12 @@ module.exports.changePassword = asyncHandler(async (req, res, next) => {
 
 module.exports.signUp = async (req, res) => {
   try {
-    const { email, otp } = req.body;
+    const { otp } = req.body;
+    console.log(otp);
+
+    const tempUser = await OTP.findOne({ otp });
+    // console.log(tempUser);
+    const email = tempUser.email;
 
     // Check if user already exists
     const existingUser = await Users.findOne({ email });
@@ -139,30 +144,33 @@ module.exports.signUp = async (req, res) => {
     }
 
     // Find the most recent OTP for the email
-    const response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
-    console.log(response);
-    if (otp !== response[0].otp) {
-      // Invalid OTP
-      return res.status(400).json({
-        success: false,
-        message: "The OTP is not valid",
-        user: {
-          _id,
-          name,
-          email,
-          phoneNum,
-          location,
-          eName,
-          enterpriseType,
-          isVerfied,
-          isAdmin,
-          superAdmin,
-        },
-      });
-    }
+    // const response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
+    // console.log(response);
+    // if (otp !== response[0].otp) {
+    //   // Invalid OTP
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: "The OTP is not valid",
+    //     user: {
+    //       _id,
+    //       name,
+    //       email,
+    //       phoneNum,
+    //       location,
+    //       eName,
+    //       enterpriseType,
+    //       isVerfied,
+    //       isAdmin,
+    //       superAdmin,
+    //     },
+    //   });
+    // }
+    // const response=await OTP.find({otp});
 
     // Hash the password and create user in db
     req.body.password = await bcrypt.hash(req.body.password, 10);
+    const userData = { ...req.body, email };
+    console.log(userData);
     const {
       _id,
       name,
@@ -173,11 +181,23 @@ module.exports.signUp = async (req, res) => {
       isVerfied,
       isAdmin,
       superAdmin,
-    } = await Users.create(req.body);
+    } = await Users.create(userData);
     // return response
-    res.status(200).json({
-      success: true,
-      message: "User created successfully",
+    const token = generateToken(_id);
+    res.status(200).send({
+      token: token,
+      user: {
+        _id,
+        name,
+        email,
+        phoneNum,
+        location,
+        eName,
+        enterpriseType,
+        isVerfied,
+        isAdmin,
+        superAdmin,
+      },
     });
   } catch (error) {
     return res.status(400).json({
@@ -289,7 +309,7 @@ module.exports.signIn = asyncHandler(async (req, res, next) => {
     if (!result) {
       throw new Error("Email not found");
     }
-    let check = await bcrypt.compare(password, result?.password);
+    let check = bcrypt.compare(password, result?.password);
     if (!check) throw new Error("Incorrect Password");
     else {
       const {
