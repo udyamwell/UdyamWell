@@ -135,13 +135,14 @@ const NavabarMain = () => {
                       
                     {
                       user?.superAdmin && (
-                        <Button sx={{p:1}} onClick={()=>navigate('/admin/users') && handleClose}>
-                        Users
+                        <Button sx={{p:1}} onClick={ handleClose}>
+                        
+                          <Typography onClick={()=>navigate('/admin/users')}>Users</Typography>
                       </Button>
                       )
                     }
-                    <Button sx={{p:1}} onClick={()=>navigate('/admin/courses') && handleClose}>
-                      Lectures
+                    <Button sx={{p:1}} onClick={handleClose}>
+                      <Typography onClick={()=>navigate('/admin/courses')}>Lectures</Typography>
                     </Button>
                     </Stack>
                   </Popover>
