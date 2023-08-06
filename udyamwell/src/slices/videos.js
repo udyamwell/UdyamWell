@@ -2,14 +2,16 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-    course:null,
-    // description:"",
+    courseName:null,
+    description:"",
+    image:"",
     lectures:null,
     error:false
 }
 
 
 export const fetchSingleCource= createAsyncThunk("videos/fetchSingleCourses",(id)=>{
+    console.log("id in slice",id)
     return axios.get(`http://localhost:9000/api/v1/courses/videos/fetch-video/${id}`).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
@@ -29,8 +31,10 @@ const lectureSlice= createSlice({
             state.course=null;
         },
         [fetchSingleCource.fulfilled]:(state,action)=>{
-            state.course=action.payload;
+            state.courseName=action.payload.course;
             state.lectures=action.payload.videos;
+            state.image=action.payload.image;
+            state.description= action.payload.description;
             state.error= false;
         },
         [fetchSingleCource.rejected]:(state,action)=>{
@@ -38,7 +42,6 @@ const lectureSlice= createSlice({
         },
         [createVideo.fulfilled]:(state,action)=>{
             state.lectures.push(action.payload.data);
-            state.courseName = action.payload.course;
             state.error= false;
         },
         [createVideo.rejected]:(state,action)=>{

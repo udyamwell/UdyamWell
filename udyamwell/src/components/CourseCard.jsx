@@ -6,10 +6,11 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 // import { breadcrumb } from '../assets';
 import './styles/courseCard.css';
 import PlayCircleFilledTwoToneIcon from '@mui/icons-material/PlayCircleFilledTwoTone';
+import { Link } from 'react-router-dom';
 
 
 const CourseCard = ({ courses }) => {
-  console.log("Course Value ==>", courses);
+  // console.log("Course Value ==>", courses);
 let urlImage = `http://localhost:9000/uploads/course/thumbnails/`;
 // let urlVideo = `http://localhost:9000/uploads/course/videos/`;
 
@@ -39,7 +40,7 @@ const coursesArray = courses?.courses || [];
 
   return (
     <>
-      {coursesArray?.map((course) => (
+      {courses?.map((course) => (
         <Card key={course._id} sx={{ maxWidth: 275, borderRadius: "10px",m:3 }}>
 
 {/* <Box className='cardImageBox' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
@@ -104,9 +105,9 @@ const coursesArray = courses?.courses || [];
             subheader= {course.createdAt}
           />
 
-          <CardContent sx={{ padding: "0 16px" }}>
-            <Typography variant="h6">
-              {course.name} {/* Use course.name to display the name */}
+          <CardContent sx={{ padding: "0 16px"}}>
+            <Typography variant="h5" color={'green'} sx={{color:"green",cursor:"pointer" }}>
+              <Link to={`/course/${course?._id}`}>{course.name}</Link>
             </Typography>
             <Typography variant="body2">
               {course.description} {/* Use course.description to display the description */}

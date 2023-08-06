@@ -67,8 +67,8 @@ import { deleteCourse, updateCourse } from "../slices/CourseSlice";
           <Box sx={{ height: "10vh" }}>
             <img
               style={{ height: "100%" }}
-              // src={`http://localhost:9000/uploads/course/thumbnails/${lecture?.image}`}
-              alt={lecture.videoName}
+              src={`http://localhost:9000/uploads/course/videoThumbnails/${lecture?.videoThumbnail}`}
+              alt={lecture.videoThumbnail}
             />
           </Box>
           </TableCell>

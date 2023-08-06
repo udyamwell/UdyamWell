@@ -75,7 +75,8 @@ module.exports.fetchVideo = async function(req,res){
       return res.status(200).json({
           videos: videos,
           description:course.description,
-          course:course.name
+          course:course.name,
+          image:course.image
       });
   } catch (err) {
       res.status(500).json({ message: 'Unable to fetch data', error: err });
