@@ -5,7 +5,7 @@ mongoose.set('strictQuery', false);
 main().catch(err=>console.log(err));
 
 async function main (){
-    await mongoose.connect("mongodb+srv://udyamwell:<Udyamwell01>@cluster0.f3u9vza.mongodb.net/UdyamWell?retryWrites=true&w=majority").then(console.log("db connected"));
+    await mongoose.connect(process.env.Mongo_URI).then(console.log("db connected"));
 }
 
 // async function main (){
