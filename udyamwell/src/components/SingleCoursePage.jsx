@@ -16,10 +16,10 @@ const SingleCoursePage = () => {
     let urlImage = `http://localhost:9000/uploads/course/thumbnails/${image}`;
     return (
         <>
-        <div className="mainVidContainer">
-            <div className="mainVid">
+        <div style={{marginTop:"10rem",width:"100%"}}>
+            <div >
                 <h1 style={{marginBottom:"50px",textAlign:"center"}}>{courseName}</h1>
-                <img src={urlImage} alt="" />
+                <img src={urlImage} alt="" height={"100vh"} width={'80%'} style={{margin:"0 auto"}}/>
             </div>
             </div>
             {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/7g4KIRP1wyY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
