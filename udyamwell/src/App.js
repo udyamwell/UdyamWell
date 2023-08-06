@@ -21,6 +21,7 @@ import NavabarMain from './components/NavbarMain';
 import VerifySucces from './components/VerifySuccess';
 import Lectures from './pages/admin panel/Lectures';
 import Users from './pages/admin panel/Users';
+import Email from './components/Email';
 
 function App() {
   const location = useLocation();
@@ -37,7 +38,7 @@ function App() {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/courses' element={<Course/>}/>
          <Route path='/login' element={<Login/>}/>
-         <Route path='/register' element={<Register/>}/>
+         <Route path='/register' element={<Email/>}/>
         <Route path='/services' element={<Service/>}/>
         <Route path='/course/:id' element={<SingleCoursePage/>}/>
         <Route path='/profile' element={<Profile/>}/>

@@ -102,7 +102,7 @@ const Lectures = ({}) => {
                 <TableCell align={"center"}>Name</TableCell>
                 <TableCell align={"center"}>Description</TableCell>
                 <TableCell align={"center"}>VideoImage</TableCell>
-                {/* <TableCell align={"center"}>Actions</TableCell> */}
+                <TableCell align={"center"}>Actions</TableCell>
                
               </TableRow>
             </TableHead>

@@ -72,13 +72,10 @@ const courseSlice= createSlice({
           },
           [deleteCourse.fulfilled]: (state, action) => {
             state.loading = false;
-            console.log("action",action.payload);
             const { _id } = action.payload;
-            console.log("actionId",_id);
             let index = state.all_courses.findIndex(
               (course) => course._id === _id
             );
-            console.log("index",index)
             state.all_courses.splice(index, 1);
           },
           [deleteCourse.rejected]: (state, action) => {

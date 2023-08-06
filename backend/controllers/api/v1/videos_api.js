@@ -87,7 +87,7 @@ module.exports.fetchVideo = async function(req,res){
 /// needa to work-----------------------------
 module.exports.updateVideo = async function(req,res){
     let video = await Video.findById(req.params.id);
-
+    console.log("video0",video)
     try {
         await Video.uploadVideo(req,res,async function(err){
     
@@ -124,11 +124,14 @@ module.exports.updateVideo = async function(req,res){
       }
 
             // Update the course document
-            await Video.updateOne({ _id: req.params.id }, updatedData);
-        
-            return res.status(200).json({
-              message: "Course updated successfully",
-            });
+            // await Video.updateOne({ _id: req.params.id }, updatedData);
+            const id = req.params.id;
+            console.log("reqId",req.params.id);
+            console.log("id",id)
+            await Video.findByIdAndUpdate({_id:id}, updatedData,{new:true});
+            const result = Video.findOne({_id:id});
+            return res.status(200).send(result);
+            // return res.status(200).send(updatedData);
         });
       } catch (err) {
         console.log("****** Error:", err);
@@ -151,10 +154,7 @@ module.exports.deleteVideo  = async function(req,res){
                 message:"Course not found"
             })
         }
-            return  res.status(200).json({
-                message:"Course and associated videos deleted successfully"
-            })
-
+            return  res.status(200).send(videos)
     }catch(err){
         console.log("****** Error:",err);
         return res.status(500).json({

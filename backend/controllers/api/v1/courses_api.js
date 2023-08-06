@@ -78,7 +78,6 @@ module.exports.updateData = async function(req,res){
 
   const _id = req.params.id;
     let course = await Course.findById(_id);
-    console.log("couse found",course);
     try {
         // await Course.uploadCourse(req,res,async function(err){
     
@@ -87,7 +86,6 @@ module.exports.updateData = async function(req,res){
         //         message: "Course not found",
         //       });
         //     }
-        console.log("vod",req.body)
             // Assuming you have the updated data in the request body
             const updatedData = {
               name: req.body.name,
