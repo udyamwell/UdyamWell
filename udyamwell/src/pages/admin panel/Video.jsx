@@ -1,7 +1,45 @@
-import { Box, Button, Modal, Paper, Stack, Table, TableCell, TableContainer, TableHead, TableRow, TextField } from "@mui/material";
-import React, { useState } from "react";
+// export default Video;
+import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import {
+  Alert,
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Modal,
+  Paper,
+  Select,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import {createCourse, fetchAllCources } from "../../slices/CourseSlice";
+import VideoCell from "../../components/VideoCell";
 
-const Video = () => {
+const Video = () => {  
+  // const navigate = useNavigate();
+  const {all_courses,error} = useSelector(state=>state.courses);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(fetchAllCources());
+  },[])
+  
+  const [name, setName] = useState("");
+  const [image, setImage] = useState(null);
+  // const [video, setVideo] = useState(null);--------------------
+  const [description, setDescription] = useState("");
+  const [isPaid, setIsPaid] = useState(false);
+  const [cost, setCost] = useState(0);
+  // modal
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -15,9 +53,48 @@ const Video = () => {
     boxShadow: 24,
     p: 4,
   };
-    return (
-        <div style={{width:"90%",margin:"8rem auto"}}>
-         <Stack alignItems={"end"}>
+  const validateForm = () => {
+    console.log("Dsda");
+    const errors = {};
+    if (!name) errors.name = "Name is required";
+    if (!description) errors.description = "Description is required";
+    if (!image) errors.image = "Thumbnail Image is required"; // Check if image is not selected
+    // if (!video) errors.video = "Video is required";------------------------------------
+
+    // setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  // create video function
+  const handleCreate = async () => {
+        // Validate form fields
+        console.log("funcions enter");
+        if (!validateForm()) {
+          return;
+        }
+      const formData = new FormData();
+      formData.append("image", image);
+      formData.append("name",name);
+      formData.append("description",description);
+      formData.append("isPaid",isPaid);
+     formData.append("cost",Number(cost));
+      // Object.entries(lectureData).forEach(([key, value]) => {
+        console.log("FORMA",formData)
+      //   formData.append(key, value);
+      // });
+      dispatch(createCourse(formData));
+      handleClose();
+      setName("");
+      setImage(null);
+      setDescription("");
+      setIsPaid(false);
+      setCost(0);
+  };
+
+  return (
+    <div style={{ width: "90%", margin: "8rem auto" }}>
+      <Stack alignItems={"end"}>
+        {error && <Alert severity="error">{error}</Alert>}
         <Button
           sx={{ width: 100, margin: "1rem 0" }}
           onClick={handleOpen}
@@ -32,19 +109,20 @@ const Video = () => {
             <TableHead>
               <TableRow>
                 <TableCell align={"center"}>Name</TableCell>
-                <TableCell align={"center"}>Description</TableCell>
-                <TableCell align={"center"}>TagS</TableCell>
-                <TableCell align={"center"}>Paid</TableCell>
-                <TableCell align={"center"}>Link</TableCell>
-                {/* <TableCell align={"center"}>CountInStock</TableCell> */}
+                <TableCell align={"center"}>Image</TableCell>
+                <TableCell align={"center"}>isPaid</TableCell>
+                <TableCell align={"center"}>Cost(Rs)</TableCell>
                 <TableCell align={"center"}>Actions</TableCell>
+                <TableCell align={"center"}>View</TableCell>
               </TableRow>
             </TableHead>
-            {/* <TableBody>
-              {all_products?.map((product) => (
-                <Cell key={product._id} product={product} />
-              ))} */}
-            {/* </TableBody> */}
+            <TableBody>
+              {
+                all_courses?.map((lecture,index)=>(
+                  <VideoCell key={index} lecture={lecture}/>
+                ))
+              }
+            </TableBody> 
           </Table>
         </TableContainer>
       </Paper>
@@ -60,69 +138,62 @@ const Video = () => {
               <label>Name: </label>
               <TextField
                 fullWidth
-                // value={name}
+                value={name}
+                name="name"
                 variant="standard"
+                onChange={(e) => setName(e.target.value)}
               />
             </Box>
+
             <Box>
-              <label>Image: </label>
+              <label>Course Image: </label>
               <TextField
+                type="file"
                 fullWidth
-                // value={image}
+                name="image"
                 variant="standard"
-              />
-            </Box>
-            <Box>
-              <label>Brand: </label>
-              <TextField
-                fullWidth
-                // value={brand}
-                variant="standard"
-              />
-            </Box>
-            <Box>
-              <label>Category: </label>
-              <TextField
-                fullWidth
-                // value={category}
-                variant="standard"
+                onChange={(e) => setImage(e.target.files[0])}
               />
             </Box>
             <Box>
               <label>Description: </label>
               <TextField
-                // inputProps={{ type: "textarea" }}
-                // sx={{ overflowY: "scroll" }}
                 fullWidth
                 multiline
-                // value={description}
+                name="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 variant="standard"
               />
             </Box>
             <Box>
-              <label>Price: </label>
-              <TextField
-                fullWidth
-                // value={price}
-                variant="standard"
-              />
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Is it Paid?</InputLabel>
+                <Select name="isPaid" value={isPaid} label="Is it Paid?" onChange={(e) => setIsPaid(e.target.value)}>
+                  <MenuItem value={"true"}>True</MenuItem>
+                  <MenuItem value={"false"}>False</MenuItem>
+                </Select>
+              </FormControl>
             </Box>
-            <Box>
-              <label>Count in stock: </label>
-              <TextField
-                fullWidth
-                // value={countInStock}
-                variant="standard"
-              />
-            </Box>
-            <Button variant="contained">
-              Create
-            </Button>
+           {isPaid && (
+             <Box>
+             <label>Cost: </label>
+             <TextField
+               fullWidth
+               name="link"
+               value={cost}
+               onChange={(e) => setCost(e.target.value)}
+               variant="standard"
+             />
+           </Box>
+           )}
+            <Button onClick={handleCreate} variant="contained">Create</Button>
           </Stack>
         </Paper>
       </Modal>
-        </div>
-    );
-}
+    </div>
+  );
+};
 
 export default Video;
+

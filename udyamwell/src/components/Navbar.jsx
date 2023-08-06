@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import './styles/navbar.css';
-import { logo1, single_page_logo, menu, close, menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../assets";
+import { menu, close, menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../assets";
 import { Link } from "react-router-dom";
 const Navabar = () => {
   const [toggle, setToggle] = useState(false);
 
   window.addEventListener("scroll", function () {
-    var navbar = document.getElementById("navbar");
+    // var navbar = document.getElementById("navbar");
     if (window.scrollY > 0) {
-      navbar.classList.add("navbar-scroll");
+      document.querySelector('#navbar').setAttribute("class","navbar-scroll");
       document.querySelector(".whiteLogo").style.display = "none";
       document.querySelector(".logo").style.display = "block";
       document.querySelector(".mobWhiteLogo").style.display = "none";
       document.querySelector(".mobLogo").style.display = "block";
     } else {
-      navbar.classList.remove("navbar-scroll");
+      document.querySelector('#navbar').removeAttribute("class");
       document.querySelector(".whiteLogo").style.display = "block";
       document.querySelector(".logo").style.display = "none";
       document.querySelector(".mobWhiteLogo").style.display = "block";
