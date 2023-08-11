@@ -1,27 +1,22 @@
 const mongoose = require('mongoose');
 
-mongoose.set('strictQuery', false);
+const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' });
 
-main().catch(err=>console.log(err));
+console.log(process.env.Mongo_URI);
 
-async function main (){
-    await mongoose.connect(process.env.Mongo_URI).then(console.log("db connected"));
-}
-
-// async function main (){
-//     await mongoose.connect("mongodb://localhost:27017/udyamwell_development");
-// }
-
-
-// import dotenv from 'dotenv';
-// import mongoose from "mongoose";
-
-// dotenv.config();
-// function Connect_db(){
-// mongoose.connect(process.env.MONGO_URI,{
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// })
-// .then((res)=>console.log("Mongodb is connected"));
-// }
-// export default Connect_db;
+exports.connect = () => {
+  mongoose
+    .connect(process.env.Mongo_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => {
+      console.log(`DB connected successfully`);
+    })
+    .catch((err) => {
+      console.log('Db connection issue');
+      console.error(err);
+      process.exit(1);
+    });
+};

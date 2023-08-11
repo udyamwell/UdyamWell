@@ -4,7 +4,7 @@ const port = 9000;
 const cors = require('cors');
 // adding monggose 
 const errorHandler = require('./config/errorHandler')
-const db = require('./config/mongoose');
+const db = require('./config/mongoose').connect();
 dotenv.config({path:'./config.env'})
 const app = express();
 app.use(express.urlencoded({ extended: false }));

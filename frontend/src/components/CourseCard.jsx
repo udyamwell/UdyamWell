@@ -6,23 +6,23 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 // import { breadcrumb } from '../assets';
 import './styles/courseCard.css';
 import PlayCircleFilledTwoToneIcon from '@mui/icons-material/PlayCircleFilledTwoTone';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const CourseCard = ({ courses }) => {
+  const navigate = useNavigate();
   // console.log("Course Value ==>", courses);
 let urlImage = `http://localhost:9000/uploads/course/thumbnails/`;
 // let urlVideo = `http://localhost:9000/uploads/course/videos/`;
 
 // Access the courses array inside the courses object
-const coursesArray = courses?.courses || [];
+// const coursesArray = courses?.courses || [];
 
 // const [showVideo, setShowVideo] = useState(false);
 
 // const handleCardClick = () => {
 //   setShowVideo(true);
 // };
-
 
 
   const handleShare = async (title, url) => {
@@ -41,7 +41,7 @@ const coursesArray = courses?.courses || [];
   return (
     <>
       {courses?.map((course) => (
-        <Card key={course._id} sx={{ maxWidth: 275, borderRadius: "10px",m:3 }}>
+        <Card key={course._id} sx={{ width: 350, borderRadius: "10px",m:3,cursor:"pointer" }} onClick={()=>navigate(`/course/${course?._id}`)}>
 
 {/* <Box className='cardImageBox' onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       {!showVideo ? (
@@ -77,7 +77,7 @@ const coursesArray = courses?.courses || [];
             <a href={course.link} target="_blank" rel="noopener noreferrer">
               <CardMedia
                 component="img"
-                height="194"
+                height="250"
                 // image={breadcrumb}
                 // image= "http://localhost:9000/uploads/course/thumbnails/1690093516906_cloud3.jpg"
                 image= {urlImage + course.image}
@@ -95,7 +95,7 @@ const coursesArray = courses?.courses || [];
             </a>
           </Box>
 
-          <CardHeader
+          {/* <CardHeader
             action={
               <IconButton aria-label="settings">
                 <MoreVertIcon />
@@ -103,25 +103,25 @@ const coursesArray = courses?.courses || [];
             }
             // subheader="September 14, 2016"
             subheader= {course.createdAt}
-          />
+          /> */}
 
-          <CardContent sx={{ padding: "0 16px"}}>
+          <CardContent sx={{ padding: "0 16px",mt:3}}>
             <Typography variant="h5" color={'green'} sx={{color:"green",cursor:"pointer" }}>
-              <Link to={`/course/${course?._id}`}>{course.name}</Link>
+              <Link to={`/course/${course?._id}`} sx={{listStyle:"none",textDecoration:"none",border:"none"}}>{course.name}</Link>
             </Typography>
-            <Typography variant="body2">
+            <Typography variant="body1" sx={{mt:2}}>
               {course.description} {/* Use course.description to display the description */}
             </Typography>
           </CardContent>
 
-          <CardActions disableSpacing>
+          {/* <CardActions disableSpacing>
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
             </IconButton>
             <IconButton aria-label="share" onClick={() => handleShare(course.name, course.link)}>
               <ShareIcon />
             </IconButton>
-          </CardActions>
+          </CardActions> */}
 
         </Card>
       ))}
