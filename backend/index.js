@@ -1,11 +1,12 @@
 const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
 const express = require('express');
 const port = 9000;
 const cors = require('cors');
 // adding monggose 
 const errorHandler = require('./config/errorHandler')
 const db = require('./config/mongoose').connect();
-dotenv.config({path:'./config.env'})
+
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
