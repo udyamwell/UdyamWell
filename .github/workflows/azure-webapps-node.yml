@@ -37,8 +37,6 @@ steps:
       ${{ frontend_lock_file }}
       ${{ backend_lock_file }}
 deploy:
-permissions:
-contents: none
 runs-on: ubuntu-latest
 needs: build
 environment:
