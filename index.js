@@ -18,6 +18,7 @@ app.set('view engine', 'ejs');
 app.set('views','./views');
 // app.use('/uploads',express.static('./uploads'));
 app.use('/uploads',express.static(__dirname +'/uploads'))
+app.use(express.static('./frontend/build'));
 
 // app.post('/register',(req,res)=>{
 //     res.send("I am live");
@@ -31,3 +32,8 @@ app.listen(port,(err)=>{
     }
     console.log(`Server is running at port: ${port}`);
 });
+
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+})
