@@ -28,6 +28,7 @@ jobs:
       run: |
         frontend_lock_file=$(find frontend -name package-lock.json)
         backend_lock_file=$(find backend -name package-lock.json)
+        set frontend_lock_file=$frontend_lock_file
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
