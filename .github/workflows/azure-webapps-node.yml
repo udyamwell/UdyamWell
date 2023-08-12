@@ -27,7 +27,7 @@ steps:
 - name: Find dependencies lock file
   run: |
     frontend_lock_file=<span class="math-inline">\(find frontend \-name package\-lock\.json\)
-backend_lock_file=(find backend -name package-lock.json)
+    backend_lock_file=(find backend -name package-lock.json)
 
 - name: Upload artifacts
   uses: actions/upload-artifact@v3
