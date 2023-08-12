@@ -26,7 +26,7 @@ jobs:
 
     - name: Find dependencies lock file
       run: |
-        frontend_lock_file=$(find frontend -name package-lock.json)
+        frontend_lock_file=$(echo $(find frontend -name package-lock.json))
         backend_lock_file=$(find backend -name package-lock.json)
         env frontend_lock_file=$frontend_lock_file
 
