@@ -4,15 +4,15 @@ const express = require('express');
 const port = 9000;
 const cors = require('cors');
 // adding monggose 
-const errorHandler = require('./config/errorHandler')
-const db = require('./config/mongoose').connect();
+const errorHandler = require('../config/errorHandler')
+const db = require('../config/mongoose').connect();
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());     // communicate with ui and backend 
 // use express router 
-app.use('/',require('./routes'));
+app.use('/',require('../routes'));
 app.use(errorHandler);
 app.set('view engine', 'ejs');
 app.set('views','./views');
