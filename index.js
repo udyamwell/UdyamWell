@@ -3,6 +3,7 @@ dotenv.config({path:'./config.env'})
 const express = require('express');
 const port = 9000;
 const cors = require('cors');
+const path = require('path');
 // adding monggose 
 const errorHandler = require('./config/errorHandler')
 const db = require('./config/mongoose').connect();
