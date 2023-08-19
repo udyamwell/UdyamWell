@@ -1,0 +1,65 @@
+.sheelContainer{
+    display: flex;
+    width: 95% ;
+    margin: 100px auto;
+}
+
+
+.saathiForm{
+    width: 60%;
+    /* margin: 100px auto; */
+    text-align: left;
+    padding: 40px;
+}
+.field{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+input{
+    background-color: #e0f1e5;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.qrCode{
+    width: 15%;
+    margin-left: 10%;
+    padding: 10%;
+    display:flex ;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.qrCode h4{
+    text-align: center;
+    color: green;
+}
+@media only screen and (max-width:940px) {
+    .sheelContainer{
+        flex-direction: column;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .saathiForm{
+        width: 85%;
+    }
+    .qrCode{
+        border-top: 5px solid green;
+        margin-left: 0;
+    }
+}
+@media only screen and (max-width:590px) {
+    .saathiForm{
+        width: 100%;
+    }
+    .field{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}

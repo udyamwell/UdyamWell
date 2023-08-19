@@ -101,7 +101,20 @@
 .contact_info span{
     color: black   ;
 }
-
+.copyRight{
+    justify-content: space-between;
+    padding: 10px 100px;
+    background-color: #266319;
+    color: white;
+    display: flex;
+}
+.footerList ul{
+    list-style: none;
+    display: flex;
+}
+.footerList ul li{
+    margin: 0 10px;
+}
 @keyframes scale-up-center {
     0% {
       /* -webkit-transform: scale(0.5); */
