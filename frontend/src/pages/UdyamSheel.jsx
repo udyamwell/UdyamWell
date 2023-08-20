@@ -1,9 +1,11 @@
 import React from 'react';
 import TopSection from '../components/TopSection';
 import "./udyamSheel.css";
-import { banner_img, landingPageBg } from '../assets';
+import { banner_img, landingPageBg, udyamsheel, udyamsheelQr } from '../assets';
 import { Box, Button, Stack, Typography } from '@mui/material';
+import { useNavigate } from 'react-router';
 const UdyamSheel = () => {
+    const navigate = useNavigate();
     return (
         <div>
              <div className="landingPageCover">
@@ -14,18 +16,19 @@ const UdyamSheel = () => {
             className="landingPageCover__animation"
           />
         </div>
-         <Box sx={{width:"70%",margin:"10% auto 5% auto"}} display={'flex'} justifyContent={'center'} alignItems={'center'}>
-            <Box>
-            <Typography variant='h3' sx={{color:"#236836",mb:2,fontWeight:600}}>UdyamSheel Bharat Program</Typography>
-         <Typography variant='body1'>Rural Enterprises face many challenges such as procuring raw material, inadequate skills, weak communication & transportation and much more. UdyamWell is building a program to help Rural enterprises overcome these challenges. This happens through mentorship & enabling them via our support ecosystem. We aim to help these enterprises reach new heights by bringing them services, in collaboration with ONDC & NGO’s.
-            </Typography>
-            </Box>
-        <Box>
-            <img src={banner_img} alt="" />
-        </Box>
-         </Box>
+        <div className="HomeContainer" style={{margin:"8rem auto"}}>
+            <div className="banner">
+                <div className="bannerText">
+                    <h1>UdyamSheel Bharat Program   </h1>
+                    <p>Rural Enterprises face many challenges such as procuring raw material, inadequate skills, weak communication & transportation and much more. UdyamWell is building a program to help Rural enterprises overcome these challenges. This happens through mentorship & enabling them via our support ecosystem. We aim to help these enterprises reach new heights by bringing them services, in collaboration with ONDC & NGO’s. </p>
+                </div>
+                <div className="bannerImg">
+                    <img src={udyamsheel} alt="" style={{borderRadius:"20px"}}/>
+                </div>
+            </div>
+        </div>
         {/*  */}
-        <Box display={'flex'} justifyContent={'center'} alignItems={'center'} sx={{width:"70%",margin:"1rem auto",backgroundColor:"#e0f1e5",padding:3,borderRadius:"55px"}}>
+        <Box display={'flex'} justifyContent={'center'} alignItems={'center'} sx={{margin:"1rem auto",backgroundColor:"#e0f1e5",padding:3,borderRadius:"55px"}} className='brochure'>
             <Typography variant='h6' color={'#266319'}>
                 Interested in learning more? Download our informative brochure to get all the details!!
             </Typography>
@@ -138,10 +141,12 @@ const UdyamSheel = () => {
     <div className="qrCode">
         <Stack>
             <Typography variant='h4'>
-                Else,Scan this qr code to fill the form! 
+            You can Scan this qr code to fill the form! 
             </Typography>
-        <img src={banner_img} alt="" />
+            <Box height={'100%'} width={'100%'}>
+        <img src={udyamsheelQr} alt="" height={'300px'} width={'300px'} style={{marginTop:'20px'}}/>
 
+            </Box>
         </Stack>
     </div>
     {/*  */}

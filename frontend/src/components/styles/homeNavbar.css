@@ -54,7 +54,10 @@
 .mobNavHome{
 	display: none;
 }
-  @media (max-width: 990px) {
+  @media (max-width: 1240px) {
+	.MaincontainerHome{
+		padding:0 10px ;
+	}
 	.navbar-menuHome{
 		display: none;
 	}

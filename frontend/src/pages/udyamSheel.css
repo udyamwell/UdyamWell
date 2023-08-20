@@ -18,6 +18,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 input{
     background-color: #e0f1e5;
     padding: 10px;
@@ -38,9 +39,17 @@ input{
     text-align: center;
     color: green;
 }
+.brochure{
+    width: 70%;
+}
+@media only screen and (max-width:1220px) {
+    .brochure{
+        width: 85%;
+    }
+}
 @media only screen and (max-width:940px) {
     .sheelContainer{
-        flex-direction: column;
+        flex-direction: column-reverse;
         margin: 0 auto;
         justify-content: center;
         align-items: center;
@@ -51,6 +60,13 @@ input{
     .qrCode{
         border-top: 5px solid green;
         margin-left: 0;
+    }
+    .brochure{
+        flex-direction: column;
+    }
+    .brochure h6{
+        text-align: center;
+        margin-bottom: 10px;
     }
 }
 @media only screen and (max-width:590px) {

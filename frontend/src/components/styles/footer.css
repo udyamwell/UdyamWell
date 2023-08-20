@@ -129,4 +129,8 @@
     .footerContainer{
         width: 80%;
     }
+    .copyRight{
+        flex-direction: column;
+        /* padding: 10px 40px; */
+    }
   }
