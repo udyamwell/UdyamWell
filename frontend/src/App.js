@@ -33,7 +33,6 @@ function App() {
       <div>
         <ColorMode>
           {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' || location.pathname==='/about' || location.pathname==='/udyamsheel' ) ? (<HomeNavabar/>) : (<Navabar/>)}
-          {/* <HomeNavabar/> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
