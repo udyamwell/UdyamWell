@@ -1,5 +1,5 @@
 
-  nav {
+  .navbar {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -8,6 +8,9 @@
 	background-color: transparent;
 	transition: background-color 0.3s ease-in-out;
 	z-index: 9999;
+  }
+  .navbar.active{
+	background-color: white;
   }
   .Maincontainer{
 	display: flex;
@@ -41,10 +44,7 @@
 	  cursor: pointer;
 	  font-size: 18px;
 }
-  .navbar-scroll {
-	background-color: white;
-  }
- .navbar-scroll .navbar-menu li a{
+ .navbar.active .navbar-menu li a{
 	color: black;
   }
 .logo{

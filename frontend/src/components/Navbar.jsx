@@ -4,26 +4,20 @@ import { menu, close, menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../
 import { Link } from "react-router-dom";
 const Navabar = () => {
   const [toggle, setToggle] = useState(false);
-
-  window.addEventListener("scroll", function () {
-    // var navbar = document.getElementById("navbar");
-    if (window.scrollY > 0) {
-      document.querySelector('#navbar').setAttribute("class","navbar-scroll");
-      document.querySelector(".whiteLogo").style.display = "none";
-      document.querySelector(".logo").style.display = "block";
-      document.querySelector(".mobWhiteLogo").style.display = "none";
-      document.querySelector(".mobLogo").style.display = "block";
-    } else {
-      document.querySelector('#navbar').removeAttribute("class");
-      document.querySelector(".whiteLogo").style.display = "block";
-      document.querySelector(".logo").style.display = "none";
-      document.querySelector(".mobWhiteLogo").style.display = "block";
-      document.querySelector(".mobLogo").style.display = "none";
+  const [navabr,setNavbar] = useState(false);
+  const changeBackground = () => {
+    console.log(window.scrollY,"heeyyyyy")
+    if(window.scrollY>=80){
+      setNavbar(true);
     }
-  });
+    else{
+      setNavbar(false);
+    }
+  }
+  window.addEventListener('scroll',changeBackground)
   return (
     <>
-      <nav id="navbar">
+      <nav id="navbar" className={navabr? "navbar active" : "navbarHome"}>
        <div  className="Maincontainer">
         {/*  */}
         <div className="container">

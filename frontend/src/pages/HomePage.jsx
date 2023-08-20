@@ -3,22 +3,36 @@ import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRen
 import './homepage.css';
 import NoteAltRoundedIcon from '@mui/icons-material/NoteAltRounded';
 import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';
-import { advance_feature_img, banner_img, learning_img } from "../assets";
+import { advance_feature_img, banner_img, landingPageBg, learning_img } from "../assets";
+import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import { AboutServices } from "./About";
+import { useNavigate } from "react-router";
+import { Box, Typography } from "@mui/material";
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import PersonSharpIcon from '@mui/icons-material/PersonSharp';
 const HomePage = () => {
+    const navigate = useNavigate();
     return ( 
         <>
+        <div className="landingPageCover">
+          <img
+            src={landingPageBg}
+            width='100vw'
+            alt="landing"
+            className="landingPageCover__animation"
+          />
+        </div>
         <div className="HomeContainer">
             <div className="banner">
                 <div className="bannerText">
                     <h1>Partner in your Business Journey</h1>
                     <h6>UdyamWell: A Platform for you to make your entrepreneurial dreams come true. </h6>
                     <div className="homeButtons">
-                        <button className="btn1">
+                        <button style={{cursor:"pointer"}} className="btn1"  onClick={()=>navigate('/courses')}>
                             View Course
                         </button>
-                        <button className="btn2">
-                            Get Started
+                        <button className="btn2" style={{cursor:"pointer"}}  onClick={()=>navigate('/udyamsheel')}>
+                            Udyamsheel
                         </button>
                     </div>
                 </div>
@@ -27,7 +41,19 @@ const HomePage = () => {
                 </div>
             </div>
         </div>
-        
+        {/* section 2 */}
+        <Box className='countBox'>
+            <Box className='count'>
+                <LaptopMacIcon sx={{fontSize:"50px"}}/> <Typography variant="h5" sx={{ml:2,color:"#236836",fontWeight:600}}>5 Courses</Typography>
+            </Box>   
+            <Box className='count'>
+                <PeopleAltOutlinedIcon sx={{fontSize:"50px"}}/> <Typography variant="h5" sx={{ml:2,color:"#236836",fontWeight:600}}>10+ Mentors</Typography>
+            </Box> 
+            <Box className='count'>
+                <PersonSharpIcon sx={{fontSize:"50px"}}/> <Typography variant="h5" sx={{ml:2,color:"#236836",fontWeight:600}}>100+ Business</Typography>
+            </Box>            
+        </Box>
+        {/* section 3 */}
         <div className="homeServices">
         <AboutServices/>
         </div>

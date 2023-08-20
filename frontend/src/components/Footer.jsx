@@ -63,6 +63,17 @@ const Footer = () => {
           {/*  */}
         </div>
       </div>
+      <div className="copyRight">
+        <div>
+          <h5 style={{fontWeight:"100"}}>@Copyright 2023, UdyamWell Partner in your business Journey</h5>
+        </div>
+        <div className="footerList">
+          <ul>
+            <li>Terms and Conditions</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+      </div>
     </>
   );
 };
