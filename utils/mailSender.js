@@ -6,7 +6,7 @@ const mailSender = async (email, otp) => {
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
-      secure: false,
+      secure: true,
       requireTLS: true,
       auth: {
         user: process.env.Email,
@@ -20,7 +20,7 @@ const mailSender = async (email, otp) => {
       subject: "Email Verification",
       html:
         "<p>Hii " +
-        ', Please click here to <a href="http://localhost:3000/register/' +
+        ', Please click here to <a href="https://udyamwell-testing.azurewebsites.net:80/register/' +
         otp +
         '">Verify </a? Your mail. </p>',
     });
