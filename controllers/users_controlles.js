@@ -92,7 +92,7 @@ module.exports.forgotPassword = async (req, res) => {
         from: "udyamwell@gmail.com",
         to: email,
         subject: "Password Reset",
-        text: `Greeting, Click on this link to change your password: http://localhost:3000/change-password/${user?._id}`,
+        text: `Greeting, Click on this link to change your password: https://udyamwell-testing.azurewebsites.net/change-password/${user?._id}`,
       };
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {

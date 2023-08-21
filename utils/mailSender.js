@@ -20,7 +20,7 @@ const mailSender = async (email, otp) => {
       subject: "Email Verification",
       html:
         "<p>Hii " +
-        ', Please click here to <a href="https://udyamwell-testing.azurewebsites.net:80/register/' +
+        ', Please click here to <a href="https://udyamwell-testing.azurewebsites.net/register/' +
         otp +
         '">Verify </a? Your mail. </p>',
     });
