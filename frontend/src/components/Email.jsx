@@ -17,7 +17,7 @@ const Email = () => {
         Swal.fire(
           `${res.data.message}`,
           "Please check your Email for link.",
-          "succuss"
+          "success"
         );
       })
       .catch((err) => setError(err.response.data.message));
