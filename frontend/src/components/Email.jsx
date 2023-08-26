@@ -12,7 +12,7 @@ const Email = () => {
       alert("Please enter your registered mail");
     }
     axios
-      .post("https://udyamwell-testing.azurewebsites.net/users/sendOtp", { email: email })
+      .post("/users/sendOtp", { email: email })
       .then((res) => {
         Swal.fire(
           `${res.data.message}`,
