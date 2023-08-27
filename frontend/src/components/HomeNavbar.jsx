@@ -35,7 +35,7 @@ const NavabarMain = () => {
     setAnchorEl(null);
   };
   const changeBackground = () => {
-    console.log(window.scrollY,"heeyyyyy")
+    // console.log(window.scrollY,"heeyyyyy")
     if(window.scrollY>=80){
       setNavbar(true);
     }
