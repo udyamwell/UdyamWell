@@ -14,6 +14,7 @@ const Email = () => {
     axios
       .post("https://udyamwell.azure-websites.net/users/sendOtp", { email: email })
       .then((res) => {
+        console.log(res);
         Swal.fire(
           `${res.data.message}`,
           "Please check your Email for link.",
