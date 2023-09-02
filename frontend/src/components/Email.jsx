@@ -12,12 +12,12 @@ const Email = () => {
       alert("Please enter your registered mail");
     }
     axios
-      .post("http://localhost:9000/users/sendOtp", { email: email })
+      .post("https://udyamwell.azurewebsites.net/users/sendOtp", { email: email })
       .then((res) => {
         Swal.fire(
           `${res.data.message}`,
           "Please check your Email for link.",
-          "succuss"
+          "success"
         );
       })
       .catch((err) => setError(err.response.data.message));

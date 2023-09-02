@@ -42,7 +42,7 @@ const ChangePassword = () => {
       if(password===""){
         alert("Please enter your new password")
     }
-    axios.put("http://localhost:9000/users/change-password",{id:obj.id,password}).then((res)=>{
+    axios.put("https://udyamwell.azurewebsites.net/users/change-password",{id:obj.id,password}).then((res)=>{
             Swal.fire(`${res.data.message}`)
             setTimeout(() => {
               navigate('/login')
