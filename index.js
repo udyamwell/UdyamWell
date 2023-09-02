@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.config({path:'./config.env'})
 const express = require('express');
-const port = 9000;
+const port = 8080;
 const cors = require('cors');
 const path = require('path');
 // adding monggose 
