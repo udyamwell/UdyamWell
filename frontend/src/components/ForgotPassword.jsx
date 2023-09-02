@@ -10,8 +10,8 @@ const ForgotPassword = () => {
         if(email===""){
             alert("Please enter your registered mail")
         }
-        axios.put("http://localhost:9000/users/forgot-password",{email:email}).then((res)=>{
-                Swal.fire(`${res.data.message}`,'Please check your Email for link.','succuss')
+        axios.put("https://udyamwell.azurewebsites.net/users/forgot-password",{email:email}).then((res)=>{
+                Swal.fire(`${res.data.message}`,'Please check your Email for link.','success')
             }).catch((err)=> setError(err.response.data.message))
     } 
     return (
