@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import './styles/navbar.css';
 import { menu, close, menuBlack, closeBlack, Udyamwell_Logo_Standee  } from "../assets";
 import { Link } from "react-router-dom";
 const Navabar = () => {
   const [toggle, setToggle] = useState(false);
   const [navabr,setNavbar] = useState(false);
+  const { user, error } = useSelector((state) => state.user);
   const changeBackground = () => {
-    console.log(window.scrollY,"heeyyyyy")
+    // console.log(window.scrollY,"heeyyyyy")
     if(window.scrollY>=80){
       setNavbar(true);
     }
