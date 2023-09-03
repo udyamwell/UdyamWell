@@ -22,6 +22,9 @@ import VerifySucces from "./components/VerifySuccess";
 import Lectures from "./pages/admin panel/Lectures";
 import Users from "./pages/admin panel/Users";
 import Email from "./components/Email";
+import UdyamSheel from "./pages/UdyamSheel";
+import HomeNavabar from "./components/HomeNavbar";
+import Navabar from "./components/Navbar";
 
 function App() {
   const location = useLocation();
@@ -29,8 +32,7 @@ function App() {
     <>
       <div>
         <ColorMode>
-          {/* {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' ) ? (<HomeNavabar/>) : (<Navabar/>)} */}
-          <NavabarMain />
+          {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' || location.pathname==='/about' || location.pathname==='/udyamsheel' ) ? (<HomeNavabar/>) : (<Navabar/>)}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
@@ -46,6 +48,7 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/change-password/:id" element={<ChangePassword />} />
             <Route path="/verify-success/:id" element={<VerifySucces />} />
+            <Route path="/udyamsheel" element={<UdyamSheel />} />
             <Route path="/admin">
               <Route path="courses" element={<Video />} />
               <Route path="course/:id" element={<Lectures />} />
