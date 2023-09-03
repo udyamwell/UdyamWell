@@ -5,14 +5,15 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 // import { breadcrumb } from '../assets';
 // import './styles/lectureCard.css';
+
 import PlayCircleFilledTwoToneIcon from '@mui/icons-material/PlayCircleFilledTwoTone';
 import { Link } from 'react-router-dom';
 
 
 const VideoLectureCard = ({ lectures, onCardClick }) => {
   // console.log("lecture Value ==>", lectures);
-let urlImage = `http://localhost:9000/uploads/course/videoThumbnails/`;
-let urlVideo = `http://localhost:9000/uploads/course/videos/`;
+let urlImage = `https://udyamwell.azurewebsites.net/uploads/course/videoThumbnails/`;
+let urlVideo = `https://udyamwell.azurewebsites.net/uploads/course/videos/`;
 
   return (
     <>
