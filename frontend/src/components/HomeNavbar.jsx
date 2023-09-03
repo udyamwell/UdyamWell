@@ -4,11 +4,12 @@ import { menuBlack, closeBlack, Udyamwell_Logo_Standee } from "../assets";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../slices/UserSlice.js";
-import { Button, Menu, MenuItem, Popover, Typography } from "@mui/material";
-const HomeNavabar = () => {
+import { Button, Menu, MenuItem, Popover, Stack, Typography } from "@mui/material";
+const NavabarMain = () => {
   const [toggle1, setToggle1] = useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { user, error } = useSelector((state) => state.user);
+  const [navabr,setNavbar] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleOpenUserMenu = (event) => {
@@ -17,16 +18,6 @@ const HomeNavabar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  window.addEventListener("scroll", function () {
-    // var navbar = document.g("navbarHome");
-    if (window.scrollY > 0) {
-      document
-        .querySelector("#navbarHome")
-        .setAttribute("class", "navbar-scrollHome");
-    } else {
-      document.querySelector("#navbarHome").removeAttribute("class");
-    }
-  });
   const handleLogout = () => {
     dispatch(logout());
     handleCloseUserMenu();
@@ -43,12 +34,21 @@ const HomeNavabar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const changeBackground = () => {
+    console.log(window.scrollY,"heeyyyyy")
+    if(window.scrollY>=80){
+      setNavbar(true);
+    }
+    else{
+      setNavbar(false);
+    }
+  }
+  window.addEventListener('scroll',changeBackground)
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
   return (
     <>
-      <nav id="navbarHome">
+       <nav id="navbarHome" className={navabr? "navbarHome active" : "navbarHome"}>
         <div className="MaincontainerHome">
           {/*  */}
           <div className="containerHome">
@@ -61,22 +61,27 @@ const HomeNavabar = () => {
                 alt=""
               />
             </div>
-            <ul className="navbar-menuHome">
+            <ul className="navbar-menuHome" >
               <li>
                 <Link to={"/"}>Home</Link>
               </li>
               <li>
                 <Link to="about">About</Link>
               </li>
-              <li>
+              {
+                user && <li>
                 <Link to="/courses">Courses</Link>
               </li>
+              }
               {/* <li><Link to='/blogs'>Blog</Link></li> */}
               <li>
                 <Link to="/services">Services</Link>
               </li>
               <li>
                 <Link to="/contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/udyamsheel">UdyamSheel</Link>
               </li>
               {user && (
                 <>
@@ -87,7 +92,7 @@ const HomeNavabar = () => {
                     <Link>{user?.name}</Link>
                   </li>
                   <Menu
-                    sx={{ mt: "50px" }}
+                    sx={{ mt: "70px" }}
                     id="menu-appbar"
                     anchorEl={anchorElUser}
                     anchorOrigin={{
@@ -131,7 +136,7 @@ const HomeNavabar = () => {
                     Admin Panel
                   </Button>
                   <Popover
-                  sx={{mt:2}}
+                  sx={{mt:4}}
                     id={id}
                     open={open}
                     anchorEl={anchorEl}
@@ -141,16 +146,32 @@ const HomeNavabar = () => {
                       horizontal: "left",
                     }}
                   >
-                    <Button sx={{p:1}} onClick={()=>navigate('/admin/lectures')}>
-                      Lectures
+                    <Stack>
+                      
+                    {
+                      user?.superAdmin && (
+                        <Button sx={{p:1}} onClick={ handleClose}>
+                        
+                          <Typography onClick={()=>navigate('/admin/users')}>Users</Typography>
+                      </Button>
+                      )
+                    }
+                    <Button sx={{p:1}} onClick={handleClose}>
+                      <Typography onClick={()=>navigate('/admin/courses')}>Lectures</Typography>
                     </Button>
+                    </Stack>
                   </Popover>
                 </>
               )}
               {!user && (
-                <li>
-                  <Link to="/register">Register</Link>
-                </li>
+               <Button sx={{p:"10px 40px",borderRadius:"25px",ml:3,fontWeight:"bold"}} variant="outlined" onClick={()=>navigate('/login')}>
+                 Sign In
+               </Button>
+              )}
+              {!user && (
+               <Button sx={{p:"10px 40px",borderRadius:"25px",ml:3,color:"white"}} variant="contained" onClick={()=>navigate('/register')}>
+                Register Now
+               </Button>
               )}
             </ul>
           </div>
@@ -178,20 +199,15 @@ const HomeNavabar = () => {
                 >
                   <Link to="about">About</Link>
                 </li>
-                <li
+                {
+                  user && <li
                   onClick={() => {
                     setToggle1(!toggle1);
                   }}
                 >
                   <Link to="/courses">Courses</Link>
                 </li>
-                <li
-                  onClick={() => {
-                    setToggle1(!toggle1);
-                  }}
-                >
-                  <Link to="/blogs">Blog</Link>
-                </li>
+                }
                 <li
                   onClick={() => {
                     setToggle1(!toggle1);
@@ -206,7 +222,13 @@ const HomeNavabar = () => {
                 >
                   <Link to="/contact">Contact</Link>
                 </li>
-                
+                <li
+                  onClick={() => {
+                    setToggle1(!toggle1);
+                  }}
+                >
+                  <Link to="/udyamsheel">UdyamSheel</Link>
+                </li>
                 {user && (
                   <>
                     <li
@@ -219,7 +241,7 @@ const HomeNavabar = () => {
                       onClick={() => {
                         setToggle1(!toggle1);
                       }}
-                      sx={{ mt: "50px" }}
+                      sx={{ mt: "70px" }}
                       id="menu-appbar"
                       anchorEl={anchorElUser}
                       anchorOrigin={{
@@ -258,9 +280,19 @@ const HomeNavabar = () => {
                       setToggle1(!toggle1);
                     }}
                   >
+                    <Link to="/login">Login</Link>
+                  </li>
+                )}
+                {!user && (
+                  <li
+                    onClick={() => {
+                      setToggle1(!toggle1);
+                    }}
+                  >
                     <Link to="/register">Register</Link>
                   </li>
                 )}
+                 
               </ul>
             </div>
           </div>
@@ -270,4 +302,4 @@ const HomeNavabar = () => {
   );
 };
 
-export default HomeNavabar;
+export default NavabarMain;
