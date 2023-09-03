@@ -9,27 +9,27 @@ const initialState = {
 
 
 export const fetchAllCources= createAsyncThunk("lectures/fetchAllCourses",()=>{
-    return axios.get(`http://localhost:9000/api/v1/courses/fetch-lecture-data`).then((res) =>res.data).catch((err)=>{
+    return axios.get(`https://udyamwell.azurewebsites.net/api/v1/courses/fetch-lecture-data`).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });
 
 export const createCourse= createAsyncThunk("lectures/createCourse",(data)=>{
-    return axios.post(`http://localhost:9000/api/v1/courses/lecture-data`,data).then((res) =>res.data).catch((err)=>{
+    return axios.post(`https://udyamwell.azurewebsites.net/api/v1/courses/lecture-data`,data).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });
 
 export const updateCourse= createAsyncThunk("lectures/updateCourse",({_id,data})=>{
     console.log("slice",_id,data)
-    return axios.put(`http://localhost:9000/api/v1/courses/update-lecture-data/${_id}`,data).then((res) =>res.data).catch((err)=>{
+    return axios.put(`https://udyamwell.azurewebsites.net/api/v1/courses/update-lecture-data/${_id}`,data).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });
 
 export const deleteCourse= createAsyncThunk("lectures/deleteCourse",(_id)=>{
     console.log("slice",_id)
-    return axios.delete(`http://localhost:9000/api/v1/courses/delete-lecture-data/${_id}`).then((res) =>res.data).catch((err)=>{
+    return axios.delete(`https://udyamwell.azurewebsites.net/api/v1/courses/delete-lecture-data/${_id}`).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });

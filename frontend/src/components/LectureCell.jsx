@@ -74,7 +74,7 @@ const LectureCell = ({ lecture }) => {
           <Box sx={{ height: "10vh" }}>
             <img
               style={{ height: "100%" }}
-              src={`http://localhost:9000/uploads/course/videoThumbnails/${lecture?.videoThumbnail}`}
+              src={`https://udyamwell.azurewebsites.net/uploads/course/videoThumbnails/${lecture?.videoThumbnail}`}
               alt={lecture.videoThumbnail}
             />
           </Box>
