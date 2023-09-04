@@ -2,25 +2,34 @@
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    background-image: url('../assets/banner_bg.png');
     position: relative;
     overflow: hidden;
-    background-repeat: no-repeat;
-    background-size: 68%;
-    background-position: top right;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.landingPageCover{
+    width: 100vw;
+}
+.landingPageCover__animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.8;
+    width: 100%;
+    height: auto;
+  }
+  
 .banner{
     margin-top: 6rem;
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
 }
 .bannerText{
     display: flex;
-    width: 45%;
+    width: 50%;
     justify-content: center;
     align-items: start;
     flex-direction: column;
@@ -72,7 +81,7 @@
 
 }
 .bannerImg{
-    width: 55%;
+    width: 45%;
 }
 .bannerImg img{
     width: 100%;
@@ -86,7 +95,22 @@
 .homeAbout{
     display: flex;
     width: 95%;
+    margin: 3rem auto;
+}
+.countBox{
+    background-color: #e0f1e5;
+    border-radius: 20px;
+    padding: 10px;
+    width: 60%;
     margin: 4rem auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .aboutImg{
     background-image: url('../assets/learning_img_bg.png');
@@ -216,6 +240,9 @@
     text-align: justify;
 }
 @media (max-width: 1220px) {
+    .countBox{
+        width: 70%;
+    }
     .aboutImg{
         width: 50%;
     }
@@ -258,9 +285,12 @@
         font-size: 3rem;
         font-weight: 900;
     }
-    .bannerText h4{
+    .bannerText h6{
         width: 90%;
         text-align: center;
+    }
+    .countBox{
+        width: 80%;
     }
     .homeButtons button{
         width: 130px;
@@ -306,6 +336,11 @@
     .feautreInfo{
         width: 80%;
         margin-top: 80px;
+    }
+    .countBox{
+        width: 85%;
+        flex-direction: column;
+        margin-bottom: 0;
     }
 }
 
