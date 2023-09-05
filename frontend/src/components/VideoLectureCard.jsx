@@ -29,7 +29,7 @@ let urlVideo = `https://udyamwell.azurewebsites.net/uploads/course/videos/`;
                 // image= "http://localhost:9000/uploads/lecture/thumbnails/1690093516906_cloud3.jpg"
                 image= {urlImage + lecture.videoThumbnail}
                 sx={{ opacity: 0.8 }}
-                alt="Paella dish"
+                alt="UdyamWell Course"
               />
               <Box className='playIcon'>
               <IconButton aria-label="play" >
@@ -37,9 +37,9 @@ let urlVideo = `https://udyamwell.azurewebsites.net/uploads/course/videos/`;
               </IconButton>
               </Box>
 
-              <Box className='timing'>
+              {/* <Box className='timing'>
                 <p>0.23</p>
-              </Box>
+              </Box> */}
           </Box>
 
           {/* <CardHeader
