@@ -82,15 +82,15 @@ let urlImage = `https://udyamwell.azurewebsites.net/uploads/course/thumbnails/`;
                 // image= "http://localhost:9000/uploads/course/thumbnails/1690093516906_cloud3.jpg"
                 image= {urlImage + course.image}
                 sx={{ opacity: 0.8 }}
-                alt="Paella dish"
+                alt="UdyamWell Course"
               />
               <Box className='playIcon'>
                 <PlayCircleFilledTwoToneIcon sx={{ height: "100%", width: "40%" }} />
               </Box>
 
-              <Box className='timing'>
+              {/* <Box className='timing'>
                 <p>0.23</p>
-              </Box>
+              </Box> */}
 
             </a>
           </Box>
