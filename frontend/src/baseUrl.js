@@ -1,3 +1,3 @@
-const baseUrl= "https://udyamwell.azurewebsites.net";
+const baseUrl= "https://www.udyamwell.com/";
 
 export default baseUrl;

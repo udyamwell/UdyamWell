@@ -12,40 +12,40 @@ const initialState = {
 
 export const fetchAllUsers = createAsyncThunk("user/fetchAllUsers",()=>{
     let token = localStorage.getItem("token");
-    return axios.get(`https://udyamwell.azurewebsites.net/users`,{headers:{Authorization: `Bearer ${token}`}}).then(res=>res.data).catch(err=>{
+    return axios.get(`https://www.udyamwell.com/users`,{headers:{Authorization: `Bearer ${token}`}}).then(res=>res.data).catch(err=>{
         throw new Error(err.response.data.message)
     })
 })
 
 export const updateUserAdmin = createAsyncThunk("user/updateUserAdmin",({_id,data})=>{
     let token = localStorage.getItem("token");
-    return axios.put(`https://udyamwell.azurewebsites.net/users/update-admin/${_id}`,data,{headers:{Authorization: `Bearer ${token}`}}).then(res=>res.data).catch(err=>{
+    return axios.put(`https://www.udyamwell.com/users/update-admin/${_id}`,data,{headers:{Authorization: `Bearer ${token}`}}).then(res=>res.data).catch(err=>{
         throw new Error(err.response.data.message)
     })
 })
 
 export const registerUser= createAsyncThunk("user/registerUser", (data)=>{
-    return axios.post(`https://udyamwell.azurewebsites.net/users/sign-up`,data).then((res) =>res.data).catch((err)=>{
+    return axios.post(`https://www.udyamwell.com/users/sign-up`,data).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });
 
 export const loginUser= createAsyncThunk("user/loginUser", (data)=>{
-    return axios.post(`https://udyamwell.azurewebsites.net/users/sign-in`,data).then((res) =>res.data).catch((err)=>{
+    return axios.post(`https://www.udyamwell.com/users/sign-in`,data).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });
 
 export const updateUser= createAsyncThunk("user/updateUser", (data)=>{
     let token = localStorage.getItem("token");
-    return axios.put(`https://udyamwell.azurewebsites.net/users/update`,data,{headers:{Authorization: `Bearer ${token}`}}).then((res) =>res.data).catch((err)=>{
+    return axios.put(`https://www.udyamwell.com/users/update`,data,{headers:{Authorization: `Bearer ${token}`}}).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });
 
 export const deleteUser = createAsyncThunk("user/deleteUser",(_id)=>{
     let token = localStorage.getItem("token");
-    return axios.delete(`https://udyamwell.azurewebsites.net/users/${_id}`,{headers:{Authorization: `Bearer ${token}`}}).then(res=>res.data).catch(err=>{
+    return axios.delete(`https://www.udyamwell.com/users/${_id}`,{headers:{Authorization: `Bearer ${token}`}}).then(res=>res.data).catch(err=>{
         throw new Error(err.response.data.message)
     })
 })

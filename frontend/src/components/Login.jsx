@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { login } from "../assets";
+import { landingPageBg_About, login } from "../assets";
 import "./styles/register.css";
 import { Alert, Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material";
 import { Link } from 'react-router-dom';
