@@ -34,17 +34,24 @@ export const AboutServices = ()=>{
         <AboutCard
           heading="Learning Platform & Community Support"
           icon={<ContentCopyRoundedIcon/>}
-          text1="UdyamWell is an edtech platform that provides a wealth of resources to help entrepreneurs and business owners. From video courses to live webinars, you can access a variety of tools to help you grow your business. In addition, you can connect with a community of fellow entrepreneurs to share insights, ask for advice, and network."
+          text1="UdyamWell's learning and community support platform is a dynamic hub designed to empower rural entrepreneurs with comprehensive learning resources, mentorship, and a thriving community network. It offers tailored courses, expert guidance, and collaborative spaces, fostering an environment where innovation and growth flourish, ultimately driving lasting prosperity in rural India."
         />
         <AboutCard
           heading="Handholding Support"
           icon={<IosShareRoundedIcon/>}
-          text1="UdyamWell provides personalized handholding support to help you through every stage of your business journey. Whether you need help with product development, marketing, or finance, UdyamWell's team of experts is there to guide you. You can get one-on-one coaching and mentoring to help you make the best decisions for your business."
+          text1=" 
+          UdyamWell's Handholding Support, provided by both our Udyam Sathis and the UdyamWell team, offers personalized assistance to rural entrepreneurs at every step of their journey. Our passionate mentors and dedicated team members provide expert advice, resources, and strategic direction, ensuring that rural enterprises receive the crucial support needed to thrive and prosper."
         />
         <AboutCard
           icon={<LightbulbOutlinedIcon/>}
           heading="Partner Connect"
           text1="UdyamWell has a vast network of partners to help you with a range of services. If you need help with product delivery or labeling, for example, UdyamWell can connect you with the right partner to get the job done. This means that you can focus on your core business activities, while UdyamWell takes care of the rest."
+        />
+        <AboutCard
+          icon={<LightbulbOutlinedIcon/>}
+          heading="ONDC enabled seller platform- "
+          text1="UdyamWell's ONDC (Open Network for Digital Commerce) Enabled Seller Platform empowers rural entrepreneurs to expand their reach and access larger consumer markets. Leveraging this platform, sellers can seamlessly list their products, access logistics and payment services, and connect with a broader customer base, thus fostering economic growth in rural communities. 
+          "
         />
       </div>
   )

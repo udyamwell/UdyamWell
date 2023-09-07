@@ -26,7 +26,7 @@ const HomePage = () => {
             <div className="banner">
                 <div className="bannerText">
                     <h1>Partner in your Business Journey</h1>
-                    <h6>UdyamWell: A Platform for you to make your entrepreneurial dreams come true. </h6>
+                    <h6>UdyamWell: A one-stop solution for you from your capacity building to product sales. </h6>
                     <div className="homeButtons">
                         <button style={{cursor:"pointer"}} className="btn1"  onClick={()=>navigate('/courses')}>
                             View Course
@@ -70,9 +70,10 @@ const HomePage = () => {
                 {/*  */}
                 <h1>Learning with Love and Loughter</h1>
                 <div className="aboutKeyPoints">
-                    <p> <span><DriveFileRenameOutlineOutlinedIcon/> </span> UdyamWell is an edtech platform that provides a wealth of resources to help entrepreneurs and business owners.</p>
+                    {/* <p> <span><DriveFileRenameOutlineOutlinedIcon/> </span> UdyamWell is an edtech platform that provides a wealth of resources to help entrepreneurs and business owners.</p>
                     <p> <span><DriveFileRenameOutlineOutlinedIcon/> </span> UdyamWell provides personalized handholding support to help you through every stage of your business journey.</p>
-                    <p> <span><DriveFileRenameOutlineOutlinedIcon/> </span> UdyamWell has a vast network of partners to help you with a range of services.</p>
+                    <p> <span><DriveFileRenameOutlineOutlinedIcon/> </span> UdyamWell has a vast network of partners to help you with a range of services.</p> */}
+                    <p>UdyamWell is a dynamic platform dedicated to nurturing and empowering rural entrepreneurs across India. Our comprehensive ecosystem includes innovative programs, mentorship, access to markets, and learning resources. With a strong emphasis on fostering self-reliance and prosperity, UdyamWell strives to bridge the gap between rural enterprises and urban markets, enabling economic growth and sustainable livelihoods in rural communities. </p>
                 </div>
             {/*  */}
             <div className="homeAboutButton">
@@ -81,7 +82,7 @@ const HomePage = () => {
             </div>
         </div>
         {/* section */}
-        <div className="homeFeature">
+        {/* <div className="homeFeature">
             <div className="feautreInfo">
             <div className="aboutSub">
                     <div className="about_"></div>
@@ -109,7 +110,7 @@ const HomePage = () => {
             <div className="featureImg">
                 <img src={advance_feature_img} alt="" />
             </div>
-        </div>
+        </div> */}
         </>
     )
 } 

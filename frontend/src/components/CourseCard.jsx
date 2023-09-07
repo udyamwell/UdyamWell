@@ -12,7 +12,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const CourseCard = ({ courses }) => {
   const navigate = useNavigate();
   // console.log("Course Value ==>", courses);
-let urlImage = `https://udyamwell.azurewebsites.net/uploads/course/thumbnails/`;
+let urlImage = `https://www.udyamwell.com/uploads/course/thumbnails/`;
 // let urlVideo = `http://localhost:9000/uploads/course/videos/`;
 
 // Access the courses array inside the courses object

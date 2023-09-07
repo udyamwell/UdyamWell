@@ -14,7 +14,7 @@ export const fetchSingleCource = createAsyncThunk(
   (id) => {
     console.log("id in slice", id);
     return axios
-      .get(`https://udyamwell.azurewebsites.net/api/v1/courses/videos/fetch-video/${id}`)
+      .get(`https://www.udyamwell.com/api/v1/courses/videos/fetch-video/${id}`)
       .then((res) => res.data)
       .catch((err) => {
         throw new Error(err.response.data.message);
@@ -26,7 +26,7 @@ export const createVideo = createAsyncThunk(
   ({ id, data }) => {
     return axios
       .post(
-        `https://udyamwell.azurewebsites.net/api/v1/courses/videos/create-video/${id}`,
+        `https://www.udyamwell.com/api/v1/courses/videos/create-video/${id}`,
         data
       )
       .then((res) => res.data)
@@ -42,7 +42,7 @@ export const updateVideo = createAsyncThunk(
     console.log("slice", _id, data);
     return axios
       .put(
-        `https://udyamwell.azurewebsites.net/api/v1/courses/videos/update-video/${_id}`,
+        `https://www.udyamwell.com/api/v1/courses/videos/update-video/${_id}`,
         data
       )
       .then((res) => res.data)
@@ -53,7 +53,7 @@ export const updateVideo = createAsyncThunk(
 );
 export const deleteVideo= createAsyncThunk("videos/deleteVideo",(_id)=>{
     console.log("slice",_id)
-    return axios.delete(`https://udyamwell.azurewebsites.net/api/v1/courses/videos/delete-video/${_id}`).then((res) =>res.data).catch((err)=>{
+    return axios.delete(`https://www.udyamwell.com/api/v1/courses/videos/delete-video/${_id}`).then((res) =>res.data).catch((err)=>{
         throw new Error(err.response.data.message); 
 });
 });

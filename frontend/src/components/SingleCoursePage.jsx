@@ -82,7 +82,7 @@ const SingleCoursePage = () => {
     useEffect(() => {
         // Set the initial selected video URL to the URL of the first lecture
         if (lectures && lectures.length > 0) {
-            setSelectedVideoUrl(`https://udyamwell.azurewebsites.net/uploads/course/videos/${lectures[0].video}`);
+            setSelectedVideoUrl(`https://www.udyamwell.com/uploads/course/videos/${lectures[0].video}`);
         }
     }, [lectures]);
     const handleCardClick = (videoUrl, index) => {
