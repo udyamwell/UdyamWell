@@ -11,7 +11,7 @@ const db = require('./config/mongoose').connect();
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-const allowedOrigins = ['http://localhost:3000', 'https://udyamwell.azurewebsites.net']
+const allowedOrigins = ['http://localhost:3000', 'https://udyamwell.azurewebsites.net', 'https://www.udyamwell.com', 'udyamwell.com']
 app.use(cors());     // communicate with ui and backend 
 // use express router 
 app.use('/',require('./routes'));
