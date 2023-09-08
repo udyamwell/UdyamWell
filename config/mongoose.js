@@ -10,7 +10,7 @@ exports.connect = () => {
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log(`DB connected successfully`);
+      console.log(`DB Connected Successfully`);
     })
     .catch((err) => {
       console.log('Db connection issue');
