@@ -70,9 +70,6 @@ const HomePage = () => {
                 {/*  */}
                 <h1>Learning with Love and Loughter</h1>
                 <div className="aboutKeyPoints">
-                    {/* <p> <span><DriveFileRenameOutlineOutlinedIcon/> </span> UdyamWell is an edtech platform that provides a wealth of resources to help entrepreneurs and business owners.</p>
-                    <p> <span><DriveFileRenameOutlineOutlinedIcon/> </span> UdyamWell provides personalized handholding support to help you through every stage of your business journey.</p>
-                    <p> <span><DriveFileRenameOutlineOutlinedIcon/> </span> UdyamWell has a vast network of partners to help you with a range of services.</p> */}
                     <p>UdyamWell is a dynamic platform dedicated to nurturing and empowering rural entrepreneurs across India. Our comprehensive ecosystem includes innovative programs, mentorship, access to markets, and learning resources. With a strong emphasis on fostering self-reliance and prosperity, UdyamWell strives to bridge the gap between rural enterprises and urban markets, enabling economic growth and sustainable livelihoods in rural communities. </p>
                 </div>
             {/*  */}
@@ -81,37 +78,7 @@ const HomePage = () => {
             </div>
             </div>
         </div>
-        {/* section */}
-        {/* <div className="homeFeature">
-            <div className="feautreInfo">
-            <div className="aboutSub">
-                    <div className="about_"></div>
-                    <div className="aboutSubText" style={{marginLeft:"10px"}}><p>Advance Feature</p></div>
-                </div>
-                <h1>Our Advance Educator Learning System</h1>
-                <p id="featureText">UdyamWell is a Learning Platform especially designed for people from rural background to help them in growing their business and network.</p>
-                <div className="features">
-                    <div className="feature1">
-                        <div className="featureIcon">
-                            <NoteAltRoundedIcon/>
-                        </div>
-                        <h2>Learn Anywhere</h2>
-                        <p>You can be at any part of the world and we will be ensuring that ypu recieves right information and guidance at your own convienient time.</p>
-                    </div>
-                    <div className="feature2">
-                        <div className="featureIcon">
-                            <TaskOutlinedIcon/>
-                        </div>
-                        <h2>Expert Teacher</h2>
-                        <p>Our Mentors are expert in this domain and they are always available for you to help you grow your Business.</p>
-                    </div>
-                </div>
-            </div>
-            <div className="featureImg">
-                <img src={advance_feature_img} alt="" />
-            </div>
-        </div> */}
-        </>
+    </>
     )
 } 
 export default HomePage;
