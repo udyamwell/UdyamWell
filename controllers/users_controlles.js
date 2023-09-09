@@ -222,7 +222,7 @@ module.exports.sendOtp = async (req, res) => {
       // Return 401 Unauthorized status code with error message
       return res.status(401).json({
         success: false,
-        message: `User is Already Registered`,
+        message: `User is already Registered`,
       });
     }
 
