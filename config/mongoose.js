@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 
 exports.connect = () => {
-  const uri = process.env.MONGODB_URI;
+  const uri = "mongodb+srv://udyamwell:Udyamwell01@cluster0.ccemrys.mongodb.net/?retryWrites=true&w=majority";
   mongoose
     .connect(uri, {
       useNewUrlParser: true,
