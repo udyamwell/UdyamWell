@@ -6,12 +6,20 @@ import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import { Button } from "@mui/material";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { landingPageBg_small } from "../assets";
 const Contact = () => {
     return (
         <>
-          <TopSection MainHeadinig="Contact Us" subText="" text="Contact Us" />
-
-          <div className="contact">
+          {/* <TopSection MainHeadinig="Contact Us" subText="" text="Contact Us" /> */}
+          <div className="landingPageCover">
+          <img
+            src={landingPageBg_small}
+            width='100vw'
+            alt="landing"
+            className="landingPageCover__animation"
+          />
+        </div>
+          <div className="contact" style={{marginTop:"15rem"}}>
             <div className="contactForm">
             <div className="form">
             <h1 className="subHeading">Get in Touch</h1>

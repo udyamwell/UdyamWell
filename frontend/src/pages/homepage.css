@@ -41,10 +41,9 @@
     margin-bottom: 16px;
     /* font-weight: 600; */
 }
-.bannerText h6{
-    width: 60%;
+.bannerText p{
     font-weight: lighter;
-    color: #236836;
+    /* color: #236836; */
     font-size: 20px;
 }
 .homeButtons{
@@ -285,8 +284,7 @@
         font-size: 3rem;
         font-weight: 900;
     }
-    .bannerText h6{
-        width: 90%;
+    .bannerText p{
         text-align: center;
     }
     .countBox{

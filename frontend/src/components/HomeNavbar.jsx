@@ -59,6 +59,7 @@ const NavabarMain = () => {
                 className="logo1"
                 width={"auto"}
                 alt=""
+                onClick={()=>navigate('/')}
               />
             </div>
             <ul className="navbar-menuHome" >

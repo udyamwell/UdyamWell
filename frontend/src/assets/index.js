@@ -42,8 +42,9 @@ import register from './register.jpg'
 import login from './login.png';
 import landingPageBg from './landingPageBg.jpg';
 import landingPageBg_About from './landingPageBg_About.jpg';
+import landingPageBg_small from './landingPageBg_small.jpg';
 import Udyamwell_Logo_Standee from './Udyamwell_Logo_Standee.png';
 import udyamsheel from './udyamsheel.webp';
 import service from './service.png';
 import udyamsheelQr from './udyamsheelQr.webp';
-export {menuBlack,closeBlack,menu,close,a,about_overlay,advance_feature_img,advance_feature_bg,banner_bg,banner_img,breadcrumb,favicon, learning_img,learning_img_bg,LogGradientText_BlackBG,logo,logo1,Logo_Gradient_BlackBG,LogoBlackText_whiteBG,quote,service_bg_2,single_page_logo,color_star,left,play,quate,right,star,icon_1,icon_2,icon_3,icon_4,icon_5,icon_7,icon_8,icon_9,twitter,ig,fb,linkedIn,register,login,Udyamwell_Logo_Standee, landingPageBg, landingPageBg_About,udyamsheel,udyamsheelQr,service }
+export {menuBlack,closeBlack,menu,close,a,about_overlay,advance_feature_img,advance_feature_bg,banner_bg,banner_img,breadcrumb,favicon, learning_img,learning_img_bg,LogGradientText_BlackBG,logo,logo1,Logo_Gradient_BlackBG,LogoBlackText_whiteBG,quote,service_bg_2,single_page_logo,color_star,left,play,quate,right,star,icon_1,icon_2,icon_3,icon_4,icon_5,icon_7,icon_8,icon_9,twitter,ig,fb,linkedIn,register,login,Udyamwell_Logo_Standee, landingPageBg, landingPageBg_About,udyamsheel,udyamsheelQr,service,landingPageBg_small }

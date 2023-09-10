@@ -3,8 +3,9 @@
     margin: 0 auto;
 }
 .serviceSubHeading{
-    width: 65%;
+    /* width: 70%; */
     margin: 20px auto;
+    text-align: center;
 }
 
 
@@ -67,15 +68,15 @@
     .servicePage{
         width: 90%;
     }
-    .serviceSubHeading{
+    /* .serviceSubHeading{
         width: 75%;
-    }
+    } */
 }
-@media only screen and (max-width:850px) {
+/* @media only screen and (max-width:850px) {
     .serviceSubHeading{
         width: 85%;
     }
-}
+} */
 @media only screen and (max-width:510px) {
     .servicePage{
         width: 95%;
