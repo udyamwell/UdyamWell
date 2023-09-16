@@ -17,22 +17,23 @@ import Video from "./pages/admin panel/Video";
 import Profile from "./pages/Profile";
 import ForgotPassword from "./components/ForgotPassword";
 import ChangePassword from "./components/ChangePassword";
-import NavabarMain from "./components/NavbarMain";
+// import NavabarMain from "./components/NavbarMain";
 import VerifySucces from "./components/VerifySuccess";
 import Lectures from "./pages/admin panel/Lectures";
 import Users from "./pages/admin panel/Users";
 import Email from "./components/Email";
 import UdyamSheel from "./pages/UdyamSheel";
 import HomeNavabar from "./components/HomeNavbar";
-import Navabar from "./components/Navbar";
+// import Navabar from "./components/Navbar";
 
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
   return (
     <>
       <div>
         <ColorMode>
-          {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' || location.pathname==='/about' || location.pathname==='/udyamsheel' ) ? (<HomeNavabar/>) : (<Navabar/>)}
+          {/* {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' || location.pathname==='/about' || location.pathname==='/udyamsheel' ) ? (<HomeNavabar/>) : (<Navabar/>)} */}
+          <HomeNavabar/>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />

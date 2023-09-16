@@ -1,4 +1,4 @@
-import { configureStore, createReducer } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import UserReducer from "./slices/UserSlice";
 import courseReducer from "./slices/CourseSlice";
 import lectureReducer from "./slices/videos";
