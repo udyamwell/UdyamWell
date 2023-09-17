@@ -18,8 +18,7 @@ let urlVideo = `https://www.udyamwell.com/uploads/course/videos/`;
   return (
     <>
       {lectures?.map((lecture) => (
-        // <Card key={lecture._id} sx={{ maxWidth: 300, borderRadius: "10px",m:3,ml:0,cursor:"pointer" }} onClick={() => onCardClick(`${urlVideo}${lecture.video}`)}>
-        <Card key={lecture._id} sx={{ maxWidth: 300, borderRadius: "10px",m:3,ml:0,cursor:"pointer" }} >
+        <Card key={lecture._id} sx={{ maxWidth: 300, borderRadius: "10px",m:3,ml:0,cursor:"pointer" }} onClick={() => onCardClick(`${urlVideo}${lecture.video}`)}>
           <a href={lecture.link} target="_blank" rel="noopener noreferrer">
    
           <Box className='cardImageBox'>

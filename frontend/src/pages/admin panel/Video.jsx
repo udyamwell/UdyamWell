@@ -1,6 +1,6 @@
 // export default Video;
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import {
   Alert,
   Box,
@@ -19,7 +19,6 @@ import {
   TableHead,
   TableRow,
   TextField,
-  Typography,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {createCourse, fetchAllCources } from "../../slices/CourseSlice";

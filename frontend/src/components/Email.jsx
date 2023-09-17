@@ -1,12 +1,19 @@
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { landingPageBg_small } from "../assets";
 const Email = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const {user} = useSelector(state=>state.user);
+  useEffect(()=>{
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    user && navigate('/');
+  },[])
   const handleSubmit = () => {
     if (email === "") {
       alert("Please enter your registered mail");
@@ -24,6 +31,14 @@ const Email = () => {
   };
   return (
     <>
+    <div className="landingPageCover">
+          <img
+            src={landingPageBg_small}
+            width='100vw'
+            alt="landing"
+            className="landingPageCover__animation"
+          />
+        </div>
       <Box
         sx={{
           display: "flex",

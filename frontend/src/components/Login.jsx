@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { landingPageBg_About, login } from "../assets";
+import { landingPageBg_About, landingPageBg_small, login } from "../assets";
 import "./styles/register.css";
 import { Alert, Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material";
 import { Link } from 'react-router-dom';
@@ -34,8 +34,20 @@ const Login = () => {
     dispatch(loginUser(values));
   }
 
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
+
   return (
     <>
+    <div className="landingPageCover">
+          <img
+            src={landingPageBg_small}
+            width='100vw'
+            alt="landing"
+            className="landingPageCover__animation"
+          />
+        </div>
       <div className="loginContainer">
         {/* illustration */}
         <div className="logIllustration">

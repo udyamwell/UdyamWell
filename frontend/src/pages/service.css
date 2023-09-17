@@ -3,8 +3,9 @@
     margin: 0 auto;
 }
 .serviceSubHeading{
-    width: 65%;
+    /* width: 70%; */
     margin: 20px auto;
+    text-align: center;
 }
 
 
@@ -22,7 +23,8 @@
     border: 1px solid #f0f4f6;
 }
 .cardContainer:hover{
-    border: 1px solid #ffc107;;
+    background-color:#b1d0aa ;
+    border: 2px solid green;
 }
 .cardContainer span{
     margin-bottom: 30px;
@@ -55,7 +57,12 @@
 .cardContainer p{
     color: #7f7f7f;
     line-height: 1.5;
-
+}
+.cardContainer:hover p{
+    color: black;
+}
+.cardContainer:hover h4{
+    font-size: 30px;
 }
 .cardContainer ul{
     list-style: none;
@@ -67,15 +74,15 @@
     .servicePage{
         width: 90%;
     }
-    .serviceSubHeading{
+    /* .serviceSubHeading{
         width: 75%;
-    }
+    } */
 }
-@media only screen and (max-width:850px) {
+/* @media only screen and (max-width:850px) {
     .serviceSubHeading{
         width: 85%;
     }
-}
+} */
 @media only screen and (max-width:510px) {
     .servicePage{
         width: 95%;

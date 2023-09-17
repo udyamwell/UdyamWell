@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles/register.css";
-import { register } from "../assets";
+import { landingPageBg_small, register } from "../assets";
 import {
   Alert,
   Box,
@@ -139,6 +139,14 @@ const Register = () => {
 
   return (
     <>
+    <div className="landingPageCover">
+          <img
+            src={landingPageBg_small}
+            width='100vw'
+            alt="landing"
+            className="landingPageCover__animation"
+          />
+        </div>
       <div className="registerContainer">
         {/* illustration */}
         <div className="regIllustration">

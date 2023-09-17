@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="part1">
             <img src={logo1} alt="" />
             <h1>उद्यमWell</h1>
-            <p>
+            <p style={{textAlign:"justify"}}>
               UdyamWell is a true partner that guides you on your
               entrepreneurial journey and stays with you in every step of the
               way to assist you in overcoming challenges and also in reaching
