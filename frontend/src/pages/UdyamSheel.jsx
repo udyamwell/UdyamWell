@@ -1,11 +1,13 @@
-import React from 'react';
-import TopSection from '../components/TopSection';
+import React, { useEffect } from 'react';
 import "./udyamSheel.css";
 import { banner_img, landingPageBg, udyamsheel, udyamsheelQr } from '../assets';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { useNavigate } from 'react-router';
 const UdyamSheel = () => {
     const navigate = useNavigate();
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+      }, []);
     return (
         <div>
              <div className="landingPageCover">
@@ -16,11 +18,11 @@ const UdyamSheel = () => {
             className="landingPageCover__animation"
           />
         </div>
-        <div className="HomeContainer" style={{margin:"8rem auto"}}>
-            <div className="banner">
+        <div className="HomeContainer" style={{margin:"3.5rem auto 0 auto"}}>
+            <div className="banner" style={{width:'65%'}}>
                 <div className="bannerText">
-                    <h1>UdyamSheel Bharat Program   </h1>
-                    <p>Rural Enterprises face many challenges such as procuring raw material, inadequate skills, weak communication & transportation and much more. UdyamWell is building a program to help Rural enterprises overcome these challenges. This happens through mentorship & enabling them via our support ecosystem. We aim to help these enterprises reach new heights by bringing them services, in collaboration with ONDC & NGO’s. </p>
+                    <h1 style={{fontSize:"3rem",sx:{fontSize:"0.5rem",md:{fontSize:"1rem"}}}}>UdyamSheel <span style={{color:"black"}}>Bharat</span> Program   </h1>
+                    <p style={{textAlign:"justify",fontSize:"16px"}}>Rural Enterprises face many challenges such as procuring raw material, inadequate skills, weak communication & transportation and much more. UdyamWell is building a program to help Rural enterprises overcome these challenges. This happens through mentorship & enabling them via our support ecosystem. We aim to help these enterprises reach new heights by bringing them services, in collaboration with ONDC & NGO’s. </p>
                 </div>
                 <div className="bannerImg">
                     <img src={udyamsheel} alt="" style={{borderRadius:"20px"}}/>
@@ -73,7 +75,7 @@ const UdyamSheel = () => {
             <hr/>
             {/* <!--  --> */}
            <div className='field'>
-            <label for="" className="mr-3 mt-3" style={{fontSize: "18px"}}>Business Address /  व्यावसायिक पताAny Website or Social Media link (If Available) /  कोई भी वेबसाइट या सोशल मीडिया लिंक (यदि उपलब्ध हो)</label>
+            <label for="" className="mr-3 mt-3" style={{fontSize: "18px"}}>Any Website or Social Media link (If Available) /  कोई भी वेबसाइट या सोशल मीडिया लिंक (यदि उपलब्ध हो)</label>
             <input type="text" name="entry.205543619" placeholder="Link"/> <br/> </div> <hr/>
            <div className='field'>
             <label for="" className="mr-3 mt-3" style={{fontSize: "18px"}}>Number of people in the organization (Team Size) /  संगठन में लोगों की संख्या</label>
@@ -98,7 +100,7 @@ const UdyamSheel = () => {
             </div>
             <div>
                 <input type="radio" name="entry.1352070005" id="other" value="other"/>
-                <label for="other">अन्य… / Other</label>
+                <label for="other">Other/ अन्य… </label>
             </div> </div> <hr/>
             {/* <!--  --> */}
             {/* <!-- <input type="text" name="" placeholder="How do you know?"/> <br> --> */}
@@ -106,15 +108,15 @@ const UdyamSheel = () => {
             <label for="" className="mr-3 mt-3" style={{fontSize: "18px"}}>How did you hear about our startup support program? //  आपने हमारे स्टार्टअप सहायता कार्यक्रम के बारे में कैसे सुना?</label>
             <div>
                 <input type="radio" name="entry.244755604" id="sm" value="sm"/>
-                <label for="sm">सोशल मीडिया चैनलों के माध्यम से / Through Social Media Channels </label>
+                <label for="sm">Through Social Media Channels/  सोशल मीडिया चैनलों के माध्यम से </label>
             </div>
             <div>
                 <input type="radio" name="entry.244755604" id="website" value="website"/>
-                <label for="website">हमारी वेबसाइट/ Our website</label>
+                <label for="website">Our Website/ हमारी वेबसाइट</label>
             </div>
             <div>
                 <input type="radio" name="entry.244755604" id="campaign" value="campaign"/>
-                <label for="campaign">स्थानीय अभियान / Local Campaign</label>
+                <label for="campaign"> Local Campaign/ स्थानीय अभियान </label>
             </div>
             <div>
                 <input type="radio" name="entry.244755604" id="someone" value="someone"/>
@@ -122,7 +124,7 @@ const UdyamSheel = () => {
             </div>
             <div>
                 <input type="radio" name="entry.244755604" id="Saathi" value="Saathi"/>
-                <label for="Saathi">उद्यम-साथी / Udyam Saathi</label>
+                <label for="Saathi">Udyam Saathi/उद्यम-साथी</label>
             </div>
             </div>
             <hr/>

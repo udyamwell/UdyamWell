@@ -35,7 +35,6 @@ const NavabarMain = () => {
     setAnchorEl(null);
   };
   const changeBackground = () => {
-    console.log(window.scrollY,"heeyyyyy")
     if(window.scrollY>=80){
       setNavbar(true);
     }
@@ -60,6 +59,7 @@ const NavabarMain = () => {
                 width={"auto"}
                 alt=""
                 onClick={()=>navigate('/')}
+                style={{cursor:"pointer"}}
               />
             </div>
             <ul className="navbar-menuHome" >
@@ -74,7 +74,7 @@ const NavabarMain = () => {
                 <Link to="/courses">Courses</Link>
               </li>
               }
-              {/* <li><Link to='/blogs'>Blog</Link></li> */}
+              <li><Link to='/blogs'>Blogs</Link></li>
               <li>
                 <Link to="/services">Services</Link>
               </li>
@@ -209,6 +209,13 @@ const NavabarMain = () => {
                   <Link to="/courses">Courses</Link>
                 </li>
                 }
+                 <li
+                  onClick={() => {
+                    setToggle1(!toggle1);
+                  }}
+                >
+                  <Link to="/blogs">Blogs</Link>
+                </li>
                 <li
                   onClick={() => {
                     setToggle1(!toggle1);

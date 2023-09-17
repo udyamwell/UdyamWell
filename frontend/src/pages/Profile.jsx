@@ -16,6 +16,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../slices/UserSlice";
 import Swal from 'sweetalert2'
+import { landingPageBg_small } from "../assets";
 
 const Profile = () => {
   const { user,error } = useSelector((state) => state.user);
@@ -49,6 +50,14 @@ const Profile = () => {
   };
   return (
     <>
+    <div className="landingPageCover">
+          <img
+            src={landingPageBg_small}
+            width='100vw'
+            alt="landing"
+            className="landingPageCover__animation"
+          />
+        </div>
       <div style={{ margin: "8rem auto", width: "80%" }}>
       <Typography variant="h3" color={"#236836"} sx={{mb:3}} fontWeight={'bold'} textAlign={'center'}>
                   Profile

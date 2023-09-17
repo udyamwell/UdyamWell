@@ -44,14 +44,21 @@
 
 /*  */
 .cardContainer1{
-    max-width: 350px;
+    max-width: 300px;
     text-align: center;
     padding: 30px 20px;
     border: 1px solid #f0f4f6;
-    margin:40px 30px;
+    margin:40px 20px;
 }
 .cardContainer1:hover{
-    border: 1px solid #ffc107;;
+    background-color:#b1d0aa ;
+    border: 2px solid green;
+}
+.cardContainer1:hover p{
+    color: black;
+}
+.cardContainer1:hover h4{
+    font-size: 30px;
 }
 .cardContainer1 span{
     margin-bottom: 30px;

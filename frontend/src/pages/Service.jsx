@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./service.css";
-import { landingPageBg, service } from "../assets";
+import { landingPageBg_small, service } from "../assets";
 import { useNavigate } from "react-router";
 
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
@@ -14,7 +14,7 @@ const ServiceCard = ({ heading, text1, text2, lists,icon }) => {
         <i>{icon}</i>
       </span>
       <h4>{heading}</h4>
-      <p>{text1}</p>
+      <p style={{textAlign:"justify"}}>{text1}</p>
       <p>{text2}</p>
       <ul>
         {lists.map((item) => {
@@ -26,6 +26,9 @@ const ServiceCard = ({ heading, text1, text2, lists,icon }) => {
 };
 const Service = () => {
   // const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const data = [
     {
       heading: "Udyam Saathi",
@@ -62,17 +65,17 @@ const Service = () => {
     <div className="servicePage">
      <div className="landingPageCover">
           <img
-            src={landingPageBg}
+            src={landingPageBg_small}
             width='100vw'
             alt="landing"
             className="landingPageCover__animation"
           />
         </div>
-        <div className="HomeContainer" style={{margin:"8rem auto"}}>
-            <div className="banner">
-                <div className="bannerText">
-                    <h1 style={{fontSize:"2.5rem"}}>Where <span style={{color:"black"}}>Rural</span> Enterprise <span  style={{color:"black"}}>Meets</span> Excellence  </h1>
-                    <p>UdyamWell is where rural enterprise meets excellence. Our services are designed to elevate the quality and performance of rural businesses, setting a new standard for success in rural development. </p>
+        <div className="HomeContainer" style={{margin:"5rem auto"}}>
+            <div className="banner" style={{width:'80%'}}>
+                <div className="bannerText" style={{sx:{width:"80%"}}}>
+                    <h1 style={{fontSize:"3rem",sx:{fontSize:"0.5rem",md:{fontSize:"1rem"}}}}>Where <span style={{color:"black"}}>Rural</span> Enterprise <span  style={{color:"black"}}>Meets</span> Excellence  </h1>
+                    <p style={{textAlign:"justify"}}>UdyamWell is where rural enterprise meets excellence. Our services are designed to elevate the quality and performance of rural businesses, setting a new standard for success in rural development. </p>
                     <div className="homeButtons">
                         <button style={{cursor:"pointer"}} className="btn1">
                            More Info
@@ -82,7 +85,7 @@ const Service = () => {
                         </button>
                     </div>
                 </div>
-                <div className="bannerImg">
+                <div className="bannerImg" style={{sx:{width:"30%"},md:{width:"40%"},lg:{width:"70%"}}}>
                     <img src={service} alt="" width={{width:"100%"}}/>
                 </div>
             </div>

@@ -1,13 +1,44 @@
-import React from "react";
-import TopSection from "../components/TopSection";
+import React, { useEffect, useState } from "react";
 import './contact.css';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
-import { Button } from "@mui/material";
+import { Button, Stack, TextField } from "@mui/material";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { landingPageBg_small } from "../assets";
+import emailjs  from "@emailjs/browser";
+import { useRef } from "react";
+import Swal from "sweetalert2";
+
 const Contact = () => {
+  const [wrong,setWrong] = useState("");
+  const form = useRef();
+  useEffect(()=>{
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  },[]);
+  // const Service_id = import.meta.env.Service_id;
+  const Template_id = process.env.Template_id;
+  console.log("se",Template_id)
+  // const [name,setName] = useState("");
+  // const [email,setEmail] = useState("");
+  // const [subject,setSubject] = useState("");
+  // const [message,setMessage] = useState("");
+  const handleSubmit = (e)=> {
+    e.preventDefault();
+    emailjs.sendForm('service_vv4ze4b', 'template_a1xm98n', form.current, 'e7EHTp-Nfbp7jKueD')
+      .then((result) => {
+        Swal.fire(
+          `Email Sent`,
+          "Please wait for the team to reply!!",
+          "success"
+        );
+        window.location.reload();
+          // console.log(result.text);
+      }, (error) => {
+          alert(error.text);
+      });
+  }
+  
     return (
         <>
           {/* <TopSection MainHeadinig="Contact Us" subText="" text="Contact Us" /> */}
@@ -23,30 +54,45 @@ const Contact = () => {
             <div className="contactForm">
             <div className="form">
             <h1 className="subHeading">Get in Touch</h1>
-            <form action="">
-            <input
+            {wrong && (<h3>{wrong}</h3>)}
+          <form ref={form} onSubmit={handleSubmit}>
+          <Stack className="ContactStack" spacing={2}>
+           <TextField
+            fullWidth
+            name="from_name"
+            variant="outlined"
                   type="text"
-                  className="halfInput"
                   placeholder="Enter your Name"
+                  // value={name}
+                  // onChange={(e) => setName(e.target.value)}
                 />
-                 <input
+                 <TextField
+                 variant="outlined"
                   type="email"
-                  className="halfInput"
                   placeholder="Enter your Email Address"
+                  name="email"
+                  // value={email}
+                  // onChange={(e) => setEmail(e.target.value)}
                 />
-                 <input
-                  style={{width:"86%"}}
+                 <TextField
+                 variant="outlined"
                   type="text"
+                  name="subject"
                   placeholder="Enter Subject"
+                  // value={subject}
+                  // onChange={(e) => setSubject(e.target.value)}
                 />
-                <textarea
-                style={{width:"86%",resize:"none"}}
+                <TextField
+                sx={{borderBottom:"1px solid black",mt:5}}
                 placeholder="Enter your message"
-                rows={'50'}
-                cols={'40'}
+                variant="standard"
+                name="message"
+              // value={message}
+              // onChange={(e) => setMessage(e.target.value)}
                 />
-                <Button variant="contained" sx={{ml:1}}>Submit</Button>
-            </form>
+           </Stack>
+                <Button variant="contained" type="submit" sx={{ml:1,mt:3}}>Submit</Button>
+          </form>
             </div>
             {/*  */}
             <div className="information">

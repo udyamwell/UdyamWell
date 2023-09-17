@@ -93,7 +93,7 @@
 /*  */
 .homeAbout{
     display: flex;
-    width: 95%;
+    width: 80%;
     margin: 3rem auto;
 }
 .countBox{
@@ -114,17 +114,18 @@
 .aboutImg{
     background-image: url('../assets/learning_img_bg.png');
     background-repeat: no-repeat;
-    width: 60%;
+    width: 47%;
 }
 .aboutImg img{
+    width: 100%;
     margin-left: 4%;
 }
 .aboutSub{
     display: flex;
 }
 .aboutInfo{
-    width:50%;
-    margin: 40px;
+    width:35%;
+    margin: 40px 60px;
 }
 .about-Sub{
     width: 40%;
@@ -140,7 +141,7 @@
 }
 .aboutInfo h1{
     color:#236836;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 900;
     margin-top: 15px;
 }
@@ -150,7 +151,7 @@
 }
 .aboutKeyPoints p{
     display: flex;
-    margin: 10px 0;
+    margin: 4px 0;
     justify-content:start;
     align-items: center;
     color: grey;
@@ -159,7 +160,7 @@
     margin-right: 20px;
 }
 .homeAboutButton button{
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 15px;
     border-radius: 50px;
     font-size: 14px;

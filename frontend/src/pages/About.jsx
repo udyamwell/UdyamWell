@@ -1,5 +1,4 @@
-import React from "react";
-import TopSection from "../components/TopSection";
+import React, { useEffect } from "react";
 import "./about.css";
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
@@ -13,23 +12,32 @@ const AboutCard = ({ heading, text1, text2, lists,icon }) => {
         <i>{icon}</i>
       </span>
       <h4>{heading}</h4>
-      <p>{text1}</p>
+      <p style={{textAlign:"justify"}}>{text1}</p>
     </div>
   );
 };
-
 export const AboutServices = ()=>{
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   return(
-    <div className="aboutServices" style={{marginTop:"15rem"}}>
+    <div className="aboutServices" style={{marginTop:"10rem"}}>
+       <Box sx={{p:"0 55px"}} textAlign={'center'}>
+          <Typography variant="h3"><span style={{color:"#2e8446"}}>Our</span> Services</Typography>
+          <Typography variant="h6" className="serviceSubHeading" > UdyamWell is a true partner that guides you on your entrepreneurial
+            journey and stays with you in every step of the way to assist you in
+            overcoming challenges and also in reaching new heights.</Typography>
+        </Box>
         <div className="aboutServices1">
-          <div className="aboutServicesDiv">
+          {/* <div className="aboutServicesDiv">
+         
           <h1>UdyamWell Services</h1>
-          <p >
+          <p style={{textAlign:"justify"}}>
             UdyamWell is a true partner that guides you on your entrepreneurial
             journey and stays with you in every step of the way to assist you in
             overcoming challenges and also in reaching new heights.
           </p>
-          </div>
+          </div> */}
         </div>
         <AboutCard
           heading="Learning Platform & Community Support"

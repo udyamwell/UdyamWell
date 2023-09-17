@@ -1,15 +1,12 @@
 import React from "react";
-import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
-import './homepage.css';
-import NoteAltRoundedIcon from '@mui/icons-material/NoteAltRounded';
-import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';
-import { advance_feature_img, banner_img, landingPageBg, learning_img } from "../assets";
+import {  banner_img, landingPageBg, learning_img } from "../assets";
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import { AboutServices } from "./About";
 import { useNavigate } from "react-router";
 import { Box, Typography } from "@mui/material";
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import PersonSharpIcon from '@mui/icons-material/PersonSharp';
+import './homepage.css';
 const HomePage = () => {
     const navigate = useNavigate();
     return ( 
@@ -25,8 +22,9 @@ const HomePage = () => {
         <div className="HomeContainer">
             <div className="banner">
                 <div className="bannerText">
-                    <h1>Partner in your Business Journey</h1>
-                    <h6>UdyamWell: A one-stop solution for you from your capacity building to product sales. </h6>
+                    
+                    <h1>Partner in <span style={{color:"black"}}>your</span> Business Journey</h1>
+                    <Typography variant="body1" sx={{textAlign:"justify",color:"black"}}>UdyamWell: A one-stop solution for you from your capacity building to product sales. </Typography>
                     <div className="homeButtons">
                         <button style={{cursor:"pointer"}} className="btn1"  onClick={()=>navigate('/courses')}>
                             View Course
@@ -54,7 +52,7 @@ const HomePage = () => {
             </Box>            
         </Box>
         {/* section 3 */}
-        <div className="homeServices">
+        <div className="homeServices" style={{marginTop:"3rem"}}>
         <AboutServices/>
         </div>
         {/*  section3*/}
