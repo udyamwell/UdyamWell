@@ -7,7 +7,7 @@ const VIDEO_PATH =  path.join('/uploads/course/videos');
 const videoSchema = new  mongoose.Schema({
     videoName:{
         type:String,
-        required:true,
+        required: true,
     },
     videoThumbnail:{
         type:String,

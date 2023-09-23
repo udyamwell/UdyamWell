@@ -84,7 +84,7 @@ const Lectures = ({}) => {
     <div style={{ width: "90%", margin: "8rem auto" }}>
         <Typography textAlign={'center'} variant="h3">{course?.course}</Typography>
         <Typography textAlign={'center'} sx={{mt:2}} variant="body1">{course?.description}</Typography>
-      <Stack alignItems={"end"}>
+        <Stack alignItems={"end"}>
         {/* {error && <Alert severity="error">{error}</Alert>} */}
         <Button
           sx={{ width: 100, margin: "1rem 0" }}
@@ -140,7 +140,7 @@ const Lectures = ({}) => {
               <TextField
                 type="file"
                 fullWidth
-                name="image"
+                name="videoThumbnail"
                 variant="standard"
                 onChange={(e) => setImage(e.target.files[0])}
               />
@@ -161,7 +161,7 @@ const Lectures = ({}) => {
               <TextField
                 type="file"
                 fullWidth
-                name="image"
+                name="video"
                 variant="standard"
                 onChange={(e) => setVideo(e.target.files[0])}
               />
