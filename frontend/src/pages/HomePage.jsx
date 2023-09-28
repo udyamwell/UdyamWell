@@ -13,7 +13,7 @@ const HomePage = () => {
   const [count, setCount] = useState(true);
   useEffect(() => {
     document.addEventListener("keydown", () => {
-      // setCount(prev => !prev);
+        // setCount(!count);
       openCurtain();
     });
   }, []);
@@ -137,7 +137,7 @@ const HomePage = () => {
       {/*  section3*/}
       <div className="homeAbout">
         <div className="aboutImg">
-          <img src={learning_img} alt="" />
+          <img src={learning_about} alt="" />
         </div>
         <div className="aboutInfo">
           <div className="aboutSub">

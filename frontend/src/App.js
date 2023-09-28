@@ -24,6 +24,7 @@ import Users from "./pages/admin panel/Users";
 import Email from "./components/Email";
 import UdyamSheel from "./pages/UdyamSheel";
 import HomeNavabar from "./components/HomeNavbar";
+import DownloadApp from "./pages/DownloadApp";
 // import Navabar from "./components/Navbar";
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
               <Route path="course/:id" element={<Lectures />} />
               <Route path="users" element={<Users />} />
             </Route>
+            <Route path="/appInformation" element={<DownloadApp />} />
           </Routes>
           <Footer />
         </ColorMode>
