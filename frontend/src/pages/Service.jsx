@@ -72,9 +72,9 @@ const Service = () => {
           />
         </div>
         <div className="HomeContainer" style={{margin:"5rem auto"}}>
-            <div className="banner" style={{width:'80%'}}>
-                <div className="bannerText" style={{sx:{width:"80%"}}}>
-                    <h1 style={{fontSize:"3rem",sx:{fontSize:"0.5rem",md:{fontSize:"1rem"}}}}>Where <span style={{color:"black"}}>Rural</span> Enterprise <span  style={{color:"black"}}>Meets</span> Excellence  </h1>
+            <div className="banner">
+                <div className="bannerText" >
+                    <h1 style={{fontSize:"3.4rem",sx:{fontSize:"0.5rem",md:{fontSize:"1rem"}}}}>Where <span style={{color:"black"}}>Rural</span> Enterprise <span  style={{color:"black"}}>Meets</span> Excellence  </h1>
                     <p style={{textAlign:"justify"}}>UdyamWell is where rural enterprise meets excellence. Our services are designed to elevate the quality and performance of rural businesses, setting a new standard for success in rural development. </p>
                     <div className="homeButtons">
                         <button style={{cursor:"pointer"}} className="btn1">
