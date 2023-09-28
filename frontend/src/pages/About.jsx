@@ -3,6 +3,7 @@ import "./about.css";
 import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
+import HandshakeTwoToneIcon from '@mui/icons-material/HandshakeTwoTone';
 import { Box, Stack, Typography } from "@mui/material";
 import { landingPageBg_About , landingPageBg_small} from "../assets";
 const AboutCard = ({ heading, text1, text2, lists,icon }) => {
@@ -44,7 +45,7 @@ export const AboutServices = ()=>{
           icon={<ContentCopyRoundedIcon/>}
           text1="UdyamWell's learning and community support platform is a dynamic hub designed to empower rural entrepreneurs with comprehensive learning resources, mentorship, and a thriving community network. It offers tailored courses, expert guidance, and collaborative spaces, fostering an environment where innovation and growth flourish, ultimately driving lasting prosperity in rural India."
         />
-        <AboutCard
+        {/* <AboutCard
           heading="Handholding Support"
           icon={<IosShareRoundedIcon/>}
           text1=" 
@@ -54,6 +55,11 @@ export const AboutServices = ()=>{
           icon={<LightbulbOutlinedIcon/>}
           heading="Partner Connect"
           text1="UdyamWell has a vast network of partners to help you with a range of services. If you need help with product delivery or labeling, for example, UdyamWell can connect you with the right partner to get the job done. This means that you can focus on your core business activities, while UdyamWell takes care of the rest."
+        /> */}
+        <AboutCard
+          icon={<HandshakeTwoToneIcon/>}
+          heading="Partner Connect"
+          text1="UdyamWell provides personalized assistance to rural entrepreneurs at every step of their journey, from ideation to execution. We have a vast network of partners to help you with a range of services, so you can focus on your core business activities."
         />
         <AboutCard
           icon={<LightbulbOutlinedIcon/>}
