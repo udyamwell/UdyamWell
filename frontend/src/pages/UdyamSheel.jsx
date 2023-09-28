@@ -18,10 +18,10 @@ const UdyamSheel = () => {
             className="landingPageCover__animation"
           />
         </div>
-        <div className="HomeContainer" style={{margin:"3.5rem auto 0 auto"}}>
-            <div className="banner" style={{width:'65%'}}>
+        <div className="HomeContainer" style={{margin:"0rem auto 0 auto"}}>
+            <div className="banner">
                 <div className="bannerText">
-                    <h1 style={{fontSize:"3rem",sx:{fontSize:"0.5rem",md:{fontSize:"1rem"}}}}>UdyamSheel <span style={{color:"black"}}>Bharat</span> Program   </h1>
+                    <h1 style={{fontSize:"3.4rem",sx:{fontSize:"0.5rem",md:{fontSize:"1rem"}}}}>UdyamSheel <span style={{color:"black"}}>Bharat</span> Program   </h1>
                     <p style={{textAlign:"justify",fontSize:"16px"}}>Rural Enterprises face many challenges such as procuring raw material, inadequate skills, weak communication & transportation and much more. UdyamWell is building a program to help Rural enterprises overcome these challenges. This happens through mentorship & enabling them via our support ecosystem. We aim to help these enterprises reach new heights by bringing them services, in collaboration with ONDC & NGO’s. </p>
                 </div>
                 <div className="bannerImg">

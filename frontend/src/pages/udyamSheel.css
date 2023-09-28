@@ -1,11 +1,11 @@
 .sheelContainer {
     display: flex;
-    width: 95% ;
+    /* width: 95% ; */
     margin: 100px auto;
 }
 
 .saathiForm{
-    width: 60%;
+    width: 50%;
     /* margin: 100px auto; */
     text-align: left;
     padding: 40px;

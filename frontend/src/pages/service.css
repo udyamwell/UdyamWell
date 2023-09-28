@@ -1,5 +1,5 @@
 .servicePage{
-    width: 80%;
+    /* width: 80%; */
     margin: 0 auto;
 }
 .serviceSubHeading{
@@ -23,7 +23,7 @@
     border: 1px solid #f0f4f6;
 }
 .cardContainer:hover{
-    background-color:#b1d0aa ;
+    background-color:#c3dfbd ;
     border: 2px solid green;
 }
 .cardContainer span{
