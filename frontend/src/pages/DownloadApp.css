@@ -1,0 +1,154 @@
+.HomeContainerDownload{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landingPageCover{
+    width: 100vw;
+}
+.landingPageCover__animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.8;
+    width: 100%;
+    height: auto;
+  }
+  
+.bannerDownload{
+    margin-top: 8rem;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.bannerTextDownload{
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+.bannerTextDownload h1{
+    color: #236836;
+    font-size: 3rem;
+    line-height: 70px;
+    margin-bottom: 16px;
+    /* font-weight: 600; */
+}
+.bannerTextDownload p{
+    font-weight: lighter;
+    /* color: #236836; */
+    font-size: 20px;
+}
+
+.bannerImgDownload{
+    width: 65%;
+}
+.imgPart1{
+    width: 50%;
+}
+.imgPart1 img{
+    width: 100%;
+    height: 100%;
+}
+.imgInfoPart2{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.part2Count{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.registerDownload{
+    width: 60%;
+}
+@media (max-width: 1000px) {
+    .bannerDownload{
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .smartHeadline{
+        text-align: center;
+    }
+    .bannerTextDownload h1{
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        line-height: 50px;
+        width: 100%;
+    }
+    .bannerTextDownload{
+        width: 60%;
+        justify-content: center;
+        align-items: center;
+    }
+    .bannerTextDownload p{
+        text-align: center;
+    }
+    .bannerImgDownload{
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .imgPart1{
+        width: 50%;
+        margin-bottom: 2rem;
+    }
+    .imgInfoPart2{
+        width: 50%;
+        text-align: center;
+        /* padding: 20px; */
+    }
+    .part2Count{
+        justify-content: space-around;
+    }
+    .registerDownload{
+        width: 80%;
+    }
+}
+
+@media (max-width: 900px) {
+    .bannerTextDownload{
+        width: 90%;
+    }
+    .imgPart1{
+        width: 70%;
+        height: 70vh;
+    }
+    .imgInfoPart2{
+        width: 100%;
+        padding: 30px;
+    }
+    .registerDownload{
+        width: 100%;
+    }
+    .registerDownload h3{
+       font-size: 2rem;
+    }
+}
+
+@media (max-width: 440px) {
+    .HomeContainerDownload{
+        background-image: none;
+    }
+    .bannerDownload{
+        width: 90%;
+    }
+    .bannerDownloadText h1{
+        font-size: 2rem;
+    }
+}

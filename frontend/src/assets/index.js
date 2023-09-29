@@ -48,4 +48,8 @@ import udyamsheel from './udyamsheel.png';
 import lms from './lms.png';
 import service from './service.png';
 import udyamsheelQr from './udyamsheelQr.webp';
-export {menuBlack,closeBlack,menu,close,a,about_overlay,advance_feature_img,advance_feature_bg,banner_bg,banner_img,breadcrumb,favicon, learning_img,learning_img_bg,LogGradientText_BlackBG,logo,logo1,Logo_Gradient_BlackBG,LogoBlackText_whiteBG,quote,service_bg_2,single_page_logo,color_star,left,play,quate,right,star,icon_1,icon_2,icon_3,icon_4,icon_5,icon_7,icon_8,icon_9,twitter,ig,fb,linkedIn,register,login,Udyamwell_Logo_Standee, landingPageBg, landingPageBg_About,udyamsheel,udyamsheelQr,service,landingPageBg_small,lms }
+import learning_about from './learning_about.png';
+import front_view_hands_using_smartphone from "./front_view_hands_using_smartphone.png";
+import hand_holding_smartphone from "./hand_holding_smartphone.png";
+import playstore from "./playstore.png";
+export {menuBlack,closeBlack,menu,close,a,about_overlay,advance_feature_img,advance_feature_bg,banner_bg,banner_img,breadcrumb,favicon, learning_img,learning_img_bg,LogGradientText_BlackBG,logo,logo1,Logo_Gradient_BlackBG,LogoBlackText_whiteBG,quote,service_bg_2,single_page_logo,color_star,left,play,quate,right,star,icon_1,icon_2,icon_3,icon_4,icon_5,icon_7,icon_8,icon_9,twitter,ig,fb,linkedIn,register,login,Udyamwell_Logo_Standee, landingPageBg, landingPageBg_About,udyamsheel,udyamsheelQr,service,landingPageBg_small,lms,learning_about,hand_holding_smartphone,front_view_hands_using_smartphone,playstore }

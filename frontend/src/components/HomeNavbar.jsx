@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../slices/UserSlice.js";
 import { Button, Menu, MenuItem, Popover, Stack, Typography } from "@mui/material";
-const NavabarMain = () => {
+const HomeNavbar = () => {
   const [toggle1, setToggle1] = useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { user, error } = useSelector((state) => state.user);
@@ -74,7 +74,7 @@ const NavabarMain = () => {
                 <Link to="/courses">Courses</Link>
               </li>
               }
-              <li><Link to='/blogs'>Blogs</Link></li>
+              <li><Link to='/appInformation'>Download App</Link></li>
               <li>
                 <Link to="/services">Services</Link>
               </li>
@@ -126,6 +126,11 @@ const NavabarMain = () => {
                   </Menu>
                 </>
               )}
+              {/* <li>
+                      <Button variant="contained" sx={{ml:2,color:"white"}}>
+                        Sell on ONDC
+                      </Button>
+                    </li> */}
                {user?.isAdmin && (
                 <>
                   <Button
@@ -214,7 +219,7 @@ const NavabarMain = () => {
                     setToggle1(!toggle1);
                   }}
                 >
-                  <Link to="/blogs">Blogs</Link>
+                  <Link to="/appInformation">Download App</Link>
                 </li>
                 <li
                   onClick={() => {
@@ -282,6 +287,13 @@ const NavabarMain = () => {
                     </Menu>
                   </>
                 )}
+                 {/* <li  onClick={() => {
+                      setToggle1(!toggle1);
+                    }}>
+                      <Button variant="contained" sx={{ml:2,color:"white"}}>
+                        sell on ONDC
+                      </Button>
+                  </li> */}
                 {!user && (
                   <li
                     onClick={() => {
@@ -310,4 +322,4 @@ const NavabarMain = () => {
   );
 };
 
-export default NavabarMain;
+export default HomeNavbar;

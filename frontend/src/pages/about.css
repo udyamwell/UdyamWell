@@ -39,7 +39,9 @@
     color: grey;
     margin-top: 20px;
 }
-
+.aboutKeyPoints{
+    width: 80%;
+}
 
 
 /*  */
@@ -95,3 +97,10 @@
     line-height: 1.5;
 
 }
+ @media  only screen and (max-width:900px){
+    .aboutKeyPoints{
+        width: 95%;
+        height: auto;
+        flex-wrap: wrap;
+    }    
+ }

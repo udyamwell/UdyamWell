@@ -83,9 +83,9 @@ const Contact = () => {
                   // onChange={(e) => setSubject(e.target.value)}
                 />
                 <TextField
-                sx={{borderBottom:"1px solid black",mt:5}}
+                // sx={{borderBottom:"1px solid black",mt:5}}
                 placeholder="Enter your message"
-                variant="standard"
+                variant="outlined"
                 name="message"
               // value={message}
               // onChange={(e) => setMessage(e.target.value)}
