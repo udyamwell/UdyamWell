@@ -13,16 +13,28 @@ const HomePage = () => {
   const [count, setCount] = useState(true);
   useEffect(() => {
     document.addEventListener("keydown", () => {
-      // setCount(prev => !prev);
+        // setCount(!count);
       openCurtain();
     });
   }, []);
   const openCurtain = () => {
-    document.getElementById("curtain_buttons").style.display = "none";
-    document.getElementById("curtain1").classList.add("animate_curtain");
-    document.getElementById("curtain2").classList.add("animate_curtain");
+    const curtain_buttons = document.getElementById("curtain_buttons")
+    if (curtain_buttons) {
+      curtain_buttons.style.display = "none";
+    }
+    const curtain1 = document.getElementById("curtain1");
+    if(curtain1){
+      curtain1.classList.add("animate_curtain");
+    }
+    const curtain2= document.getElementById("curtain2");
+    if(curtain2){
+      curtain2.classList.add("animate_curtain");
+    }
     setTimeout(() => {
-      document.getElementById("wrapper").style.display = "none";
+      const wrapper = document.getElementById("wrapper");
+      if (wrapper) {
+        wrapper.style.display = "none";
+      }
     }, 2000);
   };
   return (
@@ -137,7 +149,7 @@ const HomePage = () => {
       {/*  section3*/}
       <div className="homeAbout">
         <div className="aboutImg">
-          <img src={learning_img} alt="" />
+          <img src={learning_about} alt="" />
         </div>
         <div className="aboutInfo">
           <div className="aboutSub">

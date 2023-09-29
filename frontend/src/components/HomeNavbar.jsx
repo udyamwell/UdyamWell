@@ -74,7 +74,7 @@ const HomeNavbar = () => {
                 <Link to="/courses">Courses</Link>
               </li>
               }
-              <li><Link to='/blogs'>Blogs</Link></li>
+              <li><Link to='/appInformation'>Download App</Link></li>
               <li>
                 <Link to="/services">Services</Link>
               </li>
@@ -219,7 +219,7 @@ const HomeNavbar = () => {
                     setToggle1(!toggle1);
                   }}
                 >
-                  <Link to="/blogs">Blogs</Link>
+                  <Link to="/appInformation">Download App</Link>
                 </li>
                 <li
                   onClick={() => {

@@ -4,7 +4,7 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 import HandshakeTwoToneIcon from '@mui/icons-material/HandshakeTwoTone';
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { landingPageBg_About , landingPageBg_small} from "../assets";
 const AboutCard = ({ heading, text1, text2, lists,icon }) => {
   return (
@@ -83,8 +83,30 @@ const About = () => {
         </div>
     <Box sx={{mt:25,textAlign:"center"}}>
       <Typography variant="h2" sx={{color:"#236836",fontWeight:750}}>About Us</Typography>
-      <Typography className="aboutText" sx={{textAlign:"center",margin:"10px auto",fontWeight:"bold",padding:"0 10px"}} variant="body1">UdyamWell is a true partner that guides you on your entrepreneurial journey and <br/>
-      stays with you in every step of the way to assist you in overcoming challenges and also in reaching new heights.</Typography>
+      <Typography className="aboutText" sx={{textAlign:"center",margin:"10px auto",fontWeight:"bold",padding:"0 10px",width:"85%"}} variant="body1">UdyamWell is a comprehensive platform designed to empower and support rural entrepreneurs in India. It serves as a one-stop solution that addresses the challenges faced by rural enterprises. UdyamWell provides access to essential resources, training, mentorship, and an ONDC-enabled seller platform. The ultimate goal is to foster prosperity in rural India by equipping entrepreneurs with the tools and knowledge they need to succeed in today's competitive business landscape.</Typography>
+    </Box>
+    <Box className="aboutKeyPoints" sx={{margin:"4rem auto",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+      <Stack sx={{textAlign:"center",width:"22%"}}>
+        <Typography variant="h4" sx={{fontWeight:"700"}}>Our Vision</Typography>
+        <Typography variant="body1" sx={{color:"#236836"}}>To empower rural entrepreneurs to build sustainable and thriving businesses.</Typography>
+      </Stack>
+      <hr style={{color:"#236836",height:"50px",marginLeft:"10px"}}/>
+      <Stack sx={{textAlign:"center",width:"25%"}}>
+        <Typography variant="h4" sx={{fontWeight:"700"}}>UdyamWell Mission</Typography>
+        <Typography variant="body1" sx={{color:"#236836"}}>To bridge the gap between rural and urban communities by strengthening 1 million rural enterprises in next 5 Years.</Typography>
+      </Stack>
+      <hr style={{color:"#236836",height:"50px",marginLeft:"10px"}}/>
+      <Stack sx={{textAlign:"center",width:"26%"}}>
+        <Typography variant="h4" sx={{fontWeight:"700"}}>SDG Goals Impacted</Typography>
+        <Typography variant="body1" sx={{color:"#236836"}}>
+          <Stack>
+          -No Poverty <br />
+          -Gender Equality <br />
+          -Decent Work and Economic Growth <br />
+          -Partnerships for the Goals
+          </Stack>
+          </Typography>
+      </Stack>
     </Box>
       <div className="videoContainer">
         <div className="video">

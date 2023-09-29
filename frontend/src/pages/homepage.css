@@ -222,7 +222,7 @@ animation-timing-function: ease-out;
 .aboutImg {
   background-image: url("../assets/learning_img_bg.png");
   background-repeat: no-repeat;
-  width: 47%;
+  width: 49%;
 }
 .aboutImg img {
   width: 100%;
