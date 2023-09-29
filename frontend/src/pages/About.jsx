@@ -87,17 +87,17 @@ const About = () => {
     </Box>
     <Box className="aboutKeyPoints" sx={{margin:"4rem auto",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
       <Stack sx={{textAlign:"center",width:"22%"}}>
-        <Typography variant="h4" sx={{fontWeight:"700"}}>Our Vision</Typography>
+        <Typography variant="h5" sx={{fontWeight:"700"}}>Our Vision</Typography>
         <Typography variant="body1" sx={{color:"#236836"}}>To empower rural entrepreneurs to build sustainable and thriving businesses.</Typography>
       </Stack>
       <hr style={{color:"#236836",height:"50px",marginLeft:"10px"}}/>
       <Stack sx={{textAlign:"center",width:"25%"}}>
-        <Typography variant="h4" sx={{fontWeight:"700"}}>UdyamWell Mission</Typography>
+        <Typography variant="h5" sx={{fontWeight:"700"}}>Mission</Typography>
         <Typography variant="body1" sx={{color:"#236836"}}>To bridge the gap between rural and urban communities by strengthening 1 million rural enterprises in next 5 Years.</Typography>
       </Stack>
       <hr style={{color:"#236836",height:"50px",marginLeft:"10px"}}/>
       <Stack sx={{textAlign:"center",width:"26%"}}>
-        <Typography variant="h4" sx={{fontWeight:"700"}}>SDG Goals Impacted</Typography>
+        <Typography variant="h5" sx={{fontWeight:"700"}}>SDG Goals</Typography>
         <Typography variant="body1" sx={{color:"#236836"}}>
           <Stack>
           -No Poverty <br />

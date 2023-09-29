@@ -1,6 +1,6 @@
 import React from "react";
 import { front_view_hands_using_smartphone, hand_holding_smartphone, landingPageBg, playstore } from "../assets";
-import { Accordion, AccordionDetails, AccordionSummary, Box, Stack, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import './DownloadApp.css';
 import Service from "./Service";
@@ -33,14 +33,14 @@ const DownloadApp = () => {
                             <Stack sx={{textAlign:"center"}}>
                                 <Typography sx={{color:"grey"}}>Active Users</Typography>
                                 <Typography variant="h4" sx={{fontWeight:700}}>
-                                    5000+
+                                    -
                                 </Typography>
                             </Stack>
                             <hr style={{height:"15px"}}/>
                             <Stack sx={{textAlign:"center"}}>
                                 <Typography sx={{color:"grey"}}>Downloads</Typography>
                                 <Typography variant="h4" sx={{fontWeight:700}}>
-                                    120+
+                                    -
                                 </Typography>
                             </Stack>
                         </div>
@@ -49,10 +49,20 @@ const DownloadApp = () => {
                         Are you ready to unlock new opportunities and take your business to the next level? Look no further! UdyamWell Seller Services is here to revolutionize the way you sell your products and reach your customers.
                         </Typography>
                         <Typography sx={{color:"grey",marginTop:"1rem",width:"100%"}}>
-                            Download now on:
+                            Test our App:
                         </Typography>
                         <div style={{width:"100%",float:"left",marginTop:"10px"}}>
-                        <img src={playstore}  alt="" />
+                        {/* <img src={playstore}  alt="" /> */}
+                        <a href="https://i.diawi.com/3uzBgy" target="_blank" >
+                        <Button
+                        sx={{ml:2,color:"white"}}
+                        // aria-describedby={id}
+                        variant="contained"
+                        // onClick={handleClick}
+                        >
+                        UdyamWell
+                        </Button>
+                        </a>
                         </div>
                     </div>
                 </div>

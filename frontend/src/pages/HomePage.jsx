@@ -159,7 +159,7 @@ const HomePage = () => {
             </div>
           </div>
           {/*  */}
-          <h1>Learning with Love and Loughter</h1>
+          <h1>Bridging The Gap Between Urban and Rural</h1>
           <div className="aboutKeyPoints">
             <p>
               UdyamWell is a dynamic platform dedicated to nurturing and
