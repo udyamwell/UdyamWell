@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.4437aa3c.css",
-    "main.js": "/static/js/main.76de96c6.js",
+    "main.js": "/static/js/main.85a9982a.js",
     "static/js/787.4efcb2ce.chunk.js": "/static/js/787.4efcb2ce.chunk.js",
     "static/media/front_view_hands_using_smartphone.png": "/static/media/front_view_hands_using_smartphone.d4c22ef6dc2b7c8d7b0a.png",
     "static/media/hand_holding_smartphone.png": "/static/media/hand_holding_smartphone.13156c751b45cf9a0041.png",
@@ -36,11 +36,11 @@
     "static/media/quate.svg": "/static/media/quate.6ae3dc2c4e25a2e49aa154d58a99be99.svg",
     "static/media/play.svg": "/static/media/play.cbab7cd5b0f5af4167777c8cb1f07ee8.svg",
     "main.4437aa3c.css.map": "/static/css/main.4437aa3c.css.map",
-    "main.76de96c6.js.map": "/static/js/main.76de96c6.js.map",
+    "main.85a9982a.js.map": "/static/js/main.85a9982a.js.map",
     "787.4efcb2ce.chunk.js.map": "/static/js/787.4efcb2ce.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4437aa3c.css",
-    "static/js/main.76de96c6.js"
+    "static/js/main.85a9982a.js"
   ]
 }
