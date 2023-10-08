@@ -10,61 +10,8 @@ import PersonSharpIcon from "@mui/icons-material/PersonSharp";
 import "./homepage.css";
 const HomePage = () => {
   const navigate = useNavigate();
-  const [count, setCount] = useState(true);
-  useEffect(() => {
-    document.addEventListener("keydown", () => {
-        // setCount(!count);
-      openCurtain();
-    });
-  }, []);
-  const openCurtain = () => {
-    const curtain_buttons = document.getElementById("curtain_buttons")
-    if (curtain_buttons) {
-      curtain_buttons.style.display = "none";
-    }
-    const curtain1 = document.getElementById("curtain1");
-    if(curtain1){
-      curtain1.classList.add("animate_curtain");
-    }
-    const curtain2= document.getElementById("curtain2");
-    if(curtain2){
-      curtain2.classList.add("animate_curtain");
-    }
-    setTimeout(() => {
-      const wrapper = document.getElementById("wrapper");
-      if (wrapper) {
-        wrapper.style.display = "none";
-      }
-    }, 2000);
-  };
   return (
     <>
-      {count && 
-        <>
-          <div className="landingPageCover">
-            <img
-              src={landingPageBg}
-              width="100vw"
-              alt="landing"
-              className="landingPageCover__animation"
-            />
-          </div>
-          <div id="wrapper">
-            <div id="effect">
-              <img src="/images.jpg" id="curtain1" />
-              <img src="/images.jpg" id="curtain2" />
-            </div>
-            <div id="curtain_buttons">
-              <input
-                type="button"
-                value="LAUNCH"
-                id="btn"
-                onClick={openCurtain}
-              />
-            </div>
-          </div>
-        </>
-      }
       <div className="HomeContainer">
         <div className="banner">
           <div className="bannerText">
