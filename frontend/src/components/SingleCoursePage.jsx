@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from "react";
 import VideoLectureCard from './VideoLectureCard';
 import './styles/courseCard.css';
-import { Box } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleCource } from "../slices/videos";
+import CircularWithValueLabel from "./CircularLabel";
 const SingleCoursePage = () => {
     const { id } = useParams();
     const { courseName, lectures, error, image } = useSelector(state => state.lectures);
@@ -30,6 +31,13 @@ const SingleCoursePage = () => {
     };
     return (
         <>
+             <div className="singleCourse">
+             <Box sx={{margin:"10px 0 30px 0 ",display:"flex",justifyContent:"flex-end"}}>
+                    <section style={{display:"flex"}}>
+                        <Typography variant="h6" sx={{fontWeight:"bold"}}>Your Progress:</Typography>
+                        <CircularWithValueLabel value={25} sx={{ml:2}}/>
+                    </section>
+                </Box>
             <div className="mainVidContainer">
                 <div className="mainVid" style={{ marginBottom: "50px" }}>
                     <h1>{courseName}</h1>
@@ -46,15 +54,22 @@ const SingleCoursePage = () => {
                         <h3 style={{ color: "grey" }}>rgstrfhgbtd</h3>
                     </div> */}
                 </div>
-                <div className="recommendations">
+                <div className="recommendations" style={{ marginBottom: "50px" }}>
                     <h1>Playlist</h1>
-                    <Box display={'flex'} flexWrap={'wrap'}>
+                    <Box sx={{mt:2,ml:2}}>
                         {/* Render the VideoLectureCard component passing lectures data and handleCardClick */}
                         <VideoLectureCard lectures={lectures} type={'video'} onCardClick={handleCardClick} selectedVideoIndex={selectedVideoIndex} />
                     </Box>
                 </div>
             </div>
+             </div>
         </>
     );
 }
 export default SingleCoursePage;
+
+
+
+
+
+
