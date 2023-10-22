@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/footer.css";
 import { fb, ig, linkedIn, logo1, twitter } from "../assets";
+import Swal from "sweetalert2";
+import axios from "axios";
 const Footer = () => {
+
+  const [email, setEmail] = useState("");
+
+  const handleClick = () => {
+    console.log(email);
+    if(email === ""){
+      alert("Please enter a valid email !");
+      return;
+    }
+    axios.post("https://udyamwell.com/api/newsletter",{ email })
+    .then(res=>{
+      // console.log(res.status);
+      Swal.fire(
+        "Thankyou for Subscribing !"
+      )
+    })
+    .catch(err => console.log(err));
+  }
+
   return (
     <>
       <div className="footer">
@@ -25,9 +46,10 @@ const Footer = () => {
                 <input
                   type="text"
                   placeholder="Enter email address"
+                  onChange={e => setEmail(e.target.value)}
                 />
                 <div className="btn">
-                  <button type="button" className="footerBtn">
+                  <button type="button" className="footerBtn" onClick={handleClick}>
                     {">"}
                   </button>
                 </div>
