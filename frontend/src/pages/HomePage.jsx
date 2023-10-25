@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
-import { banner_img, landingPageBg, learning_img , learning_about} from "../assets";
+import { banner_img, landingPageBg, learning_img , learning_about, main} from "../assets";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import { AboutServices } from "./About";
 import { useNavigate } from "react-router";
@@ -12,8 +12,16 @@ const HomePage = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="HomeContainer">
-        <div className="banner">
+      <div className="landingPageCover">
+          <img
+            src={landingPageBg}
+            width='100vw'
+            alt="landing"
+            className="landingPageCover__animation"
+          />
+      </div>
+      <div className="HomeContainer" style={{ marginTop:"6 rem" }}>
+        <div className="banner" style={{justifyContent:'center',alignItems:"center",flexDirection:"column",marginTop:"9rem"}}>
           <div className="bannerText">
             <h1>
               {""}
@@ -32,18 +40,18 @@ const HomePage = () => {
             </h1>
             <Typography
               variant="body1"
-              sx={{ textAlign: "justify", color: "black" }}
+              sx={{ textAlign: "center", color: "black" }}
             >
               UdyamWell: ONDC protocol powered one stop solution for Rural &
               Small Scale enterprises.{" "}
             </Typography>
-            <div className="homeButtons">
+            <div className="homeButtonsHome">
               <button
                 style={{ cursor: "pointer" }}
                 className="btn1"
-                onClick={() => navigate("/courses")}
+                onClick={() => navigate("/udyamsheel")}
               >
-                Start Learning
+                UdyamSheel Bharat Program
               </button>
               <button
                 className="btn2"
@@ -54,8 +62,8 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          <div className="bannerImg">
-            <img src={banner_img} alt="" />
+          <div className="bannerImg" style={{width:"80%",height:"40vh"}}>
+            <img src={main} alt="" />
           </div>
         </div>
       </div>
