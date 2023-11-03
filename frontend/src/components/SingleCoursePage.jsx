@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import VideoLectureCard from './VideoLectureCard';
 import './styles/courseCard.css';
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography, CircularProgress, Typography } from "@mui/material";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleCource } from "../slices/videos";

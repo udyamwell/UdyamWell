@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { banner_img, landingPageBg, learning_img , learning_about, main} from "../assets";
+import { banner_img, landingPageBg, learning_img , learning_about, main} from "../assets";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import { AboutServices } from "./About";
 import { useNavigate } from "react-router";
@@ -12,16 +13,16 @@ const HomePage = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="landingPageCover">
+     <div className="landingPageCover">
           <img
             src={landingPageBg}
             width='100vw'
             alt="landing"
             className="landingPageCover__animation"
           />
-      </div>
-      <div className="HomeContainer" style={{ marginTop:"6 rem" }}>
-        <div className="banner" style={{justifyContent:'center',alignItems:"center",flexDirection:"column",marginTop:"9rem"}}>
+        </div>
+      <div className="HomeContainer">
+        <div className="banner" style={{justifyContent:'center',alignItems:"center",marginTop:"6rem"}}>
           <div className="bannerText">
             <h1>
               {""}
@@ -40,7 +41,7 @@ const HomePage = () => {
             </h1>
             <Typography
               variant="body1"
-              sx={{ textAlign: "center", color: "black" }}
+              sx={{ color: "black" }}
             >
               UdyamWell: ONDC protocol powered one stop solution for Rural &
               Small Scale enterprises.{" "}

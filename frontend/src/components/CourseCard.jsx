@@ -30,6 +30,7 @@ let urlImage = `https://www.udyamwell.com/uploads/course/thumbnails/`;
     <>
       {courses?.map((course) => (
         <Card key={course._id} sx={{ width: 350, borderRadius: "10px",m:3,cursor:"pointer" }} onClick={()=>navigate(`/course/${course?._id}`)}>
+   
           <Box className='cardImageBox'>
             <a href={course.link} target="_blank" rel="noopener noreferrer">
               <CardMedia
