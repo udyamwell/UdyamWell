@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { banner_img, landingPageBg, learning_img , learning_about, main} from "../assets";
-import { banner_img, landingPageBg, learning_img , learning_about, main} from "../assets";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import { AboutServices } from "./About";
 import { useNavigate } from "react-router";
@@ -46,7 +45,7 @@ const HomePage = () => {
               UdyamWell: ONDC protocol powered one stop solution for Rural &
               Small Scale enterprises.{" "}
             </Typography>
-            <div className="homeButtonsHome">
+            <div className="homeButtons">
               <button
                 style={{ cursor: "pointer" }}
                 className="btn1"
@@ -63,8 +62,8 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          <div className="bannerImg" style={{width:"80%",height:"40vh"}}>
-            <img src={main} alt="" />
+          <div className="bannerImg">
+            <img src={banner_img} alt="" />
           </div>
         </div>
       </div>
