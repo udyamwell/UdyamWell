@@ -24,9 +24,9 @@ const VideoLectureCard = ({ lectures, onCardClick }) => {
               <FormControlLabel
                 control={<Checkbox defaultChecked />}
                 label={lecture.videoName}
-                />
+              />
             </FormGroup>
-                <Typography sx={{cursor:"pointer",fontWeight:"bold",ml:2}} variant="h6" onClick={() => onCardClick(`${urlVideo}${lecture.video}`)}>{lecture.video}</Typography>
+            <Typography sx={{cursor:"pointer",fontWeight:"bold",ml:2}} variant="h6" onClick={() => onCardClick(`${urlVideo}${lecture.video}`,lecture._id)}>{lecture.video.split("_")[1]}</Typography>
           </>
           // <Card key={lecture._id} sx={{ maxWidth: 300, borderRadius: "10px",m:3,ml:0,cursor:"pointer" }} onClick={() => onCardClick(`${urlVideo}${lecture.video}`)}>
           //   <a href={lecture.link} target="_blank" rel="noopener noreferrer">

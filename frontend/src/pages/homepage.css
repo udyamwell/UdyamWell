@@ -30,6 +30,7 @@
 .bannerText {
   display: flex;
   width: 50%;
+  padding: 3%;
   justify-content: center;
   align-items: start;
   flex-direction: column;
@@ -58,18 +59,11 @@
   align-items: center;
   margin-top: 30px;
 }
-.homeButtonsHome button {
-  padding: 15px;
-  border-radius: 50px;
-  font-size: 14px;
-  width: auto;
-  text-transform: capitalize;
-}
 .homeButtons button {
   padding: 15px;
   border-radius: 50px;
   font-size: 14px;
-  width: 150px;
+  width: auto;
   text-transform: capitalize;
 }
 .btn1 {
