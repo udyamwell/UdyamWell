@@ -12,16 +12,8 @@ const HomePage = () => {
   const navigate = useNavigate();
   return (
     <>
-     <div className="landingPageCover">
-          <img
-            src={landingPageBg}
-            width='100vw'
-            alt="landing"
-            className="landingPageCover__animation"
-          />
-        </div>
       <div className="HomeContainer">
-        <div className="banner" style={{justifyContent:'center',alignItems:"center",marginTop:"6rem"}}>
+        <div className="banner" style={{justifyContent:'center',alignItems:"center",flexDirection:"column",marginTop:"9rem"}}>
           <div className="bannerText">
             <h1>
               {""}
@@ -40,12 +32,12 @@ const HomePage = () => {
             </h1>
             <Typography
               variant="body1"
-              sx={{ color: "black" }}
+              sx={{ textAlign: "center", color: "black" }}
             >
               UdyamWell: ONDC protocol powered one stop solution for Rural &
               Small Scale enterprises.{" "}
             </Typography>
-            <div className="homeButtons">
+            <div className="homeButtonsHome">
               <button
                 style={{ cursor: "pointer" }}
                 className="btn1"
@@ -62,8 +54,8 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          <div className="bannerImg">
-            <img src={banner_img} alt="" />
+          <div className="bannerImg" style={{width:"80%",height:"40vh"}}>
+            <img src={main} alt="" />
           </div>
         </div>
       </div>
