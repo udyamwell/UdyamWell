@@ -23,6 +23,8 @@ import Lectures from "./pages/admin panel/Lectures";
 import Users from "./pages/admin panel/Users";
 import Email from "./components/Email";
 import UdyamSheel from "./pages/UdyamSheel";
+import UdyamSathi from "./pages/UdyamSathi";
+import RequestPage from "./pages/RequestPage";
 import HomeNavabar from "./components/HomeNavbar";
 import DownloadApp from "./pages/DownloadApp";
 // import Navabar from "./components/Navbar";
@@ -51,6 +53,8 @@ function App() {
             <Route path="/change-password/:id" element={<ChangePassword />} />
             <Route path="/verify-success/:id" element={<VerifySucces />} />
             <Route path="/udyamsheel" element={<UdyamSheel />} />
+            <Route path="/udyamsathi" element={<UdyamSathi />} />
+            <Route path="/requestpage" element={<RequestPage />} />
             <Route path="/admin">
               <Route path="courses" element={<Video />} />
               <Route path="course/:id" element={<Lectures />} />

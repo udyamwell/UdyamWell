@@ -1,0 +1,131 @@
+ol li::marker{
+    font-weight: bold;
+}
+ol {
+    margin-left: 1rem;
+}
+.download_btn{
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 150px;
+    text-transform: capitalize;
+    box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+    background-color: #046A3A;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.4s ease-in-out;
+    margin-right: 40px;
+    background-size: 200% auto;
+    border: 1px solid transparent;
+    margin-left: 1.5rem;
+}
+.position{
+    position: relative;
+    top: 1.3rem;
+}
+.sheelContainer {
+    display: flex;
+    /* width: 95% ; */
+    margin: 100px auto;
+}
+
+.saathiForm{
+    width: 50%;
+    /* margin: 100px auto; */
+    text-align: left;
+    padding: 40px;
+}
+.bannerText_udyamsathi {
+    width: 70%;
+}
+.bannerText_udyamsathi h1 {
+    color: green;
+}
+
+.field{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qrCode_udyamsathi{
+    margin-left: 10%;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.content_heading_udyamSathi{
+    text-align: center;
+    margin-top: 5rem;
+}
+.content_heading_udyamSathi, .content_udyamsathi h4 {
+    color : green
+}
+.HomeContainer{ 
+    display: flex;
+    flex-direction: column;
+}
+.horizontal {
+    width: 80%;
+    border: 0;
+    border-top: 3px solid green;
+    margin: 1em 0;
+  }
+
+.content_udyamsathi {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 2rem;
+}
+.content_child {
+    display: flex;
+    gap: 2rem;
+}
+.content_grandchild {
+    width: 50%;
+}
+.brochure{
+    width: 70%;
+}
+@media only screen and (max-width:1220px) {
+    .brochure{
+        width: 85%;
+    }
+}
+@media only screen and (max-width:940px) {
+    .sheelContainer{
+        flex-direction: column-reverse;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .saathiForm{
+        width: 85%;
+    }
+    .qrCode{
+        border-top: 5px solid green;
+        margin-left: 0;
+    }
+    .brochure{
+        flex-direction: column;
+    }
+    .brochure h6{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+@media only screen and (max-width:590px) {
+    .saathiForm{
+        width: 100%;
+    }
+    .field{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}

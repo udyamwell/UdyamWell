@@ -35,11 +35,14 @@ module.exports.getAllBlogs = async (req,res) => {
 // Controller for liking a blog post
 module.exports.likePost = async (req, res) => {
     const postId = req.params.postId;
-    const userId = req.user._id; // Assuming you're using user authentication
-  
+    // const userId = req.user._id; //? Assuming you're using user authentication
+    const { userId } = req.body;
+    console.log(postId);
+    
     try {
       const post = await Blog.findById(postId);
-  
+      // console.log(post)
+      // res.json(post);
       if (!post) {
         return res.status(404).json({ message: 'Blog post not found' });
       }
@@ -49,7 +52,7 @@ module.exports.likePost = async (req, res) => {
       }
   
       post.likes.push(userId);
-  
+      post.likeCount ++;
       const updatedPost = await post.save();
       return res.json(updatedPost);
     } catch (error) {
@@ -60,7 +63,8 @@ module.exports.likePost = async (req, res) => {
   // Controller for unliking a blog post
   module.exports.unlikePost = async (req, res) => {
     const postId = req.params.postId;
-    const userId = req.user._id; 
+    // const userId = req.user._id; 
+    const { userId } = req.body;
   
     try {
       const post = await Blog.findById(postId);
@@ -76,7 +80,7 @@ module.exports.likePost = async (req, res) => {
       }
   
       post.likes.splice(likeIndex, 1);
-  
+      post.likeCount -- ;
       const updatedPost = await post.save();
       return res.json(updatedPost);
     } catch (error) {
@@ -88,25 +92,25 @@ module.exports.likePost = async (req, res) => {
 module.exports.addComment = async (req, res) => {
     const postId = req.params.postId;
     const { comment } = req.body;
-    const userId = req.user._id; 
-  
+    // const userId = req.user._id; 
     try {
       const post = await Blog.findById(postId);
-  
+      // console.log(post);
+      // res.send("success");
       if (!post) {
         return res.status(404).json({ message: 'Blog not found' });
       }
   
-      const newComment = {
-        comment,
-        author: userId,
-      };
-  
-      post.comments.push(newComment);
-  
+      // const newComment = {
+      //   comment,
+      //   author: userId.toString(),
+      // };
+      post.comments.push(comment);
+      post.commentCount ++ ;
       const updatedPost = await post.save();
       return res.json(updatedPost);
     } catch (error) {
+      console.log(error)
       return res.status(500).json({ error: 'something went wrong!' });
     }
   };

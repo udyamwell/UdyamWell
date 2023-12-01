@@ -120,7 +120,7 @@ const Contact = () => {
           <div className="contact-info">
             <span className="contact-info__icon"><WhatsAppIcon/></span>
             <div className="media-body">
-              <a href='https://api.whatsapp.com/send?phone=+91 9045839741' target='_blank'><h3>Connect on Whatsapp</h3></a>
+              <a href='https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F' target='_blank'><h3>Connect on Whatsapp</h3></a>
               <p>Send us your query anytime!</p>
             </div>
           </div>
