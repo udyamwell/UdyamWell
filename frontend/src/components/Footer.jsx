@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./styles/footer.css";
 import { fb, ig, linkedIn, logo1, twitter } from "../assets";
+import { Link } from 'react-router-dom';
 import Swal from "sweetalert2";
 import axios from "axios";
 const Footer = () => {
@@ -111,7 +112,8 @@ const Footer = () => {
                 </a>
               </div>
               <div className="terms_child">
-                <a href="#">Privacy Policy</a>
+                {/* <a href="../pages/privacy.html">Privacy Policy</a> */}
+                <Link to="/privacy">Privacy Policy</Link>
               </div>
             </div>
           </div>
