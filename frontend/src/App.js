@@ -28,6 +28,7 @@ import RequestPage from "./pages/RequestPage";
 import HomeNavabar from "./components/HomeNavbar";
 import DownloadApp from "./pages/DownloadApp";
 import Privacy from "./pages/Privacy";
+import TermsCondition from "./pages/TermsCondition";
 // import Navabar from "./components/Navbar";
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
             <Route path="/udyamsathi" element={<UdyamSathi />} />
             <Route path="/requestpage" element={<RequestPage />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/termscondition" element={<TermsCondition />} />
             <Route path="/admin">
               <Route path="courses" element={<Video />} />
               <Route path="course/:id" element={<Lectures />} />
