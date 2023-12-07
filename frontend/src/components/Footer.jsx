@@ -107,9 +107,10 @@ const Footer = () => {
             </div>
             <div className="terms">
               <div className="terms_child">
-                <a href="https://drive.google.com/file/d/15j9Z7c-HcstlDcPJ3KO018PeRLv5yzw8/view?usp=sharing" target="_blank">
+                {/* <a href="https://drive.google.com/file/d/15j9Z7c-HcstlDcPJ3KO018PeRLv5yzw8/view?usp=sharing" target="_blank">
                   Terms and Conditions
-                </a>
+                </a> */}
+                <Link to="/termscondition">Terms and Conditions</Link>
               </div>
               <div className="terms_child">
                 {/* <a href="../pages/privacy.html">Privacy Policy</a> */}
