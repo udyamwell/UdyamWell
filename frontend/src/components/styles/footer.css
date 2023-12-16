@@ -39,6 +39,32 @@
     color: grey;
     line-height: 1.5;
 }
+.part3 a{
+    color : grey;
+    text-decoration: none;
+}
+.bottom{
+    height: 4rem;
+    background-color: #046A3A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+}
+.bottom a{
+    color: #fff;
+    text-decoration: none;
+}
+.bottom_child{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+.terms {
+    display: flex;
+    gap: 1.5rem;
+}
 .form-group{
     margin-top: 25px;
     display: flex;

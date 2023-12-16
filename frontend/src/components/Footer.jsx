@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 import "./styles/footer.css";
 import { fb, ig, linkedIn, logo1, twitter } from "../assets";
+import { Link } from 'react-router-dom';
 import Swal from "sweetalert2";
 import axios from "axios";
 const Footer = () => {
-
   const [email, setEmail] = useState("");
 
   const handleClick = () => {
     console.log(email);
-    if(email === ""){
+    if (email === "") {
       alert("Please enter a valid email !");
       return;
     }
-    axios.post("https://udyamwell.com/api/newsletter",{ email })
-    .then(res=>{
-      // console.log(res.status);
-      Swal.fire(
-        "Thankyou for Subscribing !"
-      )
-    })
-    .catch(err => console.log(err));
-  }
+    axios
+      .post("https://udyamwell.com/api/newsletter", { email })
+      .then((res) => {
+        // console.log(res.status);
+        Swal.fire("Thankyou for Subscribing !");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -30,7 +29,7 @@ const Footer = () => {
           <div className="part1">
             <img src={logo1} alt="" />
             <h1>उद्यमWell</h1>
-            <p style={{textAlign:"justify"}}>
+            <p style={{ textAlign: "justify" }}>
               UdyamWell is a true partner that guides you on your
               entrepreneurial journey and stays with you in every step of the
               way to assist you in overcoming challenges and also in reaching
@@ -46,10 +45,14 @@ const Footer = () => {
                 <input
                   type="text"
                   placeholder="Enter email address"
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <div className="btn">
-                  <button type="button" className="footerBtn" onClick={handleClick}>
+                  <button
+                    type="button"
+                    className="footerBtn"
+                    onClick={handleClick}
+                  >
                     {">"}
                   </button>
                 </div>
@@ -63,7 +66,10 @@ const Footer = () => {
               <a href="https://www.twitter.com/UdyamWell" target="blank">
                 <img src={twitter} alt="" />
               </a>
-              <a href="https://www.linkedin.com/company/udyamwell" target="blank">
+              <a
+                href="https://www.linkedin.com/company/udyamwell"
+                target="blank"
+              >
                 <img src={linkedIn} alt="" />
               </a>
               <a href="https://www.instagram.com/udyamwell" target="blank">
@@ -73,16 +79,41 @@ const Footer = () => {
           </div>
           {/*  */}
           <div className="part3">
-          <h1>Contact Us</h1>
-          <div className="contact_info">
-                <p><span> Address :</span> Catalyst Building, IIT Mandi, Himachal Pradesh - 175005</p>
-                <p><span> Phone :</span> +91 8679625300</p>
-                <p><span> Email : </span>admin@udyamwell.com </p>
+            <h1>Contact Us</h1>
+            <div className="contact_info">
+              <p>
+                <span> Address :</span> Catalyst Building, IIT Mandi, Himachal
+                Pradesh - 175005
+              </p>
+              <p>
+                <span> Phone :</span>{" "}
+                <a href="tel:+91 8679625300">+91 8679625300</a>
+              </p>
+              <p>
+                <span> Email : </span>
+                <a href="mailto:admin@udyamwell.com">
+                  admin@udyamwell.com
+                </a>{" "}
+              </p>
             </div>
             <div id="google_translate_element"></div>
- 
           </div>
           {/*  */}
+        </div>
+        <div className="bottom">
+          <div className="bottom_child">
+            <div className="copyrights">
+              <p>@Copyright 2023, UdyamWell Partner in your business Journey</p>
+            </div>
+            <div className="terms">
+              <div className="terms_child">
+                <Link to="/termscondition">Terms and Conditions</Link>
+              </div>
+              <div className="terms_child">
+                <Link to="/privacy">Privacy Policy</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
