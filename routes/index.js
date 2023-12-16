@@ -16,4 +16,6 @@ router.use('/courses',require('./courses'));
 
 router.use('/api',require('./api'));
 
+router.use('/blogs',require('./blogs'))
+
 module.exports = router;
