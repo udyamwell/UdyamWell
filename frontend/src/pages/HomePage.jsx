@@ -27,7 +27,7 @@ const HomePage = () => {
               {""}
               <Typewriter
                 words={[
-                  "Partner in your Business Journey!",
+                  "Partner in your Business Journey !",
                   "आपके व्यावसायिक यात्रा का साथी |",
                 ]}
                 loop={3}
