@@ -7,10 +7,10 @@ const SellOnONDCForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
-    city: "",
-    enterpriseName: "",
-    sellingCategory: "",
+    phoneNum: "",
+    eName: "",
+    businessAdd: "",
+    businessInvolved: "",
   });
 
   const handleChange = (e) => {
@@ -27,12 +27,12 @@ const SellOnONDCForm = () => {
       .post("/route", { formData })
       .then((response) => {
         console.log(response.data);
-        Swal.fire("Thankyou for Subscribing !");
       })
       .catch((error) => {
         console.log(error);
       });
     console.log("Form submitted:", formData);
+    Swal.fire("Thankyou for Submitting !");
   };
 
   return (
@@ -69,7 +69,7 @@ const SellOnONDCForm = () => {
         Phone Number / फ़ोन नंबर:
         <input
           type="tel"
-          name="phone"
+          name="phoneNum"
           value={formData.phone}
           onChange={handleChange}
           placeholder="Phone Number"
@@ -80,7 +80,7 @@ const SellOnONDCForm = () => {
         Name of your Enterprise / आपके उद्यम का नाम :
         <input
           type="text"
-          name="enterpriseName"
+          name="eName"
           value={formData.enterpriseName}
           onChange={handleChange}
           placeholder="Name of enterprise"
@@ -91,7 +91,7 @@ const SellOnONDCForm = () => {
         Business Address / व्यावसायिक पता :
         <input
           type="text"
-          name="city"
+          name="businessAdd"
           value={formData.city}
           onChange={handleChange}
           placeholder="City"
@@ -102,7 +102,7 @@ const SellOnONDCForm = () => {
         Business you are involved in? / आप किस व्यवसाय से जुड़े हैं?
         <input
           type="text"
-          name="sellingCategory"
+          name="businessInvolved"
           value={formData.sellingCategory}
           onChange={handleChange}
           placeholder="Selling Category"
