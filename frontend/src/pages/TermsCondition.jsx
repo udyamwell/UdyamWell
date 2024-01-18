@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./Privacy.css";
+import "./TermsCondition.css";
 import { landingPageBg_small } from "../assets";
 
 const TermsCondition = () => {
