@@ -18,4 +18,6 @@ router.use('/api',require('./api'));
 
 router.use('/blogs',require('./blogs'))
 
+router.use('/ondc-seller',require('./ondcSeller'));
+
 module.exports = router;
