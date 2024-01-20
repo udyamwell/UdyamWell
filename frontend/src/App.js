@@ -29,6 +29,7 @@ import HomeNavabar from "./components/HomeNavbar";
 import DownloadApp from "./pages/DownloadApp";
 import Privacy from "./pages/Privacy";
 import TermsCondition from "./pages/TermsCondition";
+import SellOnONDC from "./pages/sellOnONDC";
 // import Navabar from "./components/Navbar";
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
       <div>
         <ColorMode>
           {/* {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' || location.pathname==='/about' || location.pathname==='/udyamsheel' ) ? (<HomeNavabar/>) : (<Navabar/>)} */}
-          <HomeNavabar/>
+          <HomeNavabar />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
@@ -55,6 +56,7 @@ function App() {
             <Route path="/change-password/:id" element={<ChangePassword />} />
             <Route path="/verify-success/:id" element={<VerifySucces />} />
             <Route path="/udyamsheel" element={<UdyamSheel />} />
+            <Route path="/sellonONDC" element={<SellOnONDC />} />
             <Route path="/udyamsathi" element={<UdyamSathi />} />
             <Route path="/requestpage" element={<RequestPage />} />
             <Route path="/privacy" element={<Privacy />} />
@@ -69,7 +71,6 @@ function App() {
           <Footer />
         </ColorMode>
       </div>
-
     </>
   );
 }

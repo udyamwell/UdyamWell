@@ -279,13 +279,13 @@ const HomeNavbar = () => {
                 >
                   <Link to="/contact">Contact</Link>
                 </li>
-                <li
+                {/* <li
                   onClick={() => {
                     setToggle1(!toggle1);
                   }}
                 >
                   <Link to="/udyamsheel">UdyamSheel</Link>
-                </li>
+                </li> */}
                 {user && (
                   <>
                     <li

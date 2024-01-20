@@ -2,6 +2,7 @@
 .footer{
     background-color: #f7f7f7;
     width: 100%;
+    margin-top: 20px;
 }
 .footerContainer{
     width: 95%;
@@ -86,7 +87,7 @@
     outline: none;
 }
 .btn{
-    margin-right: 10px;
+    /* margin-right: 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,3 +143,8 @@
         width: 80%;
     }
   }
+  @media only screen and (max-width: 600px) {
+    .bottom{
+        font-size: 60%;
+    }
+}

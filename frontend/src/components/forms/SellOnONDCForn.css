@@ -1,0 +1,17 @@
+label{
+    padding-inline: 40px;
+    padding-top: 40px;
+}
+.formONDC{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    filter: drop-shadow(5px 5px 10px #00000052);
+    border-radius: 20px;
+    margin: 10px;
+}
+.btnForm{
+    margin-inline:auto;
+    margin-block: 40px;
+
+}
