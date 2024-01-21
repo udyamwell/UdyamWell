@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./styles/footer.css";
 import { fb, ig, linkedIn, logo1, twitter } from "../assets";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 const Footer = () => {
   const [email, setEmail] = useState("");
-
+  const { t } = useTranslation();
   const handleClick = () => {
     console.log(email);
     if (email === "") {
@@ -29,22 +30,17 @@ const Footer = () => {
           <div className="part1">
             <img src={logo1} alt="" />
             <h1>उद्यमWell</h1>
-            <p style={{ textAlign: "justify" }}>
-              UdyamWell is a true partner that guides you on your
-              entrepreneurial journey and stays with you in every step of the
-              way to assist you in overcoming challenges and also in reaching
-              new heights.
-            </p>
+            <p style={{ textAlign: "justify" }}>{t("footer_body")}</p>
           </div>
           {/*  */}
           <div className="part2">
-            <h1>Newsletter</h1>
-            <p>Stay updated with our latest features and services.</p>
+            <h1>{t("newsletter_head")}</h1>
+            <p>{t("newsletter_body")}</p>
             <form action="#">
               <div className="form-group">
                 <input
                   type="text"
-                  placeholder="Enter email address"
+                  placeholder={t("placeholder_email")}
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <div className="btn">
@@ -79,18 +75,17 @@ const Footer = () => {
           </div>
           {/*  */}
           <div className="part3">
-            <h1>Contact Us</h1>
+            <h1>{t("contact_us")}</h1>
             <div className="contact_info">
               <p>
-                <span> Address :</span> Catalyst Building, IIT Mandi, Himachal
-                Pradesh - 175005
+                <span> {t("address_head")}</span> {t("address_body")}
               </p>
               <p>
-                <span> Phone :</span>{" "}
+                <span> {t("phone_head")}</span>{" "}
                 <a href="tel:+91 8679625300">+91 8679625300</a>
               </p>
               <p>
-                <span> Email : </span>
+                <span>{t("email_head")} </span>
                 <a href="mailto:admin@udyamwell.com">
                   admin@udyamwell.com
                 </a>{" "}
@@ -103,14 +98,14 @@ const Footer = () => {
         <div className="bottom">
           <div className="bottom_child">
             <div className="copyrights">
-              <p>@Copyright 2023, UdyamWell Partner in your business Journey</p>
+              <p>{t("copyright")}</p>
             </div>
             <div className="terms">
               <div className="terms_child">
-                <Link to="/termscondition">Terms and Conditions</Link>
+                <Link to="/termscondition">{t("terms_txt")}</Link>
               </div>
               <div className="terms_child">
-                <Link to="/privacy">Privacy Policy</Link>
+                <Link to="/privacy">{t("policy_txt")}</Link>
               </div>
             </div>
           </div>

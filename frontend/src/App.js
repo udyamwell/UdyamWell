@@ -42,6 +42,7 @@ function App() {
           <HomeNavabar />
           <Routes>
             <Route path="/" element={<HomePage />} />
+
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
