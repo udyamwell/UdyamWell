@@ -210,9 +210,9 @@ const HomeNavbar = () => {
                   {t("registernow_btn")}
                 </Button>
               )}
-              <li>
+              {/* <li>
                 <LanguageToggle />
-              </li>
+              </li> */}
             </ul>
           </div>
           {/*  */}
