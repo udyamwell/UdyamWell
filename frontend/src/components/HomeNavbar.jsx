@@ -12,7 +12,10 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import LanguageToggle from "./languagetoggle";
+import { useTranslation } from "react-i18next";
 const HomeNavbar = () => {
+  const { t } = useTranslation();
   const [toggle1, setToggle1] = useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { user, error } = useSelector((state) => state.user);
@@ -73,28 +76,26 @@ const HomeNavbar = () => {
             </div>
             <ul className="navbar-menuHome">
               <li>
-                <Link to={"/"}>Home</Link>
+                <Link to={"/"}>{t("nav_home")}</Link>
               </li>
               <li>
-                <Link to="about">About</Link>
+                <Link to="about">{t("nav_about")}</Link>
               </li>
               <li>
-                <Link to="/appInformation">Download App</Link>
+                <Link to="/appInformation">{t("nav_downloadapp")}</Link>
               </li>
               <div class="dropdown">
                 <button class="dropbtn">
-                  <Link to="/services">Services</Link>
+                  <Link to="/services">{t("nav_services")}</Link>
                 </button>
                 <div class="dropdown-content">
-                  {user && (
-                      <Link to="/courses">Courses</Link>
-                  )}
-                  <Link to="/udyamsheel">UdyamSheel</Link>
-                  <Link to="/udyamsathi">UdyamSathi</Link>
+                  {user && <Link to="/courses">{t("nav_courses")}</Link>}
+                  <Link to="/udyamsheel">{t("nav_udyamsheel")}</Link>
+                  <Link to="/udyamsathi">{t("nav_udyamsathi")}</Link>
                 </div>
               </div>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact">{t("nav_contact")}</Link>
               </li>
               {user && (
                 <>
@@ -126,12 +127,12 @@ const HomeNavbar = () => {
                         onClick={() => navigate("/profile")}
                         textAlign="center"
                       >
-                        Profile
+                        {t("nav_profile")}
                       </Typography>
                     </MenuItem>
                     <MenuItem onClick={handleCloseUserMenu}>
                       <Typography textAlign="center" onClick={handleLogout}>
-                        Logout
+                        {t("logout_btn")}
                       </Typography>
                     </MenuItem>
                     {/* ))} */}
@@ -192,7 +193,7 @@ const HomeNavbar = () => {
                   variant="outlined"
                   onClick={() => navigate("/login")}
                 >
-                  Sign In
+                  {t("signin_btn")}
                 </Button>
               )}
               {!user && (
@@ -206,9 +207,12 @@ const HomeNavbar = () => {
                   variant="contained"
                   onClick={() => navigate("/register")}
                 >
-                  Register Now
+                  {t("registernow_btn")}
                 </Button>
               )}
+              <li>
+                <LanguageToggle />
+              </li>
             </ul>
           </div>
           {/*  */}
