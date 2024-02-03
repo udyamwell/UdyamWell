@@ -84,6 +84,7 @@
 }
 .btn2 {
   font-size: 14px;
+  background-color: white;
 }
 .btn2:hover {
   color: #fff;
@@ -109,6 +110,13 @@
   width: 80%;
   margin: 3rem auto;
 }
+.homeAbout2 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: start;
+  width: 80%;
+  margin: 7rem auto;
+}
 .countBox2 {
   background-color: #e0f1e5;
   border-radius: 20px;
@@ -129,7 +137,7 @@
   background-color: #e0f1e5;
   border-radius: 20px;
   padding: 10px;
-  width: 60%;
+  width: 70%;
   margin: 4rem auto;
   display: flex;
   flex-direction: column;
@@ -141,10 +149,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
   align-items: center; 
-  gap: 40px;
+  gap: 30px;
   max-width: 80%;
   mix-blend-mode: multiply;
+}
+.count img{
+  width: 24%;
 }
 .aboutImg {
   background-image: url("../assets/learning_img_bg.png");
@@ -206,6 +218,24 @@
   color: #fff;
   transition: all 0.4s ease-in-out;
   border: 1px solid transparent;
+}
+.homeAboutfeatures{
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 10px;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+.homeAboutfeatures .feature{
+  display: flex;
+  flex-direction: column;
+}
+.homeAboutfeatures .feature h4{
+  color: #006400;
+}
+.homeAboutfeatures .feature p{
+  color: grey;
 }
 /*  */
 .homeFeature {
@@ -362,6 +392,11 @@
     justify-content: center;
     align-items: center;
   }
+  .homeAbout2 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .aboutImg {
     width: 80%;
   }
@@ -418,5 +453,8 @@
   .feature2 {
     width: 90%;
     margin-bottom: 30px;
+  }
+  .homeAboutfeatures{
+    flex-direction: column;
   }
 }
