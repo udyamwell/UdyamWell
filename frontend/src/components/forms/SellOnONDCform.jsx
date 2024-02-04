@@ -24,15 +24,18 @@ const SellOnONDCForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://www.udyamwell.com/ondc-seller/add-seller", { formData })
+      .post("https://www.udyamwell.com/ondc-seller/add-seller", formData )
       .then((response) => {
-        console.log(response.data);
+        if(response.status === 201 || response.status === 200){
+          Swal.fire("Thankyou for Submitting !");
+        }else{
+          Swal.fire("Request not processed, please try again !");
+        }
       })
       .catch((error) => {
         console.log(error);
       });
-    console.log("Form submitted:", formData);
-    Swal.fire("Thankyou for Submitting !");
+    // console.log("Form submitted:", formData);
   };
 
   return (
