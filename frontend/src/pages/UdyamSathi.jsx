@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import "./udyamsathi.css";
-import { banner_img, landingPageBg, udyamsathi, udyamsathiQR } from "../assets";
+import { banner_img, landingPageBg, udyamsathiQR } from "../assets";
+import udyamsathi from "../assets/udyamsathi.png";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
+import Bg_about from "../assets/Bg_about.png";
 import { Link } from "react-router-dom";
 const UdyamSathi = () => {
   const navigate = useNavigate();
@@ -16,14 +18,14 @@ const UdyamSathi = () => {
     <div>
       <div className="landingPageCover">
         <img
-          src={landingPageBg}
+          src={Bg_about}
           width="100vw"
           alt="landing"
           className="landingPageCover__animation"
         />
       </div>
       <div className="HomeContainer" style={{ margin: "0rem auto 0 auto" }}>
-        <div className="banner">
+        <div className="banner" style={{ width: "70%" }}>
           <div className="bannerText">
             <h1
               style={{
@@ -37,20 +39,26 @@ const UdyamSathi = () => {
               </span>{" "}
               Program{" "}
             </h1>
-            <p style={{ textAlign: "justify", fontSize: "16px" }}>
+            <p
+              style={{
+                textAlign: "justify",
+                fontSize: "16px",
+                fontWeight: "600",
+              }}
+            >
               The Udyamsathi Program is a unique initiative that engages
               enthusiastic and dedicated student ambassadors to act as mentors
               and ambassadors for rural enterprises. As a Udyamsathi, you will
               be at the forefront of connecting with and supporting rural
               businesses, helping them realize the benefits of joining the
               Udyamwell ecosystem. <br />
-              <button
+              {/* <button
                 style={{ cursor: "pointer" }}
                 className="download_btn position"
                 onClick={() => navigate("/requestpage")}
               >
                 Join Now
-              </button>
+              </button> */}
             </p>
           </div>
           <div className="bannerImg">
@@ -96,7 +104,10 @@ const UdyamSathi = () => {
       {/*  */}
 
       {/*  */}
-      <div className="HomeContainer" style={{ margin: "0rem auto 0 auto" }}>
+      <div
+        className="HomeContainer"
+        style={{ margin: "0rem auto 0 auto", width: "90%" }}
+      >
         <div className="banner">
           <div className="bannerText_udyamsathi">
             <h1
@@ -137,7 +148,7 @@ const UdyamSathi = () => {
         <div className="content_heading_udyamSathi">
           <h1
             style={{
-              fontSize: "3.4rem",
+              fontSize: "50px",
               sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
             }}
           >
@@ -145,7 +156,7 @@ const UdyamSathi = () => {
             <span style={{ color: "black" }}>Unleash The Power Of </span>{" "}
             UdyamSathi{" "}
           </h1>
-          <h4 style={{ color: "black" }}>
+          <h4 style={{ color: "black", fontWeight: "400" }}>
             Empowering Rural Dreams with Udyamwell
           </h4>
         </div>
@@ -349,6 +360,40 @@ const UdyamSathi = () => {
           </ol>
         </div>
         <hr className="horizontal" />
+        <div className="banner" style={{ width: "70%", marginBottom: "100px" }}>
+          <div className="bannerText_udyamsathi">
+            <h1
+              style={{
+                fontSize: "3.4rem",
+                sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
+              }}
+            >
+              {" "}
+              <span style={{ color: "black" }}>Register </span> Here{" "}
+            </h1>
+            <p style={{ textAlign: "justify", fontSize: "16px" }}>
+              Are you ready to be a catalyst for change? The Udyamsathi Program
+              by Udyamwell is calling out to you! This is your chance to embark
+              on a transformative journey, where your passion meets purpose, and
+              your actions resonate in the hearts of rural entrepreneurs. <br />
+              <br />
+              <a href="https://forms.gle/VPMWHcUxDmvNxE8d7" target="_blank">
+                <button style={{ cursor: "pointer" }} className="download_btn">
+                  Click Here
+                </button>
+              </a>
+            </p>
+          </div>
+          <div className="qrCode_udyamsathi">
+            <img
+              src={udyamsathiQR}
+              alt="qrcode"
+              width={"132px"}
+              height={"132px"}
+            />
+            <p style={{ fontSize: "0.6rem" }}>Scan Here to fill via phone</p>
+          </div>
+        </div>
       </div>
     </div>
   );

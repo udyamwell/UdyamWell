@@ -7,6 +7,12 @@ import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import { Box, Typography } from "@mui/material";
+import Bg_about from "../assets/Bg_about.png";
+import ondc from "../assets/ondc.png";
+import sbi from "../assets/sbifoundationlogo.png";
+import microsoft from "../assets/microsoft.png";
+import iitmandicatalyst from "../assets/iitmandicatalyst.png";
+import SearchBox from "../components/SearchBox";
 const ServiceCard = ({ heading, text1, text2, lists, icon }) => {
   const { t } = useTranslation();
   return (
@@ -24,6 +30,11 @@ const ServiceCard = ({ heading, text1, text2, lists, icon }) => {
       </ul>
     </div>
   );
+};
+const handleSearch = (query) => {
+  // Perform search logic using the query
+  console.log("Search query:", query);
+  // Add your search logic here, such as making an API request or filtering data
 };
 const Service = () => {
   // const navigate = useNavigate();
@@ -73,7 +84,7 @@ const Service = () => {
     <div className="servicePage">
       <div className="landingPageCover">
         <img
-          src={landingPageBg_small}
+          src={Bg_about}
           width="100vw"
           alt="landing"
           className="landingPageCover__animation"
@@ -84,7 +95,7 @@ const Service = () => {
           <div className="bannerText">
             <h1
               style={{
-                fontSize: "3.4rem",
+                fontSize: "52px",
                 sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
               }}
             >
@@ -118,15 +129,39 @@ const Service = () => {
           </div>
         </div>
       </div>
-      <Box sx={{ p: "0 55px" }} textAlign={"center"}>
-        <Typography variant="h3">
-          <span style={{ color: "#2e8446" }}>{t("our")}</span> {t("services")}
-        </Typography>
-        <Typography variant="h6" className="serviceSubHeading">
-          {" "}
-          {t("services_body")}
-        </Typography>
+      <Box className="countBox" style={{ width: "80%" }}>
+        <Box className="count">
+          <Typography
+            variant="h5"
+            sx={{ ml: 2, color: "#236836", fonteight: 600 }}
+            style={{ paddingTop: "15px", fontWeight: "bold" }}
+          >
+            {t("supported_by")}
+          </Typography>
+        </Box>
+        <Box className="count">
+          <img src={ondc} alt="ONDC" />
+
+          <img src={sbi} alt="SBI Foundation" />
+
+          <img src={microsoft} alt="Microsoft for Startups" />
+          <img src={iitmandicatalyst} alt="IIT Mandi Catalyst" />
+        </Box>
       </Box>
+      <div className="service-box">
+        {" "}
+        <div className="services-title">
+          <h1 style={{ fontSize: "55px" }}>
+            <span style={{ color: "#2e8446" }}>{t("our")}</span> {t("services")}
+          </h1>
+
+          <p variant="h6" className="serviceSubHeading">
+            {" "}
+            {t("services_body")}
+          </p>
+        </div>
+        <SearchBox onSearch={handleSearch} />
+      </div>
       <div className="ServiceContainer">
         {data?.map((d, index) => {
           return (

@@ -1,21 +1,31 @@
 .sheelContainer {
     display: flex;
-    /* width: 95% ; */
-    margin: 100px auto;
+    flex-direction: column;
+    width: 95% ;
+    margin: 50px 0px;
+    align-items: center;
 }
-
+.sheelContainer form{
+    width: 80%;
+}
 .saathiForm{
-    width: 50%;
-    /* margin: 100px auto; */
-    text-align: left;
-    padding: 40px;
+    width: 100%;
+    margin: 0px auto;
+    text-align: center;
+    align-items: center;
+    
 }
 .field{
-    width: 100%;
+   width: 100%;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  
+}
+.label{
+    padding: 40px;
+    width: 100%;
 }
 
 input{
@@ -23,7 +33,7 @@ input{
     padding: 10px;
     border: none;
     border-radius: 5px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 .qrCode{
     width: 15%;

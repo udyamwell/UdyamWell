@@ -30,6 +30,7 @@ import DownloadApp from "./pages/DownloadApp";
 import Privacy from "./pages/Privacy";
 import TermsCondition from "./pages/TermsCondition";
 import SellOnONDC from "./pages/sellOnONDC";
+import ResponsePage from "./components/ResponsePage";
 // import Navabar from "./components/Navbar";
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
               <Route path="courses" element={<Video />} />
               <Route path="course/:id" element={<Lectures />} />
               <Route path="users" element={<Users />} />
+              <Route path="responses" element={<ResponsePage />} />
             </Route>
             <Route path="/appInformation" element={<DownloadApp />} />
           </Routes>

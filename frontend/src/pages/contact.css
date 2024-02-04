@@ -44,6 +44,10 @@
     font-size: 17px;
     margin-bottom: 0px;
 }
+.contact-img img{
+    width: 140%;
+   transform: translateX(-200px) 
+}
 
 @media only screen and (max-width:1000px){
     .form{
@@ -53,6 +57,7 @@
         align-items: center;
         width: 100%;
     }
+    
     .contactForm{
         flex-direction: column;
         justify-content: center;
@@ -74,5 +79,9 @@
        justify-content: center;
        text-align: left;
        border: 2px double green;
+    }
+    .contact-img img{
+        width: 100%;
+        transform: none
     }
 }

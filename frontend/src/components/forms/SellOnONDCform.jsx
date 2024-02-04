@@ -24,15 +24,15 @@ const SellOnONDCForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("/route", { formData })
+      .post("http://localhost:8080/ondc-seller/add-seller", { formData })
       .then((response) => {
         console.log(response.data);
+        Swal.fire("Thankyou for Submitting !");
       })
       .catch((error) => {
         console.log(error);
       });
     console.log("Form submitted:", formData);
-    Swal.fire("Thankyou for Submitting !");
   };
 
   return (

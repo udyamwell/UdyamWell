@@ -23,10 +23,76 @@
 .mainForm{
     width: 90%;
 }
+.information{
+    width: 40%;
+}
+.contact-info{
+    padding-left: 50px;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    margin: 20px 0;
+}
+.contact-info span{
+    width: 40px;
+    cursor: pointer;
+    height: 40px;
+}
+.media-body h3{
+    font-size: 18px;
+    color: #2a2a2a; 
+    line-height: 1.2em;
+}
+.media-body a{
+    text-decoration: none;
+    list-style: none;
+}
+.media-body p{
+    color: #8a8a8a;
+    line-height: 1.929;
+    font-size: 17px;
+    margin-bottom: 0px;
+}
+
+
+
+.loginContainer{
+    width: 80%;
+    margin:10rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    gap: 20px;
+    height: 100vh;
+}
+.information{
+    margin-top: 10rem;
+    transform: translateY(150px);
+}
+.loginForm{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.Signup{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: fit-content;
+    margin: 0 auto;
+    justify-content: space-around;
+    min-height: 100vh;
+}
 
 @media only screen and (max-width:900px) {
     .registerContainer{
         flex-direction: column;
+    }
+    .Signup{
+        flex-direction: column;
+        gap: 0px;
     }
     .regIllustration{
         width: 80%;
@@ -41,6 +107,7 @@
     /* login */
     .loginContainer{
         flex-direction: column;
+        height: fit-content;
     }
     .logIllustration{
         width: 80%;
@@ -49,28 +116,22 @@
         margin-top: 3rem;
         width: 90%;
     }
-}
-
-
-.loginContainer{
-    width: 80%;
-    margin:7rem auto 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items:center ;
-}
-
-.logIllustration{
-    width: 50%;
-}
-.logIllustration img{
-    width: 100%;
-    height: 100%;
-}
-.loginForm{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    .information{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: none;
+        border-top: 4px solid gray;
+        width: 100%;
+        flex-wrap: wrap;
+        transform: translateY(0px);
+    }
+    .contact-info{
+        margin-top: 2rem;
+        width: 300px;
+        padding:10px;
+       justify-content: center;
+       text-align: left;
+       /* border: 2px double green; */
+    }
 }

@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../slices/UserSlice";
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
+import Bg_about from "../assets/Bg_about2.png";
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -139,14 +140,14 @@ const Register = () => {
 
   return (
     <>
-    <div className="landingPageCover">
-          <img
-            src={landingPageBg_small}
-            width='100vw'
-            alt="landing"
-            className="landingPageCover__animation"
-          />
-        </div>
+      <div className="landingPageCover">
+        <img
+          src={Bg_about}
+          width="100vw"
+          alt="landing"
+          className="landingPageCover__animation"
+        />
+      </div>
       <div className="registerContainer">
         {/* illustration */}
         <div className="regIllustration">
