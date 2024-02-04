@@ -25,7 +25,7 @@
     "otp-generator": "^4.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.0.3",
     "webpack-cli": "^5.1.4"
   }
 }
