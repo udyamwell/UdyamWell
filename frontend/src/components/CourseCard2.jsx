@@ -1,17 +1,5 @@
-import {
-  Box,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  IconButton,
-  Typography,
-} from "@mui/material";
-import React, { useState } from "react";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import React from "react";
 // import { breadcrumb } from '../assets';
 import "./styles/courseCard.css";
 import PlayCircleFilledTwoToneIcon from "@mui/icons-material/PlayCircleFilledTwoTone";
@@ -21,16 +9,16 @@ const CourseCard2 = ({ courses }) => {
   const navigate = useNavigate();
   let urlImage = `https://www.udyamwell.com/uploads/course/thumbnails/`;
 
-  const handleShare = async (title, url) => {
-    try {
-      await navigator.share({
-        title,
-        url,
-      });
-    } catch (error) {
-      console.error("Error sharing:", error);
-    }
-  };
+  // const handleShare = async (title, url) => {
+  //   try {
+  //     await navigator.share({
+  //       title,
+  //       url,
+  //     });
+  //   } catch (error) {
+  //     console.error("Error sharing:", error);
+  //   }
+  // };
 
   return (
     <>

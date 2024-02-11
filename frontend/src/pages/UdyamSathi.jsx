@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
 import "./udyamsathi.css";
-import { banner_img, landingPageBg, udyamsathiQR } from "../assets";
+import { udyamsathiQR } from "../assets";
 import udyamsathi from "../assets/udyamsathi.png";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import Bg_about from "../assets/Bg_about.png";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 const UdyamSathi = () => {
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
-  const handleClick = () => {
-    console.log("Hello");
-  };
+  // const handleClick = () => {
+  //   console.log("Hello");
+  // };
   return (
     <div>
       <div className="landingPageCover">
@@ -125,7 +125,11 @@ const UdyamSathi = () => {
               on a transformative journey, where your passion meets purpose, and
               your actions resonate in the hearts of rural entrepreneurs. <br />
               <br />
-              <a href="https://forms.gle/VPMWHcUxDmvNxE8d7" target="_blank">
+              <a
+                href="https://forms.gle/VPMWHcUxDmvNxE8d7"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <button style={{ cursor: "pointer" }} className="download_btn">
                   Click Here
                 </button>

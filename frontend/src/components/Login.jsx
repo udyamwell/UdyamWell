@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { landingPageBg_About, landingPageBg_small, login } from "../assets";
+// import { landingPageBg_About, landingPageBg_small, login } from "../assets";
 import "./styles/register.css";
 import {
   Alert,
@@ -27,25 +27,25 @@ import { useTranslation } from "react-i18next";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Bg_about from "../assets/Bg_about2.png";
 const Login = () => {
-  const CustomTextArea = (props) => {
-    return (
-      <input
-        {...props}
-        style={{
-          width: "100%",
-          padding: "20px ",
-          backgroundColor: "#E0F1E5",
-          borderRadius: "25px",
-          outline: "none",
-          resize: "none",
-          textAlign: "center",
-          color: "black",
-          border: "none",
-          margin: "none",
-        }}
-      />
-    );
-  };
+  // const CustomTextArea = (props) => {
+  //   return (
+  //     <input
+  //       {...props}
+  //       style={{
+  //         width: "100%",
+  //         padding: "20px ",
+  //         backgroundColor: "#E0F1E5",
+  //         borderRadius: "25px",
+  //         outline: "none",
+  //         resize: "none",
+  //         textAlign: "center",
+  //         color: "black",
+  //         border: "none",
+  //         margin: "none",
+  //       }}
+  //     />
+  //   );
+  // };
   const { t } = useTranslation();
   const { user, error } = useSelector((state) => state.user);
   useEffect(() => {

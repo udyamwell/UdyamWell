@@ -11,7 +11,7 @@ import { useRef } from "react";
 import Swal from "sweetalert2";
 
 const RequestPage = () => {
-  const [wrong, setWrong] = useState("");
+  const [wrong] = useState("");
   const form = useRef();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -66,14 +66,11 @@ const RequestPage = () => {
               style={{
                 fontSize: "3rem",
                 sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
-                marginBottom : "1rem"
+                marginBottom: "1rem",
               }}
             >
               {" "}
-              <span style={{ color: "black" }}>
-                UdyamSathi
-              </span>{" "}
-              Program{" "}
+              <span style={{ color: "black" }}>UdyamSathi</span> Program{" "}
             </h1>
             {wrong && <h3>{wrong}</h3>}
             <form ref={form} onSubmit={handleSubmit}>
@@ -125,7 +122,9 @@ const RequestPage = () => {
                 <PhoneIphoneOutlinedIcon />
               </span>
               <div className="media-body">
-                <a href="tel:+91 8679625300"><h3>+91 867 9625 300</h3></a>
+                <a href="tel:+91 8679625300">
+                  <h3>+91 867 9625 300</h3>
+                </a>
                 <p>Mon to Fri 9am to 6pm</p>
               </div>
             </div>
@@ -134,7 +133,11 @@ const RequestPage = () => {
                 <MailOutlinedIcon />
               </span>
               <div className="media-body">
-                <a href="mailto:admin@udyamwell.com" target="_blank">
+                <a
+                  href="mailto:admin@udyamwell.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <h3>admin@udyamwell.com</h3>
                 </a>
                 <p>Send us your query anytime!</p>
@@ -148,6 +151,7 @@ const RequestPage = () => {
                 <a
                   href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <h3>Connect on Whatsapp</h3>
                 </a>
