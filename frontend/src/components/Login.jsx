@@ -106,7 +106,7 @@ const Login = () => {
                 sx={{ width: "100%", margin: "1rem auto" }}
                 spacing={4}
               >
-                <CustomTextArea
+                {/* <CustomTextArea
                   id="customTextArea"
                   name="customTextArea"
                   rows="1"
@@ -114,16 +114,16 @@ const Login = () => {
                   placeholder={t("formph_mail")}
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
-                />
-                {/* <TextField
+                /> */}
+                <TextField
                   fullWidth
                   name={"email"}
                   // variant="filled"
                   type="text"
                   label={t("formph_mail")}
-                  InputProps={{
-                    inputComponent: CustomInputComponent,
-                  }}
+                  // InputProps={{
+                  //   inputComponent: CustomInputComponent,
+                  // }}
                   sx={{
                     backgroundColor: "#E0F1E5",
                     "& .MuiOutlinedInput-input::placeholder": {
@@ -131,12 +131,11 @@ const Login = () => {
                       fontWeight: "400",
                       alignSelf: "center",
                     },
-                    borderRadius: "60px",
                   }}
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
-                /> */}
-                <CustomTextArea
+                />
+                {/* <CustomTextArea
                   id="customTextArea"
                   name="customTextArea"
                   rows="1"
@@ -145,8 +144,8 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   margin="none"
-                />
-                {/* <Box>
+                /> */}
+                <Box>
                   <FormControl sx={{ width: "100%" }} variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">
                       {t("formph_password")}
@@ -166,13 +165,21 @@ const Login = () => {
                           </IconButton>
                         </InputAdornment>
                       }
+                      sx={{
+                        backgroundColor: "#E0F1E5",
+                        "& .MuiOutlinedInput-input::placeholder": {
+                          color: "black", // Placeholder color
+                          fontWeight: "400",
+                          alignSelf: "center",
+                        },
+                      }}
                       label="Password"
                       name="password"
                       onChange={(e) => setPassword(e.target.value)}
                       value={password}
                     />
                   </FormControl>
-                </Box> */}
+                </Box>
               </Stack>
             </div>
             <Box sx={{ mt: 3 }}>

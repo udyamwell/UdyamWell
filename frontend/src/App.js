@@ -31,6 +31,8 @@ import Privacy from "./pages/Privacy";
 import TermsCondition from "./pages/TermsCondition";
 import SellOnONDC from "./pages/sellOnONDC";
 import ResponsePage from "./components/ResponsePage";
+import UdyamDashboard from "./pages/UdyamDashboard";
+import VideoUpload from "./components/videoUpload";
 // import Navabar from "./components/Navbar";
 
 function App() {
@@ -60,9 +62,11 @@ function App() {
             <Route path="/udyamsheel" element={<UdyamSheel />} />
             <Route path="/sellonONDC" element={<SellOnONDC />} />
             <Route path="/udyamsathi" element={<UdyamSathi />} />
+            <Route path="/udyamdashboard" element={<UdyamDashboard />} />
             <Route path="/requestpage" element={<RequestPage />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/termscondition" element={<TermsCondition />} />
+            <Route path="/videoupload" element={<VideoUpload />} />
             <Route path="/admin">
               <Route path="courses" element={<Video />} />
               <Route path="course/:id" element={<Lectures />} />

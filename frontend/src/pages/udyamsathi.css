@@ -54,6 +54,11 @@ ol {
     align-items: center;
 }
 
+ .label{
+     padding: 40px;
+     width: 100%;
+ }
+
 .qrCode_udyamsathi{
     margin-left: 10%;
     display:flex;

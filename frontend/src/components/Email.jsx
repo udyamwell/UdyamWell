@@ -46,7 +46,7 @@ const Email = () => {
       alert("Please enter your registered mail");
     }
     axios
-      .post("https://www.udyamwell.com/users/sendOtp", { email: email })
+      .post("https://localhost:8080/users/sendOtp", { email: email })
       .then((res) => {
         Swal.fire(
           `${res.data.message}`,
@@ -73,7 +73,7 @@ const Email = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              margin: "10rem auto 5rem auto",
+              margin: "20rem auto 5rem auto",
             }}
             color={"#236836"}
           >
@@ -84,16 +84,23 @@ const Email = () => {
               </h1>
               {error && <p>{error}</p>}
               <Box>
-                {/* <TextField
-                sx={{ mt: 2 }}
-                type={"email"}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                label="Enter your registered Email"
-                variant="outlined"
-                fullWidth
-              /> */}
-                <CustomTextArea
+                <TextField
+                  sx={{
+                    backgroundColor: "#E0F1E5",
+                    "& .MuiOutlinedInput-input::placeholder": {
+                      color: "black", // Placeholder color
+                      fontWeight: "400",
+                      alignSelf: "center",
+                    },
+                  }}
+                  type={"email"}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  label="Enter your registered Email"
+                  variant="outlined"
+                  fullWidth
+                />
+                {/* <CustomTextArea
                   id="customTextArea"
                   name="customTextArea"
                   rows="1"
@@ -101,7 +108,7 @@ const Email = () => {
                   value={email}
                   placeholder="Enter your registered Email"
                   onChange={(e) => setEmail(e.target.value)}
-                />
+                /> */}
               </Box>
               <Box
                 sx={{
@@ -143,7 +150,7 @@ const Email = () => {
             </Stack>
           </Box>
         </form>
-        <div className="information">
+        <div className="information2">
           <div className="contact-info">
             <span className="contact-info__icon">
               <HomeOutlinedIcon />

@@ -143,7 +143,268 @@ const UdyamSathi = () => {
           </div>
         </div>
       </div>
-
+      <div
+        className="saathiContainer"
+        style={{ width: "80%", margin: "0px auto" }}
+      >
+        <div className="saathiForm">
+          <h1 style={{ color: "green", textAlign: "center" }}>
+            Registration / पंजीकरण
+          </h1>
+        </div>
+        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd8rdTq9MRAmbWfpZhmKirrC1A8BFwElk_zbSrWsGOQOGnIZg/formResponse">
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Name / आपका नाम
+            </label>
+            <input
+              type="text"
+              name="entry.449441306"
+              placeholder="Enter your name"
+              required
+            />{" "}
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Phone Number / फ़ोन नंबर
+            </label>
+            <input
+              type="tel"
+              name="entry.775556124"
+              placeholder="Enter your phone number"
+              required
+            />{" "}
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Name of your Enterprise / आपके उद्यम का नाम
+            </label>
+            <input
+              type="text"
+              name="entry.1579784548"
+              placeholder="Enterise Name"
+              required
+            />{" "}
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Founder/Owner Name / संस्थापक का नाम
+            </label>
+            <input
+              type="text"
+              name="entry.877036990"
+              placeholder="Founder Name"
+              required
+            />{" "}
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Email Address/ मेल पता
+            </label>
+            <input
+              type="email"
+              name="entry.1894326054"
+              placeholder="Enter your Email"
+              required
+            />{" "}
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Business Address / व्यावसायिक पता
+            </label>
+            <input
+              type="text"
+              name="entry.1414131589"
+              placeholder="Address"
+              required
+            />{" "}
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Any Website or Social Media link (If Available) / कोई भी वेबसाइट
+              या सोशल मीडिया लिंक (यदि उपलब्ध हो)
+            </label>
+            <input type="text" name="entry.205543619" placeholder="Link" />{" "}
+          </div>{" "}
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Number of people in the organization (Team Size) / संगठन में लोगों
+              की संख्या
+            </label>
+            <input
+              type="text"
+              name="entry.1018743359"
+              placeholder="Number of people"
+            />{" "}
+          </div>{" "}
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              What business you are involved in? / आप किस व्यवसाय से जुड़े हैं?
+            </label>
+            <input
+              type="text"
+              name="entry.1951356654"
+              placeholder="Business"
+              required
+            />{" "}
+          </div>{" "}
+          <hr />
+          <div
+            className="field"
+            style={{
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "start",
+            }}
+          >
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Are you willing to actively participate in workshops, training
+              sessions, and events organized by UdyamWell? / क्या आप हमारे संगठन
+              द्वारा आयोजित कार्यशालाओं, प्रशिक्षण सत्रों और कार्यक्रमों में
+              सक्रिय रूप से भाग लेने के इच्छुक हैं?
+            </label>
+            <div>
+              <input
+                type="radio"
+                name="entry.1352070005"
+                id="Yes"
+                value="Yes"
+              />
+              <label for="Yes">Yes / हाँ</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="entry.1352070005"
+                id="notsure"
+                value="notsure"
+              />
+              <label for="notsure">
+                Not sure; want to know more. / निश्चित नहीं; और अधिक जानने की
+                इच्छा है।
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="entry.1352070005" id="no" value="no" />
+              <label for="no">No/ नहीं</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="entry.1352070005"
+                id="other"
+                value="other"
+              />
+              <label for="other">Other/ अन्य… </label>
+            </div>{" "}
+          </div>{" "}
+          <hr />
+          <div
+            className="field"
+            style={{
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "start",
+            }}
+          >
+            <label for="" className="mr-3 mt-3" style={{ fontSize: "18px" }}>
+              How did you hear about our startup support program? // आपने हमारे
+              स्टार्टअप सहायता कार्यक्रम के बारे में कैसे सुना?
+            </label>
+            <div>
+              <input type="radio" name="entry.244755604" id="sm" value="sm" />
+              <label for="sm">
+                Through Social Media Channels/ सोशल मीडिया चैनलों के माध्यम से{" "}
+              </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="entry.244755604"
+                id="website"
+                value="website"
+              />
+              <label for="website">Our Website/ हमारी वेबसाइट</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="entry.244755604"
+                id="campaign"
+                value="campaign"
+              />
+              <label for="campaign"> Local Campaign/ स्थानीय अभियान </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="entry.244755604"
+                id="someone"
+                value="someone"
+              />
+              <label for="someone">
+                Through someone you know / किसी ऐसे व्यक्ति के माध्यम से जिसे आप
+                जानते हैं
+              </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="entry.244755604"
+                id="Saathi"
+                value="Saathi"
+              />
+              <label for="Saathi">Udyam Saathi/उद्यम-साथी</label>
+            </div>
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="mr-3 mt-3" style={{ fontSize: "18px" }}>
+              Any Suggestions/ कोई भी सुझाव जिसे आप साझा करना चाहते हैं ||
+            </label>
+            <input
+              type="text"
+              name="entry.301022112"
+              placeholder="Suggestions"
+              required
+            />
+          </div>{" "}
+          <br />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              variant="contained"
+              sx={{
+                margin: "28px 28%",
+                color: "white",
+                padding: "10px 60px",
+                borderRadius: "20px",
+                fontWeight: "400",
+                textTransform: "inherit",
+                border: "none",
+                background:
+                  "linear-gradient(90deg, rgba(46,132,70,1) 0%, rgba(0,100,0,1) 100%);",
+              }}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
       <div className="HomeContainer" style={{ margin: "0rem auto 0 auto" }}>
         <div className="content_heading_udyamSathi">
           <h1

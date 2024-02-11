@@ -26,6 +26,7 @@
 .information{
     width: 40%;
 }
+
 .contact-info{
     padding-left: 50px;
     display: flex;
@@ -67,6 +68,10 @@
 }
 .information{
     margin-top: 10rem;
+    transform: translateY(150px);
+}
+.information2{
+    margin-top: 20rem;
     transform: translateY(150px);
 }
 .loginForm{
@@ -125,6 +130,17 @@
         width: 100%;
         flex-wrap: wrap;
         transform: translateY(0px);
+    }
+    .information2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: none;
+        border-top: 4px solid gray;
+        width: 100%;
+        flex-wrap: wrap;
+        transform: translateY(0px);
+        
     }
     .contact-info{
         margin-top: 2rem;
