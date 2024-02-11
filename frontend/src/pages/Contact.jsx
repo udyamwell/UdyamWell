@@ -5,12 +5,12 @@ import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import { Button, Stack, TextField } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { landingPageBg_small } from "../assets";
+import Bg_about from "../assets/Bg_about2.png";
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
-
+import contact_img from "../assets/contact_img.png";
 const Contact = () => {
   const { t } = useTranslation();
   const [wrong, setWrong] = useState("");
@@ -55,7 +55,7 @@ const Contact = () => {
       {/* <TopSection MainHeadinig="Contact Us" subText="" text="Contact Us" /> */}
       <div className="landingPageCover">
         <img
-          src={landingPageBg_small}
+          src={Bg_about}
           width="100vw"
           alt="landing"
           className="landingPageCover__animation"
@@ -64,7 +64,12 @@ const Contact = () => {
       <div className="contact" style={{ marginTop: "15rem" }}>
         <div className="contactForm">
           <div className="form">
-            <h1 className="subHeading">{t("contact_head")}</h1>
+            <h1
+              className="subHeading"
+              style={{ color: "#2E8446", fontSize: "50px" }}
+            >
+              {t("contact_head")}
+            </h1>
             {wrong && <h3>{wrong}</h3>}
             <form ref={form} onSubmit={handleSubmit}>
               <Stack className="ContactStack" spacing={2}>
@@ -74,14 +79,27 @@ const Contact = () => {
                   variant="outlined"
                   type="text"
                   placeholder={t("formph_name")}
+                  sx={{
+                    backgroundColor: "#E0F1E5",
+                    "& .MuiOutlinedInput-input::placeholder": {
+                      color: "black", // Placeholder color
+                      fontWeight: "400",
+                    },
+                  }}
                   // value={name}
-                  // onChange={(e) => setName(e.target.value)}
                 />
                 <TextField
                   variant="outlined"
                   type="email"
                   placeholder={t("formph_mail")}
                   name="email"
+                  sx={{
+                    backgroundColor: "#E0F1E5",
+                    "& .MuiOutlinedInput-input::placeholder": {
+                      color: "black", // Placeholder color
+                      fontWeight: "400",
+                    },
+                  }}
                   // value={email}
                   // onChange={(e) => setEmail(e.target.value)}
                 />
@@ -90,6 +108,13 @@ const Contact = () => {
                   type="text"
                   name="subject"
                   placeholder={t("formph_subject")}
+                  sx={{
+                    backgroundColor: "#E0F1E5",
+                    "& .MuiOutlinedInput-input::placeholder": {
+                      color: "black", // Placeholder color
+                      fontWeight: "400",
+                    },
+                  }}
                   // value={subject}
                   // onChange={(e) => setSubject(e.target.value)}
                 />
@@ -98,14 +123,38 @@ const Contact = () => {
                   placeholder={t("formph_message")}
                   variant="outlined"
                   name="message"
+                  sx={{
+                    backgroundColor: "#E0F1E5",
+                    "& .MuiOutlinedInput-input::placeholder": {
+                      color: "black", // Placeholder color
+                      fontWeight: "400",
+                    },
+                  }}
                   // value={message}
                   // onChange={(e) => setMessage(e.target.value)}
                 />
               </Stack>
-              <Button variant="contained" type="submit" sx={{ ml: 1, mt: 3 }}>
+              <Button
+                variant="contained"
+                type="submit"
+                sx={{
+                  margin: "28px 28%",
+                  color: "white",
+                  padding: "10px 60px",
+                  borderRadius: "20px",
+                  fontWeight: "400",
+                  textTransform: "inherit",
+                  border: "none",
+                  background:
+                    "linear-gradient(90deg, rgba(46,132,70,1) 0%, rgba(0,100,0,1) 100%);",
+                }}
+              >
                 {t("submit_btn")}
               </Button>
             </form>
+            <div className="contact-img">
+              <img src={contact_img} alt="" />
+            </div>
           </div>
           {/*  */}
           <div className="information">
@@ -114,8 +163,8 @@ const Contact = () => {
                 <HomeOutlinedIcon />
               </span>
               <div className="media-body">
-                <h3>Catalyst Building, IIT Mandi.</h3>
-                <p>Himachal Pradesh, 175005</p>
+                <h3>{t("address_body1")}</h3>
+                <p>{t("address_body2")}</p>
               </div>
             </div>
             <div className="contact-info">
@@ -124,7 +173,7 @@ const Contact = () => {
               </span>
               <div className="media-body">
                 <h3>+91 867 9625 300</h3>
-                <p>Mon to Fri 9am to 6pm</p>
+                <p>{t("phone_time")}</p>
               </div>
             </div>
             <div className="contact-info">
@@ -135,7 +184,7 @@ const Contact = () => {
                 <a href="mailto:admin@udyamwell.com" target="_blank">
                   <h3>admin@udyamwell.com</h3>
                 </a>
-                <p>Send us your query anytime!</p>
+                <p>{t("mail_body")}</p>
               </div>
             </div>
             <div className="contact-info">
@@ -147,9 +196,9 @@ const Contact = () => {
                   href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
                   target="_blank"
                 >
-                  <h3>Connect on Whatsapp</h3>
+                  <h3>{t("contact_whatsapp")}</h3>
                 </a>
-                <p>Send us your query anytime!</p>
+                <p>{t("contact_whatsappbody")}</p>
               </div>
             </div>
           </div>

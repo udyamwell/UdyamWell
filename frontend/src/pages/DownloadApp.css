@@ -73,7 +73,28 @@
 .registerDownload{
     width: 60%;
 }
+.service-title{
+    margin-inline: auto;
+    width: 80%;
+    align-items: flex-start;
+}
+.service-head{
+    font-size: 30px;
+}
+.service-body{
+    width: 50%;
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.875);
+}
 @media (max-width: 1000px) {
+    .service-body  {
+        width: 80%;
+    }
+    .serviceSubHeading1{
+        min-width: 350px;
+    }
     .bannerDownload{
         flex-direction: column;
         width: 100%;

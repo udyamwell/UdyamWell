@@ -77,15 +77,16 @@ const Footer = () => {
           <div className="part3">
             <h1>{t("contact_us")}</h1>
             <div className="contact_info">
-              <p>
-                <span> {t("address_head")}</span> {t("address_body")}
+              <p style={{ color: "black" }}>
+                <span style={{ color: "green" }}> {t("address_head")}</span>{" "}
+                {t("address_body")}
               </p>
               <p>
-                <span> {t("phone_head")}</span>{" "}
+                <span style={{ color: "green" }}> {t("phone_head")}</span>{" "}
                 <a href="tel:+91 8679625300">+91 8679625300</a>
               </p>
               <p>
-                <span>{t("email_head")} </span>
+                <span style={{ color: "green" }}>{t("email_head")} </span>
                 <a href="mailto:admin@udyamwell.com">
                   admin@udyamwell.com
                 </a>{" "}

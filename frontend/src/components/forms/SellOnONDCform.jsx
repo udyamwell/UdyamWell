@@ -24,11 +24,11 @@ const SellOnONDCForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://www.udyamwell.com/ondc-seller/add-seller", formData )
+      .post("https://www.udyamwell.com/ondc-seller/add-seller", formData)
       .then((response) => {
-        if(response.status === 201 || response.status === 200){
+        if (response.status === 201 || response.status === 200) {
           Swal.fire("Thankyou for Submitting !");
-        }else{
+        } else {
           Swal.fire("Request not processed, please try again !");
         }
       })
