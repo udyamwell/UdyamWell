@@ -14,7 +14,10 @@ jobs:
 
       - name: Clean build directory
         run: |
-          rm -rf build
+          rm -rf frontend/build
+
+      - name: Install dependencies in frontend
+        run: cd frontend && npm install
 
       - name: Set up Node.js version
         uses: actions/setup-node@v3
@@ -23,8 +26,7 @@ jobs:
 
       - name: Build frontend
         run: |
-          cd frontend
-          npm run build
+          cd frontend && npm run build
 
       - name: Upload frontend artifact
         uses: actions/upload-artifact@v3
@@ -63,12 +65,12 @@ jobs:
       - name: Download frontend artifact
         uses: actions/download-artifact@v3
         with:
-          name: frontend-build
+          name: frontend-build-artifacts
 
       - name: Download backend artifact
         uses: actions/download-artifact@v3
         with:
-          name: backend-build
+          name: backend-build-artifacts
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -77,5 +79,5 @@ jobs:
           app-name: 'udyamwell'
           slot-name: 'Production'
           # Update paths based on your build structure
-          package: 'frontend-build/* backend-build/*'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCF900FDC023445BA307F22B8CE75D7F }}.
+          package: 'frontend-build/*'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCF900FDC023445BA307F22B8CE75D7F }}
