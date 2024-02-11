@@ -21,17 +21,17 @@ import {
   TextField,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import {createCourse, fetchAllCources } from "../../slices/CourseSlice";
+import { createCourse, fetchAllCources } from "../../slices/CourseSlice";
 import VideoCell from "../../components/VideoCell";
 
-const Video = () => {  
+const Video = () => {
   // const navigate = useNavigate();
-  const {all_courses,error} = useSelector(state=>state.courses);
+  const { all_courses, error } = useSelector((state) => state.courses);
   const dispatch = useDispatch();
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(fetchAllCources());
-  },[])
-  
+  }, [dispatch]);
+
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
   // const [video, setVideo] = useState(null);--------------------
@@ -66,28 +66,28 @@ const Video = () => {
 
   // create video function
   const handleCreate = async () => {
-        // Validate form fields
-        console.log("funcions enter");
-        if (!validateForm()) {
-          return;
-        }
-      const formData = new FormData();
-      formData.append("image", image);
-      formData.append("name",name);
-      formData.append("description",description);
-      formData.append("isPaid",isPaid);
-     formData.append("cost",Number(cost));
-      // Object.entries(lectureData).forEach(([key, value]) => {
-        console.log("FORMA",formData)
-      //   formData.append(key, value);
-      // });
-      dispatch(createCourse(formData));
-      handleClose();
-      setName("");
-      setImage(null);
-      setDescription("");
-      setIsPaid(false);
-      setCost(0);
+    // Validate form fields
+    console.log("funcions enter");
+    if (!validateForm()) {
+      return;
+    }
+    const formData = new FormData();
+    formData.append("image", image);
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("isPaid", isPaid);
+    formData.append("cost", Number(cost));
+    // Object.entries(lectureData).forEach(([key, value]) => {
+    console.log("FORMA", formData);
+    //   formData.append(key, value);
+    // });
+    dispatch(createCourse(formData));
+    handleClose();
+    setName("");
+    setImage(null);
+    setDescription("");
+    setIsPaid(false);
+    setCost(0);
   };
 
   return (
@@ -116,12 +116,10 @@ const Video = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {
-                all_courses?.map((lecture,index)=>(
-                  <VideoCell key={index} lecture={lecture}/>
-                ))
-              }
-            </TableBody> 
+              {all_courses?.map((lecture, index) => (
+                <VideoCell key={index} lecture={lecture} />
+              ))}
+            </TableBody>
           </Table>
         </TableContainer>
       </Paper>
@@ -167,26 +165,35 @@ const Video = () => {
             </Box>
             <Box>
               <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Is it Paid?</InputLabel>
-                <Select name="isPaid" value={isPaid} label="Is it Paid?" onChange={(e) => setIsPaid(e.target.value)}>
+                <InputLabel id="demo-simple-select-label">
+                  Is it Paid?
+                </InputLabel>
+                <Select
+                  name="isPaid"
+                  value={isPaid}
+                  label="Is it Paid?"
+                  onChange={(e) => setIsPaid(e.target.value)}
+                >
                   <MenuItem value={"true"}>True</MenuItem>
                   <MenuItem value={"false"}>False</MenuItem>
                 </Select>
               </FormControl>
             </Box>
-           {isPaid && (
-             <Box>
-             <label>Cost: </label>
-             <TextField
-               fullWidth
-               name="link"
-               value={cost}
-               onChange={(e) => setCost(e.target.value)}
-               variant="standard"
-             />
-           </Box>
-           )}
-            <Button onClick={handleCreate} variant="contained">Create</Button>
+            {isPaid && (
+              <Box>
+                <label>Cost: </label>
+                <TextField
+                  fullWidth
+                  name="link"
+                  value={cost}
+                  onChange={(e) => setCost(e.target.value)}
+                  variant="standard"
+                />
+              </Box>
+            )}
+            <Button onClick={handleCreate} variant="contained">
+              Create
+            </Button>
           </Stack>
         </Paper>
       </Modal>
@@ -195,4 +202,3 @@ const Video = () => {
 };
 
 export default Video;
-

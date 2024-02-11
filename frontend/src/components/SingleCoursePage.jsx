@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import VideoLectureCard from "./VideoLectureCard";
 import "./styles/courseCard.css";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleCource } from "../slices/videos";
-import CircularWithValueLabel from "./CircularLabel";
+// import CircularWithValueLabel from "./CircularLabel";
 import "./CustomVideoPlayer.css";
 import Slider from "@mui/material/Slider";
 import Forward10Icon from "@mui/icons-material/Forward10";
@@ -23,14 +23,12 @@ import ReactPlayer from "react-player";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import LoadingSpinner from "./LoadingSpinner";
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import SearchBox from "../components/SearchBox";
 import Bg_course from "../assets/Bg_course.png";
 const SingleCoursePage = () => {
   const { id } = useParams();
-  const { courseName, lectures, error, image } = useSelector(
-    (state) => state.lectures
-  );
+  const { courseName, lectures } = useSelector((state) => state.lectures);
   const dispatch = useDispatch();
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
@@ -44,7 +42,7 @@ const SingleCoursePage = () => {
   const [selectedQuality, setSelectedQuality] = useState("auto");
   const [selectedSpeed, setSelectedSpeed] = useState(1);
   const [isBuffering, setIsBuffering] = useState(false);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [setIsFullScreen] = useState(false);
   const handleSearch = (query) => {
     // Perform search logic using the query
     console.log("Search query:", query);

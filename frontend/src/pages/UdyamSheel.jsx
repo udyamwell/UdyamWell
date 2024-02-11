@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import "./udyamSheel.css";
-import { banner_img, landingPageBg, udyamsheel, udyamsheelQr } from "../assets";
-import { Box, Button, Stack, Typography } from "@mui/material";
-import { useNavigate } from "react-router";
+import { udyamsheel, udyamsheelQr } from "../assets";
+import { Box, Button, Typography } from "@mui/material";
+// import { useNavigate } from "react-router";
 import Bg_about from "../assets/Bg_about.png";
 const UdyamSheel = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
@@ -97,7 +97,11 @@ const UdyamSheel = () => {
               on a transformative journey, where your passion meets purpose, and
               your actions resonate in the hearts of rural entrepreneurs. <br />
               <br />
-              <a href="https://forms.gle/VPMWHcUxDmvNxE8d7" target="_blank">
+              <a
+                href="https://forms.gle/VPMWHcUxDmvNxE8d7"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <button style={{ cursor: "pointer" }} className="download_btn">
                   Click Here
                 </button>

@@ -8,30 +8,30 @@ import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { landingPageBg_small } from "../assets";
+// import { landingPageBg_small } from "../assets";
 import { useTranslation } from "react-i18next";
 import Bg_about from "../assets/Bg_about2.png";
 import "./styles/register.css";
 const Email = () => {
-  const CustomTextArea = (props) => {
-    return (
-      <input
-        {...props}
-        style={{
-          width: "100%",
-          padding: "20px ",
-          backgroundColor: "#E0F1E5",
-          borderRadius: "25px",
-          outline: "none",
-          resize: "none",
-          textAlign: "center",
-          color: "black",
-          border: "none",
-          margin: "none",
-        }}
-      />
-    );
-  };
+  // const CustomTextArea = (props) => {
+  //   return (
+  //     <input
+  //       {...props}
+  //       style={{
+  //         width: "100%",
+  //         padding: "20px ",
+  //         backgroundColor: "#E0F1E5",
+  //         borderRadius: "25px",
+  //         outline: "none",
+  //         resize: "none",
+  //         textAlign: "center",
+  //         color: "black",
+  //         border: "none",
+  //         margin: "none",
+  //       }}
+  //     />
+  //   );
+  // };
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);

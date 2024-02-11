@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./service.css";
-import { landingPageBg_small, service } from "../assets";
-import { useNavigate } from "react-router";
+import { service } from "../assets";
+// import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
@@ -14,7 +14,7 @@ import microsoft from "../assets/microsoft.png";
 import iitmandicatalyst from "../assets/iitmandicatalyst.png";
 import SearchBox from "../components/SearchBox";
 const ServiceCard = ({ heading, text1, text2, lists, icon }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div className="cardContainer">
       <span>
