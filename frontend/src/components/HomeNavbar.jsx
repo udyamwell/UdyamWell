@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import "./styles/homeNavbar.css";
-import { menuBlack, closeBlack, Udyamwell_Logo_Standee } from "../assets";
+import {
+  menuBlack,
+  closeBlack,
+  Udyamwell_Logo_Standee,
+  logo1,
+} from "../assets";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../slices/UserSlice.js";
@@ -14,6 +19,7 @@ import {
 } from "@mui/material";
 import LanguageToggle from "./languagetoggle";
 import { useTranslation } from "react-i18next";
+import PersonIcon from "@mui/icons-material/Person";
 const HomeNavbar = () => {
   const { t } = useTranslation();
   const [toggle1, setToggle1] = useState(false);
@@ -51,6 +57,11 @@ const HomeNavbar = () => {
       setNavbar(false);
     }
   };
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsClicked(true);
+  };
   window.addEventListener("scroll", changeBackground);
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
@@ -65,8 +76,8 @@ const HomeNavbar = () => {
           <div className="containerHome">
             <div className="navbar-brand">
               <img
-                src={Udyamwell_Logo_Standee}
-                height={"70px"}
+                src={logo1}
+                height={"75px"}
                 className="logo1"
                 width={"auto"}
                 alt=""
@@ -103,9 +114,83 @@ const HomeNavbar = () => {
                     style={{ fontWeight: "bold" }}
                     onClick={handleOpenUserMenu}
                   >
-                    <Link>{user?.name}</Link>
+                    {/* <Link>{user?.name}</Link> */}
+                    <Button
+                      sx={{ ml: 2, color: "green" }}
+                      aria-describedby={id}
+                      variant="outlined"
+                    >
+                      {user?.name}
+                    </Button>
+                    {/* <Popover
+                      sx={{ mt: 4 }}
+                      id={id}
+                      open={open}
+                      anchorEl={anchorEl}
+                      onClose={handleClose}
+                      anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "left",
+                      }}
+                    >
+                      <Stack>
+                        {user?.superAdmin && (
+                          <Button sx={{ p: 1 }} onClick={handleClose}>
+                            <Typography
+                              onClick={() => {
+                                handleCloseUserMenu();
+                                navigate("/profile");
+                              }}
+                            >
+                              Profile
+                            </Typography>
+                          </Button>
+                        )}
+                        <Button sx={{ p: 1 }} onClick={handleClose}>
+                          <Typography
+                            onClick={() => {
+                              handleCloseUserMenu();
+                              handleLogout();
+                            }}
+                          >
+                            Logout
+                          </Typography>
+                        </Button>
+                      </Stack>
+                    </Popover> */}
                   </li>
-                  <Menu
+                  {/* <Popover
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    <MenuItem
+                      onClick={() => {
+                        handleCloseUserMenu();
+                        navigate("/profile");
+                      }}
+                    >
+                      <Typography textAlign="center">Profile</Typography>
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        handleCloseUserMenu();
+                        handleLogout();
+                      }}
+                    >
+                      <Typography textAlign="center">Logout</Typography>
+                    </MenuItem>
+                  </Popover> */}
+                  {/* <Menu
                     sx={{ mt: "70px" }}
                     id="menu-appbar"
                     anchorEl={anchorElUser}
@@ -121,7 +206,7 @@ const HomeNavbar = () => {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    {/* {settings.map((setting) => ( */}
+                    
                     <MenuItem onClick={handleCloseUserMenu}>
                       <Typography
                         onClick={() => navigate("/profile")}
@@ -135,8 +220,8 @@ const HomeNavbar = () => {
                         {t("logout_btn")}
                       </Typography>
                     </MenuItem>
-                    {/* ))} */}
-                  </Menu>
+                  
+                  </Menu> */}
                 </>
               )}
               {/* <li>
@@ -178,41 +263,114 @@ const HomeNavbar = () => {
                           Lectures
                         </Typography>
                       </Button>
+                      <Button sx={{ p: 1 }} onClick={handleClose}>
+                        <Typography
+                          onClick={() => navigate("/admin/responses")}
+                        >
+                          Responses
+                        </Typography>
+                      </Button>
                     </Stack>
                   </Popover>
                 </>
               )}
               {!user && (
-                <Button
-                  sx={{
-                    p: "10px 40px",
-                    borderRadius: "25px",
-                    ml: 3,
-                    fontWeight: "bold",
-                  }}
-                  variant="outlined"
-                  onClick={() => navigate("/login")}
-                >
-                  {t("signin_btn")}
-                </Button>
+                <div>
+                  {isClicked ? (
+                    <>
+                      <div style={{ marginLeft: "20px" }}>
+                        <Button
+                          sx={{
+                            p: "10px 20px",
+                            borderRadius: "25px",
+                            border: "solid 1.5px",
+                            ml: 3,
+                            fontWeight: "normal",
+                            color: "#006400",
+                            textTransform: "initial",
+                            "&:hover": {
+                              filter: "drop-shadow(-2px 4px 4px   #0064003a  )",
+                            },
+                          }}
+                          variant="outlined"
+                          onClick={() => {
+                            handleButtonClick();
+                            navigate("/login");
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              gap: "8px",
+                              alignItems: "center",
+                            }}
+                          >
+                            {t("signin_btn")}
+                          </div>
+                        </Button>
+                        <Button
+                          sx={{
+                            p: "10px 20px",
+                            borderRadius: "25px",
+                            ml: 3,
+                            color: "white",
+                            textTransform: "initial",
+                            background: "linear-gradient( #2E8446 , #006400 )",
+                            "&:hover": {
+                              filter: "drop-shadow(-2px 4px 4px   #0064003a  )",
+                            },
+                          }}
+                          variant="contained"
+                          onClick={() => navigate("/register")}
+                        >
+                          {t("registernow_btn")}
+                        </Button>
+                      </div>
+                    </>
+                  ) : (
+                    <div style={{ marginLeft: "160px" }}>
+                      <Button
+                        sx={{
+                          p: "10px 20px",
+                          borderRadius: "25px",
+                          ml: 3,
+                          fontWeight: "normal",
+                          color: "white",
+                          textTransform: "initial",
+                          background: "linear-gradient( #2E8446 , #006400 )",
+                          "&:hover": {
+                            filter: "drop-shadow(-2px 4px 4px   #0064003a  )",
+                          },
+                        }}
+                        variant="filled"
+                        onClick={() => {
+                          handleButtonClick();
+                          navigate("/login");
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: "8px",
+                            alignItems: "center",
+                          }}
+                        >
+                          Login
+                          <PersonIcon />
+                        </div>
+                      </Button>
+                    </div>
+                  )}
+                </div>
+                //
+                //
               )}
-              {!user && (
-                <Button
-                  sx={{
-                    p: "10px 40px",
-                    borderRadius: "25px",
-                    ml: 3,
-                    color: "white",
-                  }}
-                  variant="contained"
-                  onClick={() => navigate("/register")}
-                >
-                  {t("registernow_btn")}
-                </Button>
-              )}
-              <li>
+              {/* {!user && (
+                
+              )} */}
+              {/* <li>
                 <LanguageToggle />
-              </li>
+              </li> */}
             </ul>
           </div>
           {/*  */}

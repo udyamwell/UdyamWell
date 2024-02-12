@@ -10,15 +10,27 @@ import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import PersonSharpIcon from "@mui/icons-material/PersonSharp";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import { useTranslation } from "react-i18next";
-
+import { v4 as uuidv4 } from "uuid";
+import Card from "../components/Card";
+import Carousel from "../components/Carousel";
+import Bg_about from "../../src/assets/Bg_about.png";
 const AboutCard = ({ heading, text1, text2, lists, icon }) => {
   return (
-    <div className="cardContainer1">
+    <div
+      className="cardContainer1"
+      style={{
+        "@media (max-width: 500px)": {
+          minHeight: "none",
+        },
+      }}
+    >
       <span>
         <i>{icon}</i>
       </span>
       <h4>{heading}</h4>
-      <p style={{ textAlign: "justify" }}>{text1}</p>
+      <p style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+        {text1}
+      </p>
     </div>
   );
 };
@@ -28,17 +40,29 @@ export const AboutServices = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
   return (
-    <div className="aboutServices" style={{ marginTop: "10rem" }}>
-      <Box sx={{ p: "0 55px" }} textAlign={"center"}>
+    <div className="aboutServices" style={{ marginTop: "5rem" }}>
+      <div className="aboutus-box">
         <Typography variant="h3">
           <span style={{ color: "#2e8446" }}>{t("our")}</span>{" "}
           {t("nav_services")}
         </Typography>
-        <Typography variant="h6" className="serviceSubHeading">
+        <Typography
+          variant="h6"
+          fontWeight={"400"}
+          fontSize={"18px"}
+          className="serviceSubHeading"
+          textAlign={"justify"}
+          marginTop={"1rem"}
+          color={"black"}
+          width={"100%"}
+        >
           {" "}
           {t("aboutbody_home")}
         </Typography>
-      </Box>
+        <div className="homeAboutButton">
+          <button>{t("readmore_btn")}</button>
+        </div>
+      </div>
 
       <div className="aboutServices1">
         {/* <div className="aboutServicesDiv">
@@ -81,12 +105,44 @@ export const AboutServices = () => {
   );
 };
 const About = () => {
+  let cards = [
+    {
+      key: uuidv4(),
+      content: (
+        <Card imagen="https://updates.theme-fusion.com/wp-content/uploads/2017/12/convertplus_thumbnail.jpg" />
+      ),
+    },
+    {
+      key: uuidv4(),
+      content: (
+        <Card imagen="https://updates.theme-fusion.com/wp-content/uploads/2017/12/acf_pro.png" />
+      ),
+    },
+    {
+      key: uuidv4(),
+      content: (
+        <Card imagen="https://updates.theme-fusion.com/wp-content/uploads/2017/12/layer_slider_plugin_thumb.png" />
+      ),
+    },
+    {
+      key: uuidv4(),
+      content: (
+        <Card imagen="https://updates.theme-fusion.com/wp-content/uploads/2016/08/slider_revolution-1.png" />
+      ),
+    },
+    {
+      key: uuidv4(),
+      content: (
+        <Card imagen="https://updates.theme-fusion.com/wp-content/uploads/2019/01/pwa_880_660.jpg" />
+      ),
+    },
+  ];
   const { t } = useTranslation();
   return (
     <>
       <div className="landingPageCover">
         <img
-          src={landingPageBg_small}
+          src={Bg_about}
           width="100vw"
           alt="landing"
           className="landingPageCover__animation"
@@ -101,16 +157,28 @@ const About = () => {
           sx={{
             textAlign: "center",
             margin: "10px auto",
+            width: "70%",
             fontWeight: "bold",
             padding: "0 10px",
-            width: "85%",
+            // width: "85%",
           }}
           variant="body1"
         >
           {t("aboutus_body")}
         </Typography>
       </Box>
-      <Box className="countBox2">
+
+      <div className="CardCarousel" style={{ marginTop: "60px" }}>
+        <Carousel
+          cards={cards}
+          height="500px"
+          width="35%"
+          margin="0 auto"
+          offset={2}
+          showArrows={false}
+        />
+      </div>
+      <Box className="countBox2" style={{ width: "70%" }}>
         <Box className="count2">
           <PeopleAltOutlinedIcon sx={{ fontSize: "50px" }} />{" "}
           <Typography
@@ -139,7 +207,10 @@ const About = () => {
           </Typography>
         </Box>
       </Box>
-      <Box
+      <div className="aboutServices">
+        <AboutServices />
+      </div>
+      {/* <Box
         className="aboutKeyPoints"
         sx={{
           margin: "4rem auto",
@@ -179,8 +250,9 @@ const About = () => {
             </div>
           </Typography>
         </Stack>
-      </Box>
-      <div className="videoContainer">
+      </Box> */}
+
+      {/* <div className="videoContainer">
         <div className="video">
           <iframe
             width="560"
@@ -192,7 +264,7 @@ const About = () => {
             allowFullScreen
           ></iframe>
         </div>
-      </div>
+      </div> */}
       {/* <AboutServices/> */}
     </>
   );

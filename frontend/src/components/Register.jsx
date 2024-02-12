@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles/register.css";
-import { landingPageBg_small, register } from "../assets";
+import { register } from "../assets";
 import {
   Alert,
   Box,
@@ -19,8 +19,9 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../slices/UserSlice";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
+import Bg_about from "../assets/Bg_about2.png";
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const Register = () => {
         navigate("/login");
       }
     }, 2000);
-  }, [user, error]);
+  }, [user, error, navigate]);
   // stepper
   const [count, setCount] = useState(0);
   const [step, setStep] = useState([
@@ -57,20 +58,20 @@ const Register = () => {
     otp: otp,
   };
   // submit function
-  const { handleChange, values, resetForm, handleSubmit } = useFormik({
+  const { handleChange, values, handleSubmit } = useFormik({
     initialValues,
     onSubmit: (values) => {
       console.log("entered sbmission");
       let {
-        name,
-        // email,
-        phoneNum,
-        location,
-        eName,
-        enterpriseType,
-        socials,
-        comment,
-        password,
+        // name,
+        // // email,
+        // phoneNum,
+        // location,
+        // eName,
+        // enterpriseType,
+        // socials,
+        // comment,
+        // password,
       } = values;
       dispatch(registerUser(values));
       // !error &&
@@ -139,14 +140,14 @@ const Register = () => {
 
   return (
     <>
-    <div className="landingPageCover">
-          <img
-            src={landingPageBg_small}
-            width='100vw'
-            alt="landing"
-            className="landingPageCover__animation"
-          />
-        </div>
+      <div className="landingPageCover">
+        <img
+          src={Bg_about}
+          width="100vw"
+          alt="landing"
+          className="landingPageCover__animation"
+        />
+      </div>
       <div className="registerContainer">
         {/* illustration */}
         <div className="regIllustration">

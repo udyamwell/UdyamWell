@@ -303,9 +303,11 @@ module.exports.verifyMail = async (req, res) => {
 };
 */
 module.exports.signIn = asyncHandler(async (req, res, next) => {
+  console.log(req.body);
   try {
     const { email, password } = req.body;
     const result = await Users.findOne({ email: email });
+    console.log(result);
     if (!result) {
       throw new Error("Email not found");
     }
@@ -341,6 +343,7 @@ module.exports.signIn = asyncHandler(async (req, res, next) => {
       });
     }
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });

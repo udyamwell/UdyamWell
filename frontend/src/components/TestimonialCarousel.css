@@ -1,0 +1,72 @@
+.testimonial-slide {
+    margin: 3rem auto;
+    padding: 40px;
+    text-align: left;
+    align-items: start;
+    background: #2E84461a;
+    border-radius: 10px;
+    min-height: 400px;
+    min-width: 300px;
+    max-width: 350px;
+  }
+  .slick-slide {
+    margin-right: 15px;
+  }
+.testimonials{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+
+}
+  .slick-track{
+    margin: 0px;
+  }
+  
+  .testimonial-title {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  }
+
+  
+  .testimonial-line {
+    width: 90%;
+    border: 1px solid #333;
+    margin: 10px auto;
+  }
+  
+  .testimonial-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+  }
+  
+  .testimonial-profile-pic {
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .testimonial-details {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .testimonial-review {
+    font-style: none;
+    height: 300px;
+    text-align: justify;
+    font-size: 15px;
+  }
+  
+  .testimonial-name {
+    font-weight: bold;
+  }
+  
+  .testimonial-rating {
+    margin-top: 5px;
+  }

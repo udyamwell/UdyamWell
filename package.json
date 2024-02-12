@@ -10,7 +10,9 @@
   "author": "UdyamWell",
   "license": "ISC",
   "dependencies": {
+    "@azure/storage-blob": "^12.17.0",
     "axios": "^1.5.0",
+    "azure-storage-blob": "^0.0.1-security",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -25,7 +27,8 @@
     "otp-generator": "^4.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "nodemon": "^3.0.3",
     "webpack-cli": "^5.1.4"
   }
 }

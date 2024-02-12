@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   front_view_hands_using_smartphone,
   hand_holding_smartphone,
   landingPageBg,
   playstore,
 } from "../assets";
+import Bg_about from "../assets/Bg_about.png";
+import toggle_btn from "../assets/toggle_btn.png";
 import {
   Accordion,
   AccordionDetails,
@@ -14,19 +16,108 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import ondc from "../assets/ondc.png";
+import sbi from "../assets/sbifoundationlogo.png";
+import microsoft from "../assets/microsoft.png";
+import iitmandicatalyst from "../assets/iitmandicatalyst.png";
 import { useNavigate } from "react-router";
 import "./DownloadApp.css";
 import Service from "./Service";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useTranslation } from "react-i18next";
+import "./CustomAccordion.css";
+import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
+import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
+import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
+const ServiceCard = ({ heading, text1, text2, lists, icon }) => {
+  const { t } = useTranslation();
+  return (
+    <div className="cardContainer" style={{ borderRadius: "15px" }}>
+      <span>
+        <i>{icon}</i>
+      </span>
+      <h4>{heading}</h4>
+      <p style={{ textAlign: "justify" }}>{text1}</p>
+      <p style={{ color: "grey", marginTop: "px" }}>{text2}</p>
+      <ul>
+        {lists.map((item) => {
+          return <li>{item}</li>;
+        })}
+      </ul>
+    </div>
+  );
+};
 const DownloadApp = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [activeStep, setActiveStep] = useState(1);
+  const totalSteps = 7;
+
+  const handleStepClick = (step) => {
+    setActiveStep(step === activeStep ? "0" : step); // Toggle to close if the same step is clicked
+  };
+
+  const renderAccordionStep = (step, summaryKey, bodyKey) => (
+    <div
+      key={step}
+      className={`accordion-item ${activeStep === step ? "active" : ""}`}
+    >
+      <div className="accordion-summary" onClick={() => handleStepClick(step)}>
+        <span className="accordion-text">{t(summaryKey)}</span>
+        <span
+          className={`accordion-icon ${activeStep === step ? "rotate" : ""}`}
+        >
+          <img src={toggle_btn} alt="" style={{ width: "20px" }} />
+        </span>
+      </div>
+      {activeStep === step && (
+        <div className="accordion-body">{t(bodyKey)}</div>
+      )}
+    </div>
+  );
+  const data = [
+    {
+      heading: "Udyam Saathi",
+      icon: <ContentCopyRoundedIcon />,
+      text1:
+        "UdyamWell is an edtech platform that provides a wealth of resources to help entrepreneurs and business owners. From video courses to live webinars, you can access a variety of tools to help you grow your business. In addition, you can connect with a community of fellow entrepreneurs to share insights, ask for advice, and network.",
+      text2: "We can help you with",
+      lists: [
+        "1. Finding Udyam Saathi nearby you 🌎",
+        "2. Request for Udyam Saathi 🤵",
+      ],
+    },
+    {
+      heading: "Handholding Support",
+      icon: <IosShareRoundedIcon />,
+      text1:
+        " UdyamWell's Handholding Support, provided by both our Udyam Sathis and the UdyamWell team, offers personalized assistance to rural entrepreneurs at every step of their journey. Our passionate mentors and dedicated team members provide expert advice, resources, and strategic direction, ensuring that rural enterprises receive the crucial support needed to thrive and prosper.",
+
+      text2: "We can help you with",
+      lists: [
+        "1. Finding Udyam Saathi nearby you 🌎",
+        "2. Request for Udyam Saathi 🤵",
+      ],
+    },
+    {
+      heading: "Partner Connect",
+      icon: <LightbulbOutlinedIcon />,
+      text1:
+        "UdyamWell has a vast network of partners to help you with a range of services. If you need help with product delivery or labeling, for example, UdyamWell can connect you with the right partner to get the job done. This means that you can focus on your core business activities, while UdyamWell takes care of the rest.",
+      lists: [
+        "1. Digital Partner 🌐",
+        "2. Logistics Partner 🚚",
+        "3. Accounts Partner 👨‍💻",
+        "4. Packaging Partner 📦",
+        "5. Legal Partner ⚖",
+      ],
+    },
+  ];
   return (
     <>
       <div className="landingPageCover">
         <img
-          src={landingPageBg}
+          src={Bg_about}
           width="100vw"
           alt="landing"
           className="landingPageCover__animation"
@@ -55,6 +146,7 @@ const DownloadApp = () => {
             <div className="imgPart1">
               <img src={hand_holding_smartphone} alt="" />
             </div>
+
             <div className="imgInfoPart2">
               <div className="part2Count">
                 <Stack sx={{ textAlign: "center" }}>
@@ -100,13 +192,67 @@ const DownloadApp = () => {
           </div>
         </Box>
       </div>
+      <Box className="countBox">
+        <Box className="count">
+          <Typography
+            variant="h5"
+            sx={{ ml: 2, color: "#236836", fonteight: 600 }}
+            style={{ paddingTop: "15px", fontWeight: "bold" }}
+          >
+            {t("supported_by")}
+          </Typography>
+        </Box>
+        <Box className="count">
+          <img src={ondc} alt="ONDC" />
+
+          <img src={sbi} alt="SBI Foundation" />
+
+          <img src={microsoft} alt="Microsoft for Startups" />
+          <img src={iitmandicatalyst} alt="IIT Mandi Catalyst" />
+        </Box>
+      </Box>
+      <div className="service-title">
+        <div className="service-head">
+          <h1>
+            <span style={{ color: "green" }}>Our</span> Services
+          </h1>
+        </div>
+        <div className="service-body">
+          <p>
+            {" "}
+            Our comprehensive range of services is tailored to empower rural
+            businesses, entrepreneurs, and communities to thrive in today's
+            dynamic economic landscape.
+          </p>
+        </div>
+      </div>
+      <div
+        className="ServiceContainer"
+        style={{ gap: "20px", margin: "80px 13%" }}
+      >
+        {data?.map((d, index) => {
+          return (
+            <ServiceCard
+              key={index}
+              heading={d.heading}
+              text1={d.text1}
+              text2={d.text2}
+              lists={d.lists}
+              icon={d.icon}
+            />
+          );
+        })}
+      </div>
       {/*  */}
-      <Service />
+      {/* <Service /> */}
       {/*  */}
       <Box
         className="registerDownload"
-        sx={{ p: "0 55px", margin: "0 auto" }}
+        sx={{ p: "0 55px", margin: "0 auto", width: "60%" }}
         textAlign={"center"}
+        display={"flex"}
+        flexDirection={"column"}
+        alignItems={"center"}
       >
         <Typography variant="h3" sx={{ fontWeight: "600" }}>
           {t("appinf_head1")}
@@ -117,8 +263,13 @@ const DownloadApp = () => {
         </Typography>
         <Typography
           variant="body2"
-          sx={{ fontWeight: "bold", mt: 2 }}
-          className="serviceSubHeading"
+          sx={{
+            fontWeight: "nomral",
+            mt: 2,
+            fontSize: "18px",
+            textAlign: "justify",
+          }}
+          className="serviceSubHeading1"
         >
           {" "}
           {t("appinf_body")}
@@ -131,12 +282,12 @@ const DownloadApp = () => {
             <img
               src={front_view_hands_using_smartphone}
               alt=""
-              style={{ borderRadius: "20px" }}
+              style={{ width: "90%" }}
             />
           </div>
-          <div className="bannerText" style={{ marginRight: "50PX" }}>
-            <Stack spacing={2}>
-              <Accordion variant="contained">
+          <div className="bannerText" style={{ marginRight: "5%" }}>
+            {/* <Stack spacing={2}>
+              <Accordion variant="contained" style={{ textAlign: "right" }}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1a-content"
@@ -236,7 +387,17 @@ const DownloadApp = () => {
                   <Typography>{t("appinf_stepbody")}</Typography>
                 </AccordionDetails>
               </Accordion>
-            </Stack>
+            </Stack> */}
+            <div className="custom-accordion">
+              <div className="accordion-counter-top">{`Step ${activeStep}/${totalSteps}`}</div>
+              {renderAccordionStep(1, "appinf_step1", "appinf_stepbody1")}
+              {renderAccordionStep(2, "appinf_step2", "appinf_stepbody")}
+              {renderAccordionStep(3, "appinf_step3", "appinf_stepbody")}
+              {renderAccordionStep(4, "appinf_step4", "appinf_stepbody4")}
+              {renderAccordionStep(5, "appinf_step5", "appinf_stepbody")}
+              {renderAccordionStep(6, "appinf_step6", "appinf_stepbody")}
+              {renderAccordionStep(7, "appinf_step7", "appinf_stepbody")}
+            </div>
           </div>
         </div>
       </Box>

@@ -23,7 +23,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0 auto;
+	margin-inline: 100px 140px;
+	margin-block: none ;
 	padding: 10px 20px;
   }
   
@@ -102,7 +103,14 @@
 		color: black;
 	}
   }
-  
+  @media (max-width: 750px) {
+	.navbar-brand img {
+		height: 50px;
+  }
+  .containerHome{
+	margin-inline: 20px;
+  }
+}
 
   .dropdown{
 	overflow: hidden;
