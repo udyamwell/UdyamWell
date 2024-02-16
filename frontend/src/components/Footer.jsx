@@ -82,7 +82,7 @@ const Footer = () => {
               </p>
               <p>
                 <span> {t("phone_head")}</span>{" "}
-                <a href="tel:+91 8679625300">+91 8679625300</a>
+                <a href="tel:+91 7978949923">+91 7978949923</a>
               </p>
               <p>
                 <span>{t("email_head")} </span>

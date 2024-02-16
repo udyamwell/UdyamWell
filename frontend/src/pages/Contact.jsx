@@ -123,7 +123,7 @@ const Contact = () => {
                 <PhoneIphoneOutlinedIcon />
               </span>
               <div className="media-body">
-                <h3>+91 867 9625 300</h3>
+                <h3>+91 797 8949 923</h3>
                 <p>Mon to Fri 9am to 6pm</p>
               </div>
             </div>
