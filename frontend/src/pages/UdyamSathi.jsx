@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./udyamsathi.css";
 import { udyamsathiQR } from "../assets";
 import udyamsathi from "../assets/udyamsathi.png";
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import Bg_about from "../assets/Bg_about.png";
+import Swal from "sweetalert2";
+import axios from "axios";
 // import { Link } from "react-router-dom";
 const UdyamSathi = () => {
   const navigate = useNavigate();
@@ -14,6 +16,36 @@ const UdyamSathi = () => {
   // const handleClick = () => {
   //   console.log("Hello");
   // };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNum: "",
+    suggestion: "",
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    axios
+      .post("https://www.udyamwell.com/udyamsathi/add-udyamsathi", formData)
+      .then((response) => {
+        if (response.status === 201 || response.status === 200) {
+          Swal.fire("Thankyou for Submitting !");
+        } else {
+          Swal.fire("Request not processed, please try again !");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log("Form submitted:", formData);
+  };
   return (
     <div>
       <div className="landingPageCover">
@@ -156,15 +188,17 @@ const UdyamSathi = () => {
             Registration / पंजीकरण
           </h1>
         </div>
-        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd8rdTq9MRAmbWfpZhmKirrC1A8BFwElk_zbSrWsGOQOGnIZg/formResponse">
+        <form onSubmit={handleSubmit}>
           <div className="field">
             <label for="" className="" style={{ fontSize: "18px" }}>
               Name / आपका नाम
             </label>
             <input
               type="text"
-              name="entry.449441306"
+              name="name"
+              value={formData.name}
               placeholder="Enter your name"
+              onChange={handleChange}
               required
             />{" "}
           </div>
@@ -175,32 +209,9 @@ const UdyamSathi = () => {
             </label>
             <input
               type="tel"
-              name="entry.775556124"
+              name="phoneNum"
+              onChange={handleChange}
               placeholder="Enter your phone number"
-              required
-            />{" "}
-          </div>
-          <hr />
-          <div className="field">
-            <label for="" className="" style={{ fontSize: "18px" }}>
-              Name of your Enterprise / आपके उद्यम का नाम
-            </label>
-            <input
-              type="text"
-              name="entry.1579784548"
-              placeholder="Enterise Name"
-              required
-            />{" "}
-          </div>
-          <hr />
-          <div className="field">
-            <label for="" className="" style={{ fontSize: "18px" }}>
-              Founder/Owner Name / संस्थापक का नाम
-            </label>
-            <input
-              type="text"
-              name="entry.877036990"
-              placeholder="Founder Name"
               required
             />{" "}
           </div>
@@ -211,55 +222,13 @@ const UdyamSathi = () => {
             </label>
             <input
               type="email"
-              name="entry.1894326054"
+              name="email"
               placeholder="Enter your Email"
+              value={formData.eMail}
+              onChange={handleChange}
               required
             />{" "}
           </div>
-          <hr />
-          <div className="field">
-            <label for="" className="" style={{ fontSize: "18px" }}>
-              Business Address / व्यावसायिक पता
-            </label>
-            <input
-              type="text"
-              name="entry.1414131589"
-              placeholder="Address"
-              required
-            />{" "}
-          </div>
-          <hr />
-          <div className="field">
-            <label for="" className="" style={{ fontSize: "18px" }}>
-              Any Website or Social Media link (If Available) / कोई भी वेबसाइट
-              या सोशल मीडिया लिंक (यदि उपलब्ध हो)
-            </label>
-            <input type="text" name="entry.205543619" placeholder="Link" />{" "}
-          </div>{" "}
-          <hr />
-          <div className="field">
-            <label for="" className="" style={{ fontSize: "18px" }}>
-              Number of people in the organization (Team Size) / संगठन में लोगों
-              की संख्या
-            </label>
-            <input
-              type="text"
-              name="entry.1018743359"
-              placeholder="Number of people"
-            />{" "}
-          </div>{" "}
-          <hr />
-          <div className="field">
-            <label for="" className="" style={{ fontSize: "18px" }}>
-              What business you are involved in? / आप किस व्यवसाय से जुड़े हैं?
-            </label>
-            <input
-              type="text"
-              name="entry.1951356654"
-              placeholder="Business"
-              required
-            />{" "}
-          </div>{" "}
           <hr />
           <div
             className="field"
@@ -278,18 +247,20 @@ const UdyamSathi = () => {
             <div>
               <input
                 type="radio"
-                name="entry.1352070005"
+                name="willingness"
                 id="Yes"
                 value="Yes"
+                onChange={handleChange}
               />
               <label for="Yes">Yes / हाँ</label>
             </div>
             <div>
               <input
                 type="radio"
-                name="entry.1352070005"
+                name="willingness"
                 id="notsure"
                 value="notsure"
+                onChange={handleChange}
               />
               <label for="notsure">
                 Not sure; want to know more. / निश्चित नहीं; और अधिक जानने की
@@ -297,15 +268,16 @@ const UdyamSathi = () => {
               </label>
             </div>
             <div>
-              <input type="radio" name="entry.1352070005" id="no" value="no" />
+              <input type="radio" name="willingness" id="no" value="no" />
               <label for="no">No/ नहीं</label>
             </div>
             <div>
               <input
                 type="radio"
-                name="entry.1352070005"
+                name="willingness"
                 id="other"
                 value="other"
+                onChange={handleChange}
               />
               <label for="other">Other/ अन्य… </label>
             </div>{" "}
@@ -324,7 +296,7 @@ const UdyamSathi = () => {
               स्टार्टअप सहायता कार्यक्रम के बारे में कैसे सुना?
             </label>
             <div>
-              <input type="radio" name="entry.244755604" id="sm" value="sm" />
+              <input type="radio" name="awareness" id="sm" value="sm" />
               <label for="sm">
                 Through Social Media Channels/ सोशल मीडिया चैनलों के माध्यम से{" "}
               </label>
@@ -332,27 +304,30 @@ const UdyamSathi = () => {
             <div>
               <input
                 type="radio"
-                name="entry.244755604"
+                name="awareness"
                 id="website"
                 value="website"
+                onChange={handleChange}
               />
               <label for="website">Our Website/ हमारी वेबसाइट</label>
             </div>
             <div>
               <input
                 type="radio"
-                name="entry.244755604"
+                name="awareness"
                 id="campaign"
                 value="campaign"
+                onChange={handleChange}
               />
               <label for="campaign"> Local Campaign/ स्थानीय अभियान </label>
             </div>
             <div>
               <input
                 type="radio"
-                name="entry.244755604"
+                name="awareness"
                 id="someone"
                 value="someone"
+                onChange={handleChange}
               />
               <label for="someone">
                 Through someone you know / किसी ऐसे व्यक्ति के माध्यम से जिसे आप
@@ -362,9 +337,10 @@ const UdyamSathi = () => {
             <div>
               <input
                 type="radio"
-                name="entry.244755604"
+                name="awareness"
                 id="Saathi"
                 value="Saathi"
+                onChange={handleChange}
               />
               <label for="Saathi">Udyam Saathi/उद्यम-साथी</label>
             </div>
@@ -376,9 +352,11 @@ const UdyamSathi = () => {
             </label>
             <input
               type="text"
-              name="entry.301022112"
+              name="suggestion"
               placeholder="Suggestions"
-              required
+              onChange={handleChange}
+              value={formData.suggestion}
+              // required
             />
           </div>{" "}
           <br />
@@ -642,7 +620,11 @@ const UdyamSathi = () => {
               on a transformative journey, where your passion meets purpose, and
               your actions resonate in the hearts of rural entrepreneurs. <br />
               <br />
-              <a href="https://forms.gle/VPMWHcUxDmvNxE8d7" target="_blank">
+              <a
+                href="https://forms.gle/VPMWHcUxDmvNxE8d7"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <button style={{ cursor: "pointer" }} className="download_btn">
                   Click Here
                 </button>
