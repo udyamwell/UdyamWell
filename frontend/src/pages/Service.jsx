@@ -47,7 +47,7 @@ const Service = () => {
       heading: "Udyam Saathi",
       icon: <ContentCopyRoundedIcon />,
       text1:
-        "UdyamWell is an edtech platform that provides a wealth of resources to help entrepreneurs and business owners. From video courses to live webinars, you can access a variety of tools to help you grow your business. In addition, you can connect with a community of fellow entrepreneurs to share insights, ask for advice, and network.",
+        "UdyamWell provides a wealth of resources to help entrepreneurs and business owners. From video courses to live webinars, you can access a variety of tools to help you grow your business. In addition, you can connect with a community of fellow entrepreneurs to share insights, ask for advice, and network.",
       text2: "We can help you with",
       lists: [
         "1. Finding Udyam Saathi nearby you 🌎",
