@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 import "./ResponsePage.css";
+
 const ResponsePage = () => {
   const [responses, setResponses] = useState([]);
 
@@ -17,25 +20,50 @@ const ResponsePage = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures the effect runs once on mount
+  }, []);
+
+  const downloadExcel = () => {
+    const ws = XLSX.utils.json_to_sheet(responses);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    const fileName = "responses.xlsx";
+    XLSX.writeFile(wb, fileName);
+  };
 
   return (
-    <div className="Responses" style={{ width: "90%", margin: "0 auto" }}>
+    <div
+      className="Responses"
+      style={{ width: "90%", margin: "0 auto", overflowX: "auto" }}
+    >
       <h2>Sell On ONDC Responses</h2>
-      <ul style={{ background: "green" }}>
-        {responses.map((response, index) => (
-          <li key={response._id}>
-            <ul>
-              <li>Name: {response.name}</li>
-              <li>Emai: {response.email}</li>
-              <li>Phone Number:{response.phoneNum}</li>
-              <li>Enterprise Name: {response.eName}</li>
-              <li>Business Address:{response.businessAdd}</li>
-              <li>Business Involved:{response.businessInvolved}</li>
-            </ul>
-          </li>
-        ))}
-      </ul>
+
+      <table style={{ width: "100%" }}>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Enterprise Name</th>
+            <th>Business Address</th>
+            <th>Business Involved</th>
+          </tr>
+        </thead>
+        <tbody>
+          {responses.map((response, index) => (
+            <tr key={response._id}>
+              <td style={{ padding: "10px" }}>{response.name}</td>
+              <td style={{ padding: "10px" }}>{response.email}</td>
+              <td style={{ padding: "10px" }}>{response.phoneNum}</td>
+              <td style={{ padding: "10px" }}>{response.eName}</td>
+              <td style={{ padding: "10px" }}>{response.businessAdd}</td>
+              <td style={{ padding: "10px" }}>{response.businessInvolved}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button className="btn" onClick={downloadExcel}>
+        Download as Excel
+      </button>
     </div>
   );
 };
