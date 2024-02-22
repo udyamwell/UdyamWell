@@ -40,7 +40,7 @@ const Email = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     user && navigate("/");
-  }, []);
+  }, [navigate, user]);
   const handleSubmit = () => {
     if (email === "") {
       alert("Please enter your registered mail");

@@ -1,12 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Typewriter } from "react-simple-typewriter";
-import {
-  banner_img,
-  landingPageBg,
-  learning_img,
-  learning_about,
-  main,
-} from "../assets";
+import { banner_img, landingPageBg, learning_about } from "../assets";
 import ondc from "../assets/ondc.png";
 import sbi from "../assets/sbifoundationlogo.png";
 import microsoft from "../assets/microsoft.png";
