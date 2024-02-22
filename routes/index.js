@@ -20,4 +20,6 @@ router.use('/blogs',require('./blogs'))
 
 router.use('/ondc-seller',require('./ondcSeller'));
 
+router.use('/udyamsathi',require('./udyamsathi'));
+
 module.exports = router;
