@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Typewriter } from "react-simple-typewriter";
-import {
-  banner_img,
-  landingPageBg,
-  learning_img,
-  learning_about,
-  main,
-} from "../assets";
+import { banner_img, landingPageBg, learning_about } from "../assets";
 import ondc from "../assets/ondc.png";
 import sbi from "../assets/sbifoundationlogo.png";
 import microsoft from "../assets/microsoft.png";
-
+import iitmandicatalyst from "../assets/iitmandicatalyst.png";
+import learning_about2 from "../assets/learning_about2.png";
+import featureIcon1 from "../assets/featureIcon1.png";
+import featureIcon2 from "../assets/featureIcon2.png";
 import { AboutServices } from "./About";
 import { useNavigate } from "react-router";
 import { Box, Typography } from "@mui/material";
@@ -98,10 +95,14 @@ const HomePage = () => {
           <img src={sbi} alt="SBI Foundation" />
 
           <img src={microsoft} alt="Microsoft for Startups" />
+          <img src={iitmandicatalyst} alt="IIT Mandi Catalyst" />
         </Box>
       </Box>
       {/* section 3 */}
-      <div className="homeServices" style={{ marginTop: "3rem" }}>
+      <div
+        className="homeServices"
+        style={{ margin: "2rem auto", width: "70%" }}
+      >
         <AboutServices />
       </div>
 
@@ -125,6 +126,49 @@ const HomePage = () => {
           {/*  */}
           <div className="homeAboutButton">
             <button>{t("readmore_btn")}</button>
+          </div>
+        </div>
+      </div>
+      <div className="homeAbout2">
+        <div className="aboutImg">
+          <img src={learning_about2} alt="" />
+        </div>
+        <div className="aboutInfo">
+          <div className="aboutSub">
+            <div className="about_"></div>
+            <div className="aboutSubText" style={{ marginLeft: "10px" }}>
+              <p>{t("AdvanceFeature")}</p>
+            </div>
+          </div>
+          {/*  */}
+          <h1>{t("Aboutus_head2")}</h1>
+          <div className="aboutKeyPoints">
+            <p>{t("Aboutus_body2")} </p>
+          </div>
+          {/*  */}
+          <div className="homeAboutfeatures">
+            <div className="feature">
+              <div className="feature-icon">
+                <img src={featureIcon1} alt=" " />
+              </div>
+              <div className="feature-head">
+                <h4>{t("feature-head1")}</h4>
+              </div>
+              <div className="feature-body">
+                <p>{t("feature-body1")}</p>
+              </div>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <img src={featureIcon2} alt=" " />
+              </div>
+              <div className="feature-head">
+                <h4>{t("feature-head2")}</h4>
+              </div>
+              <div className="feature-body">
+                <p>{t("feature-body2")}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

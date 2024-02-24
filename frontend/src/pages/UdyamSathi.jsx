@@ -1,29 +1,63 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./udyamsathi.css";
-import { banner_img, landingPageBg, udyamsathi, udyamsathiQR } from "../assets";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { udyamsathiQR } from "../assets";
+import udyamsathi from "../assets/udyamsathi.png";
+import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import Bg_about from "../assets/Bg_about.png";
+import Swal from "sweetalert2";
+import axios from "axios";
+// import { Link } from "react-router-dom";
 const UdyamSathi = () => {
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
-  const handleClick = () => {
-    console.log("Hello");
+  // const handleClick = () => {
+  //   console.log("Hello");
+  // };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNum: "",
+    suggestion: "",
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    axios
+      .post("https://www.udyamwell.com/udyamsathi/add-udyamsathi", formData)
+      .then((response) => {
+        if (response.status === 201 || response.status === 200) {
+          Swal.fire("Thankyou for Submitting !");
+        } else {
+          Swal.fire("Request not processed, please try again !");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log("Form submitted:", formData);
   };
   return (
     <div>
       <div className="landingPageCover">
         <img
-          src={landingPageBg}
+          src={Bg_about}
           width="100vw"
           alt="landing"
           className="landingPageCover__animation"
         />
       </div>
       <div className="HomeContainer" style={{ margin: "0rem auto 0 auto" }}>
-        <div className="banner">
+        <div className="banner" style={{ width: "70%" }}>
           <div className="bannerText">
             <h1
               style={{
@@ -37,20 +71,26 @@ const UdyamSathi = () => {
               </span>{" "}
               Program{" "}
             </h1>
-            <p style={{ textAlign: "justify", fontSize: "16px" }}>
+            <p
+              style={{
+                textAlign: "justify",
+                fontSize: "16px",
+                fontWeight: "600",
+              }}
+            >
               The Udyamsathi Program is a unique initiative that engages
               enthusiastic and dedicated student ambassadors to act as mentors
               and ambassadors for rural enterprises. As a Udyamsathi, you will
               be at the forefront of connecting with and supporting rural
               businesses, helping them realize the benefits of joining the
               Udyamwell ecosystem. <br />
-              <button
+              {/* <button
                 style={{ cursor: "pointer" }}
                 className="download_btn position"
                 onClick={() => navigate("/requestpage")}
               >
                 Join Now
-              </button>
+              </button> */}
             </p>
           </div>
           <div className="bannerImg">
@@ -96,7 +136,10 @@ const UdyamSathi = () => {
       {/*  */}
 
       {/*  */}
-      <div className="HomeContainer" style={{ margin: "0rem auto 0 auto" }}>
+      <div
+        className="HomeContainer"
+        style={{ margin: "0rem auto 0 auto", width: "90%" }}
+      >
         <div className="banner">
           <div className="bannerText_udyamsathi">
             <h1
@@ -114,7 +157,11 @@ const UdyamSathi = () => {
               on a transformative journey, where your passion meets purpose, and
               your actions resonate in the hearts of rural entrepreneurs. <br />
               <br />
-              <a href="https://forms.gle/VPMWHcUxDmvNxE8d7" target="_blank">
+              <a
+                href="https://forms.gle/VPMWHcUxDmvNxE8d7"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <button style={{ cursor: "pointer" }} className="download_btn">
                   Click Here
                 </button>
@@ -132,12 +179,219 @@ const UdyamSathi = () => {
           </div>
         </div>
       </div>
-
+      <div
+        className="saathiContainer"
+        style={{ width: "80%", margin: "0px auto" }}
+      >
+        <div className="saathiForm">
+          <h1 style={{ color: "green", textAlign: "center" }}>
+            Registration / पंजीकरण
+          </h1>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Name / आपका नाम
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              placeholder="Enter your name"
+              onChange={handleChange}
+              required
+            />{" "}
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Phone Number / फ़ोन नंबर
+            </label>
+            <input
+              type="tel"
+              name="phoneNum"
+              onChange={handleChange}
+              placeholder="Enter your phone number"
+              required
+            />{" "}
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Email Address/ मेल पता
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your Email"
+              value={formData.eMail}
+              onChange={handleChange}
+              required
+            />{" "}
+          </div>
+          <hr />
+          <div
+            className="field"
+            style={{
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "start",
+            }}
+          >
+            <label for="" className="" style={{ fontSize: "18px" }}>
+              Are you willing to actively participate in workshops, training
+              sessions, and events organized by UdyamWell? / क्या आप हमारे संगठन
+              द्वारा आयोजित कार्यशालाओं, प्रशिक्षण सत्रों और कार्यक्रमों में
+              सक्रिय रूप से भाग लेने के इच्छुक हैं?
+            </label>
+            <div>
+              <input
+                type="radio"
+                name="willingness"
+                id="Yes"
+                value="Yes"
+                onChange={handleChange}
+              />
+              <label for="Yes">Yes / हाँ</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="willingness"
+                id="notsure"
+                value="notsure"
+                onChange={handleChange}
+              />
+              <label for="notsure">
+                Not sure; want to know more. / निश्चित नहीं; और अधिक जानने की
+                इच्छा है।
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="willingness" id="no" value="no" />
+              <label for="no">No/ नहीं</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="willingness"
+                id="other"
+                value="other"
+                onChange={handleChange}
+              />
+              <label for="other">Other/ अन्य… </label>
+            </div>{" "}
+          </div>{" "}
+          <hr />
+          <div
+            className="field"
+            style={{
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "start",
+            }}
+          >
+            <label for="" className="mr-3 mt-3" style={{ fontSize: "18px" }}>
+              How did you hear about our startup support program? // आपने हमारे
+              स्टार्टअप सहायता कार्यक्रम के बारे में कैसे सुना?
+            </label>
+            <div>
+              <input type="radio" name="awareness" id="sm" value="sm" />
+              <label for="sm">
+                Through Social Media Channels/ सोशल मीडिया चैनलों के माध्यम से{" "}
+              </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="awareness"
+                id="website"
+                value="website"
+                onChange={handleChange}
+              />
+              <label for="website">Our Website/ हमारी वेबसाइट</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="awareness"
+                id="campaign"
+                value="campaign"
+                onChange={handleChange}
+              />
+              <label for="campaign"> Local Campaign/ स्थानीय अभियान </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="awareness"
+                id="someone"
+                value="someone"
+                onChange={handleChange}
+              />
+              <label for="someone">
+                Through someone you know / किसी ऐसे व्यक्ति के माध्यम से जिसे आप
+                जानते हैं
+              </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="awareness"
+                id="Saathi"
+                value="Saathi"
+                onChange={handleChange}
+              />
+              <label for="Saathi">Udyam Saathi/उद्यम-साथी</label>
+            </div>
+          </div>
+          <hr />
+          <div className="field">
+            <label for="" className="mr-3 mt-3" style={{ fontSize: "18px" }}>
+              Any Suggestions/ कोई भी सुझाव जिसे आप साझा करना चाहते हैं ||
+            </label>
+            <input
+              type="text"
+              name="suggestion"
+              placeholder="Suggestions"
+              onChange={handleChange}
+              value={formData.suggestion}
+              // required
+            />
+          </div>{" "}
+          <br />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              variant="contained"
+              sx={{
+                margin: "28px 28%",
+                color: "white",
+                padding: "10px 60px",
+                borderRadius: "20px",
+                fontWeight: "400",
+                textTransform: "inherit",
+                border: "none",
+                background:
+                  "linear-gradient(90deg, rgba(46,132,70,1) 0%, rgba(0,100,0,1) 100%);",
+              }}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
       <div className="HomeContainer" style={{ margin: "0rem auto 0 auto" }}>
         <div className="content_heading_udyamSathi">
           <h1
             style={{
-              fontSize: "3.4rem",
+              fontSize: "50px",
               sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
             }}
           >
@@ -145,7 +399,7 @@ const UdyamSathi = () => {
             <span style={{ color: "black" }}>Unleash The Power Of </span>{" "}
             UdyamSathi{" "}
           </h1>
-          <h4 style={{ color: "black" }}>
+          <h4 style={{ color: "black", fontWeight: "400" }}>
             Empowering Rural Dreams with Udyamwell
           </h4>
         </div>
@@ -349,6 +603,44 @@ const UdyamSathi = () => {
           </ol>
         </div>
         <hr className="horizontal" />
+        <div className="banner" style={{ width: "70%", marginBottom: "100px" }}>
+          <div className="bannerText_udyamsathi">
+            <h1
+              style={{
+                fontSize: "3.4rem",
+                sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
+              }}
+            >
+              {" "}
+              <span style={{ color: "black" }}>Register </span> Here{" "}
+            </h1>
+            <p style={{ textAlign: "justify", fontSize: "16px" }}>
+              Are you ready to be a catalyst for change? The Udyamsathi Program
+              by Udyamwell is calling out to you! This is your chance to embark
+              on a transformative journey, where your passion meets purpose, and
+              your actions resonate in the hearts of rural entrepreneurs. <br />
+              <br />
+              <a
+                href="https://forms.gle/VPMWHcUxDmvNxE8d7"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <button style={{ cursor: "pointer" }} className="download_btn">
+                  Click Here
+                </button>
+              </a>
+            </p>
+          </div>
+          <div className="qrCode_udyamsathi">
+            <img
+              src={udyamsathiQR}
+              alt="qrcode"
+              width={"132px"}
+              height={"132px"}
+            />
+            <p style={{ fontSize: "0.6rem" }}>Scan Here to fill via phone</p>
+          </div>
+        </div>
       </div>
     </div>
   );

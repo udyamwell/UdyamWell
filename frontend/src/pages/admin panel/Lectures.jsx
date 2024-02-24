@@ -1,16 +1,11 @@
 // export default Video;
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import {
-  Alert,
   Box,
   Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
   Modal,
   Paper,
-  Select,
   Stack,
   Table,
   TableBody,
@@ -26,15 +21,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { createVideo, fetchSingleCource } from "../../slices/videos";
 import LectureCell from "../../components/LectureCell";
 
-const Lectures = ({}) => {
-  const {id}= useParams();
+const Lectures = () => {
+  const { id } = useParams();
   // const navigate = useNavigate();
-  const {course,lectures,error} = useSelector(state=>state.lectures);
+  const { course, lectures } = useSelector((state) => state.lectures);
   const dispatch = useDispatch();
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(fetchSingleCource(id));
-  },[])
-  
+  }, [dispatch, id]);
+
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
@@ -67,24 +62,28 @@ const Lectures = ({}) => {
 
   // create video function
   const handleCreate = async () => {
-        // Validate form fields
-        console.log("funcions enter");
-        if (!validateForm()) {
-          return;
-        }
-      const formData = new FormData();
-      formData.append("videoThumbnail", image);
-      formData.append("videoName",name);
-      formData.append("description",description);
-      formData.append("video",video);
-      dispatch(createVideo({id:id,data:formData}));
+    // Validate form fields
+    console.log("funcions enter");
+    if (!validateForm()) {
+      return;
+    }
+    const formData = new FormData();
+    formData.append("videoThumbnail", image);
+    formData.append("videoName", name);
+    formData.append("description", description);
+    formData.append("video", video);
+    dispatch(createVideo({ id: id, data: formData }));
   };
 
   return (
     <div style={{ width: "90%", margin: "8rem auto" }}>
-        <Typography textAlign={'center'} variant="h3">{course?.course}</Typography>
-        <Typography textAlign={'center'} sx={{mt:2}} variant="body1">{course?.description}</Typography>
-        <Stack alignItems={"end"}>
+      <Typography textAlign={"center"} variant="h3">
+        {course?.course}
+      </Typography>
+      <Typography textAlign={"center"} sx={{ mt: 2 }} variant="body1">
+        {course?.description}
+      </Typography>
+      <Stack alignItems={"end"}>
         {/* {error && <Alert severity="error">{error}</Alert>} */}
         <Button
           sx={{ width: 100, margin: "1rem 0" }}
@@ -103,16 +102,13 @@ const Lectures = ({}) => {
                 <TableCell align={"center"}>Description</TableCell>
                 <TableCell align={"center"}>VideoImage</TableCell>
                 <TableCell align={"center"}>Actions</TableCell>
-               
               </TableRow>
             </TableHead>
             <TableBody>
-              {
-                lectures?.map((lecture,index)=>(
-                  <LectureCell key={index} lecture={lecture}/>
-                ))
-              }
-            </TableBody> 
+              {lectures?.map((lecture, index) => (
+                <LectureCell key={index} lecture={lecture} />
+              ))}
+            </TableBody>
           </Table>
         </TableContainer>
       </Paper>
@@ -157,7 +153,7 @@ const Lectures = ({}) => {
               />
             </Box>
             <Box>
-            <label>Video: </label>
+              <label>Video: </label>
               <TextField
                 type="file"
                 fullWidth
@@ -166,7 +162,9 @@ const Lectures = ({}) => {
                 onChange={(e) => setVideo(e.target.files[0])}
               />
             </Box>
-            <Button onClick={handleCreate} variant="contained">Create</Button>
+            <Button onClick={handleCreate} variant="contained">
+              Create
+            </Button>
           </Stack>
         </Paper>
       </Modal>
@@ -175,4 +173,3 @@ const Lectures = ({}) => {
 };
 
 export default Lectures;
-

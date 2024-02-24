@@ -12,13 +12,17 @@
     width: 100%;
 }
 .aboutServices{
-    margin-top: 7rem;
     display: flex;
+    flex-direction: row;
     width: 90%;
     margin: 0 auto;
     justify-content: space-around;
     align-items: flex-start;
-    flex-wrap: wrap;
+   
+    /* flex-wrap: wrap; */
+}
+.CardCarousel{
+    margin-top: 100px;
 }
 .aboutServices1{
     display: flex;
@@ -26,8 +30,12 @@
     align-items: center;
     max-width: 300px;
 }
-.aboutServicesDiv{
-    padding-top: 30%;
+
+.aboutServices Div{
+    width: 300px;
+}
+.aboutServices1 Div{
+    width: 500px;
 }
 .aboutServices1 h1{
     font-size: 37px;
@@ -48,24 +56,39 @@ flex-direction: column;
 align-items: flex-start;
 text-align: start;
 }
+.homeAboutButton button {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 150px;
+    box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+    background-image: linear-gradient(to left, #2e8446, #006400);
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.4s ease-in-out;
+    border: 1px solid transparent;
+  }
 
 /*  */
 .cardContainer1{
-    max-width: 300px;
+    min-height: 600px;        
+    min-width: 260px;
     text-align: center;
     padding: 30px 20px;
     border: 1px solid #f0f4f6;
     margin:40px 20px;
 }
 .cardContainer1:hover{
-    background-color:#b1d0aa ;
-    border: 2px solid green;
+    background-color:#b1d0aac4 ;
+    border: 1.5px solid green;
+    filter: drop-shadow(6px 6px 6px #b1d0aac4);
 }
 .cardContainer1:hover p{
     color: black;
 }
 .cardContainer1:hover h4{
-    font-size: 30px;
+    font-size: 21px;
 }
 .cardContainer1 span{
     margin-bottom: 30px;
@@ -93,7 +116,7 @@ text-align: start;
 } */
 .cardContainer1 h4{
     font-weight: 600;
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 20px; 
     color: #2e8446;
 }
@@ -102,10 +125,37 @@ text-align: start;
     line-height: 1.5;
 
 }
+.aboutus-box{
+    padding-top: 55px;
+    padding-right: 30px;
+}
+@media  only screen and (max-width:1200px){
+       
+    .aboutServices{
+        flex-wrap: wrap;
+        width: 1200;
+
+    }}
+    .aboutus-box{
+        width: 600px;
+    }
+    .cardContainer1{
+       width: 100px;
+    }
+    
  @media  only screen and (max-width:900px){
     .aboutKeyPoints{
         width: 95%;
         height: auto;
+        flex-direction: row;
         flex-wrap: wrap;
     }    
+    .aboutServices{
+        flex-direction: column;
+        align-items: center;
+    }
+    .cardContainer1{
+        min-height: none;
+        min-width: none;
+    }
  }

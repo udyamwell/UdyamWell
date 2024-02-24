@@ -1,5 +1,5 @@
 import React from "react";
-import { landingPageBg_About } from "../assets";
+import { landingPageBg_small } from "../assets";
 import { Box, Typography } from "@mui/material";
 import "./sellOnONDC.css";
 import SellOnONDCForm from "../components/forms/SellOnONDCform";
@@ -11,8 +11,8 @@ function SellOnONDC() {
     <div className="sellonondc">
       <div className="landingPageCover">
         <img
-          src={landingPageBg_About}
-          width="100vw"
+          src={landingPageBg_small}
+          width="100%"
           height="100vh"
           alt="landing"
           className="landingPageCover__animation"

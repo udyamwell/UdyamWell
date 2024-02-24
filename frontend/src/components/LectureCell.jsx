@@ -2,25 +2,20 @@ import {
   Box,
   Button,
   ButtonGroup,
-  FormControl,
-  InputLabel,
-  MenuItem,
   Modal,
   Paper,
-  Select,
   TableCell,
   TableRow,
   TextField,
-  Typography,
 } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 import { Stack } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { deleteCourse, updateCourse } from "../slices/CourseSlice";
+// import { useNavigate } from "react-router-dom";
+// import { deleteCourse, updateCourse } from "../slices/CourseSlice";
 import { deleteVideo, updateVideo } from "../slices/videos";
 
 const LectureCell = ({ lecture }) => {
@@ -57,12 +52,13 @@ const LectureCell = ({ lecture }) => {
       data: {
         videoName: name,
         description,
-        videoThumbnail:image,
+        videoThumbnail: image,
         video,
       },
     };
     dispatch(updateVideo(data));
-    handleClose();  };
+    handleClose();
+  };
   //delete
 
   return (

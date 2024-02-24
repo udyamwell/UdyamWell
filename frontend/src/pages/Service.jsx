@@ -1,14 +1,20 @@
 import React, { useEffect } from "react";
 import "./service.css";
-import { landingPageBg_small, service } from "../assets";
-import { useNavigate } from "react-router";
+import { service } from "../assets";
+// import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import { Box, Typography } from "@mui/material";
+import Bg_about from "../assets/Bg_about.png";
+import ondc from "../assets/ondc.png";
+import sbi from "../assets/sbifoundationlogo.png";
+import microsoft from "../assets/microsoft.png";
+import iitmandicatalyst from "../assets/iitmandicatalyst.png";
+import SearchBox from "../components/SearchBox";
 const ServiceCard = ({ heading, text1, text2, lists, icon }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div className="cardContainer">
       <span>
@@ -25,6 +31,11 @@ const ServiceCard = ({ heading, text1, text2, lists, icon }) => {
     </div>
   );
 };
+const handleSearch = (query) => {
+  // Perform search logic using the query
+  console.log("Search query:", query);
+  // Add your search logic here, such as making an API request or filtering data
+};
 const Service = () => {
   // const navigate = useNavigate();
   const { t } = useTranslation();
@@ -36,7 +47,7 @@ const Service = () => {
       heading: "Udyam Saathi",
       icon: <ContentCopyRoundedIcon />,
       text1:
-        "UdyamWell is an edtech platform that provides a wealth of resources to help entrepreneurs and business owners. From video courses to live webinars, you can access a variety of tools to help you grow your business. In addition, you can connect with a community of fellow entrepreneurs to share insights, ask for advice, and network.",
+        "UdyamWell provides a wealth of resources to help entrepreneurs and business owners. From video courses to live webinars, you can access a variety of tools to help you grow your business. In addition, you can connect with a community of fellow entrepreneurs to share insights, ask for advice, and network.",
       text2: "We can help you with",
       lists: [
         "1. Finding Udyam Saathi nearby you 🌎",
@@ -73,7 +84,7 @@ const Service = () => {
     <div className="servicePage">
       <div className="landingPageCover">
         <img
-          src={landingPageBg_small}
+          src={Bg_about}
           width="100vw"
           alt="landing"
           className="landingPageCover__animation"
@@ -84,7 +95,7 @@ const Service = () => {
           <div className="bannerText">
             <h1
               style={{
-                fontSize: "3.4rem",
+                fontSize: "52px",
                 sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
               }}
             >
@@ -118,15 +129,39 @@ const Service = () => {
           </div>
         </div>
       </div>
-      <Box sx={{ p: "0 55px" }} textAlign={"center"}>
-        <Typography variant="h3">
-          <span style={{ color: "#2e8446" }}>{t("our")}</span> {t("services")}
-        </Typography>
-        <Typography variant="h6" className="serviceSubHeading">
-          {" "}
-          {t("services_body")}
-        </Typography>
+      <Box className="countBox" style={{ width: "80%" }}>
+        <Box className="count">
+          <Typography
+            variant="h5"
+            sx={{ ml: 2, color: "#236836", fonteight: 600 }}
+            style={{ paddingTop: "15px", fontWeight: "bold" }}
+          >
+            {t("supported_by")}
+          </Typography>
+        </Box>
+        <Box className="count">
+          <img src={ondc} alt="ONDC" />
+
+          <img src={sbi} alt="SBI Foundation" />
+
+          <img src={microsoft} alt="Microsoft for Startups" />
+          <img src={iitmandicatalyst} alt="IIT Mandi Catalyst" />
+        </Box>
       </Box>
+      <div className="service-box">
+        {" "}
+        <div className="services-title">
+          <h1 style={{ fontSize: "55px" }}>
+            <span style={{ color: "#2e8446" }}>{t("our")}</span> {t("services")}
+          </h1>
+
+          <p variant="h6" className="serviceSubHeading">
+            {" "}
+            {t("services_body")}
+          </p>
+        </div>
+        <SearchBox onSearch={handleSearch} />
+      </div>
       <div className="ServiceContainer">
         {data?.map((d, index) => {
           return (

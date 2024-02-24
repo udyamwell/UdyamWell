@@ -54,6 +54,11 @@ ol {
     align-items: center;
 }
 
+ .label{
+     padding: 40px;
+     width: 100%;
+ }
+
 .qrCode_udyamsathi{
     margin-left: 10%;
     display:flex;
@@ -66,7 +71,7 @@ ol {
     margin-top: 5rem;
 }
 .content_heading_udyamSathi, .content_udyamsathi h4 {
-    color : green
+    color : #2E8446
 }
 .HomeContainer{ 
     display: flex;
@@ -87,13 +92,18 @@ ol {
 }
 .content_child {
     display: flex;
-    gap: 2rem;
+    gap: 8rem;
+    text-align: justify;
 }
 .content_grandchild {
     width: 50%;
 }
 .brochure{
     width: 70%;
+}
+.horizontal{
+    margin-top:80px ;
+    margin-bottom: 60px;
 }
 @media only screen and (max-width:1220px) {
     .brochure{
@@ -136,5 +146,14 @@ ol {
         flex-direction: column;
         align-items: center;
     }
-   
+    .banner{
+        align-items: center;
+    }
+    .content_grandchild{
+        width: 90%;
+    }
+   .bannerText_udyamsathi {
+    width: 90%;
+    margin-top: 40px;
+   }
 }
