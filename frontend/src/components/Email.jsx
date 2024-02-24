@@ -46,7 +46,7 @@ const Email = () => {
       alert("Please enter your registered mail");
     }
     axios
-      .post("https://localhost:8080/users/sendOtp", { email: email })
+      .post("https://www.udyamwell.com/users/sendOtp", { email: email })
       .then((res) => {
         Swal.fire(
           `${res.data.message}`,
@@ -174,7 +174,7 @@ const Email = () => {
               <MailOutlinedIcon />
             </span>
             <div className="media-body">
-              <a href="mailto:admin@udyamwell.com" target="_blank">
+              <a href="mailto:admin@udyamwell.com" target="_blank" rel="noreferrer">
                 <h3>admin@udyamwell.com</h3>
               </a>
               <p>{t("mail_body")}</p>
@@ -187,7 +187,7 @@ const Email = () => {
             <div className="media-body">
               <a
                 href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
-                target="_blank"
+                target="_blank" rel="noreferrer"
               >
                 <h3>{t("contact_whatsapp")}</h3>
               </a>
