@@ -1,20 +1,20 @@
-import React,{ useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Privacy.css";
 import { landingPageBg_small } from "../assets";
 const Privacy = () => {
   useEffect(() => {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
   return (
     <>
-    <div className="landingPageCover">
-          <img
-            src={landingPageBg_small}
-            width='100vw'
-            alt="landing"
-            className="landingPageCover__animation"
-          />
-    </div>
+      <div className="landingPageCover">
+        <img
+          src={landingPageBg_small}
+          width="100vw"
+          alt="landing"
+          className="landingPageCover__animation"
+        />
+      </div>
       <div class="main-container">
         <div class="container">
           <div class="heading">

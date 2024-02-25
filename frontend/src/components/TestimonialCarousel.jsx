@@ -1,5 +1,4 @@
 import React from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./TestimonialCarousel.css";
@@ -13,7 +12,7 @@ const testimonialData = [
       "Lorem ipsum dolor sit amet consectetur. Nec pharetra aliquet rhoncus diam tempus ac interdum pellentesque. Cursus fermentum egestas nibh accumsan. Turpis commodo rhoncus in habitasse. Quis odio eu laoreet dignissim ut urna nibh id.",
     name: "John Doe",
     rating: 4,
-    profilePic: Male_User, // Replace with the actual image file
+    profilePic: Male_User,
   },
   {
     title: "Great Service!",
@@ -21,7 +20,7 @@ const testimonialData = [
       "Lorem ipsum dolor sit amet consectetur. Nec pharetra aliquet rhoncus diam tempus ac interdum pellentesque. Cursus fermentum egestas nibh accumsan. Turpis commodo rhoncus in habitasse. Quis odio eu laoreet dignissim ut urna nibh id.",
     name: "John Doe",
     rating: 3,
-    profilePic: Male_User, // Replace with the actual image file
+    profilePic: Male_User,
   },
   {
     title: "Great Service!",
@@ -29,20 +28,11 @@ const testimonialData = [
       "Lorem ipsum dolor sit amet consectetur. Nec pharetra aliquet rhoncus diam tempus ac interdum pellentesque. Cursus fermentum egestas nibh accumsan. Turpis commodo rhoncus in habitasse. Quis odio eu laoreet dignissim ut urna nibh id.",
     name: "John Doe",
     rating: 5,
-    profilePic: Male_User, // Replace with the actual image file
+    profilePic: Male_User,
   },
 ];
 
 const TestimonialCarousel = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3, // Show three testimonials at a time
-    slidesToScroll: 1,
-    vertical: false, // Show testimonials in a horizontal row direction
-  };
-
   return (
     <div className="testimonials">
       {testimonialData.map((testimonial, index) => (

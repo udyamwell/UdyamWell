@@ -99,10 +99,7 @@ const HomePage = () => {
         </Box>
       </Box>
       {/* section 3 */}
-      <div
-        className="homeServices"
-        style={{ margin: "2rem auto", width: "70%" }}
-      >
+      <div className="homeServices" style={{ width: "70%" }}>
         <AboutServices />
       </div>
 

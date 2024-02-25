@@ -43,7 +43,7 @@ const Footer = () => {
                   placeholder={t("placeholder_email")}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <div className="btn">
+                <div className="btnFooter">
                   <button
                     type="button"
                     className="footerBtn"

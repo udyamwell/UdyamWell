@@ -51,13 +51,17 @@ export const updateVideo = createAsyncThunk(
       });
   }
 );
-export const deleteVideo= createAsyncThunk("videos/deleteVideo",(_id)=>{
-    console.log("slice",_id)
-    return axios.delete(`https://www.udyamwell.com/api/v1/courses/videos/delete-video/${_id}`).then((res) =>res.data).catch((err)=>{
-        throw new Error(err.response.data.message); 
+export const deleteVideo = createAsyncThunk("videos/deleteVideo", (_id) => {
+  console.log("slice", _id);
+  return axios
+    .delete(
+      `https://www.udyamwell.com/api/v1/courses/videos/delete-video/${_id}`
+    )
+    .then((res) => res.data)
+    .catch((err) => {
+      throw new Error(err.response.data.message);
+    });
 });
-});
-
 
 const lectureSlice = createSlice({
   name: "lectures",
@@ -88,7 +92,7 @@ const lectureSlice = createSlice({
     },
     [updateVideo.fulfilled]: (state, action) => {
       let { _id } = action.payload;
-      console.log("id",_id)
+      console.log("id", _id);
       let index = state.lectures.findIndex((course) => course._id === _id);
       state.loading = false;
       state.lectures[index] = action.payload;

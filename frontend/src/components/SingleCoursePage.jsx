@@ -53,7 +53,7 @@ const SingleCoursePage = () => {
   }, []);
   useEffect(() => {
     dispatch(fetchSingleCource(id));
-  }, [id]); // Add 'id' as a dependency to fetch the course data when it changes
+  }, [dispatch, id]); // Add 'id' as a dependency to fetch the course data when it changes
   useEffect(() => {
     // Set the initial selected video URL to the URL of the first lecture
     if (lectures && lectures.length > 0) {
@@ -84,7 +84,7 @@ const SingleCoursePage = () => {
         handleFullScreenChange
       );
     };
-  }, []);
+  }, [setIsFullScreen]);
 
   const handleSkip = (seconds) => {
     const currentTime = playerRef.current.getCurrentTime();
@@ -143,31 +143,9 @@ const SingleCoursePage = () => {
       }
     }
   };
-  const formatTime = (timeInSeconds) => {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = Math.floor(timeInSeconds % 60);
-    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
-      2,
-      "0"
-    )}`;
-  };
   const dropdownStyle = {
     color: "black",
   };
-  const toggleFullScreen = () => {
-    const playerWrapper = playerRef.current?.wrapper?.current;
-
-    if (playerWrapper) {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else if (playerWrapper.requestFullscreen) {
-        playerWrapper.requestFullscreen();
-      } else if (playerWrapper.webkitRequestFullscreen) {
-        playerWrapper.webkitRequestFullscreen();
-      }
-    }
-  };
-
   return (
     <div className="singleCourse">
       <div className="landingPageCover">
@@ -381,7 +359,6 @@ const SingleCoursePage = () => {
               </div>
 
               <Box sx={{ mt: 2, ml: 2 }}>
-                {/* Render the VideoLectureCard component passing lectures data and handleCardClick */}
                 <VideoLectureCard
                   lectures={lectures}
                   type={"video"}
