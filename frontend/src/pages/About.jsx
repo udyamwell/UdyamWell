@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import "./about.css";
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
-import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import HandshakeTwoToneIcon from "@mui/icons-material/HandshakeTwoTone";
-import { Box, Stack, Typography } from "@mui/material";
-import { landingPageBg_About, landingPageBg_small } from "../assets";
+import { Box, Typography } from "@mui/material";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import PersonSharpIcon from "@mui/icons-material/PersonSharp";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";

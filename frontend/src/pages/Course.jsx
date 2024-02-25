@@ -3,7 +3,7 @@ import CourseCard from "../components/CourseCard";
 import CourseCard2 from "../components/CourseCard2";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCources } from "../slices/CourseSlice";
-import { landingPageBg, landingPageBg_small, lms, service } from "../assets";
+import { lms } from "../assets";
 import Bg_about from "../assets/Bg_about.png";
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
@@ -18,7 +18,7 @@ const Course = () => {
     !user && navigate("/");
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(fetchAllCources());
-  }, []);
+  }, [dispatch, navigate, user]);
   return (
     <>
       <div className="landingPageCover">

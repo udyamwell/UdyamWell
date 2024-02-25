@@ -227,7 +227,7 @@ export const registerUser = createAsyncThunk("user/registerUser", (data) => {
 
 export const loginUser = createAsyncThunk("user/loginUser", (data) => {
   return axios
-    .post(`http://localhost:8080/users/sign-in`, data)
+    .post(`https://www.udyamwell.com/users/sign-in`, data)
     .then((res) => res.data)
     .catch((err) => {
       throw new Error(err.response.data.message);

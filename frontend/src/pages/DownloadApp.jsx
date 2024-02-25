@@ -2,35 +2,22 @@ import React, { useState } from "react";
 import {
   front_view_hands_using_smartphone,
   hand_holding_smartphone,
-  landingPageBg,
-  playstore,
 } from "../assets";
 import Bg_about from "../assets/Bg_about.png";
 import toggle_btn from "../assets/toggle_btn.png";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Button,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import ondc from "../assets/ondc.png";
 import sbi from "../assets/sbifoundationlogo.png";
 import microsoft from "../assets/microsoft.png";
 import iitmandicatalyst from "../assets/iitmandicatalyst.png";
-import { useNavigate } from "react-router";
 import "./DownloadApp.css";
-import Service from "./Service";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import { useTranslation } from "react-i18next";
 import "./CustomAccordion.css";
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 const ServiceCard = ({ heading, text1, text2, lists, icon }) => {
-  const { t } = useTranslation();
   return (
     <div className="cardContainer" style={{ borderRadius: "15px" }}>
       <span>
@@ -48,13 +35,12 @@ const ServiceCard = ({ heading, text1, text2, lists, icon }) => {
   );
 };
 const DownloadApp = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
   const [activeStep, setActiveStep] = useState(1);
   const totalSteps = 7;
 
   const handleStepClick = (step) => {
-    setActiveStep(step === activeStep ? "0" : step); // Toggle to close if the same step is clicked
+    setActiveStep(step === activeStep ? "0" : step);
   };
 
   const renderAccordionStep = (step, summaryKey, bodyKey) => (
@@ -177,7 +163,11 @@ const DownloadApp = () => {
               </Typography>
               <div style={{ width: "100%", float: "left", marginTop: "10px" }}>
                 {/* <img src={playstore}  alt="" /> */}
-                <a href="https://i.diawi.com/3uzBgy" target="_blank">
+                <a
+                  href="https://i.diawi.com/3uzBgy"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Button
                     sx={{ ml: 2, color: "white" }}
                     // aria-describedby={id}
