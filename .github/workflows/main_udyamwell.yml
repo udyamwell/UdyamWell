@@ -75,5 +75,5 @@ jobs:
           app-name: 'udyamwell'
           slot-name: 'Production'
           # Update paths based on your build structure
-          package: 'fronted/build'
+          package: 'frontend/build'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCF900FDC023445BA307F22B8CE75D7F }}
