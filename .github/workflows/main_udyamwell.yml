@@ -61,12 +61,12 @@ jobs:
       - name: Download frontend artifact
         uses: actions/download-artifact@v3
         with:
-          name: frontend-build-artifacts
+          name: frontend-build
 
       - name: Download backend artifact
         uses: actions/download-artifact@v3
         with:
-          name: backend-build-artifacts
+          name: backend-build
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
