@@ -61,24 +61,13 @@ const Register = () => {
   const { handleChange, values, handleSubmit } = useFormik({
     initialValues,
     onSubmit: (values) => {
-      console.log("entered sbmission");
-      let {
-        // name,
-        // // email,
-        // phoneNum,
-        // location,
-        // eName,
-        // enterpriseType,
-        // socials,
-        // comment,
-        // password,
-      } = values;
+      console.log("entered submission");
       dispatch(registerUser(values));
       // !error &&
       //   Swal.fire(
       //     "You are registered.",
       //     "Please check your Email for verification.",
-      //     "succuss"
+      //     "success"
       //   );
     },
   });

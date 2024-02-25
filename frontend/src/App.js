@@ -34,9 +34,10 @@ import ResponsePage from "./components/ResponsePage";
 import UdyamDashboard from "./pages/UdyamDashboard";
 import VideoUpload from "./components/videoUpload";
 // import Navabar from "./components/Navbar";
-
+import i18n from "./i18n.js";
 function App() {
-  // const location = useLocation();
+  const greeting = i18n.t("hello");
+  console.log(greeting);
   return (
     <>
       <div>

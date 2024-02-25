@@ -4,11 +4,18 @@ import { menuBlack, closeBlack, Udyamwell_Logo_Standee } from "../assets";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../slices/UserSlice.js";
-import { Button, Menu, MenuItem, Popover, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  Menu,
+  MenuItem,
+  Popover,
+  Stack,
+  Typography,
+} from "@mui/material";
 const NavabarMain = () => {
   const [toggle1, setToggle1] = useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const { user, error } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleOpenUserMenu = (event) => {
@@ -35,7 +42,7 @@ const NavabarMain = () => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const id = open ? "simple-popover" : undefined;
   return (
     <>
       <nav id="navbarHome">
@@ -110,10 +117,10 @@ const NavabarMain = () => {
                   </Menu>
                 </>
               )}
-               {user?.isAdmin && (
+              {user?.isAdmin && (
                 <>
                   <Button
-                  sx={{ml:2,color:"white"}}
+                    sx={{ ml: 2, color: "white" }}
                     aria-describedby={id}
                     variant="contained"
                     onClick={handleClick}
@@ -121,7 +128,7 @@ const NavabarMain = () => {
                     Admin Panel
                   </Button>
                   <Popover
-                  sx={{mt:4}}
+                    sx={{ mt: 4 }}
                     id={id}
                     open={open}
                     anchorEl={anchorEl}
@@ -132,18 +139,18 @@ const NavabarMain = () => {
                     }}
                   >
                     <Stack>
-                      
-                    {
-                      user?.superAdmin && (
-                        <Button sx={{p:1}} onClick={ handleClose}>
-                        
-                          <Typography onClick={()=>navigate('/admin/users')}>Users</Typography>
+                      {user?.superAdmin && (
+                        <Button sx={{ p: 1 }} onClick={handleClose}>
+                          <Typography onClick={() => navigate("/admin/users")}>
+                            Users
+                          </Typography>
+                        </Button>
+                      )}
+                      <Button sx={{ p: 1 }} onClick={handleClose}>
+                        <Typography onClick={() => navigate("/admin/courses")}>
+                          Lectures
+                        </Typography>
                       </Button>
-                      )
-                    }
-                    <Button sx={{p:1}} onClick={handleClose}>
-                      <Typography onClick={()=>navigate('/admin/courses')}>Lectures</Typography>
-                    </Button>
                     </Stack>
                   </Popover>
                 </>
@@ -207,7 +214,7 @@ const NavabarMain = () => {
                 >
                   <Link to="/contact">Contact</Link>
                 </li>
-                
+
                 {user && (
                   <>
                     <li
