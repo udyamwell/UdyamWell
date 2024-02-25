@@ -29,7 +29,7 @@ const Email = () => {
     }
 
     axios
-      .post("https://udyamwell.com/users/sendOtp", { email: email })
+      .post("https://www.udyamwell.com/users/sendOtp", { email: email })
       .then((res) => {
         if (res.data && res.data.message) {
           Swal.fire(
@@ -160,11 +160,9 @@ const Email = () => {
               <MailOutlinedIcon />
             </span>
             <div className="media-body">
-              <a
-                href="mailto:admin@udyamwell.com"
-                target="_blank"
-                rel="noreferrer"
-              >
+
+              <a href="mailto:admin@udyamwell.com" target="_blank" rel="noreferrer">
+
                 <h3>admin@udyamwell.com</h3>
               </a>
               <p>{t("mail_body")}</p>
@@ -177,8 +175,9 @@ const Email = () => {
             <div className="media-body">
               <a
                 href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
-                target="_blank"
-                rel="noreferrer"
+
+                target="_blank" rel="noreferrer"
+
               >
                 <h3>{t("contact_whatsapp")}</h3>
               </a>
