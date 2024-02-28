@@ -10,7 +10,7 @@ const mailSender = async (email, otp) => {
       requireTLS: true,
       auth: {
         user: process.env.Email,
-        pass: process.env.Email_Password,
+        pass: process.env.Email_App_Password,
       },
     });
 
