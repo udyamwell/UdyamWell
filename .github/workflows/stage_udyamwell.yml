@@ -3,7 +3,7 @@ name: Build and Deploy MERN Stack Webapp
 on:
   push:
     branches:
-      - main
+      - stage
   workflow_dispatch:
 
 jobs:
@@ -16,13 +16,17 @@ jobs:
         run: |
           rm -rf frontend/build
 
+      - name: Install dependencies in frontend
+        run: cd frontend && npm install
+
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: '18.x'
 
-      - name: Install dependencies in frontend and build
-        run: cd frontend && npm install --legacy-peer-deps && npm run build
+      - name: Build frontend
+        run: |
+          cd frontend && npm run build
 
       - name: Upload frontend artifact
         uses: actions/upload-artifact@v3
@@ -38,7 +42,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: '18.x'
 
       - name: Install backend dependencies
         run: |
@@ -54,27 +58,26 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-frontend, build-backend]
     environment:
-      name: "Production"
+      name: 'udyamwell-staging'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
       - name: Download frontend artifact
         uses: actions/download-artifact@v3
         with:
-          name: frontend-build
+          name: frontend-build-artifacts
 
       - name: Download backend artifact
         uses: actions/download-artifact@v3
         with:
-          name: backend-build
+          name: backend-build-artifacts
 
-      - name: "Deploy to Azure Web App"
+      - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "udyamwell"
-          slot-name: "Production"
+          app-name: 'udyamwell'
+          slot-name: 'udyamwell-staging'
           # Update paths based on your build structure
-          package: "/"
+          package: 'frontend-build/*'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCF900FDC023445BA307F22B8CE75D7F }}
-
