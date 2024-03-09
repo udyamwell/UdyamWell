@@ -13,25 +13,6 @@ import { useTranslation } from "react-i18next";
 import Bg_about from "../assets/Bg_about2.png";
 import "./styles/register.css";
 const Email = () => {
-  // const CustomTextArea = (props) => {
-  //   return (
-  //     <input
-  //       {...props}
-  //       style={{
-  //         width: "100%",
-  //         padding: "20px ",
-  //         backgroundColor: "#E0F1E5",
-  //         borderRadius: "25px",
-  //         outline: "none",
-  //         resize: "none",
-  //         textAlign: "center",
-  //         color: "black",
-  //         border: "none",
-  //         margin: "none",
-  //       }}
-  //     />
-  //   );
-  // };
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
@@ -40,21 +21,34 @@ const Email = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     user && navigate("/");
-  }, []);
+  }, [navigate, user]);
   const handleSubmit = () => {
     if (email === "") {
       alert("Please enter your registered mail");
+      return;
     }
+
     axios
-      .post("https://localhost:8080/users/sendOtp", { email: email })
+      .post("https://www.udyamwell.com/users/sendOtp", { email: email })
       .then((res) => {
-        Swal.fire(
-          `${res.data.message}`,
-          "Please check your Email for link.",
-          "success"
-        );
+        if (res.data && res.data.message) {
+          Swal.fire(
+            `${res.data.message}`,
+            "Please check your Email for link.",
+            "success"
+          );
+        } else {
+          console.error("Unexpected response format:", res);
+        }
       })
-      .catch((err) => setError(err.response.data.message));
+      .catch((err) => {
+        console.error("Error:", err);
+        if (err.response && err.response.data && err.response.data.message) {
+          setError(err.response.data.message);
+        } else {
+          setError("An error occurred while processing your request.");
+        }
+      });
   };
   return (
     <>
@@ -100,15 +94,6 @@ const Email = () => {
                   variant="outlined"
                   fullWidth
                 />
-                {/* <CustomTextArea
-                  id="customTextArea"
-                  name="customTextArea"
-                  rows="1"
-                  type={"email"}
-                  value={email}
-                  placeholder="Enter your registered Email"
-                  onChange={(e) => setEmail(e.target.value)}
-                /> */}
               </Box>
               <Box
                 sx={{
@@ -131,6 +116,7 @@ const Email = () => {
                     background:
                       "linear-gradient(90deg, rgba(46,132,70,1) 0%, rgba(0,100,0,1) 100%);",
                   }}
+                  onClick={handleSubmit}
                 >
                   {t("submit_btn")}
                 </Button>
@@ -174,7 +160,9 @@ const Email = () => {
               <MailOutlinedIcon />
             </span>
             <div className="media-body">
-              <a href="mailto:admin@udyamwell.com" target="_blank">
+
+              <a href="mailto:admin@udyamwell.com" target="_blank" rel="noreferrer">
+
                 <h3>admin@udyamwell.com</h3>
               </a>
               <p>{t("mail_body")}</p>
@@ -187,7 +175,9 @@ const Email = () => {
             <div className="media-body">
               <a
                 href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
-                target="_blank"
+
+                target="_blank" rel="noreferrer"
+
               >
                 <h3>{t("contact_whatsapp")}</h3>
               </a>

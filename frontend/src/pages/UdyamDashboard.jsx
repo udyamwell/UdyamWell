@@ -3,9 +3,8 @@ import Bg_about from "../assets/Bg_about2.png";
 import { useSelector } from "react-redux";
 import CustomTable from "../components/CustomTable";
 import { Button } from "@mui/material";
-import { textAlign } from "@mui/system";
 function UdyamDashboard() {
-  const { user, error } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const heading = "Notifications";
   const columns = ["Task Code", "Title"];
   const data = [

@@ -43,7 +43,7 @@ const Footer = () => {
                   placeholder={t("placeholder_email")}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <div className="btn">
+                <div className="btnFooter">
                   <button
                     type="button"
                     className="footerBtn"
@@ -83,7 +83,7 @@ const Footer = () => {
               </p>
               <p>
                 <span style={{ color: "green" }}> {t("phone_head")}</span>{" "}
-                <a href="tel:+91 8679625300">+91 8679625300</a>
+                <a href="tel:+91 7978949923">+91 7978949923</a>
               </p>
               <p>
                 <span style={{ color: "green" }}>{t("email_head")} </span>

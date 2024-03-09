@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import contact_img from "../assets/contact_img.png";
 const Contact = () => {
   const { t } = useTranslation();
-  const [wrong, setWrong] = useState("");
+  const [wrong] = useState("");
   const form = useRef();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -172,7 +172,7 @@ const Contact = () => {
                 <PhoneIphoneOutlinedIcon />
               </span>
               <div className="media-body">
-                <h3>+91 867 9625 300</h3>
+                <h3>+91 7978949923</h3>
                 <p>{t("phone_time")}</p>
               </div>
             </div>
@@ -181,7 +181,11 @@ const Contact = () => {
                 <MailOutlinedIcon />
               </span>
               <div className="media-body">
-                <a href="mailto:admin@udyamwell.com" target="_blank">
+                <a
+                  href="mailto:admin@udyamwell.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <h3>admin@udyamwell.com</h3>
                 </a>
                 <p>{t("mail_body")}</p>
@@ -195,6 +199,7 @@ const Contact = () => {
                 <a
                   href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <h3>{t("contact_whatsapp")}</h3>
                 </a>

@@ -48,10 +48,11 @@ const Login = () => {
   // };
   const { t } = useTranslation();
   const { user, error } = useSelector((state) => state.user);
+  const navigate = useNavigate();
   useEffect(() => {
     user && navigate("/");
-  }, [user]);
-  const navigate = useNavigate();
+  }, [user, navigate]);
+
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -244,7 +245,11 @@ const Login = () => {
               <MailOutlinedIcon />
             </span>
             <div className="media-body">
-              <a href="mailto:admin@udyamwell.com" target="_blank">
+              <a
+                href="mailto:admin@udyamwell.com"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <h3>admin@udyamwell.com</h3>
               </a>
               <p>{t("mail_body")}</p>
@@ -257,6 +262,7 @@ const Login = () => {
             <div className="media-body">
               <a
                 href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
+                rel="noreferrer"
                 target="_blank"
               >
                 <h3>{t("contact_whatsapp")}</h3>

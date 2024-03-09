@@ -15,7 +15,7 @@ const VideoUpload = () => {
     }
 
     try {
-      await axios.post("http://localhost:8080/videos/upload", formData, {
+      await axios.post("https://udyamwell.com/videos/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

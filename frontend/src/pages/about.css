@@ -77,7 +77,8 @@ text-align: start;
     text-align: center;
     padding: 30px 20px;
     border: 1px solid #f0f4f6;
-    margin:40px 20px;
+    margin-inline:20px;
+    margin-block: 40px;
 }
 .cardContainer1:hover{
     background-color:#b1d0aac4 ;
@@ -157,5 +158,6 @@ text-align: start;
     .cardContainer1{
         min-height: none;
         min-width: none;
+        margin-inline:auto;
     }
  }

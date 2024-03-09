@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import "./styles/homeNavbar.css";
-import {
-  menuBlack,
-  closeBlack,
-  Udyamwell_Logo_Standee,
-  logo1,
-} from "../assets";
+import { menuBlack, closeBlack, logo1 } from "../assets";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../slices/UserSlice.js";
@@ -17,14 +12,13 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import LanguageToggle from "./languagetoggle";
 import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 const HomeNavbar = () => {
   const { t } = useTranslation();
   const [toggle1, setToggle1] = useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const { user, error } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const [navabr, setNavbar] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();

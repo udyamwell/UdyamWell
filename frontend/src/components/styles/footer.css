@@ -96,7 +96,7 @@
 .form-group input:focus{
     outline: none;
 }
-.btn{
+.btnFooter{
     margin: 5px;
     display: flex;
     justify-content: center;
@@ -110,6 +110,7 @@
     font-size: 30px;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
 }
 .social_icon {
     margin-top: 27px;
