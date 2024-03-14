@@ -12,43 +12,48 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Clean build directory
+      - name: Clean frontend build directory
         run: |
           rm -rf frontend/build
 
-      - name: Set up Node.js version
+      - name: Set up Node.js version for frontend
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           
-      - name: Install dependencies in frontend and build
+      - name: Install dependencies and build frontend
         run: cd frontend && npm install --legacy-peer-deps && npm run build
+
+      - name: Create frontend artifact archive
+        run: cd frontend/build && tar -czf frontend.tar.gz .
 
       - name: Upload frontend artifact
         uses: actions/upload-artifact@v3
         with:
           name: frontend-build
-          path: frontend/build
+          path: frontend/build/frontend.tar.gz
 
   build-backend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Node.js version
+      - name: Set up Node.js version for backend
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
 
       - name: Install backend dependencies
-        run: |
-          npm install
+        run: npm install
+
+      - name: Create backend artifact archive
+        run: tar -czf backend.tar.gz .
 
       - name: Upload backend artifact
         uses: actions/upload-artifact@v3
         with:
           name: backend-build
-          path: .
+          path: backend.tar.gz
 
   deploy:
     runs-on: ubuntu-latest
