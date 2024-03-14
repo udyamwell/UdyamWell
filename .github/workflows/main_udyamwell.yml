@@ -55,7 +55,7 @@ jobs:
         run: npm install
         
       - name: Wait for build to finish
-        run: sleep 900  # Adjust the delay time as needed
+        run: sleep 1900  # Adjust the delay time as needed
 
       - name: Create backend artifact archive
         run: tar -czf backend.tar.gz --exclude='./node_modules' --exclude='./build' .
