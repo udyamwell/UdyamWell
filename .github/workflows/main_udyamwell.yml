@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: frontend-build
-          path: frontend.tar.gz
+          path: frontend/build
 
   build-backend:
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: backend-build
-          path: backend.tar.gz
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
