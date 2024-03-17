@@ -35,6 +35,10 @@ import UdyamDashboard from "./pages/UdyamDashboard";
 import VideoUpload from "./components/videoUpload";
 // import Navabar from "./components/Navbar";
 import i18n from "./i18n.js";
+import ReactGA from "react-ga4";
+
+const TrackingId = "G-YQSS7Z5N9K";
+ReactGA.initialize(TrackingId);
 function App() {
   const greeting = i18n.t("hello");
   console.log(greeting);

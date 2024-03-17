@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { banner_img, landingPageBg, learning_about } from "../assets";
 import ondc from "../assets/ondc.png";
@@ -12,9 +12,15 @@ import { AboutServices } from "./About";
 import { useNavigate } from "react-router";
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import ReactGA from "react-ga4";
 
 import "./homepage.css";
 const HomePage = () => {
+
+  useEffect(()=>{
+    ReactGA.pageview(window.location.pathname);
+  },[])
+
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
