@@ -1,4 +1,4 @@
-name: UdyamWell Deployment.
+name: UdyamWell Deployment
 
 on:
   push:
@@ -7,37 +7,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-backend:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Clean backend build directory
-        run: rm -rf backend/build
-
-      - name: Set up Node.js version for backend
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-
-      - name: Install backend dependencies
-        run: npm install --legacy-peer-deps
-        
-      - name: Copy backend directory to temporary location
-        run: cp -R . /tmp/backend
-
-      - name: Wait for build to finish
-        run: sleep 5m
-
-      - name: Create backend artifact archive
-        run: tar -czf backend.tar.gz --directory=/tmp/backend --exclude='./frontend' --exclude='./node_modules' .
-
-      - name: Upload backend artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: backend-build
-          path: backend.tar.gz
-  
   build-frontend:
     runs-on: ubuntu-latest
     steps:
@@ -56,6 +25,8 @@ jobs:
           cd frontend
           npm install --legacy-peer-deps
           npm run build
+      - name: Wait for build to finish
+        run: sleep 100  # Adjust the delay time as needed
 
       - name: Create frontend artifact archive
         run: tar -czf frontend.tar.gz -C frontend/build .
@@ -66,9 +37,40 @@ jobs:
           name: frontend-build
           path: frontend.tar.gz
 
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Clean backend build directory
+        run: rm -rf backend/build
+
+      - name: Set up Node.js version for backend
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install backend dependencies
+        run: npm install
+        
+      - name: Copy backend directory to temporary location
+        run: cp -R . /tmp/backend
+
+      - name: Wait for build to finish
+        run: sleep 5m
+
+      - name: Create backend artifact archive
+        run: tar -czf backend.tar.gz --directory=/tmp/backend --exclude='./frontend' --exclude='./node_modules' .
+
+      - name: Upload backend artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-build
+          path: backend.tar.gz
+
   deploy:
     runs-on: ubuntu-latest
-    needs: [build-frontend]
+    needs: [build-frontend, build-backend]
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
@@ -78,6 +80,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: frontend-build
+
+      - name: Download backend artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: backend-build
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
