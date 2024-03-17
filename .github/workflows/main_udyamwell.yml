@@ -29,9 +29,6 @@ jobs:
       - name: Wait for build to finish
         run: sleep 100  # Adjust the delay time as needed
 
-      - name: Create frontend artifact archive
-        run: tar -czf frontend.tar.gz -C frontend/build .
-
       - name: Upload frontend artifact
         uses: actions/upload-artifact@v3
         with:
@@ -53,15 +50,9 @@ jobs:
 
       - name: Install backend dependencies
         run: npm install
-        
-      - name: Copy backend directory to temporary location
-        run: cp -R . /tmp/backend
 
       - name: Wait for build to finish
         run: sleep 35m
-
-      - name: Create backend artifact archive
-        run: tar -czf backend.tar.gz --directory=/tmp/backend --exclude='./frontend' --exclude='./node_modules' .
 
       - name: Upload backend artifact
         uses: actions/upload-artifact@v3
