@@ -1,4 +1,4 @@
-name: Build and Deploy MERN Stack Webapp
+name: UdyamWell Deployment
 
 on:
   push:
@@ -12,43 +12,61 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Clean build directory
-        run: |
-          rm -rf frontend/build
+      - name: Clean frontend build directory
+        run: rm -rf frontend/build
 
-      - name: Set up Node.js version
+      - name: Set up Node.js version for frontend
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           
-      - name: Install dependencies in frontend and build
-        run: cd frontend && npm install --legacy-peer-deps && npm run build
+      - name: Install dependencies and build frontend
+        run: |
+          cd frontend
+          npm install --legacy-peer-deps
+          npm run build
+      - name: Wait for build to finish
+        run: sleep 100  # Adjust the delay time as needed
+
+      - name: Create frontend artifact archive
+        run: tar -czf frontend.tar.gz -C frontend/build .
 
       - name: Upload frontend artifact
         uses: actions/upload-artifact@v3
         with:
           name: frontend-build
-          path: frontend/build
+          path: frontend.tar.gz
 
   build-backend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Node.js version
+      - name: Clean backend build directory
+        run: rm -rf backend/build
+
+      - name: Set up Node.js version for backend
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
 
       - name: Install backend dependencies
-        run: |
-          npm install
+        run: npm install
+        
+      - name: Copy backend directory to temporary location
+        run: cp -R . /tmp/backend
+
+      - name: Wait for build to finish
+        run: sleep 5m
+
+      - name: Create backend artifact archive
+        run: tar -czf backend.tar.gz --directory=/tmp/backend --exclude='./frontend' --exclude='./node_modules' .
 
       - name: Upload backend artifact
         uses: actions/upload-artifact@v3
         with:
           name: backend-build
-          path: .
+          path: backend.tar.gz
 
   deploy:
     runs-on: ubuntu-latest
@@ -74,6 +92,5 @@ jobs:
         with:
           app-name: 'udyamwell'
           slot-name: 'Production'
-          # Update paths based on your build structure
-          package: '/'
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BCF900FDC023445BA307F22B8CE75D7F }}
