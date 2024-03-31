@@ -33,6 +33,8 @@ import SellOnONDC from "./pages/sellOnONDC";
 import ResponsePage from "./components/ResponsePage";
 import UdyamDashboard from "./pages/UdyamDashboard";
 import VideoUpload from "./components/videoUpload";
+import VisitorsPage from "./pages/admin panel/VisitorsPage.jsx";
+import WhatsAppPopup from "./pages/whatsapppopup";
 // import Navabar from "./components/Navbar";
 import i18n from "./i18n.js";
 function App() {
@@ -44,6 +46,7 @@ function App() {
         <ColorMode>
           {/* {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' || location.pathname==='/about' || location.pathname==='/udyamsheel' ) ? (<HomeNavabar/>) : (<Navabar/>)} */}
           <HomeNavabar />
+          <WhatsAppPopup />
           <Routes>
             <Route path="/" element={<HomePage />} />
 
@@ -73,6 +76,7 @@ function App() {
               <Route path="course/:id" element={<Lectures />} />
               <Route path="users" element={<Users />} />
               <Route path="responses" element={<ResponsePage />} />
+              <Route path="visitors" element={<VisitorsPage />} />
             </Route>
             <Route path="/appInformation" element={<DownloadApp />} />
           </Routes>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Error Pages</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+    .error-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .error-content {
+        text-align: center;
+        width: 90%;
+    }
+    h1 {
+        font-size: 4rem;
+        color: #046A3A;
+        margin-bottom: 20px;
+        font-family: "Poppins",sans-serif;
+    }
+    p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 40px;
+        font-family: "Poppins",sans-serif;
+    }
+    a {
+        color: #2E8446;
+        text-decoration: none;
+        font-family: "Poppins",sans-serif;
+        padding: 10px;
+        border: 2px solid #2E8446;
+        border-radius: 20px;
+        transition: 2000ms smooth;
+    }
+    a:hover{
+        color: white;
+        background: #046A3A;
+        border: none;
+        filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.194));
+    }
+    .error{
+        background-image: url('../src/assets/Bg_about.png');
+    }
+</style>
+</head>
+<body class="error">
+<div class="error-container">
+    <div class="error-content">
+        <h1>Error 404 - Not Found</h1>
+        <p>Sorry, the page you are looking for might have been removed or its name changed or is temporarily unavailable.</p>
+        <a href="/">Back to Home</a>
+    </div>
+</div>
+
+
+</body>
+</html>

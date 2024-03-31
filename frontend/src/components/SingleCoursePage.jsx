@@ -13,19 +13,20 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
-import SettingsIcon from "@mui/icons-material/Settings";
-import FullscreenIcon from "@mui/icons-material/Fullscreen";
+// import SettingsIcon from "@mui/icons-material/Settings";
+// import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import ReactPlayer from "react-player";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+// import MenuItem from "@mui/material/MenuItem";
+// import Select from "@mui/material/Select";
 import LoadingSpinner from "./LoadingSpinner";
 // import TextField from "@mui/material/TextField";
 import SearchBox from "../components/SearchBox";
 import Bg_course from "../assets/Bg_course.png";
+import banner from "../assets/banner.png";
 const SingleCoursePage = () => {
   const { id } = useParams();
   const { courseName, lectures } = useSelector((state) => state.lectures);
@@ -38,9 +39,9 @@ const SingleCoursePage = () => {
   const [volume, setVolume] = useState(1);
   const [played, setPlayed] = useState(0);
   const [showVolumeSlider, setShowVolumeSlider] = useState(false);
-  const [showSettingsDropdown, setShowSettingsDropdown] = useState(false);
-  const [selectedQuality, setSelectedQuality] = useState("auto");
-  const [selectedSpeed, setSelectedSpeed] = useState(1);
+  // const [showSettingsDropdown, setShowSettingsDropdown] = useState(false);
+  // const [selectedQuality, setSelectedQuality] = useState("auto");
+  // const [selectedSpeed, setSelectedSpeed] = useState(1);
   const [isBuffering, setIsBuffering] = useState(false);
   const [setIsFullScreen] = useState(false);
   const handleSearch = (query) => {
@@ -117,41 +118,41 @@ const SingleCoursePage = () => {
     const newPlayedSeconds = (newValue / 100) * playerRef.current.getDuration();
     playerRef.current.seekTo(newPlayedSeconds, "seconds");
   };
-  const handleOpenSettings = () => {
-    setShowSettingsDropdown(!showSettingsDropdown);
-  };
-  const handleQualityChange = (event) => {
-    setSelectedQuality(event.target.value);
-    setShowSettingsDropdown(false);
-  };
-  const handleSpeedChange = (event) => {
-    setSelectedSpeed(event.target.value);
-    playerRef.current.getInternalPlayer().playbackRate = event.target.value;
-    setShowSettingsDropdown(false);
-  };
+  // const handleOpenSettings = () => {
+  //   setShowSettingsDropdown(!showSettingsDropdown);
+  // };
+  // const handleQualityChange = (event) => {
+  //   setSelectedQuality(event.target.value);
+  //   setShowSettingsDropdown(false);
+  // };
+  // const handleSpeedChange = (event) => {
+  //   setSelectedSpeed(event.target.value);
+  //   playerRef.current.getInternalPlayer().playbackRate = event.target.value;
+  //   setShowSettingsDropdown(false);
+  // };
 
-  const handleFullScreen = () => {
-    const playerWrapper = playerRef.current?.wrapper?.current;
+  // const handleFullScreen = () => {
+  //   const playerWrapper = playerRef.current?.wrapper?.current;
 
-    if (playerWrapper) {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else if (playerWrapper.requestFullscreen) {
-        playerWrapper.requestFullscreen();
-      } else if (playerWrapper.webkitRequestFullscreen) {
-        playerWrapper.webkitRequestFullscreen(); // for older browsers
-      }
-    }
-  };
-  const dropdownStyle = {
-    color: "black",
-  };
+  //   if (playerWrapper) {
+  //     if (document.fullscreenElement) {
+  //       document.exitFullscreen();
+  //     } else if (playerWrapper.requestFullscreen) {
+  //       playerWrapper.requestFullscreen();
+  //     } else if (playerWrapper.webkitRequestFullscreen) {
+  //       playerWrapper.webkitRequestFullscreen(); // for older browsers
+  //     }
+  //   }
+  // };
+  // const dropdownStyle = {
+  //   color: "black",
+  // };
   return (
     <div className="singleCourse">
       <div className="landingPageCover">
         <img
           src={Bg_course}
-          width="100vw"
+          width="100vh"
           alt="landing"
           className="landingPageCover__animation"
         />
@@ -286,7 +287,7 @@ const SingleCoursePage = () => {
                       )}
                     </div>
                   </div>
-                  <div className="right-controls">
+                  {/* <div className="right-controls">
                     <div className="settings-dropdown">
                       <button onClick={handleOpenSettings}>
                         <SettingsIcon sx={{ fontSize: 36 }} />
@@ -297,7 +298,7 @@ const SingleCoursePage = () => {
                             value={selectedQuality}
                             onChange={handleQualityChange}
                             displayEmpty
-                            style={{ marginRight: "10px" }}
+                            style={{ marginRight: "10px", zIndex: "99" }}
                           >
                             <MenuItem value="" disabled>
                               Streaming Quality
@@ -325,7 +326,7 @@ const SingleCoursePage = () => {
                     <button onClick={handleFullScreen}>
                       <FullscreenIcon sx={{ fontSize: 36 }} />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="View-controls">
@@ -353,9 +354,9 @@ const SingleCoursePage = () => {
               </div>
             </div>
 
-            <div className="recommendations" style={{ marginBottom: "50px" }}>
+            <div className="recommendations" style={{ alignItems: "center" }}>
               <div className="playlist-banner">
-                <img src="" alt="Banner" />
+                <img style={{ width: "100%" }} src={banner} alt="Banner" />
               </div>
 
               <Box sx={{ mt: 2, ml: 2 }}>

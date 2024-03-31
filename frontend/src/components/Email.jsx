@@ -67,32 +67,47 @@ const Email = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              margin: "20rem auto 5rem auto",
+              margin: "0rem auto 0rem auto",
             }}
             color={"#236836"}
           >
-            <Stack>
-              <h1 className="subHeading" style={{ marginLeft: "100px" }}>
-                <span style={{ color: "black" }}>{t("sign ")}</span>
-                Up
+            <Stack width={"100%"}>
+              <h1
+                className="subHeading"
+                style={{
+                  fontSize: "50px",
+                  fontWeight: "600",
+                  fontFamily: "Poppins, sans-serif",
+                  textAlign: "center",
+                  marginBottom: "40px",
+                }}
+              >
+                <span style={{ color: "black" }}>{t("sign")}</span>
+                {t("up")}
               </h1>
               {error && <p>{error}</p>}
               <Box>
                 <TextField
                   sx={{
                     backgroundColor: "#E0F1E5",
+                    // borderRadius: "40px", // Set border radius
+                    width: "100%",
                     "& .MuiOutlinedInput-input::placeholder": {
                       color: "black", // Placeholder color
                       fontWeight: "400",
                       alignSelf: "center",
+                      padding: "40px", // Add padding to the placeholder
+                    },
+                    "& .MuiOutlinedInput-root": {
+                      border: "none", // Remove the border
                     },
                   }}
                   type={"email"}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  label="Enter your registered Email"
+                  label={t("formph_mail")}
                   variant="outlined"
-                  fullWidth
+                  width="160%"
                 />
               </Box>
               <Box
@@ -109,7 +124,7 @@ const Email = () => {
                   sx={{
                     color: "white",
                     padding: "10px 60px",
-                    borderRadius: "20px",
+                    borderRadius: "10px",
                     fontWeight: "400",
                     textTransform: "inherit",
                     border: "none",
@@ -122,7 +137,7 @@ const Email = () => {
                 </Button>
               </Box>
               <Box>
-                <Typography sx={{ mt: 3, textAlign: "center" }}>
+                <Typography sx={{ mt: 6, textAlign: "center" }}>
                   Already have an Account?{" "}
                   <Link to="/login">
                     <span
@@ -136,14 +151,20 @@ const Email = () => {
             </Stack>
           </Box>
         </form>
-        <div className="information2">
+        <div className="information">
           <div className="contact-info">
             <span className="contact-info__icon">
               <HomeOutlinedIcon />
             </span>
             <div className="media-body">
-              <h3>{t("address_body1")}</h3>
-              <p>{t("address_body2")}</p>
+              <a
+                href="https://maps.app.goo.gl/DCBAgSxqtdhBWvYPA"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <h3>{t("address_body1")}</h3>
+                <p>{t("address_body2")}</p>
+              </a>
             </div>
           </div>
           <div className="contact-info">
@@ -151,8 +172,10 @@ const Email = () => {
               <PhoneIphoneOutlinedIcon />
             </span>
             <div className="media-body">
-              <h3>+91 867 9625 300</h3>
-              <p>{t("phone_time")}</p>
+              <a href="tel:+91 7978949923" target="_blank" rel="noreferrer">
+                <h3>+91 7978949923</h3>
+                <p>{t("phone_time")}</p>
+              </a>
             </div>
           </div>
           <div className="contact-info">

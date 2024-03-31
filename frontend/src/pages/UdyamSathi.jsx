@@ -3,13 +3,13 @@ import "./udyamsathi.css";
 import { udyamsathiQR } from "../assets";
 import udyamsathi from "../assets/udyamsathi.png";
 import { Box, Button, Typography } from "@mui/material";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import Bg_about from "../assets/Bg_about.png";
 import Swal from "sweetalert2";
 import axios from "axios";
 // import { Link } from "react-router-dom";
 const UdyamSathi = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
@@ -56,13 +56,18 @@ const UdyamSathi = () => {
           className="landingPageCover__animation"
         />
       </div>
-      <div className="HomeContainer" style={{ margin: "0rem auto 0 auto" }}>
-        <div className="banner" style={{ width: "70%" }}>
+      <div
+        className="HomeContainer"
+        style={{ margin: "0rem auto ", height: "fit-content" }}
+      >
+        <div className="banner" style={{ width: "80%", marginTop: "8rem" }}>
           <div className="bannerText">
             <h1
               style={{
-                fontSize: "3.4rem",
-                sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
+                fontSize: "50px",
+                fontWeight: "600",
+                fontFamily: "Poppins,sans-serif",
+                color: "#046A3A",
               }}
             >
               {" "}
@@ -74,8 +79,10 @@ const UdyamSathi = () => {
             <p
               style={{
                 textAlign: "justify",
-                fontSize: "16px",
-                fontWeight: "600",
+                fontSize: "18px",
+                fontWeight: "500",
+                fontFamily: "Poppins,sans-serif",
+                marginBlock: "20px",
               }}
             >
               The Udyamsathi Program is a unique initiative that engages
@@ -94,7 +101,7 @@ const UdyamSathi = () => {
             </p>
           </div>
           <div className="bannerImg">
-            <img src={udyamsathi} alt="" style={{ borderRadius: "20px" }} />
+            <img src={udyamsathi} alt="" style={{ marginTop: "60px" }} />
           </div>
         </div>
       </div>
@@ -128,7 +135,12 @@ const UdyamSathi = () => {
         <button
           style={{ cursor: "pointer" }}
           className="download_btn"
-          onClick={() => navigate("/requestpage")}
+          onClick={() =>
+            window.open(
+              "https://drive.google.com/file/d/12ZXNyTXa38UOXHz4xZjxX4ebawoa8Sxp/view?usp=sharing",
+              "_blank"
+            )
+          }
         >
           Download
         </button>
@@ -138,7 +150,7 @@ const UdyamSathi = () => {
       {/*  */}
       <div
         className="HomeContainer"
-        style={{ margin: "0rem auto 0 auto", width: "90%" }}
+        style={{ margin: "0rem auto 0 auto", width: "100%" }}
       >
         <div className="banner">
           <div className="bannerText_udyamsathi">
@@ -151,7 +163,15 @@ const UdyamSathi = () => {
               {" "}
               <span style={{ color: "black" }}>Register </span> Here{" "}
             </h1>
-            <p style={{ textAlign: "justify", fontSize: "16px" }}>
+            <p
+              style={{
+                textAlign: "justify",
+                fontSize: "18px",
+                fontWeight: "500",
+                fontFamily: "Poppins,sans-serif",
+                marginBlock: "20px",
+              }}
+            >
               Are you ready to be a catalyst for change? The Udyamsathi Program
               by Udyamwell is calling out to you! This is your chance to embark
               on a transformative journey, where your passion meets purpose, and
@@ -365,6 +385,7 @@ const UdyamSathi = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              borderRadius: "10px",
             }}
           >
             <Button
@@ -373,7 +394,7 @@ const UdyamSathi = () => {
                 margin: "28px 28%",
                 color: "white",
                 padding: "10px 60px",
-                borderRadius: "20px",
+                borderRadius: "10px",
                 fontWeight: "400",
                 textTransform: "inherit",
                 border: "none",
@@ -603,18 +624,20 @@ const UdyamSathi = () => {
           </ol>
         </div>
         <hr className="horizontal" />
-        <div className="banner" style={{ width: "70%", marginBottom: "100px" }}>
+        <div className="banner" style={{ width: "80%", marginBottom: "100px" }}>
           <div className="bannerText_udyamsathi">
             <h1
               style={{
-                fontSize: "3.4rem",
-                sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
+                fontSize: "50px",
+                fontWeight: "600",
+                fontFamily: "Poppins,sans-serif",
+                color: "#046A3A",
               }}
             >
               {" "}
               <span style={{ color: "black" }}>Register </span> Here{" "}
             </h1>
-            <p style={{ textAlign: "justify", fontSize: "16px" }}>
+            <p style={{ textAlign: "justify", fontSize: "18px" }}>
               Are you ready to be a catalyst for change? The Udyamsathi Program
               by Udyamwell is calling out to you! This is your chance to embark
               on a transformative journey, where your passion meets purpose, and
