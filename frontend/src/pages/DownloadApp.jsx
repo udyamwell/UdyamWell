@@ -239,7 +239,7 @@ const DownloadApp = () => {
               >
                 {/* <img src={playstore}  alt="" /> */}
                 <a
-                  href="https://i.diawi.com/3uzBgy"
+                  href="https://play.google.com/store/apps/details?id=com.udyamwell.seller.app&hl=en_IN&gl=US"
                   target="_blank"
                   rel="noreferrer"
                   className="App-Link"
