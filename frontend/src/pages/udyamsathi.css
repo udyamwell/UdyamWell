@@ -6,7 +6,7 @@ ol {
 }
 .download_btn{
     padding: 15px;
-    border-radius: 50px;
+    border-radius: 10px;
     font-size: 14px;
     width: 150px;
     text-transform: capitalize;
@@ -16,7 +16,7 @@ ol {
     color: #fff;
     transition: all 0.4s ease-in-out;
     margin-right: 40px;
-    background-size: 200% auto;
+    /* background-size: 200% auto; */
     border: 1px solid transparent;
     margin-left: 1.5rem;
 }
@@ -76,6 +76,7 @@ ol {
 .HomeContainer{ 
     display: flex;
     flex-direction: column;
+    height:fit-content;
 }
 .horizontal {
     width: 80%;

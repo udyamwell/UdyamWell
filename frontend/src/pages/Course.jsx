@@ -121,8 +121,10 @@ const Course = () => {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            width: "103%",
+            width: "100%",
             margin: "0 auto",
+            paddingTop: "60px",
+            gap: "20px",
           }}
         >
           <CourseCard courses={all_courses} type={"course"} />
@@ -160,6 +162,7 @@ const Course = () => {
               flexWrap: "wrap",
               width: "103%",
               margin: "0 auto",
+              paddingTop: "40px",
             }}
           >
             <CourseCard2 courses={all_courses} type={"course"} />

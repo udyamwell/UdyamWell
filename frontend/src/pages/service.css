@@ -16,6 +16,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     width: 80%;
+    height:"100vh"
 }
 .service-box{
     display: flex;
@@ -87,6 +88,9 @@
     .servicePage{
         width: 90%;
     }
+    .service-box{
+        flex-direction: column;
+    }
     /* .serviceSubHeading{
         width: 75%;
     } */
@@ -104,7 +108,5 @@
         width: 100%;
         margin-bottom: 30px; ;
     }
-    .service-box{
-        flex-direction: column;
-    }
+    
 }

@@ -32,7 +32,7 @@ const CourseCard = ({ courses }) => {
             width: 370,
             height: 140,
             borderRadius: "10px",
-            m: 3,
+            // m: 3,
             cursor: "pointer",
             background: "#2E84461F",
           }}
@@ -52,7 +52,7 @@ const CourseCard = ({ courses }) => {
                 component="img"
                 // height="250"
                 image={urlImage + course.image}
-                sx={{ opacity: 0.8 }}
+                sx={{ opacity: 1, width: "100%" }}
                 alt="UdyamWell Course"
               />
               <Box className="playIcon">
@@ -71,13 +71,19 @@ const CourseCard = ({ courses }) => {
               <Link
                 style={{
                   textDecoration: "none",
-                  color: "black",
-                  fontWeight: "bold",
-                  fontSize: "18px",
                 }}
                 to={`/course/${course?._id}`}
               >
-                {course.name}
+                <div
+                  style={{
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    lineHeight: "1.2",
+                  }}
+                >
+                  {course.name}
+                </div>
               </Link>
             </Typography>
             <Typography variant="body1" sx={{ mt: 0, fontSize: "14px" }}>

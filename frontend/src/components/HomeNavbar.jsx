@@ -14,6 +14,9 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
+import { NavLink } from "react-router-dom";
+import lan_icon from "../assets/lan_icon.png";
+
 const HomeNavbar = () => {
   const { t } = useTranslation();
   const [toggle1, setToggle1] = useState(false);
@@ -59,6 +62,11 @@ const HomeNavbar = () => {
   window.addEventListener("scroll", changeBackground);
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
   return (
     <>
       <nav
@@ -71,7 +79,7 @@ const HomeNavbar = () => {
             <div className="navbar-brand">
               <img
                 src={logo1}
-                height={"75px"}
+                height={"90px"}
                 className="logo1"
                 width={"auto"}
                 alt=""
@@ -81,34 +89,75 @@ const HomeNavbar = () => {
             </div>
             <ul className="navbar-menuHome">
               <li>
-                <Link to={"/"}>{t("nav_home")}</Link>
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  to={"/"}
+                  className="nav-link"
+                >
+                  {t("nav_home")}
+                </NavLink>
               </li>
               <li>
-                <Link to="about">{t("nav_about")}</Link>
+                <NavLink
+                  activeClassName="active"
+                  to="about"
+                  className="nav-link"
+                >
+                  {t("nav_about")}
+                </NavLink>
               </li>
               <li>
-                <Link to="/appInformation">{t("nav_downloadapp")}</Link>
+                <NavLink
+                  activeClassName="active"
+                  to="/appInformation"
+                  className="nav-link"
+                >
+                  {t("nav_downloadapp")}
+                </NavLink>
               </li>
               <div class="dropdown">
-                <button class="dropbtn">
-                  <Link to="/services">{t("nav_services")}</Link>
-                </button>
+                <NavLink
+                  activeClassName="active"
+                  to="/services"
+                  className="nav-link"
+                >
+                  {t("nav_services")}
+                </NavLink>
+
                 <div class="dropdown-content">
-                  {user && <Link to="/courses">{t("nav_courses")}</Link>}
-                  <Link to="/udyamsheel">{t("nav_udyamsheel")}</Link>
-                  <Link to="/udyamsathi">{t("nav_udyamsathi")}</Link>
+                  {user && (
+                    <NavLink to="/courses" className="nav-link1">
+                      {t("nav_courses")}
+                    </NavLink>
+                  )}
+                  <NavLink to="/udyamsheel" className="nav-link1">
+                    {t("nav_udyamsheel")}
+                  </NavLink>
+                  <NavLink to="/udyamsathi" className="nav-link1">
+                    {t("nav_udyamsathi")}
+                  </NavLink>
                 </div>
               </div>
               <li>
-                <Link to="/contact">{t("nav_contact")}</Link>
+                <NavLink
+                  activeClassName="active"
+                  to="/contact"
+                  className="nav-link"
+                  style={{ marginRight: "20px" }}
+                >
+                  {t("nav_contact")}
+                </NavLink>
               </li>
+            </ul>
+
+            <ul className="navbar-menuHome2">
               {user && (
                 <>
                   <li
                     style={{ fontWeight: "bold" }}
                     onClick={handleOpenUserMenu}
                   >
-                    {/* <Link>{user?.name}</Link> */}
                     <Button
                       sx={{ ml: 2, color: "green" }}
                       aria-describedby={id}
@@ -116,113 +165,10 @@ const HomeNavbar = () => {
                     >
                       {user?.name}
                     </Button>
-                    {/* <Popover
-                      sx={{ mt: 4 }}
-                      id={id}
-                      open={open}
-                      anchorEl={anchorEl}
-                      onClose={handleClose}
-                      anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "left",
-                      }}
-                    >
-                      <Stack>
-                        {user?.superAdmin && (
-                          <Button sx={{ p: 1 }} onClick={handleClose}>
-                            <Typography
-                              onClick={() => {
-                                handleCloseUserMenu();
-                                navigate("/profile");
-                              }}
-                            >
-                              Profile
-                            </Typography>
-                          </Button>
-                        )}
-                        <Button sx={{ p: 1 }} onClick={handleClose}>
-                          <Typography
-                            onClick={() => {
-                              handleCloseUserMenu();
-                              handleLogout();
-                            }}
-                          >
-                            Logout
-                          </Typography>
-                        </Button>
-                      </Stack>
-                    </Popover> */}
                   </li>
-                  {/* <Popover
-                    id="menu-appbar"
-                    anchorEl={anchorElUser}
-                    anchorOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
-                    }}
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
-                    }}
-                    open={Boolean(anchorElUser)}
-                    onClose={handleCloseUserMenu}
-                  >
-                    <MenuItem
-                      onClick={() => {
-                        handleCloseUserMenu();
-                        navigate("/profile");
-                      }}
-                    >
-                      <Typography textAlign="center">Profile</Typography>
-                    </MenuItem>
-                    <MenuItem
-                      onClick={() => {
-                        handleCloseUserMenu();
-                        handleLogout();
-                      }}
-                    >
-                      <Typography textAlign="center">Logout</Typography>
-                    </MenuItem>
-                  </Popover> */}
-                  {/* <Menu
-                    sx={{ mt: "70px" }}
-                    id="menu-appbar"
-                    anchorEl={anchorElUser}
-                    anchorOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
-                    }}
-                    open={Boolean(anchorElUser)}
-                    onClose={handleCloseUserMenu}
-                  >
-                    
-                    <MenuItem onClick={handleCloseUserMenu}>
-                      <Typography
-                        onClick={() => navigate("/profile")}
-                        textAlign="center"
-                      >
-                        {t("nav_profile")}
-                      </Typography>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center" onClick={handleLogout}>
-                        {t("logout_btn")}
-                      </Typography>
-                    </MenuItem>
-                  
-                  </Menu> */}
                 </>
               )}
-              {/* <li>
-                      <Button variant="contained" sx={{ml:2,color:"white"}}>
-                        Sell on ONDC
-                      </Button>
-                    </li> */}
+
               {user?.isAdmin && (
                 <>
                   <Button
@@ -264,6 +210,11 @@ const HomeNavbar = () => {
                           Responses
                         </Typography>
                       </Button>
+                      <Button sx={{ p: 1 }} onClick={handleClose}>
+                        <Typography onClick={() => navigate("/admin/visitors")}>
+                          Visitors
+                        </Typography>
+                      </Button>
                     </Stack>
                   </Popover>
                 </>
@@ -272,18 +223,23 @@ const HomeNavbar = () => {
                 <div>
                   {isClicked ? (
                     <>
-                      <div style={{ marginLeft: "20px" }}>
+                      <div style={{ marginLeft: "0px" }}>
                         <Button
                           sx={{
                             p: "10px 20px",
-                            borderRadius: "25px",
+                            borderRadius: "10px",
                             border: "solid 1.5px",
-                            ml: 3,
+                            // ml: 3,
                             fontWeight: "normal",
                             color: "#006400",
                             textTransform: "initial",
+                            transition:
+                              "filter 0.4s ease, color 0.4s ease, background 0.3s ease",
                             "&:hover": {
                               filter: "drop-shadow(-2px 4px 4px   #0064003a  )",
+                              color: "white",
+                              background:
+                                "linear-gradient( #2E8446 , #006400 )",
                             },
                           }}
                           variant="outlined"
@@ -305,8 +261,8 @@ const HomeNavbar = () => {
                         <Button
                           sx={{
                             p: "10px 20px",
-                            borderRadius: "25px",
-                            ml: 3,
+                            borderRadius: "10px",
+                            ml: 2,
                             color: "white",
                             textTransform: "initial",
                             background: "linear-gradient( #2E8446 , #006400 )",
@@ -322,12 +278,11 @@ const HomeNavbar = () => {
                       </div>
                     </>
                   ) : (
-                    <div style={{ marginLeft: "160px" }}>
+                    <div style={{}}>
                       <Button
                         sx={{
                           p: "10px 20px",
-                          borderRadius: "25px",
-                          ml: 3,
+                          borderRadius: "10px",
                           fontWeight: "normal",
                           color: "white",
                           textTransform: "initial",
@@ -349,7 +304,7 @@ const HomeNavbar = () => {
                             alignItems: "center",
                           }}
                         >
-                          Login
+                          {t("login_btn")}
                           <PersonIcon />
                         </div>
                       </Button>
@@ -359,12 +314,20 @@ const HomeNavbar = () => {
                 //
                 //
               )}
-              {/* {!user && (
-                
-              )} */}
-              {/* <li>
-                <LanguageToggle />
-              </li> */}
+              <li>
+                <div className={isClicked ? "navbar3" : "navbar3 right_margin"}>
+                  <img src={lan_icon} alt="icon" />
+                  <select
+                    onChange={(e) => changeLanguage(e.target.value)}
+                    className="lng_dropdown"
+                  >
+                    <option className="lng_option" value="en">
+                      English
+                    </option>
+                    <option value="hi">हिन्दी</option>
+                  </select>
+                </div>
+              </li>
             </ul>
           </div>
           {/*  */}

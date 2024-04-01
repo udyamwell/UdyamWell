@@ -190,7 +190,7 @@ const Login = () => {
                 sx={{
                   color: "white",
                   padding: "10px 60px",
-                  borderRadius: "20px",
+                  borderRadius: "10px",
                   fontWeight: "400",
                   textTransform: "inherit",
                   border: "none",
@@ -227,8 +227,14 @@ const Login = () => {
               <HomeOutlinedIcon />
             </span>
             <div className="media-body">
-              <h3>{t("address_body1")}</h3>
-              <p>{t("address_body2")}</p>
+              <a
+                href="https://maps.app.goo.gl/DCBAgSxqtdhBWvYPA"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <h3>{t("address_body1")}</h3>
+                <p>{t("address_body2")}</p>
+              </a>
             </div>
           </div>
           <div className="contact-info">
@@ -236,8 +242,10 @@ const Login = () => {
               <PhoneIphoneOutlinedIcon />
             </span>
             <div className="media-body">
-              <h3>+91 867 9625 300</h3>
-              <p>{t("phone_time")}</p>
+              <a href="tel:+91 7978949923" target="_blank" rel="noreferrer">
+                <h3>+91 7978949923</h3>
+                <p>{t("phone_time")}</p>
+              </a>
             </div>
           </div>
           <div className="contact-info">
@@ -247,8 +255,8 @@ const Login = () => {
             <div className="media-body">
               <a
                 href="mailto:admin@udyamwell.com"
-                rel="noreferrer"
                 target="_blank"
+                rel="noreferrer"
               >
                 <h3>admin@udyamwell.com</h3>
               </a>
@@ -262,8 +270,8 @@ const Login = () => {
             <div className="media-body">
               <a
                 href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
-                rel="noreferrer"
                 target="_blank"
+                rel="noreferrer"
               >
                 <h3>{t("contact_whatsapp")}</h3>
               </a>

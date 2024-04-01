@@ -3,7 +3,7 @@ import "./contact.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
-import { Button, Stack, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Bg_about from "../assets/Bg_about2.png";
 import emailjs from "@emailjs/browser";
@@ -63,149 +63,212 @@ const Contact = () => {
       </div>
       <div className="contact" style={{ marginTop: "15rem" }}>
         <div className="contactForm">
-          <div className="form">
-            <h1
-              className="subHeading"
-              style={{ color: "#2E8446", fontSize: "50px" }}
-            >
-              {t("contact_head")}
-            </h1>
-            {wrong && <h3>{wrong}</h3>}
-            <form ref={form} onSubmit={handleSubmit}>
-              <Stack className="ContactStack" spacing={2}>
-                <TextField
-                  fullWidth
-                  name="from_name"
-                  variant="outlined"
-                  type="text"
-                  placeholder={t("formph_name")}
+          <div className="contact-area">
+            <div className="form">
+              {/* <form ref={form} onSubmit={handleSubmit}>
+                <Stack className="ContactStack" spacing={2}>
+                  <TextField
+                    fullWidth
+                    name="from_name"
+                    variant="outlined"
+                    type="text"
+                    placeholder={t("formph_name")}
+                    sx={{
+                      backgroundColor: "#E0F1E5",
+                      "& .MuiOutlinedInput-input::placeholder": {
+                        color: "black", // Placeholder color
+                        fontWeight: "400",
+                      },
+                    }}
+                    // value={name}
+                  />
+                  <TextField
+                    variant="outlined"
+                    type="email"
+                    placeholder={t("formph_mail")}
+                    name="email"
+                    sx={{
+                      backgroundColor: "#E0F1E5",
+                      "& .MuiOutlinedInput-input::placeholder": {
+                        color: "black", // Placeholder color
+                        fontWeight: "400",
+                      },
+                    }}
+                    // value={email}
+                    // onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <TextField
+                    variant="outlined"
+                    type="text"
+                    name="subject"
+                    placeholder={t("formph_subject")}
+                    sx={{
+                      backgroundColor: "#E0F1E5",
+                      "& .MuiOutlinedInput-input::placeholder": {
+                        color: "black", // Placeholder color
+                        fontWeight: "400",
+                      },
+                    }}
+                    // value={subject}
+                    // onChange={(e) => setSubject(e.target.value)}
+                  />
+                  <TextField
+                    // sx={{borderBottom:"1px solid black",mt:5}}
+                    placeholder={t("formph_message")}
+                    variant="outlined"
+                    name="message"
+                    sx={{
+                      backgroundColor: "#E0F1E5",
+                      "& .MuiOutlinedInput-input::placeholder": {
+                        color: "black", // Placeholder color
+                        fontWeight: "400",
+                      },
+                    }}
+                    
+                  />
+                </Stack>
+                <Button
+                  variant="contained"
+                  type="submit"
                   sx={{
-                    backgroundColor: "#E0F1E5",
-                    "& .MuiOutlinedInput-input::placeholder": {
-                      color: "black", // Placeholder color
-                      fontWeight: "400",
-                    },
+                    margin: "28px 28%",
+                    color: "white",
+                    padding: "10px 60px",
+                    borderRadius: "20px",
+                    fontWeight: "400",
+                    textTransform: "inherit",
+                    border: "none",
+                    background:
+                      "linear-gradient(90deg, rgba(46,132,70,1) 0%, rgba(0,100,0,1) 100%);",
                   }}
-                  // value={name}
-                />
-                <TextField
-                  variant="outlined"
-                  type="email"
-                  placeholder={t("formph_mail")}
-                  name="email"
-                  sx={{
-                    backgroundColor: "#E0F1E5",
-                    "& .MuiOutlinedInput-input::placeholder": {
-                      color: "black", // Placeholder color
-                      fontWeight: "400",
-                    },
+                >
+                  {t("submit_btn")}
+                </Button>
+              </form> */}
+              <form ref={form} onSubmit={handleSubmit}>
+                <h1
+                  className="subHeading"
+                  style={{
+                    color: "#046A3A",
+                    fontFamily: "Poppins,sans-serif",
+                    fontWeight: "00",
+                    fontSize: "50px",
+                    textAlign: "center",
+                    paddingTop: "20px",
                   }}
-                  // value={email}
-                  // onChange={(e) => setEmail(e.target.value)}
-                />
-                <TextField
-                  variant="outlined"
-                  type="text"
-                  name="subject"
-                  placeholder={t("formph_subject")}
-                  sx={{
-                    backgroundColor: "#E0F1E5",
-                    "& .MuiOutlinedInput-input::placeholder": {
-                      color: "black", // Placeholder color
+                >
+                  Get In <span style={{ color: "black" }}>Touch</span>
+                </h1>
+                {wrong && <h3>{wrong}</h3>}
+
+                <div className="inputs">
+                  <label className="label2">
+                    {t("formph_name")}
+                    <input type="text" name="from_name" placeholder="Name" />
+                  </label>
+
+                  <label className="label2">
+                    {t("formph_mail")}
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email Address"
+                    />
+                  </label>
+
+                  <label className="label2">
+                    {t("formph_subject")}
+                    <input type="text" name="subject" placeholder="Subject" />
+                  </label>
+
+                  <label className="label2">
+                    {t("formph_message")}
+                    <input type="text" name="message" placeholder="Message" />
+                  </label>
+                </div>
+                <div className="btnForm">
+                  <Button
+                    variant="contained"
+                    sx={{
+                      color: "white",
+                      padding: "10px 60px",
+                      borderRadius: "10px",
                       fontWeight: "400",
-                    },
-                  }}
-                  // value={subject}
-                  // onChange={(e) => setSubject(e.target.value)}
-                />
-                <TextField
-                  // sx={{borderBottom:"1px solid black",mt:5}}
-                  placeholder={t("formph_message")}
-                  variant="outlined"
-                  name="message"
-                  sx={{
-                    backgroundColor: "#E0F1E5",
-                    "& .MuiOutlinedInput-input::placeholder": {
-                      color: "black", // Placeholder color
-                      fontWeight: "400",
-                    },
-                  }}
-                  // value={message}
-                  // onChange={(e) => setMessage(e.target.value)}
-                />
-              </Stack>
-              <Button
-                variant="contained"
-                type="submit"
-                sx={{
-                  margin: "28px 28%",
-                  color: "white",
-                  padding: "10px 60px",
-                  borderRadius: "20px",
-                  fontWeight: "400",
-                  textTransform: "inherit",
-                  border: "none",
-                  background:
-                    "linear-gradient(90deg, rgba(46,132,70,1) 0%, rgba(0,100,0,1) 100%);",
-                }}
-              >
-                {t("submit_btn")}
-              </Button>
-            </form>
-            <div className="contact-img">
-              <img src={contact_img} alt="" />
+                      textTransform: "inherit",
+                      border: "none",
+                      background:
+                        "linear-gradient(90deg, rgba(46,132,70,1) 0%, rgba(0,100,0,1) 100%);",
+                    }}
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </form>
+            </div>
+            <div className="information">
+              <div className="contact-info">
+                <span className="contact-info__icon">
+                  <HomeOutlinedIcon />
+                </span>
+                <div className="media-body">
+                  <a
+                    href="https://maps.app.goo.gl/DCBAgSxqtdhBWvYPA"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <h3>{t("address_body1")}</h3>
+                    <p>{t("address_body2")}</p>
+                  </a>
+                </div>
+              </div>
+              <div className="contact-info">
+                <span className="contact-info__icon">
+                  <PhoneIphoneOutlinedIcon />
+                </span>
+                <div className="media-body">
+                  <a href="tel:+91 7978949923" target="_blank" rel="noreferrer">
+                    <h3>+91 7978949923</h3>
+                    <p>{t("phone_time")}</p>
+                  </a>
+                </div>
+              </div>
+              <div className="contact-info">
+                <span className="contact-info__icon">
+                  <MailOutlinedIcon />
+                </span>
+                <div className="media-body">
+                  <a
+                    href="mailto:admin@udyamwell.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <h3>admin@udyamwell.com</h3>
+                  </a>
+                  <p>{t("mail_body")}</p>
+                </div>
+              </div>
+              <div className="contact-info">
+                <span className="contact-info__icon">
+                  <WhatsAppIcon />
+                </span>
+                <div className="media-body">
+                  <a
+                    href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <h3>{t("contact_whatsapp")}</h3>
+                  </a>
+                  <p>{t("contact_whatsappbody")}</p>
+                </div>
+              </div>
             </div>
           </div>
+
           {/*  */}
-          <div className="information">
-            <div className="contact-info">
-              <span className="contact-info__icon">
-                <HomeOutlinedIcon />
-              </span>
-              <div className="media-body">
-                <h3>{t("address_body1")}</h3>
-                <p>{t("address_body2")}</p>
-              </div>
-            </div>
-            <div className="contact-info">
-              <span className="contact-info__icon">
-                <PhoneIphoneOutlinedIcon />
-              </span>
-              <div className="media-body">
-                <h3>+91 7978949923</h3>
-                <p>{t("phone_time")}</p>
-              </div>
-            </div>
-            <div className="contact-info">
-              <span className="contact-info__icon">
-                <MailOutlinedIcon />
-              </span>
-              <div className="media-body">
-                <a
-                  href="mailto:admin@udyamwell.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <h3>admin@udyamwell.com</h3>
-                </a>
-                <p>{t("mail_body")}</p>
-              </div>
-            </div>
-            <div className="contact-info">
-              <span className="contact-info__icon">
-                <WhatsAppIcon />
-              </span>
-              <div className="media-body">
-                <a
-                  href="https://chat.whatsapp.com/GvR6jeujogr8YeOvspVF1F"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <h3>{t("contact_whatsapp")}</h3>
-                </a>
-                <p>{t("contact_whatsappbody")}</p>
-              </div>
-            </div>
+          <div className="contact-img">
+            <img src={contact_img} alt="" />
           </div>
         </div>
       </div>

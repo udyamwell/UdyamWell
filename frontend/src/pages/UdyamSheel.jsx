@@ -23,17 +23,27 @@ const UdyamSheel = () => {
         className="HomeContainer"
         style={{ margin: "0rem auto 0 auto", width: "100%" }}
       >
-        <div className="banner" style={{ margin: "none" }}>
+        <div className="banner" style={{ width: "80%", marginTop: "8rem" }}>
           <div className="bannerText">
             <h1
               style={{
-                fontSize: "3.4rem",
-                sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
+                fontSize: "50px",
+                fontWeight: "600",
+                fontFamily: "Poppins,sans-serif",
+                color: "#046A3A",
               }}
             >
               UdyamSheel <span style={{ color: "black" }}>Bharat</span> Program{" "}
             </h1>
-            <p style={{ textAlign: "justify", fontSize: "16px" }}>
+            <p
+              style={{
+                textAlign: "justify",
+                fontSize: "18px",
+                fontWeight: "500",
+                fontFamily: "Poppins,sans-serif",
+                marginBlock: "20px",
+              }}
+            >
               Rural Enterprises face many challenges such as procuring raw
               material, inadequate skills, weak communication & transportation
               and much more. UdyamWell is building a program to help Rural
@@ -57,7 +67,7 @@ const UdyamSheel = () => {
           margin: "1rem auto",
           backgroundColor: "#e0f1e5",
           padding: 3,
-          borderRadius: "55px",
+          borderRadius: "10px",
         }}
         className="brochure"
       >
@@ -72,8 +82,14 @@ const UdyamSheel = () => {
             background: "#046A3A",
             ml: 3,
             p: "10px 50px",
-            borderRadius: "25px",
+            borderRadius: "10px",
           }}
+          onClick={() =>
+            window.open(
+              "https://drive.google.com/file/d/1tKyDxAiue3EN1KACVBoRCVL4VIvi4QIN/view?usp=sharing",
+              "_blank"
+            )
+          }
         >
           Download
         </Button>
@@ -84,8 +100,10 @@ const UdyamSheel = () => {
           <div className="bannerText_udyamsathi">
             <h1
               style={{
-                fontSize: "3.4rem",
-                sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
+                fontSize: "50px",
+                fontWeight: "600",
+                fontFamily: "Poppins,sans-serif",
+                color: "#046A3A",
               }}
             >
               {" "}
@@ -362,7 +380,7 @@ const UdyamSheel = () => {
                 margin: "28px 28%",
                 color: "white",
                 padding: "10px 60px",
-                borderRadius: "20px",
+                borderRadius: "10px",
                 fontWeight: "400",
                 textTransform: "inherit",
                 border: "none",
