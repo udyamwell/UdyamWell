@@ -1,0 +1,136 @@
+.popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .popup-box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+    background-color: #fefefe;
+    filter: drop-shadow(10px 10px 60px #0064009f);
+    border-radius: 30px;
+   align-items: center;
+   width: 26%;
+  }
+  .popup-box img{
+    width: 60%;
+  }
+  .popup-content {
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  
+  
+    padding-block: 30px;
+    
+    align-items: center;
+  }
+  
+  .popup-content h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #046a3a;
+    font-family: "Poppins", sans-serif;
+    margin: none;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  .popup-content p {
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+  }
+  
+  .close {
+    color: #a3a3a3;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start;
+    transform: translateX(-10px);
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000000;
+    text-decoration: none;
+  }
+  .btns{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .continue-btn {
+    background: linear-gradient(#2e8446, #006400);
+    width: fit-content;
+    color: white;
+    padding: 10px 35px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  .continue-btn a {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .continue-btn:hover {
+    filter: drop-shadow(-2px 4px 4px #0064003a);
+  }
+  .cancel-btn {
+    background: white;
+    width: fit-content;
+    color:#046a3a;
+    padding: 10px 35px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 20px;
+  }
+  
+  .cancel-btn a {
+    color: #046a3a;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .cancel-btn:hover {
+    color: white;
+    background: linear-gradient(#2e8446, #006400);
+    filter: drop-shadow(-2px 4px 4px #0064003a);
+  }
+  .cancel-btn a:hover {
+    color: white;
+    
+  }
+  .language-select {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #E0F1E5;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  @media only screen and (max-width:900px){
+    .popup-box {
+      width: 80%;
+    }
+  }

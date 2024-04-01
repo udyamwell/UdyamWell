@@ -1,4 +1,6 @@
-
+body {
+    font-family: 'Poppins', sans-serif;
+  }
 .videoContainer{
     width: 98vw;
     margin-top: 7rem;
@@ -16,10 +18,8 @@
     flex-direction: row;
     width: 90%;
     margin: 0 auto;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
-   
-    /* flex-wrap: wrap; */
 }
 .CardCarousel{
     margin-top: 100px;
@@ -72,7 +72,7 @@ text-align: start;
 
 /*  */
 .cardContainer1{
-    min-height: 600px;        
+    height: 650px;        
     min-width: 260px;
     text-align: center;
     padding: 30px 20px;
@@ -81,12 +81,15 @@ text-align: start;
     margin-block: 40px;
 }
 .cardContainer1:hover{
-    background-color:#b1d0aac4 ;
-    border: 1.5px solid green;
-    filter: drop-shadow(6px 6px 6px #b1d0aac4);
+    background: rgba( 46, 132, 70, 0.2 );
+box-shadow: 0 8px 32px 0 rgba(0, 78, 21, 0.37);
+backdrop-filter: blur( 2px );
+-webkit-backdrop-filter: blur( 2px );
+border-radius: 10px;
 }
 .cardContainer1:hover p{
     color: black;
+    font-family: 'Poppins', sans-serif;
 }
 .cardContainer1:hover h4{
     font-size: 21px;
@@ -119,16 +122,40 @@ text-align: start;
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 20px; 
-    color: #2e8446;
+    color: #046A3A;
 }
-.cardContainer1 p{
-    color: #7f7f7f;
-    line-height: 1.5;
-
-}
+.count2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 .aboutus-box{
     padding-top: 55px;
-    padding-right: 30px;
+    margin-right: 20px;
+    min-width: 260px;
+    height: 650px;   
+}
+.aboutus-box.h3{
+  color: #236836;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 15px;
+  font-family: 'Poppins',sans-serif;
+}
+.timeline-box{
+    margin: 0px auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    justify-content: space-around;
+}
+.timeline-big{
+    display: block;
+}
+.timeline-small{
+    display: none;
 }
 @media  only screen and (max-width:1200px){
        
@@ -151,13 +178,27 @@ text-align: start;
         flex-direction: row;
         flex-wrap: wrap;
     }    
-    .aboutServices{
-        flex-direction: column;
-        align-items: center;
-    }
+  
     .cardContainer1{
-        min-height: none;
+        height: 400px;
         min-width: none;
         margin-inline:auto;
     }
  }
+ @media  only screen and (max-width:500px){
+    .timeline-big{
+        display: none;
+    }
+    .timeline-small{
+        display: block;
+    }
+ }
+
+ .timeline-container {
+    position: relative;
+    width: 100%;
+    margin-top: 200px;
+    height: fit-content;
+  }
+  
+  

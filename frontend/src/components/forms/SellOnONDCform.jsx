@@ -187,77 +187,99 @@ const SellOnONDCForm = () => {
     <form className="formONDC" onSubmit={handleSubmit}>
       <h1
         className="section_tittle text-center mt-5 mb-4"
-        style={{ color: "green", textAlign: "center", paddingTop: "20px" }}
+        style={{
+          color: "#046A3A",
+          fontFamily: "Poppins,sans-serif",
+          fontWeight: "00",
+          fontSize: "32px",
+          textAlign: "center",
+          paddingTop: "20px",
+        }}
       >
         Registration / पंजीकरण
       </h1>
-      <label>
-        Name / आपका नाम :
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Name"
-        />
-      </label>
+      <div className="inputs">
+        <label className="label2">
+          Name / आपका नाम :
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Name"
+          />
+        </label>
 
-      <label>
-        Email Address / मेल पता :
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email Address"
-        />
-      </label>
+        <label className="label2">
+          Email Address / मेल पता :
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Email Address"
+          />
+        </label>
 
-      <label>
-        Phone Number / फ़ोन नंबर:
-        <input
-          type="tel"
-          name="phoneNum"
-          value={formData.phone}
-          onChange={handleChange}
-          placeholder="Phone Number"
-        />
-      </label>
+        <label className="label2">
+          Phone Number / फ़ोन नंबर:
+          <input
+            type="tel"
+            name="phoneNum"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Phone Number"
+          />
+        </label>
 
-      <label>
-        Name of your Enterprise / आपके उद्यम का नाम :
-        <input
-          type="text"
-          name="eName"
-          value={formData.enterpriseName}
-          onChange={handleChange}
-          placeholder="Name of enterprise"
-        />
-      </label>
+        <label className="label2">
+          Name of your Enterprise / आपके उद्यम का नाम :
+          <input
+            type="text"
+            name="eName"
+            value={formData.enterpriseName}
+            onChange={handleChange}
+            placeholder="Name of enterprise"
+          />
+        </label>
 
-      <label>
-        Business Address / व्यावसायिक पता :
-        <input
-          type="text"
-          name="businessAdd"
-          value={formData.city}
-          onChange={handleChange}
-          placeholder="City"
-        />
-      </label>
+        <label className="label2">
+          Business Address / व्यावसायिक पता :
+          <input
+            type="text"
+            name="businessAdd"
+            value={formData.city}
+            onChange={handleChange}
+            placeholder="City"
+          />
+        </label>
 
-      <label>
-        Business you are involved in? / आप किस व्यवसाय से जुड़े हैं?
-        <input
-          type="text"
-          name="businessInvolved"
-          value={formData.sellingCategory}
-          onChange={handleChange}
-          placeholder="Selling Category"
-        />
-      </label>
+        <label className="label2">
+          Business you are involved in? / आप किस व्यवसाय से जुड़े हैं?
+          <input
+            type="text"
+            name="businessInvolved"
+            value={formData.sellingCategory}
+            onChange={handleChange}
+            placeholder="Selling Category"
+          />
+        </label>
+      </div>
       <div className="btnForm">
-        <Button variant="contained" sx={{ color: "white" }} type="submit">
+        <Button
+          variant="contained"
+          sx={{
+            color: "white",
+            padding: "10px 60px",
+            borderRadius: "20px",
+            fontWeight: "400",
+            textTransform: "inherit",
+            border: "none",
+            background:
+              "linear-gradient(90deg, rgba(46,132,70,1) 0%, rgba(0,100,0,1) 100%);",
+          }}
+          type="submit"
+        >
           Submit
         </Button>
       </div>

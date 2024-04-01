@@ -9,6 +9,10 @@
     min-width: 300px;
     max-width: 350px;
   }
+  .testimonial-slide:hover{
+    background: #047a43;
+    color: white;
+  }
   .slick-slide {
     margin-right: 15px;
   }
@@ -35,7 +39,7 @@
   .testimonial-line {
     width: 90%;
     border: 1px solid #333;
-    margin: 10px auto;
+    margin: 10px  ;
   }
   
   .testimonial-content {
@@ -43,17 +47,20 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+   
   }
   
   .testimonial-profile-pic {
     border-radius: 50%;
     margin-right: 20px;
+    width: 70px;
   }
   
   .testimonial-details {
     text-align: left;
     display: flex;
     flex-direction: column;
+   
   }
   
   .testimonial-review {

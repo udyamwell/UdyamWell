@@ -1,6 +1,9 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
 .HomeContainer {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -24,27 +27,30 @@
 .banner {
   margin-top: 6rem;
   width: 80%;
+  margin: 0px auto;
   display: flex;
   justify-content: space-between;
+  text-align: justify;
 }
 .bannerText {
   display: flex;
-  width: 50%;
+  width: 35%;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
 }
-.bannerText h1 {
-  color: #236836;
-  font-size: 2.10rem;
-  line-height: 70px;
+.bannerText h3 {
+  color: #046A3A;
+  font-size: 32px;
+  font-weight: 600;
+  /* line-height: 70px; */
   margin-bottom: 16px;
   /* font-weight: 600; */
 }
 .bannerText p {
-  font-weight: lighter;
-  /* color: #236836; */
-  font-size: 20px;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
 }
 .homeButtons {
   display: flex;
@@ -60,20 +66,20 @@
 }
 .homeButtonsHome button {
   padding: 15px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   font-size: 14px;
   width: auto;
   text-transform: capitalize;
 }
 .homeButtons button {
   padding: 15px;
-  border-radius: 50px;
+  border-radius: 20px;
   font-size: 14px;
   width: 150px;
   text-transform: capitalize;
 }
 .btn1 {
-  box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+  box-shadow: 0px 12px 20px 0px rgba(0, 21, 7, 0);
   background-image: linear-gradient(to left, #2e8446, #006400);
   font-size: 14px;
   color: #fff;
@@ -88,7 +94,7 @@
 }
 .btn2:hover {
   color: #fff;
-  box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+  box-shadow: 0px 12px 20px 0px rgba(0, 10, 7, 0);
   background-image: linear-gradient(to left, #2e8446, #006400);
   transition: all 0.4s ease-in-out;
   border: 1px solid transparent;
@@ -145,6 +151,8 @@
   justify-content: space-evenly;
   gap: 10px;
   align-items: center;
+  scroll-behavior: smooth;
+  transition: transform 0.5s;
 }
 .count {
   display: flex;
@@ -160,8 +168,7 @@
   width: 24%;
 }
 .aboutImg {
-  background-image: url("../assets/learning_img_bg.png");
-  background-repeat: no-repeat;
+ 
   width: 49%;
 }
 .aboutImg img {
@@ -187,11 +194,13 @@
   margin-top: 7px;
   background-color: red;
 }
-.aboutInfo h1 {
-  color: #236836;
-  font-size: 2rem;
+.aboutInfo h3 {
+  color: #046A3A;
+  font-size: 32px;
   font-weight: 900;
+  line-height: 50px;
   margin-top: 15px;
+  font-family: 'Poppins',sans-serif;
 }
 .aboutKeyPoints {
   text-align: justify;
@@ -202,7 +211,9 @@
   margin: 4px 0;
   justify-content: flex-start;
   align-items: center;
-  color: grey;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
 }
 .aboutKeyPoints span {
   margin-right: 20px;
@@ -213,12 +224,15 @@
   border-radius: 50px;
   font-size: 14px;
   width: 150px;
-  box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+ 
   background-image: linear-gradient(to left, #2e8446, #006400);
   font-size: 14px;
   color: #fff;
   transition: all 0.4s ease-in-out;
   border: 1px solid transparent;
+}
+.homeAboutButton button:hover{
+  box-shadow: 0px 4px 4px 0px rgba(14, 3, 1, 0.235);
 }
 .homeAboutfeatures{
   display: flex;
@@ -232,11 +246,16 @@
   display: flex;
   flex-direction: column;
 }
-.homeAboutfeatures .feature h4{
-  color: #006400;
+.homeAboutfeatures .feature h3{
+  color: #046A3A;
+  font-size: 22px;
+  font-weight: 600;
 }
 .homeAboutfeatures .feature p{
-  color: grey;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+  
 }
 /*  */
 .homeFeature {
@@ -254,7 +273,7 @@
   padding: 40px;
 }
 .homeFeature h1 {
-  color: #236836;
+  color: #046A3A;
   font-size: 3rem;
   font-weight: 900;
   width: 80%;
@@ -460,7 +479,7 @@
   }
   .homeServices{
     margin-inline: none;
-    width: 90%;
+    /* width: 90%; */
   }
   .cardContainer1{
     width: 90%;

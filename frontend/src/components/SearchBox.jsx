@@ -1,17 +1,31 @@
 import React, { useState } from "react";
-import Input from "@mui/material/Input";
-import InputAdornment from "@mui/material/InputAdornment";
+import { styled } from "@mui/system";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import { styled } from "@mui/system";
-const StyledInput = styled(Input)({
-  "&.MuiInput-root": {
-    borderBottom: "none",
-    "&:hover": {
-      borderBottom: "none",
-    },
+
+const Container = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  borderRadius: "100px",
+  background: "#2E84462a",
+  width: "100%",
+  height: "60px",
+  padding: "8px 16px",
+  fontSize: "16px",
+  border: "2px solid transparent",
+  transition: "border-color 0.3s",
+  "&:hover": {
+    borderColor: "#2E8446",
   },
 });
+
+const Input = styled("input")({
+  border: "none",
+  outline: "none",
+  flex: 1,
+  background: "transparent",
+});
+
 const SearchBox = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -30,34 +44,17 @@ const SearchBox = ({ onSearch }) => {
   };
 
   return (
-    <div>
-      <StyledInput
+    <Container>
+      <Input
         placeholder="Search Services"
         value={searchQuery}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
-        fullWidth
-        endAdornment={
-          <InputAdornment position="end">
-            <IconButton onClick={handleSearch} color="primary">
-              <SearchIcon />
-            </IconButton>
-          </InputAdornment>
-        }
-        sx={{
-          border: "none",
-          borderRadius: "100px",
-          background: "#2E84462a",
-          width: "400px",
-          height: "60px",
-          padding: "8px 50px",
-          fontSize: "16px",
-          "&:hover": {
-            border: "2px solid #2E8446",
-          },
-        }}
       />
-    </div>
+      <IconButton onClick={handleSearch} color="primary">
+        <SearchIcon />
+      </IconButton>
+    </Container>
   );
 };
 
