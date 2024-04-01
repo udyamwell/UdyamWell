@@ -422,13 +422,13 @@ const About = () => {
             cx={700}
             cy={145}
             heading="October"
-            description="Successful organization of ` Rural Mart` at IIT Mandi during HST Edition "
+            description="Successful organization of ` Rural Mart` at IIT Mandi during HST Edition 7 in collaboration with IIT Mandi Catalyst "
           />
           <Checkpoint
             cx={900}
             cy={100}
-            heading="October"
-            description="7 in collaboration with IIT Mandi Catalyst"
+            heading="February"
+            description="Receipt of Grant from Meity Startup Hub"
           />
           <Checkpoint
             cx={1080}
@@ -479,13 +479,13 @@ const About = () => {
             cx={50}
             cy={210}
             heading="October"
-            description="Successful organization of ` Rural Mart` at IIT Mandi during HST Edition "
+            description="Successful organization of ` Rural Mart` at IIT Mandi during HST Edition 7 in collaboration with IIT Mandi Catalyst "
           />
           <Checkpoint2
             cx={50}
             cy={270}
-            heading="October"
-            description="7 in collaboration with IIT Mandi Catalyst"
+            heading="February"
+            description="Receipt of Grant from Meity Startup Hub"
           />
           <Checkpoint2
             cx={50}
