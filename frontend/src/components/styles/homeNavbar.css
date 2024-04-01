@@ -98,6 +98,9 @@
 .mobNavHome{
 	display: none;
 }
+.navbar-brand img {
+	margin-right: 100px;
+  }
 @media (max-width: 1385px) {
 	
 .nav-link1{
