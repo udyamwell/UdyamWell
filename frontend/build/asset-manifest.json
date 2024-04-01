@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.eea159a3.css",
-    "main.js": "/static/js/main.9421a6b6.js",
+    "main.css": "/static/css/main.b4932557.css",
+    "main.js": "/static/js/main.a38c1a3e.js",
     "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.6a64b43e.chunk.js",
     "reactPlayerSoundCloud.js": "/static/js/reactPlayerSoundCloud.74cbc7d5.chunk.js",
     "reactPlayerVimeo.js": "/static/js/reactPlayerVimeo.3ec0685a.chunk.js",
@@ -23,11 +23,14 @@
     "static/media/hand_holding_smartphone.png": "/static/media/hand_holding_smartphone.13156c751b45cf9a0041.png",
     "static/media/contact_img.png": "/static/media/contact_img.6e2ab715449c6d0f9816.png",
     "static/media/udyamsathi.png": "/static/media/udyamsathi.a67ac9c733e7db91782c.png",
+    "static/media/founder.png": "/static/media/founder.44c93c7c131ccb80ec5e.png",
     "static/media/Step0.png": "/static/media/Step0.192ec9f758df2a711763.png",
     "static/media/breadcrumb.jpg": "/static/media/breadcrumb.662ce540e968fd53e756.jpg",
     "static/media/main.png": "/static/media/main.17b6656e4e3186a68966.png",
     "static/media/Step1.png": "/static/media/Step1.4639e8b79180fca49c57.png",
+    "static/media/article2.png": "/static/media/article2.d9805996eafbfc830bfd.png",
     "static/media/Step3.png": "/static/media/Step3.1367cc84d2eaeca1fbc9.png",
+    "static/media/article1.png": "/static/media/article1.c39c61363345d550fb3a.png",
     "static/media/Step7.png": "/static/media/Step7.b9b08ece6c13979565ee.png",
     "static/media/LogGradientText_BlackBG.png": "/static/media/LogGradientText_BlackBG.403cff7ec1996811cfa3.png",
     "static/media/Step2.png": "/static/media/Step2.6892b8a6f41e5c2ec72f.png",
@@ -38,6 +41,7 @@
     "static/media/Step4.png": "/static/media/Step4.e3134fe3a88abb7729c2.png",
     "static/media/register.jpg": "/static/media/register.6ccb0dbfdab3436f8fa2.jpg",
     "static/media/Step6.png": "/static/media/Step6.e9e47fa23caa1be14d3e.png",
+    "static/media/news1.jpg": "/static/media/news1.4302959f1039c2bf7979.jpg",
     "static/media/favicon.png": "/static/media/favicon.f5fbbf16df144fa6f6a7.png",
     "static/media/service.png": "/static/media/service.1e9897529629e83d926b.png",
     "static/media/banner_img.png": "/static/media/banner_img.4d24a1d8d4eba442ded7.png",
@@ -76,8 +80,8 @@
     "static/media/right.svg": "/static/media/right.99e24eb2c7897cf37f127719d6ca78af.svg",
     "static/media/quate.svg": "/static/media/quate.6ae3dc2c4e25a2e49aa154d58a99be99.svg",
     "static/media/play.svg": "/static/media/play.cbab7cd5b0f5af4167777c8cb1f07ee8.svg",
-    "main.eea159a3.css.map": "/static/css/main.eea159a3.css.map",
-    "main.9421a6b6.js.map": "/static/js/main.9421a6b6.js.map",
+    "main.b4932557.css.map": "/static/css/main.b4932557.css.map",
+    "main.a38c1a3e.js.map": "/static/js/main.a38c1a3e.js.map",
     "reactPlayerYouTube.6a64b43e.chunk.js.map": "/static/js/reactPlayerYouTube.6a64b43e.chunk.js.map",
     "reactPlayerSoundCloud.74cbc7d5.chunk.js.map": "/static/js/reactPlayerSoundCloud.74cbc7d5.chunk.js.map",
     "reactPlayerVimeo.3ec0685a.chunk.js.map": "/static/js/reactPlayerVimeo.3ec0685a.chunk.js.map",
@@ -94,7 +98,7 @@
     "787.fdf30a68.chunk.js.map": "/static/js/787.fdf30a68.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eea159a3.css",
-    "static/js/main.9421a6b6.js"
+    "static/css/main.b4932557.css",
+    "static/js/main.a38c1a3e.js"
   ]
 }

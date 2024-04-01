@@ -117,8 +117,7 @@
 		
 	}
 	.navbar-brand img {
-	
-		margin-right: 800px;
+	margin-right: 800px;
   }
 	.navbar-menuHome2{
 		display: none;
@@ -177,10 +176,7 @@
   }
 }
 
-.navbar-brand img {
 
-	margin-right: 100px;
-}
 
   .dropdown{
 	overflow: hidden;

@@ -1,91 +1,72 @@
-import Carousel from "react-spring-3d-carousel";
-import { useState, useEffect } from "react";
-import { config } from "react-spring";
+import React, { useState } from "react";
+import "./Carousel.css";
 
-export default function Carroussel(props) {
-  const table = props.cards.map((element, index) => {
-    return { ...element, onClick: () => setGoToSlide(index) };
-  });
+function Card({ index, link, activeIndex, onMouseEnter }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const isSmallScreen = window.innerWidth <= 600;
 
-  const [offsetRadius, setOffsetRadius] = useState(2);
-  const [showArrows, setShowArrows] = useState(false);
-  const [goToSlide, setGoToSlide] = useState(null);
-  const [cards] = useState(table);
+  const handleHover = () => {
+    setIsHovered(true);
+    onMouseEnter(index);
+  };
 
-  useEffect(() => {
-    setOffsetRadius(props.offset);
-    setShowArrows(props.showArrows);
-  }, [props.offset, props.showArrows]);
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   return (
     <div
-      style={{ width: props.width, height: props.height, margin: props.margin }}
+      className="card"
+      style={{
+        left: isSmallScreen ? index * 40 : index * 160,
+        zIndex:
+          activeIndex === index || isHovered ? 100 : 50 - Math.abs(index - 1),
+        // opacity: isHovered || index === 1 ? 1 : 0.8,
+        transform: isHovered || index === 1 ? "scale(1.1)" : "scale(1)",
+      }}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleMouseLeave}
     >
-      <Carousel
-        slides={cards}
-        goToSlide={goToSlide}
-        offsetRadius={offsetRadius}
-        showNavigation={showArrows}
-        animationConfig={config.gentle}
+      <iframe
+        title={`iframe-${index}`}
+        width="100%"
+        height="100%"
+        src={link}
+        frameBorder="0"
+      ></iframe>
+    </div>
+  );
+}
+
+function Carousel() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    setActiveIndex(index);
+  };
+
+  return (
+    <div className="container">
+      <Card
+        index={0}
+        link={"https://www.youtube.com/embed/HKFxVgfiUZE?si=eH-M9S_VzGYiQd3f"}
+        activeIndex={activeIndex}
+        onMouseEnter={handleMouseEnter}
+      />
+      <Card
+        index={1}
+        link={"https://www.youtube.com/embed/7g4KIRP1wyY?si=0yLLHCPRisa1USKm"}
+        activeIndex={activeIndex}
+        onMouseEnter={handleMouseEnter}
+      />
+      <Card
+        index={2}
+        link={"https://www.youtube.com/embed/vAZN-SohD40?si=jw7uBp6zlQgwUTOP"}
+        activeIndex={activeIndex}
+        onMouseEnter={handleMouseEnter}
       />
     </div>
   );
 }
-// import React, { useState, useEffect } from "react";
-// import { config } from "react-spring";
-// import PropTypes from "prop-types";
-// import Carousel from "react-spring-3d-carousel";
 
-// export default function Carroussel(props) {
-//   const table = props.cards.map((element, index) => {
-//     return { ...element, onMouseEnter: () => setActiveIndex(index) };
-//   });
-
-//   const [offsetRadius, setOffsetRadius] = useState(3);
-//   const [showArrows, setShowArrows] = useState(true);
-//   const [activeIndex, setActiveIndex] = useState(0);
-//   const [cards] = useState(table);
-
-//   useEffect(() => {
-//     setOffsetRadius(props.offset);
-//     setShowArrows(props.showArrows);
-//   }, [props.offset, props.showArrows]);
-
-//   return (
-//     <div
-//       style={{
-//         width: props.width,
-//         height: props.height,
-//         margin: props.margin,
-//         overflow: "hidden",
-//         position: "relative",
-//       }}
-//     >
-//       <Carousel
-//         slides={cards}
-//         goToSlide={activeIndex}
-//         offsetRadius={offsetRadius}
-//         showNavigation={showArrows}
-//         animationConfig={config.gentle}
-//         onMouseLeave={() => setActiveIndex(-1)}
-//         slidesToShow={3}
-//         slidesToScroll={1}
-//       />
-//     </div>
-//   );
-// }
-
-// Carroussel.propTypes = {
-//   cards: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   width: PropTypes.string.isRequired,
-//   height: PropTypes.string.isRequired,
-//   margin: PropTypes.string,
-//   offset: PropTypes.number,
-//   showArrows: PropTypes.bool,
-// };
-
-// Carroussel.defaultProps = {
-//   margin: "0",
-//   offset: 3,
-//   showArrows: true,
-// };
+export default Carousel;
