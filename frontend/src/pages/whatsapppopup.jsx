@@ -1,51 +1,61 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
 import "./whatsapppopup.css";
 import udyamwelllogo from "../assets/Udyamwell_Logo_Standee.png";
+import { useTranslation } from "react-i18next";
 
 const WhatsAppPopup = () => {
   const { i18n } = useTranslation();
   const [showPopup, setShowPopup] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
   const popupRef = useRef(null);
-
-  useEffect(() => {
-    const popupShownBefore = getCookie("popupShown");
-    if (!popupShownBefore) {
-      setShowPopup(true);
-    }
-  }, []);
-
+  // Function to close the popup
   const closePopup = () => {
     setShowPopup(false);
-    setCookie("popupShown", "true", 365); // Set cookie to indicate that the popup has been shown
   };
 
+  // Function to handle language change
+  // const handleLanguageChange = (event) => {
+  //   setSelectedLanguage(event.target.value);
+  // };
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
-    setSelectedLanguage(language);
-    setCookie("language", language, 365); // Set cookie to store the selected language
     closePopup(); // Close the popup after changing language
   };
+  // Function to handle form submission (to be modified according to your requirements)
 
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  };
+  // Event listener to open the popup when the page loads
+  useEffect(() => {
+    // Add delay (in milliseconds) before showing the popup (e.g., 5000 for 5 seconds)
+    const timeout = setTimeout(() => {
+      setShowPopup(true);
+    }, 500);
 
-  const setCookie = (name, value, days) => {
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    const expires = `expires=${date.toUTCString()}`;
-    document.cookie = `${name}=${value};${expires};path=/`;
-  };
+    // Cleanup function
+    return () => clearTimeout(timeout);
+  }, []); // Empty dependency array to only run once
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        showPopup &&
+        popupRef.current &&
+        !popupRef.current.contains(event.target)
+      ) {
+        closePopup();
+      }
+    };
 
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [showPopup]);
+  // Return the popup component
   return (
     <>
       {showPopup && (
         <div className="popup">
-          <div className="popup-box" ref={popupRef}>
+          <div className="popup-box">
             <img src={udyamwelllogo} alt="udyamwell" />
             <div className="popup-content">
               <p>Do you want to change your default language?</p>
