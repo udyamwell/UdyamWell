@@ -105,12 +105,11 @@ const Footer = () => {
               </div>
             </form>
             <div className="social_icon">
-              <a href="https://www.facebook.com/103844642681723" target="blank">
-                <img src={fb} alt="" />
-              </a>
-
-              <a href="https://www.twitter.com/UdyamWell" target="blank">
-                <img src={twitter} alt="" />
+              <a
+                href="https://www.youtube.com/@UdyamWell/videos"
+                target="blank"
+              >
+                <img src={yt} alt="" />
               </a>
               <a
                 href="https://www.linkedin.com/company/udyamwell"
@@ -121,11 +120,11 @@ const Footer = () => {
               <a href="https://www.instagram.com/udyamwell" target="blank">
                 <img src={ig} alt="" />
               </a>
-              <a
-                href="https://www.youtube.com/@UdyamWell/videos"
-                target="blank"
-              >
-                <img src={yt} alt="" />
+              <a href="https://www.twitter.com/UdyamWell" target="blank">
+                <img src={twitter} alt="" />
+              </a>
+              <a href="https://www.facebook.com/103844642681723" target="blank">
+                <img src={fb} alt="" />
               </a>
             </div>
           </div>
@@ -164,9 +163,7 @@ const Footer = () => {
         <div className="bottom">
           <div className="bottom_child">
             <div className="copyrights">
-              <p>
-                Copyright © 2024, UdyamWell Partner in your business Journey.
-              </p>
+              <p>Copyright © 2024, UdyamWell Private Limited.</p>
             </div>
             <div className="terms">
               <div className="terms_child">
