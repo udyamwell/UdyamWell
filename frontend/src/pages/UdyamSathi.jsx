@@ -72,9 +72,12 @@ const UdyamSathi = () => {
             >
               {" "}
               <span style={{ color: "black" }}>
-                UdyamSathi <br />
+
+                Be our hero, be our
+                <br />
               </span>{" "}
-              Program{" "}
+              CAMPUSPRENEUR'S{" "}
+
             </h1>
             <p
               style={{
