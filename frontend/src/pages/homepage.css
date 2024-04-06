@@ -34,7 +34,7 @@ body {
 }
 .bannerText {
   display: flex;
-  width: 48%;
+  width: 35%;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
@@ -114,9 +114,8 @@ body {
 /*  */
 .homeAbout {
   display: flex;
-  width: 90%;
+  width: 80%;
   margin: 3rem auto;
-  align-items: center;
 }
 .homeAbout2 {
   display: flex;
@@ -124,7 +123,6 @@ body {
   align-items: flex-start;
   width: 80%;
   margin: 7rem auto;
-  align-items: center;
 }
 .countBox2 {
   background-color: #e0f1e5;
@@ -182,11 +180,7 @@ body {
 }
 .aboutInfo {
   width: 35%;
-  margin: 40px auto;
-}
-.aboutInfo2 {
-  width: 50%;
-  margin: 40px 40px;
+  margin: 40px 60px;
 }
 .about-Sub {
   width: 40%;
@@ -194,7 +188,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .about_ {
   height: 2px;
   width: 70px;
@@ -209,18 +202,9 @@ body {
   margin-top: 15px;
   font-family: 'Poppins',sans-serif;
 }
-.aboutInfo2 h3 {
-  color: #046A3A;
-  font-size: 32px;
-  font-weight: 900;
-  line-height: 50px;
-  margin-top: 15px;
-  font-family: 'Poppins',sans-serif;
-}
 .aboutKeyPoints {
   text-align: justify;
   margin-top: 30px;
-  width: 100%;
 }
 .aboutKeyPoints p {
   display: flex;
@@ -255,17 +239,16 @@ body {
   flex-direction: row;
   align-items: flex-start;
   gap: 10px;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 2rem 0;
 }
 .homeAboutfeatures .feature{
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 .homeAboutfeatures .feature h3{
   color: #046A3A;
-  margin: none;
+  font-size: 22px;
   font-weight: 600;
 }
 .homeAboutfeatures .feature p{
@@ -306,14 +289,6 @@ body {
   margin-top: 50px;
   display: flex;
 }
-
-.featurebottom {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-}
 .featureIcon {
   width: 50px;
   height: 50px;
@@ -323,9 +298,6 @@ body {
   align-items: center;
   margin-bottom: 20px;
   background-color: #fccbd3;
-}
-.feature-icon img{
-  width: 50px;
 }
 .feature1 {
   width: 40%;
@@ -504,8 +476,6 @@ body {
   }
   .homeAboutfeatures{
     flex-direction: column;
-    justify-content: space-between!important;
-    
   }
   .homeServices{
     margin-inline: none;

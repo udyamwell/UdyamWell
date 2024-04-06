@@ -19,8 +19,9 @@ const AboutCard = ({ heading, text1, text2, lists, icon }) => {
       className="cardContainer1"
       style={{
         width: "320px",
-        height: "fit-content",
-        minHeight: "700px",
+        "@media (max-width: 800px)": {
+          minHeight: "none",
+        },
       }}
     >
       <span>
@@ -83,10 +84,10 @@ const Service = () => {
       </div>
       <div
         className="HomeContainer"
-        style={{ height: "100%", margin: "150px auto" }}
+        style={{ height: "100vh", margin: "40px auto" }}
       >
-        <div className="banner" style={{ width: "76%" }}>
-          <div className="bannerText" style={{ width: "100%" }}>
+        <div className="banner" style={{ width: "80%" }}>
+          <div className="bannerText" style={{ width: "50%" }}>
             <h1
               style={{
                 fontSize: "50px",
@@ -111,22 +112,15 @@ const Service = () => {
                 fontFamily: "Poppins,sans-serif",
                 fontWeight: "500",
                 paddingBlock: "20px",
-                width: "100%",
               }}
             >
               {t("services_mainbody")}{" "}
             </p>
             <div className="homeButtons">
-              <button
-                style={{ cursor: "pointer", borderRadius: "10px" }}
-                className="btn1"
-              >
+              <button style={{ cursor: "pointer" }} className="btn1">
                 {t("moreinfo_btn")}
               </button>
-              <button
-                className="btn2"
-                style={{ cursor: "pointer", borderRadius: "10px" }}
-              >
+              <button className="btn2" style={{ cursor: "pointer" }}>
                 {t("exploreservices_btn")}
               </button>
             </div>
@@ -134,7 +128,9 @@ const Service = () => {
           <div
             className="bannerImg"
             style={{
-              width: "100%",
+              sx: { width: "30%" },
+              md: { width: "40%" },
+              lg: { width: "70%" },
             }}
           >
             <img src={service} alt="" width={{ width: "100%" }} />
