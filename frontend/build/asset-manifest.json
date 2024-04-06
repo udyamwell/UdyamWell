@@ -1,7 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.ed81778d.css",
-    "main.js": "/static/js/main.a6e22097.js",
+
+    "main.css": "/static/css/main.b4932557.css",
+    "main.js": "/static/js/main.a38c1a3e.js",
+
     "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.6a64b43e.chunk.js",
     "reactPlayerSoundCloud.js": "/static/js/reactPlayerSoundCloud.74cbc7d5.chunk.js",
     "reactPlayerVimeo.js": "/static/js/reactPlayerVimeo.3ec0685a.chunk.js",
@@ -18,7 +20,6 @@
     "static/js/787.fdf30a68.chunk.js": "/static/js/787.fdf30a68.chunk.js",
     "static/media/learning_about.png": "/static/media/learning_about.2be7b86dfce08ccb72a3.png",
     "static/media/front_view_hands_using_smartphone.png": "/static/media/front_view_hands_using_smartphone.d4c22ef6dc2b7c8d7b0a.png",
-    "static/media/campuspreneur doc.pdf": "/static/media/campuspreneur doc.3db045b86eb2099a743b.pdf",
     "static/media/BANNER.jpg": "/static/media/BANNER.ea8d0fabf7795fd24f67.jpg",
     "static/media/learning_about2.png": "/static/media/learning_about2.bbb520f3792bab3c9039.png",
     "static/media/hand_holding_smartphone.png": "/static/media/hand_holding_smartphone.13156c751b45cf9a0041.png",
@@ -58,9 +59,7 @@
     "static/media/Testinomials.png": "/static/media/Testinomials.c5ce2274cbdd47f28fc1.png",
     "static/media/landingPageBg_small.jpg": "/static/media/landingPageBg_small.e282c7c6975070c46bc4.jpg",
     "static/media/sbifoundationlogo.png": "/static/media/sbifoundationlogo.617abc7c12600522863a.png",
-    "static/media/featureIcon1.png": "/static/media/featureIcon1.81a54908af4a8fae9e90.png",
     "static/media/Bg_about.png": "/static/media/Bg_about.580ea419d3c11af2bad1.png",
-    "static/media/featureIcon2.png": "/static/media/featureIcon2.23d2e86dfafd2a95fe6e.png",
     "static/media/microsoft.png": "/static/media/microsoft.9ad5691b032d8098ee92.png",
     "static/media/ondc.png": "/static/media/ondc.d8bc56622fe0fd05c660.png",
     "static/media/Bg_about2.png": "/static/media/Bg_about2.bb8cced103d8352af67c.png",
@@ -83,8 +82,10 @@
     "static/media/right.svg": "/static/media/right.99e24eb2c7897cf37f127719d6ca78af.svg",
     "static/media/quate.svg": "/static/media/quate.6ae3dc2c4e25a2e49aa154d58a99be99.svg",
     "static/media/play.svg": "/static/media/play.cbab7cd5b0f5af4167777c8cb1f07ee8.svg",
-    "main.ed81778d.css.map": "/static/css/main.ed81778d.css.map",
-    "main.a6e22097.js.map": "/static/js/main.a6e22097.js.map",
+
+    "main.b4932557.css.map": "/static/css/main.b4932557.css.map",
+    "main.a38c1a3e.js.map": "/static/js/main.a38c1a3e.js.map",
+
     "reactPlayerYouTube.6a64b43e.chunk.js.map": "/static/js/reactPlayerYouTube.6a64b43e.chunk.js.map",
     "reactPlayerSoundCloud.74cbc7d5.chunk.js.map": "/static/js/reactPlayerSoundCloud.74cbc7d5.chunk.js.map",
     "reactPlayerVimeo.3ec0685a.chunk.js.map": "/static/js/reactPlayerVimeo.3ec0685a.chunk.js.map",
@@ -101,7 +102,9 @@
     "787.fdf30a68.chunk.js.map": "/static/js/787.fdf30a68.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed81778d.css",
-    "static/js/main.a6e22097.js"
+
+    "static/css/main.b4932557.css",
+    "static/js/main.a38c1a3e.js"
+
   ]
 }

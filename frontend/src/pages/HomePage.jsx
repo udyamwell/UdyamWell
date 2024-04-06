@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Typewriter } from "react-simple-typewriter";
@@ -15,7 +15,6 @@ import { useNavigate } from "react-router";
 import { Button } from "@mui/material";
 // import AnimatedCircles from "../components/AnimatedCircles";
 import "./homepage.css";
-import ReactGA from "react-ga4";
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -44,10 +43,6 @@ const HomePage = () => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, []);
-  useEffect(() => {
-    console.log("Pageview hit");
-    ReactGA.send({ hitType: "pageview", page: "/" });
-  }, []);
 
   return (
     <>
@@ -67,7 +62,7 @@ const HomePage = () => {
             justifyContent: "center",
             alignItems: "center",
             marginTop: "6rem",
-            width: "80%",
+            width: "90%",
           }}
         >
           <div className="bannerText">
@@ -86,9 +81,10 @@ const HomePage = () => {
                 delaySpeed={1000}
               />
             </h3>
-            <p style={{ width: "80%", textAlign: "justify" }}>
+            <p>
               {/* {" "} */}
-              {t("body_home")}
+              {t("body_home")} <br />
+              {t("body_home2")}
             </p>
             <div className="homeButtons">
               <Button
@@ -203,7 +199,7 @@ const HomePage = () => {
         <div className="aboutImg">
           <img src={learning_about2} alt="" />
         </div>
-        <div className="aboutInfo2">
+        <div className="aboutInfo">
           <div className="aboutSub">
             <div className="about_"></div>
             <div className="aboutSubText" style={{ marginLeft: "10px" }}>
@@ -216,49 +212,28 @@ const HomePage = () => {
             <p>{t("Aboutus_body2")} </p>
           </div>
           {/*  */}
-          <div
-            className="homeAboutfeatures"
-            style={{ justifyContent: "space-between" }}
-          >
-            <div className="featurebottom">
+          <div className="homeAboutfeatures">
+            <div className="feature">
               <div className="feature-icon">
                 <img src={featureIcon1} alt=" " />
               </div>
               <div className="feature-head">
-                <p
-                  style={{
-                    fontSize: "18px",
-                    marginTop: "none",
-                    fontWeight: "600",
-                    color: "#046A3A",
-                  }}
-                >
-                  {t("feature-head1")}
-                </p>
+                <h3>{t("feature-head1")}</h3>
               </div>
-              {/* <div className="feature-body">
+              <div className="feature-body">
                 <p>{t("feature-body1")}</p>
-              </div> */}
+              </div>
             </div>
-            <div className="featurebottom">
+            <div className="feature">
               <div className="feature-icon">
                 <img src={featureIcon2} alt=" " />
               </div>
               <div className="feature-head">
-                <p
-                  style={{
-                    fontSize: "18px",
-                    marginTop: "none",
-                    fontWeight: "600",
-                    color: "#046A3A",
-                  }}
-                >
-                  {t("feature-head2")}
-                </p>
+                <h3>{t("feature-head2")}</h3>
               </div>
-              {/* <div className="feature-body">
+              <div className="feature-body">
                 <p>{t("feature-body2")}</p>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
