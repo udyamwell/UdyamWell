@@ -6,7 +6,7 @@ ol {
 }
 .download_btn{
     padding: 15px;
-    border-radius: 50px;
+    border-radius: 10px;
     font-size: 14px;
     width: 150px;
     text-transform: capitalize;
@@ -16,7 +16,7 @@ ol {
     color: #fff;
     transition: all 0.4s ease-in-out;
     margin-right: 40px;
-    background-size: 200% auto;
+    /* background-size: 200% auto; */
     border: 1px solid transparent;
     margin-left: 1.5rem;
 }
@@ -54,6 +54,11 @@ ol {
     align-items: center;
 }
 
+ .label{
+     padding: 40px;
+     width: 100%;
+ }
+
 .qrCode_udyamsathi{
     margin-left: 10%;
     display:flex;
@@ -66,11 +71,12 @@ ol {
     margin-top: 5rem;
 }
 .content_heading_udyamSathi, .content_udyamsathi h4 {
-    color : green
+    color : #2E8446
 }
 .HomeContainer{ 
     display: flex;
     flex-direction: column;
+    height:fit-content;
 }
 .horizontal {
     width: 80%;
@@ -87,13 +93,18 @@ ol {
 }
 .content_child {
     display: flex;
-    gap: 2rem;
+    gap: 8rem;
+    text-align: justify;
 }
 .content_grandchild {
     width: 50%;
 }
 .brochure{
-    width: 70%;
+    width: 75%;
+}
+.horizontal{
+    margin-top:80px ;
+    margin-bottom: 60px;
 }
 @media only screen and (max-width:1220px) {
     .brochure{
@@ -136,5 +147,14 @@ ol {
         flex-direction: column;
         align-items: center;
     }
-   
+    .banner{
+        align-items: center;
+    }
+    .content_grandchild{
+        width: 90%;
+    }
+   .bannerText_udyamsathi {
+    width: 90%;
+    margin-top: 40px;
+   }
 }

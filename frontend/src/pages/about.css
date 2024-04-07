@@ -1,4 +1,6 @@
-
+body {
+    font-family: 'Poppins', sans-serif;
+  }
 .videoContainer{
     width: 98vw;
     margin-top: 7rem;
@@ -12,13 +14,15 @@
     width: 100%;
 }
 .aboutServices{
-    margin-top: 7rem;
     display: flex;
+    flex-direction: row;
     width: 90%;
     margin: 0 auto;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
-    flex-wrap: wrap;
+}
+.CardCarousel{
+    margin-top: 100px;
 }
 .aboutServices1{
     display: flex;
@@ -26,8 +30,12 @@
     align-items: center;
     max-width: 300px;
 }
-.aboutServicesDiv{
-    padding-top: 30%;
+
+.aboutServices Div{
+    width: 300px;
+}
+.aboutServices1 Div{
+    width: 500px;
 }
 .aboutServices1 h1{
     font-size: 37px;
@@ -48,24 +56,90 @@ flex-direction: column;
 align-items: flex-start;
 text-align: start;
 }
-
-/*  */
-.cardContainer1{
-    max-width: 300px;
+.homeAboutButton button {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 150px;
+    background-image: linear-gradient(to left, #2e8446, #006400);
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.4s ease-in-out;
+    border: 1px solid transparent;
+  }
+  .cardContainer2{     
+    min-width: 260px;
     text-align: center;
     padding: 30px 20px;
     border: 1px solid #f0f4f6;
-    margin:40px 20px;
+    margin-inline:20px;
+    margin-block: 40px;
+}
+.cardContainer2:hover{
+    background: rgba( 46, 132, 70, 0.2 );
+box-shadow: 0 8px 32px 0 rgba(0, 78, 21, 0.37);
+backdrop-filter: blur( 2px );
+-webkit-backdrop-filter: blur( 2px );
+border-radius: 10px;
+}
+.cardContainer2:hover p{
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+.cardContainer2:hover h4{
+    font-size: 21px;
+}
+.cardContainer2 span{
+    margin-bottom: 30px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #f0f4f6;
+    display: inline-block;
+    line-height: 80px;
+    transition: 0.6s;
+
+}
+.cardContainer2 span i{
+    color: #0c2e60;
+    font-size: 24px;
+    transition: 0.6s;
+	line-height: 1;
+}
+
+.cardContainer2 h4{
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px; 
+    color: #046A3A;
+}
+/*  */
+.cardContainer{     
+    min-width: 260px;
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid #f0f4f6;
+    margin-inline:20px;
+    margin-block: 40px;
 }
 .cardContainer1:hover{
-    background-color:#b1d0aa ;
-    border: 2px solid green;
+    background: rgba( 46, 132, 70, 0.2 );
+box-shadow: 0 8px 32px 0 rgba(0, 78, 21, 0.37);
+backdrop-filter: blur( 2px );
+-webkit-backdrop-filter: blur( 2px );
+border-radius: 10px;
 }
 .cardContainer1:hover p{
     color: black;
+    font-family: 'Poppins', sans-serif;
 }
 .cardContainer1:hover h4{
-    font-size: 30px;
+    font-size: 21px;
 }
 .cardContainer1 span{
     margin-bottom: 30px;
@@ -93,19 +167,87 @@ text-align: start;
 } */
 .cardContainer1 h4{
     font-weight: 600;
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 20px; 
-    color: #2e8446;
+    color: #046A3A;
 }
-.cardContainer1 p{
-    color: #7f7f7f;
-    line-height: 1.5;
+.count2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+.aboutus-box{
+    padding-top: 55px;
+    margin-right: 20px;
+    min-width: 260px;
+    height: fit-content;   
+}
+.aboutus-box h3{
+  color: #046A3A;
+  font-size: 50px;
+  font-weight: 600;
+  margin-top: 15px;
+  font-family: 'Poppins',sans-serif;
+  text-align: justify;
+  line-height: 50px;
+}
+.timeline-box{
+    margin: 0px auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    justify-content: space-around;
+}
+.timeline-big{
+    display: block;
+}
+.timeline-small{
+    display: none;
+}
+@media  only screen and (max-width:1200px){
+       
+    .aboutServices{
+        flex-wrap: wrap;
+        width: 1200;
 
-}
+    }}
+    .aboutus-box{
+        width: 600px;
+    }
+    .cardContainer1{
+       width: 100px;
+    }
+    
  @media  only screen and (max-width:900px){
     .aboutKeyPoints{
         width: 95%;
         height: auto;
+        flex-direction: row;
         flex-wrap: wrap;
     }    
+  
+    .cardContainer1{
+        height: 400px;
+        min-width: none;
+        margin-inline:auto;
+    }
  }
+ @media  only screen and (max-width:500px){
+    .timeline-big{
+        display: none;
+    }
+    .timeline-small{
+        display: block;
+    }
+ }
+
+ .timeline-container {
+    position: relative;
+    width: 100%;
+    margin-top: 200px;
+    height: fit-content;
+  }
+  
+  

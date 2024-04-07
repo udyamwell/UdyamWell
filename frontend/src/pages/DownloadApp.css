@@ -1,6 +1,9 @@
+body {
+    font-family: 'Poppins', sans-serif;
+  }
 .HomeContainerDownload{
     width: 100%;
-    height: 100%;
+    height: auto;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -21,6 +24,25 @@
     height: auto;
   }
   
+.App-Btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    margin-inline: 5px;
+    gap: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    filter: drop-shadow(4px 4px 4px #d2d2d2);
+}
+.App-Btn img{
+    width: 30px;
+   
+}
+.App-Link{
+    text-decoration: none;
+    color: #121212;
+}
 .bannerDownload{
     margin-top: 8rem;
     width: 80%;
@@ -31,15 +53,15 @@
     display: flex;
     width: 40%;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
     flex-direction: column;
 }
 .bannerTextDownload h1{
     color: #236836;
-    font-size: 3rem;
+    font-size: 50px;
     line-height: 70px;
     margin-bottom: 16px;
-    /* font-weight: 600; */
+ font-family: "Poppins",sans-serif;
 }
 .bannerTextDownload p{
     font-weight: lighter;
@@ -73,7 +95,40 @@
 .registerDownload{
     width: 60%;
 }
+.service-title{
+    margin-inline: auto;
+    width: 80%;
+    align-items: flex-start;
+}
+
+.service-body{
+    width: 50%;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: "500";
+    text-align: justify;
+    color: black;
+}
+.cardContainer1{
+    min-height: 600px;        
+   width: 350px;
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid #f0f4f6;
+    margin-inline:20px;
+    margin-block: 40px;
+}
+.cardContainer1 ul {
+    list-style-type: none;
+
+}
 @media (max-width: 1000px) {
+    .service-body  {
+        width: 80%;
+    }
+    .serviceSubHeading1{
+        min-width: 350px;
+    }
     .bannerDownload{
         flex-direction: column;
         width: 100%;
@@ -150,5 +205,9 @@
     }
     .bannerDownloadText h1{
         font-size: 2rem;
+    }
+    .banner{
+        display: flex;
+        flex-direction: column-reverse;
     }
 }

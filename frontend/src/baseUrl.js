@@ -1,3 +1,3 @@
-const baseUrl= "https://www.udyamwell.com/";
+const baseUrl = "https://www.udyamwell.com/";
 
 export default baseUrl;

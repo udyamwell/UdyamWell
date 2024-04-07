@@ -1,78 +1,66 @@
-.contact{
-    margin-top: 7rem;
-    width: 98vw;
-}
-.contactForm{
-    width: 80%;
-    margin: 0 auto;
+.contact-area {
     display: flex;
-    flex-wrap: wrap;
-}
-.ContactStack{ 
-    width: 80%;
-}
-.form{
-    width: 60%;
-}
-.information{
-    width: 40%;
-}
-.contact-info{
-    padding-left: 50px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .contact-info {
+    width: 100%; /* Adjust this value to control the width of the contact information */
+  }
+  
+  .contact-img {
+    transform: translateX(-200px) ;
+    width: 70%; /* Adjust this value to control the width of the image */
+    margin-top: 2rem; /* Adjust the margin as needed */
+  }
+  
+  .contact-img img {
+    width: 100%;
+  }
+  .form form{
     display: flex;
-    justify-content:start;
+    flex-direction: column;
     align-items: center;
-    margin: 20px 0;
+  }
+  .inputs{
+    width: 100%;
 }
-.contact-info span{
-    width: 40px;
-    cursor: pointer;
-    height: 40px;
-}
-.media-body h3{
+.label2{
+    width: 100%;
+    padding-inline: 12%;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
     font-size: 18px;
-    color: #2a2a2a; 
-    line-height: 1.2em;
-}
-.media-body a{
-    text-decoration: none;
-    list-style: none;
-}
-.media-body p{
-    color: #8a8a8a;
-    line-height: 1.929;
-    font-size: 17px;
-    margin-bottom: 0px;
+    font-weight: 500;
+    font-family: "Poppins",sans-serif;
 }
 
-@media only screen and (max-width:1000px){
-    .form{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-    .contactForm{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .information{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 3rem;
-        border-top: 4px solid gray;
-        width: 100%;
-        flex-wrap: wrap;
-    }
-    .contact-info{
-        margin-top: 2rem;
-        width: 300px;
-        padding:10px;
-       justify-content: center;
-       text-align: left;
-       border: 2px double green;
-    }
+.btnForm{
+    margin-inline:auto;
+    margin-block: 40px;
+    
 }
+  @media only screen and (max-width: 1000px) {
+    .contact-area,
+    .contact-img {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .contact-info,
+    .contact-img {
+      width: 80%; /* Adjust the width as needed */
+      transform: translateX(0px) ;
+      display: none;
+    }
+  
+    .contact-img img {
+      width: 100%;
+    }
+  }
+  

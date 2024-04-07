@@ -1,28 +1,23 @@
 import React, { useEffect } from "react";
 import "./TermsCondition.css";
-import { landingPageBg_small } from "../assets";
 
-const TermsCondition = () => {
+const TermsCondition = ({ handleClose }) => {
   useEffect(() => {
+    // Scroll to the top when component mounts
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
   return (
-    <>
-      <div className="landingPageCover">
-        <img
-          src={landingPageBg_small}
-          width="100vw"
-          alt="landing"
-          className="landingPageCover__animation"
-        />
-      </div>
-      <div class="main-container">
-        <div class="container">
-          <div class="heading">
-            <h3>Terms and Conditions of</h3>
-            <h3>UdyamWell Private Limited Website</h3>
-          </div>
-          <div class="container-content">
+    <div className="popup">
+      <div className="popup-box" style={{ width: "80%", textAlign: "justify" }}>
+        <span className="close" style={{ right: "100" }} onClick={handleClose}>
+          &times;
+        </span>
+        <div className="popup-content">
+          <h1>
+            <span style={{ color: "black" }}>Terms and Conditions</span>
+          </h1>
+          <div class="container-content" style={{ textAlign: "justify" }}>
             <p>
               Welcome to UdyamWell. These terms and conditions outline the rules
               and regulations for the use of our website.
@@ -126,10 +121,26 @@ const TermsCondition = () => {
               loss or damage of any nature.
             </p>
           </div>
+
+          {/* Your terms and conditions content here */}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default TermsCondition;
+//       <div class="main-container">
+//         <div class="container">
+//           <div class="heading">
+//             <h3>Terms and Conditions of</h3>
+//             <h3>UdyamWell Private Limited Website</h3>
+//           </div>
+
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default TermsCondition;

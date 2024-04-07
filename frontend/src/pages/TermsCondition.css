@@ -1,29 +1,56 @@
-.main-container {
-  margin-top: 5rem;
-  display: flex;
-  justify-content: center;
-  height: 100%;
-}
-.container {
-  width: 60%;
-  background-color: white;
-  height: auto;
-  padding: 2rem 0;
-  border-radius: 1.5rem;
-}
+
 .heading {
   text-align: center;
 }
 .container-content {
   width: 80%;
   margin: auto;
-  margin-top: 2rem;
   line-height: 1rem;
+  text-align: justify;
 }
-.container-content h3 {
-  margin-top: 1rem;
-}
+
 .container-content p {
-  margin-top: 0.4rem;
-  line-height: 1.5rem;
+  font-size: 12px;
+  text-align: left;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background-color: #fff;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  overflow-y: auto; /* Add scrollbar when content exceeds height */
+}
+
+.close {
+  position: sticky;
+  top: 10px;
+  
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.popup-content {
+  max-height: 80vh; /* Limit max height of popup content */
+}
+
+.container-content {
+  padding-right: 20px; /* Add right padding to avoid scrollbar overlapping content */
+}
+.close:hover,
+.close:focus {
+  color: #000000;
+  text-decoration: none;
 }
