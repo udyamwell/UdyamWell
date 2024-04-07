@@ -78,10 +78,10 @@ const UdyamSathi = () => {
             >
               {" "}
               <span style={{ color: "black" }}>
-                Be Our Heroes, Be Our
+                Be Our Hero, Be Our
                 <br />
               </span>{" "}
-              CAMPUSPRENEURS{" "}
+              CAMPUSPRENEUR{" "}
             </h1>
             <p
               style={{
