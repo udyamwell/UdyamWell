@@ -9,12 +9,12 @@ import microsoft from "../assets/microsoft.png";
 import iitmandicatalyst from "../assets/iitmandicatalyst.png";
 import "./DownloadApp.css";
 import playstore from "../assets/playstore.png";
-import appstore from "../assets/appstore.png";
+// import appstore from "../assets/appstore.png";
 import { useTranslation } from "react-i18next";
 import "./CustomAccordion.css";
-import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
-import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
-import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
+// import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
+// import IosShareRoundedIcon from "@mui/icons-material/IosShareRounded";
+// import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import frontViewStep0 from "../assets/Step0.png";
 import frontViewStep1 from "../assets/Step1.png";
 import frontViewStep2 from "../assets/Step2.png";
@@ -23,33 +23,33 @@ import frontViewStep4 from "../assets/Step4.png";
 import frontViewStep5 from "../assets/Step5.png";
 import frontViewStep6 from "../assets/Step6.png";
 import frontViewStep7 from "../assets/Step7.png";
-const AboutCard = ({ heading, text1, text2, lists, icon }) => {
-  return (
-    <div
-      className="cardContainer1"
-      style={{
-        width: "320px",
-        "@media (max-width: 800px)": {
-          minHeight: "none",
-        },
-      }}
-    >
-      <span>
-        <i>{icon}</i>
-      </span>
-      <h4>{heading}</h4>
-      <p style={{ textAlign: "justify", color: "black", fontSize: "16px" }}>
-        {text1}
-      </p>
-      <p style={{ color: "grey", marginTop: "px" }}>{text2}</p>
-      <ul>
-        {lists.map((item) => {
-          return <li>{item}</li>;
-        })}
-      </ul>
-    </div>
-  );
-};
+// const AboutCard = ({ heading, text1, text2, lists, icon }) => {
+//   return (
+//     <div
+//       className="cardContainer1"
+//       style={{
+//         width: "320px",
+//         "@media (max-width: 800px)": {
+//           minHeight: "none",
+//         },
+//       }}
+//     >
+//       <span>
+//         <i>{icon}</i>
+//       </span>
+//       <h4>{heading}</h4>
+//       <p style={{ textAlign: "justify", color: "black", fontSize: "16px" }}>
+//         {text1}
+//       </p>
+//       <p style={{ color: "grey", marginTop: "px" }}>{text2}</p>
+//       <ul>
+//         {lists.map((item) => {
+//           return <li>{item}</li>;
+//         })}
+//       </ul>
+//     </div>
+//   );
+// };
 // const ServiceCard = ({ heading, text1, text2, lists, icon }) => {
 //   return (
 //     <div className="cardContainer" style={{ borderRadius: "15px" }}>
@@ -140,7 +140,7 @@ const DownloadApp = () => {
       </div>
       {/*  */}
       <div className="HomeContainerDownload">
-        <Box className="bannerDownload">
+        <Box className="bannerDownload" style={{ width: "76%" }}>
           <div className="bannerTextDownload">
             <Typography
               className="smartHeadline"
@@ -188,7 +188,7 @@ const DownloadApp = () => {
                       fontSize: "50px",
                     }}
                   >
-                    500+
+                    -
                   </Typography>
                 </Stack>
                 <hr
@@ -207,7 +207,7 @@ const DownloadApp = () => {
                       fontSize: "50px",
                     }}
                   >
-                    600+
+                    -
                   </Typography>
                 </Stack>
               </div>
@@ -249,12 +249,17 @@ const DownloadApp = () => {
                     <span>Playstore</span>
                   </div>
                 </a>
-                <a href=".." target="_blank" rel="noreferrer">
+                {/* <a
+                  className="App-Link"
+                  href=".."
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <div className="App-Btn">
                     <img src={appstore} alt=" "></img>
                     <span>Appstore</span>
                   </div>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
@@ -289,7 +294,7 @@ const DownloadApp = () => {
           <img src={iitmandicatalyst} alt="IIT Mandi Catalyst" />
         </Box>
       </Box>
-      <div className="service-title">
+      {/* <div className="service-title">
         <div className="service-head">
           <h1
             style={{
@@ -330,7 +335,7 @@ const DownloadApp = () => {
             />
           );
         })} */}
-        <AboutCard
+      {/* <AboutCard
           heading={t("card_head1")}
           icon={<ContentCopyRoundedIcon />}
           text1={t("card_text11")}
@@ -357,14 +362,14 @@ const DownloadApp = () => {
             t("card_list42"),
             t("card_list52"),
           ]}
-        />
-      </div>
+        /> }
+      </div> */}
       {/*  */}
       {/* <Service /> */}
       {/*  */}
       <Box
         className="registerDownload"
-        sx={{ p: "0 55px", margin: "0 auto", width: "80%" }}
+        sx={{ p: "0 55px", margin: "0 auto", width: "100%" }}
         textAlign={"center"}
         display={"flex"}
         flexDirection={"column"}

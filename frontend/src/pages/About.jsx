@@ -16,17 +16,17 @@ import article1 from "../assets/article1.png";
 import news1 from "../assets/news1.jpg";
 const AboutCard = ({ heading, text1, text2, lists, icon }) => {
   return (
-    <div className="cardContainer1">
+    <div className="cardContainer2" style={{ height: "550px" }}>
       <span>
         <i>{icon}</i>
       </span>
-      <h4>{heading}</h4>
+      <h4 style={{ width: "90%", marginInline: "auto" }}>{heading}</h4>
       <p
         style={{
           textAlign: "justify",
           color: "black",
           fontWeight: "200",
-          fontSize: "16px",
+          fontSize: "18px",
         }}
       >
         {text1}
@@ -172,21 +172,13 @@ export const AboutServices = () => {
   return (
     <div className="aboutServices" style={{ marginTop: "5rem" }}>
       <div className="aboutus-box">
-        <h3
-          style={{
-            fontFamily: "Poppins,sans-serif",
-            color: "#046A3A",
-            fontSize: "50px",
-            fontWeight: "600",
-          }}
-        >
-          <span style={{ color: "#000000" }}>{t("our")}</span>{" "}
-          {t("nav_services")}
+        <h3>
+          <span style={{ color: "#000000" }}>{t("our")}</span> {t("services")}
         </h3>
         <Typography
           variant="h6"
           fontWeight={"500"}
-          fontSize={"18px"}
+          fontSize={"16px"}
           className="serviceSubHeading"
           textAlign={"justify"}
           marginTop={"1rem"}
@@ -262,7 +254,6 @@ const About = () => {
             fontWeight: "500",
             fontFamily: "Poppins,sans-serif",
             padding: "0 20px",
-            // width: "85%",
             fontSize: "18px",
           }}
           variant="h6"
@@ -287,7 +278,6 @@ const About = () => {
                 textAlign: "left",
                 width: "100%",
                 lineHeight: "60px",
-                // sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
               }}
             >
               <span style={{ color: "black" }}> Founder's </span> Words
@@ -404,13 +394,13 @@ const About = () => {
             cx={140}
             cy={150}
             heading="June"
-            description="Incubation at IIT Mandi"
+            description="Company Incorporated."
           />
           <Checkpoint
             cx={300}
             cy={100}
             heading="July"
-            description="Onboarding of first 15 Rural Enterprises"
+            description="Completed a successful pilot with our target customers."
           />
           <Checkpoint
             cx={500}
@@ -422,19 +412,19 @@ const About = () => {
             cx={700}
             cy={145}
             heading="October"
-            description="Successful organization of ` Rural Mart` at IIT Mandi during HST Edition 7 in collaboration with IIT Mandi Catalyst "
+            description=" Launched our website and organized the first Rural Mart."
           />
           <Checkpoint
             cx={900}
             cy={100}
             heading="February"
-            description="Receipt of Grant from Meity Startup Hub"
+            description="Gained support from the Meity Startup Hub."
           />
           <Checkpoint
             cx={1080}
             cy={50}
             heading="March"
-            description="Representation of UdyamWell at World Youth Festival in Russia"
+            description="Showcase at the World Youth Festival in Russia and Startup Mahakumbh."
           />
         </svg>
         <svg
