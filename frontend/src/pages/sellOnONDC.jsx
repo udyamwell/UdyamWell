@@ -47,7 +47,7 @@ function SellOnONDC() {
           <Typography
             variant="h3"
             fontFamily={"Poppins,sans-serif"}
-            fontSize={"50px"}
+            fontSize={"3.5rem"}
             fontWeight={"600"}
             color={"#046A3A"}
           >
@@ -74,7 +74,7 @@ function SellOnONDC() {
           <Typography
             variant="h3"
             fontFamily={"Poppins,sans-serif"}
-            fontSize={"50px"}
+            fontSize={"3.5rem"}
             fontWeight={"600"}
           >
             <span style={{ color: "#046A3A" }}>All about </span> ONDC
@@ -207,7 +207,7 @@ function SellOnONDC() {
             <Typography
               variant="h3"
               fontFamily={"Poppins,sans-serif"}
-              fontSize={"50px"}
+              fontSize={"3.5rem"}
               fontWeight={"600"}
               width={"70%"}
             >
@@ -244,7 +244,7 @@ function SellOnONDC() {
             <Typography
               variant="h3"
               fontFamily={"Poppins,sans-serif"}
-              fontSize={"50px"}
+              fontSize={"3.5rem"}
               fontWeight={"600"}
               width={"70%"}
             >
@@ -283,7 +283,7 @@ function SellOnONDC() {
           <Typography
             variant="h3"
             fontFamily={"Poppins,sans-serif"}
-            fontSize={"50px"}
+            fontSize={"3.5rem"}
             fontWeight={"600"}
           >
             <span style={{ color: "#046A3A" }}>Testimonials </span>
@@ -307,7 +307,7 @@ function SellOnONDC() {
           <Typography
             variant="h3"
             fontFamily={"Poppins,sans-serif"}
-            fontSize={"50px"}
+            fontSize={"3.5rem"}
             fontWeight={"600"}
           >
             <span style={{ color: "#046A3A" }}>FAQ's </span>

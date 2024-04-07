@@ -1,51 +1,56 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./udyamsathi.css";
 import { udyamsathiQR } from "../assets";
 import udyamsathi from "../assets/udyamsathi.png";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 // import { useNavigate } from "react-router";
 import Bg_about from "../assets/Bg_about.png";
-import Swal from "sweetalert2";
-import axios from "axios";
+// import Swal from "sweetalert2";
+// import axios from "axios";
 // import { Link } from "react-router-dom";
+import campuspreneurdoc from "../assets/campuspreneur doc.pdf";
+import CampuspreneurForm from "../components/forms/CampuspreneurForm";
 const UdyamSathi = () => {
   // const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+  const openPDF = () => {
+    window.open(campuspreneurdoc, "_blank");
+  };
   // const handleClick = () => {
   //   console.log("Hello");
   // };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phoneNum: "",
-    suggestion: "",
-  });
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    axios
-      .post("https://www.udyamwell.com/udyamsathi/add-udyamsathi", formData)
-      .then((response) => {
-        if (response.status === 201 || response.status === 200) {
-          Swal.fire("Thankyou for Submitting !");
-        } else {
-          Swal.fire("Request not processed, please try again !");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    console.log("Form submitted:", formData);
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+  // };
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   phoneNum: "",
+  //   suggestion: "",
+  // });
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(formData);
+  //   axios
+  //     .post("https://www.udyamwell.com/udyamsathi/add-udyamsathi", formData)
+  //     .then((response) => {
+  //       if (response.status === 201 || response.status === 200) {
+  //         Swal.fire("Thankyou for Submitting !");
+  //       } else {
+  //         Swal.fire("Request not processed, please try again !");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  //   console.log("Form submitted:", formData);
+  // };
   return (
     <div>
       <div className="landingPageCover">
@@ -60,7 +65,7 @@ const UdyamSathi = () => {
         className="HomeContainer"
         style={{ margin: "0rem auto ", height: "fit-content" }}
       >
-        <div className="banner" style={{ width: "80%", marginTop: "8rem" }}>
+        <div className="banner" style={{ width: "78%", marginTop: "8rem" }}>
           <div className="bannerText">
             <h1
               style={{
@@ -68,13 +73,15 @@ const UdyamSathi = () => {
                 fontWeight: "600",
                 fontFamily: "Poppins,sans-serif",
                 color: "#046A3A",
+                lineHeight: "60px",
               }}
             >
               {" "}
               <span style={{ color: "black" }}>
-                UdyamSathi <br />
+                Be Our Heroes, Be Our
+                <br />
               </span>{" "}
-              Program{" "}
+              CAMPUSPRENEURS{" "}
             </h1>
             <p
               style={{
@@ -85,10 +92,10 @@ const UdyamSathi = () => {
                 marginBlock: "20px",
               }}
             >
-              The Udyamsathi Program is a unique initiative that engages
-              enthusiastic and dedicated student ambassadors to act as mentors
-              and ambassadors for rural enterprises. As a Udyamsathi, you will
-              be at the forefront of connecting with and supporting rural
+              The Campuspreneur is a unique initiative that engages enthusiastic
+              and dedicated student ambassadors to act as mentors and
+              ambassadors for rural enterprises. As a Campuspreneur, you will be
+              at the forefront of connecting with and supporting rural
               businesses, helping them realize the benefits of joining the
               Udyamwell ecosystem. <br />
               {/* <button
@@ -101,7 +108,11 @@ const UdyamSathi = () => {
             </p>
           </div>
           <div className="bannerImg">
-            <img src={udyamsathi} alt="" style={{ marginTop: "60px" }} />
+            <img
+              src={udyamsathi}
+              alt=""
+              style={{ marginTop: "60px", width: "100%", height: "100%" }}
+            />
           </div>
         </div>
       </div>
@@ -135,12 +146,7 @@ const UdyamSathi = () => {
         <button
           style={{ cursor: "pointer" }}
           className="download_btn"
-          onClick={() =>
-            window.open(
-              "https://drive.google.com/file/d/12ZXNyTXa38UOXHz4xZjxX4ebawoa8Sxp/view?usp=sharing",
-              "_blank"
-            )
-          }
+          onClick={openPDF}
         >
           Download
         </button>
@@ -152,11 +158,12 @@ const UdyamSathi = () => {
         className="HomeContainer"
         style={{ margin: "0rem auto 0 auto", width: "100%" }}
       >
-        <div className="banner">
+        <div className="banner" style={{ width: "78%" }}>
           <div className="bannerText_udyamsathi">
             <h1
               style={{
                 fontSize: "3.4rem",
+                color: "#046A3A",
                 sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
               }}
             >
@@ -172,13 +179,13 @@ const UdyamSathi = () => {
                 marginBlock: "20px",
               }}
             >
-              Are you ready to be a catalyst for change? The Udyamsathi Program
-              by Udyamwell is calling out to you! This is your chance to embark
-              on a transformative journey, where your passion meets purpose, and
+              Are you ready to be a catalyst for change? The Campuspreneur by
+              Udyamwell is calling out to you! This is your chance to embark on
+              a transformative journey, where your passion meets purpose, and
               your actions resonate in the hearts of rural entrepreneurs. <br />
               <br />
               <a
-                href="https://forms.gle/VPMWHcUxDmvNxE8d7"
+                href="https://forms.gle/3RZuJaY2PhAG1tkL7"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -204,11 +211,12 @@ const UdyamSathi = () => {
         style={{ width: "80%", margin: "0px auto" }}
       >
         <div className="saathiForm">
-          <h1 style={{ color: "green", textAlign: "center" }}>
+          <h1 style={{ color: "#046A3A", textAlign: "center" }}>
             Registration / पंजीकरण
           </h1>
         </div>
-        <form onSubmit={handleSubmit}>
+        <CampuspreneurForm />
+        {/* <form onSubmit={handleSubmit}>
           <div className="field">
             <label for="" className="" style={{ fontSize: "18px" }}>
               Name / आपका नाम
@@ -406,19 +414,20 @@ const UdyamSathi = () => {
               Submit
             </Button>
           </div>
-        </form>
+        </form> */}
       </div>
       <div className="HomeContainer" style={{ margin: "0rem auto 0 auto" }}>
         <div className="content_heading_udyamSathi">
           <h1
             style={{
               fontSize: "50px",
+              color: "#046A3A",
               sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
             }}
           >
             {" "}
             <span style={{ color: "black" }}>Unleash The Power Of </span>{" "}
-            UdyamSathi{" "}
+            Campuspreneur{" "}
           </h1>
           <h4 style={{ color: "black", fontWeight: "400" }}>
             Empowering Rural Dreams with Udyamwell
@@ -435,7 +444,7 @@ const UdyamSathi = () => {
                 }}
               >
                 {" "}
-                <span style={{ color: "black" }}>Why </span> Udyamsathi?{" "}
+                <span style={{ color: "black" }}>Why </span> Campuspreneur?{" "}
               </h4>
               <p>
                 <span style={{ fontWeight: "bold" }}>
@@ -445,7 +454,8 @@ const UdyamSathi = () => {
                 Imagine a world where every rural entrepreneur has the tools and
                 support they need to turn their vision into reality. Udyamwell
                 believes in the power of grassroots innovation, and our
-                Udyamsathis play a pivotal role in making this vision come true.
+                Campuspreneurs play a pivotal role in making this vision come
+                true.
               </p>
             </div>
             <div className="content_grandchild">
@@ -458,15 +468,15 @@ const UdyamSathi = () => {
                 {" "}
                 <span style={{ color: "black" }}>
                   What is{" "}
-                </span> Udyamsathi?{" "}
+                </span> Campuspreneur?{" "}
               </h4>
               <p>
                 <span style={{ fontWeight: "bold" }}>
                   The Architects of Rural Renaissance!
                 </span>
                 <br />
-                Udyamsathis are not just ambassadors; they are mentors,
-                champions, and the heartbeat of change. As a Udyamsathi, you
+                Campuspreneurs are not just ambassadors; they are mentors,
+                champions, and the heartbeat of change. As a Campuspreneur, you
                 will be at the forefront of a movement that seeks to uplift
                 rural enterprises across the nation.
               </p>
@@ -488,8 +498,8 @@ const UdyamSathi = () => {
                   Where Dreams Take Flight!
                 </span>
                 <br />
-                The Udyamsathi Program is not just a stint; it's a two-month
-                odyssey filled with purpose and impact. You will be assigned two
+                The Campuspreneur is not just a stint; it's a two-month odyssey
+                filled with purpose and impact. You will be assigned two
                 significant missions each month, challenging your skills and
                 creativity. The journey doesn't end there - bi-weekly meetings
                 will be your platform to share experiences, overcome obstacles,
@@ -535,7 +545,7 @@ const UdyamSathi = () => {
           <ol>
             <li>
               <span style={{ fontWeight: "bold" }}>Identify and Approach:</span>{" "}
-              UdyamSathis will be assigned specific regions where they will
+              Campuspreneurs will be assigned specific regions where they will
               identify and approach potential rural enterprises.
             </li>
             <li>
@@ -573,8 +583,8 @@ const UdyamSathi = () => {
               <span style={{ fontWeight: "bold" }}>
                 Effective Communication Skills:
               </span>
-              UdyamSathis should possess strong communication skills to engage
-              effectively with diverse stakeholders.
+              Campuspreneurs should possess strong communication skills to
+              engage effectively with diverse stakeholders.
             </li>
             <li>
               <span style={{ fontWeight: "bold" }}>Innovative Thinking:</span>
@@ -583,8 +593,9 @@ const UdyamSathi = () => {
             </li>
             <li>
               <span style={{ fontWeight: "bold" }}>Commitment:</span>
-              UdyamSathis should be committed to dedicating time and effort to
-              the program, contributing to the growth of rural entrepreneurship.
+              Campuspreneurs should be committed to dedicating time and effort
+              to the program, contributing to the growth of rural
+              entrepreneurship.
             </li>
           </ol>
           <h4
@@ -624,7 +635,7 @@ const UdyamSathi = () => {
           </ol>
         </div>
         <hr className="horizontal" />
-        <div className="banner" style={{ width: "80%", marginBottom: "100px" }}>
+        <div className="banner" style={{ width: "78%", marginBottom: "100px" }}>
           <div className="bannerText_udyamsathi">
             <h1
               style={{
@@ -638,13 +649,13 @@ const UdyamSathi = () => {
               <span style={{ color: "black" }}>Register </span> Here{" "}
             </h1>
             <p style={{ textAlign: "justify", fontSize: "18px" }}>
-              Are you ready to be a catalyst for change? The Udyamsathi Program
-              by Udyamwell is calling out to you! This is your chance to embark
-              on a transformative journey, where your passion meets purpose, and
+              Are you ready to be a catalyst for change? The Campuspreneur by
+              Udyamwell is calling out to you! This is your chance to embark on
+              a transformative journey, where your passion meets purpose, and
               your actions resonate in the hearts of rural entrepreneurs. <br />
               <br />
               <a
-                href="https://forms.gle/VPMWHcUxDmvNxE8d7"
+                href="https://forms.gle/3RZuJaY2PhAG1tkL7"
                 rel="noreferrer"
                 target="_blank"
               >

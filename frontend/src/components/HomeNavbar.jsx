@@ -16,6 +16,7 @@ import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 import { NavLink } from "react-router-dom";
 import lan_icon from "../assets/lan_icon.png";
+// import { style } from "@mui/system";
 
 const HomeNavbar = () => {
   const { t } = useTranslation();
@@ -93,26 +94,24 @@ const HomeNavbar = () => {
                   exact
                   activeClassName="active"
                   to={"/"}
-                  className="nav-link"
+                  className="nav-link3"
+                  style={{ margin: "none" }}
                 >
                   {t("nav_home")}
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
                   activeClassName="active"
-                  to="about"
+                  to="/sellonONDC"
                   className="nav-link"
                 >
-                  {t("nav_about")}
+                  {t("nav_ondc")}
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  activeClassName="active"
-                  to="/appInformation"
-                  className="nav-link"
-                >
+                <NavLink to="/appInformation" className="nav-link">
                   {t("nav_downloadapp")}
                 </NavLink>
               </li>
@@ -134,12 +133,21 @@ const HomeNavbar = () => {
                   <NavLink to="/udyamsheel" className="nav-link1">
                     {t("nav_udyamsheel")}
                   </NavLink>
-                  <NavLink to="/udyamsathi" className="nav-link1">
-                    {t("nav_udyamsathi")}
+                  <NavLink to="/campuspreneur" className="nav-link1">
+                    {t("nav_campuspreneur")}
                   </NavLink>
                 </div>
               </div>
               <li>
+                <NavLink
+                  activeClassName="active"
+                  to="about"
+                  className="nav-link"
+                >
+                  {t("nav_about")}
+                </NavLink>
+              </li>
+              {/* <li>
                 <NavLink
                   activeClassName="active"
                   to="/contact"
@@ -148,7 +156,7 @@ const HomeNavbar = () => {
                 >
                   {t("nav_contact")}
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
 
             <ul className="navbar-menuHome2">
@@ -221,64 +229,8 @@ const HomeNavbar = () => {
               )}
               {!user && (
                 <div>
-                  {isClicked ? (
-                    <>
-                      <div style={{ marginLeft: "0px" }}>
-                        <Button
-                          sx={{
-                            p: "10px 20px",
-                            borderRadius: "10px",
-                            border: "solid 1.5px",
-                            // ml: 3,
-                            fontWeight: "normal",
-                            color: "#006400",
-                            textTransform: "initial",
-                            transition:
-                              "filter 0.4s ease, color 0.4s ease, background 0.3s ease",
-                            "&:hover": {
-                              filter: "drop-shadow(-2px 4px 4px   #0064003a  )",
-                              color: "white",
-                              background:
-                                "linear-gradient( #2E8446 , #006400 )",
-                            },
-                          }}
-                          variant="outlined"
-                          onClick={() => {
-                            handleButtonClick();
-                            navigate("/login");
-                          }}
-                        >
-                          <div
-                            style={{
-                              display: "flex",
-                              gap: "8px",
-                              alignItems: "center",
-                            }}
-                          >
-                            {t("signin_btn")}
-                          </div>
-                        </Button>
-                        <Button
-                          sx={{
-                            p: "10px 20px",
-                            borderRadius: "10px",
-                            ml: 2,
-                            color: "white",
-                            textTransform: "initial",
-                            background: "linear-gradient( #2E8446 , #006400 )",
-                            "&:hover": {
-                              filter: "drop-shadow(-2px 4px 4px   #0064003a  )",
-                            },
-                          }}
-                          variant="contained"
-                          onClick={() => navigate("/register")}
-                        >
-                          {t("registernow_btn")}
-                        </Button>
-                      </div>
-                    </>
-                  ) : (
-                    <div style={{}}>
+                  <div class="dropdown">
+                    <div>
                       <Button
                         sx={{
                           p: "10px 20px",
@@ -308,15 +260,34 @@ const HomeNavbar = () => {
                           <PersonIcon />
                         </div>
                       </Button>
+                      <div
+                        class="dropdown-content"
+                        style={{ marginTop: "40px" }}
+                      >
+                        <NavLink to="/login" className="nav-link1">
+                          {t("signin_btn")}
+                        </NavLink>
+                        <NavLink to="/register" className="nav-link1">
+                          {t("registernow_btn")}
+                        </NavLink>
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
                 //
                 //
               )}
               <li>
-                <div className={isClicked ? "navbar3" : "navbar3 right_margin"}>
-                  <img src={lan_icon} alt="icon" />
+                <div
+                  className={isClicked ? "navbar3" : "navbar3 right_margin"}
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-around",
+                    gap: "0px",
+                  }}
+                >
+                  <img style={{ width: "26px" }} src={lan_icon} alt="icon" />
                   <select
                     onChange={(e) => changeLanguage(e.target.value)}
                     className="lng_dropdown"
