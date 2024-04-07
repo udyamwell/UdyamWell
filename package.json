@@ -1,1 +1,36 @@
-{"name":"backend","version":"1.0.0","description":"Login and register page ","main":"index.js","scripts":{"start":"nodemon index.js","test":"echo \"Error: no test specified\" && exit 1"},"author":"UdyamWell","license":"ISC","dependencies":{"@azure/storage-blob":"^12.17.0","axios":"^1.5.0","azure-storage-blob":"^0.0.1-security","bcryptjs":"^2.4.3","cookie-parser":"^1.4.6","cors":"^2.8.5","dotenv":"^16.3.1","ejs":"^3.1.9","express":"^4.18.2","express-async-handler":"^1.2.0","google-auth-library":"^9.6.3","googleapis":"^133.0.0","jsonwebtoken":"^9.0.1","mongoose":"^7.3.3","multer":"^1.4.5-lts.1","nodemailer":"^6.9.4","otp-generator":"^4.0.1","react-redux":"^9.1.0","redux":"^5.0.1"},"devDependencies":{"@babel/plugin-proposal-private-property-in-object":"^7.21.11","nodemon":"^3.0.3","webpack-cli":"^5.1.4"}}
+{ 
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Login and register page ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "UdyamWell",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/storage-blob": "^12.17.0",
+    "axios": "^1.5.0",
+    "azure-storage-blob": "^0.0.1-security",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "google-auth-library": "^9.6.3",
+    "googleapis": "^133.0.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.3.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.4",
+    "otp-generator": "^4.0.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "nodemon": "^3.0.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
