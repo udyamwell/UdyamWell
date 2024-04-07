@@ -35,10 +35,13 @@ import UdyamDashboard from "./pages/UdyamDashboard";
 import VideoUpload from "./components/videoUpload";
 import VisitorsPage from "./pages/admin panel/VisitorsPage.jsx";
 import WhatsAppPopup from "./pages/whatsapppopup";
+import ReactGA from "react-ga4";
 // import Navabar from "./components/Navbar";
 import i18n from "./i18n.js";
 function App() {
   const greeting = i18n.t("hello");
+  const TrackingId = "G-0BT46G4GM2";
+  ReactGA.initialize(TrackingId);
   console.log(greeting);
   return (
     <>
@@ -65,7 +68,7 @@ function App() {
             <Route path="/verify-success/:id" element={<VerifySucces />} />
             <Route path="/udyamsheel" element={<UdyamSheel />} />
             <Route path="/sellonONDC" element={<SellOnONDC />} />
-            <Route path="/udyamsathi" element={<UdyamSathi />} />
+            <Route path="/campuspreneur" element={<UdyamSathi />} />
             <Route path="/udyamdashboard" element={<UdyamDashboard />} />
             <Route path="/requestpage" element={<RequestPage />} />
             <Route path="/privacy" element={<Privacy />} />

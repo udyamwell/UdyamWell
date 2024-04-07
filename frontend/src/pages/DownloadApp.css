@@ -37,8 +37,12 @@ body {
 }
 .App-Btn img{
     width: 30px;
+   
 }
-
+.App-Link{
+    text-decoration: none;
+    color: #121212;
+}
 .bannerDownload{
     margin-top: 8rem;
     width: 80%;
