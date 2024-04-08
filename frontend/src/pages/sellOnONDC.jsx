@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { landingPageBg_small } from "../assets";
 import { Box, Typography } from "@mui/material";
 import "./sellOnONDC.css";
@@ -31,6 +31,9 @@ function SellOnONDC() {
       {activeStep === step && <div className="accordion-body">{bodyKey}</div>}
     </div>
   );
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
   return (
     <div className="sellonondc">
       <div className="landingPageCover">
@@ -44,17 +47,13 @@ function SellOnONDC() {
       </div>
       <div className="main-container">
         <div className="heading">
-          <Typography
-            variant="h3"
-            fontFamily={"Poppins,sans-serif"}
-            fontSize={"3.5rem"}
-            fontWeight={"600"}
-            color={"#046A3A"}
-          >
+          <h1 className="Text_Ondch1" style={{ width: "100%" }}>
             Opening <span style={{ color: "black" }}>up a </span> new{" "}
             <span style={{ color: "black" }}>world!</span>
-          </Typography>
-          <p>Start Selling on ONDC with UdyamWell</p>
+          </h1>
+          <p style={{ marginTop: "4px" }}>
+            Start Selling on ONDC with UdyamWell
+          </p>
         </div>
         <div className="form">
           <SellOnONDCForm />
@@ -71,14 +70,9 @@ function SellOnONDC() {
           justifyContent={"center"}
           alignItems={"center"}
         >
-          <Typography
-            variant="h3"
-            fontFamily={"Poppins,sans-serif"}
-            fontSize={"3.5rem"}
-            fontWeight={"600"}
-          >
+          <h1 className="Text_Ondch1">
             <span style={{ color: "#046A3A" }}>All about </span> ONDC
-          </Typography>
+          </h1>
           <hr
             style={{
               width: "80%",
@@ -204,16 +198,10 @@ function SellOnONDC() {
             justifyContent={"center"}
             alignItems={"center"}
           >
-            <Typography
-              variant="h3"
-              fontFamily={"Poppins,sans-serif"}
-              fontSize={"3.5rem"}
-              fontWeight={"600"}
-              width={"70%"}
-            >
-              <span style={{ color: "#046A3A" }}>UdyamWell </span>- Your
+            <h1 className="Text_Ondch1">
+              <span style={{ color: "black" }}>UdyamWell </span>- Your
               ‘must-have’ success partner!
-            </Typography>
+            </h1>
 
             <Typography
               variant="h6"
@@ -241,16 +229,10 @@ function SellOnONDC() {
             alignItems={"center"}
             marginTop={"80px"}
           >
-            <Typography
-              variant="h3"
-              fontFamily={"Poppins,sans-serif"}
-              fontSize={"3.5rem"}
-              fontWeight={"600"}
-              width={"70%"}
-            >
-              <span style={{ color: "#046A3A" }}>A breath away from </span>
+            <h1 className="Text_Ondch1">
+              <span style={{ color: "black" }}>A breath away from </span>
               Onboarding!
-            </Typography>
+            </h1>
 
             <Typography
               variant="h6"
@@ -280,14 +262,11 @@ function SellOnONDC() {
           alignItems={"center"}
           marginTop={"80px"}
         >
-          <Typography
-            variant="h3"
-            fontFamily={"Poppins,sans-serif"}
-            fontSize={"3.5rem"}
-            fontWeight={"600"}
-          >
-            <span style={{ color: "#046A3A" }}>Testimonials </span>
-          </Typography>
+          <h1 className="Text_Ondch1">
+            {" "}
+            They talk about it
+            <span style={{ color: "black" }}> Better</span> than us
+          </h1>
           <div style={{ width: "80%" }}>
             <TestimonialCarousel />
           </div>
@@ -304,14 +283,10 @@ function SellOnONDC() {
           marginTop={"80px"}
           marginBottom={"40px"}
         >
-          <Typography
-            variant="h3"
-            fontFamily={"Poppins,sans-serif"}
-            fontSize={"3.5rem"}
-            fontWeight={"600"}
-          >
-            <span style={{ color: "#046A3A" }}>FAQ's </span>
-          </Typography>
+          <h1 className="Text_Ondch1">
+            Frequently
+            <span style={{ color: "Black" }}> Asked</span> Questions
+          </h1>
           <div className="custom-accordion">
             {renderAccordionStep(
               1,

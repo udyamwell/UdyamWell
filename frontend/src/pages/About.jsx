@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./about.css";
-import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
-import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
-import HandshakeTwoToneIcon from "@mui/icons-material/HandshakeTwoTone";
+// import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
+// import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
+// import HandshakeTwoToneIcon from "@mui/icons-material/HandshakeTwoTone";
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-
+import market from "../../src/assets/market.png";
+import collaboration from "../assets/collaboration.png";
+import empowerment from "../../src/assets/empowerment.png";
 import Carousel from "../components/Carousel";
 import Bg_about from "../../src/assets/Bg_about.png";
 import { useNavigate } from "react-router";
@@ -18,7 +20,7 @@ const AboutCard = ({ heading, text1, text2, lists, icon }) => {
   return (
     <div className="cardContainer2" style={{ height: "550px" }}>
       <span>
-        <i>{icon}</i>
+        <img src={icon} alt="" />
       </span>
       <h4 style={{ width: "90%", marginInline: "auto" }}>{heading}</h4>
       <p
@@ -201,16 +203,16 @@ export const AboutServices = () => {
 
       <AboutCard
         heading={t("home_aboutcardheading1")}
-        icon={<ContentCopyRoundedIcon />}
+        icon={empowerment}
         text1={t("home_aboutcardbody1")}
       />
       <AboutCard
-        icon={<HandshakeTwoToneIcon />}
+        icon={collaboration}
         heading={t("home_aboutcardheading2")}
         text1={t("home_aboutcardbody2")}
       />
       <AboutCard
-        icon={<LightbulbOutlinedIcon />}
+        icon={market}
         heading={t("home_aboutcardheading3")}
         text1={t("home_aboutcardbody3")}
       />

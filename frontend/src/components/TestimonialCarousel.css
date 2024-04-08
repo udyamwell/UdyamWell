@@ -1,5 +1,5 @@
 .testimonial-slide {
-    margin: 3rem auto;
+    margin: 0 auto;
     padding: 40px;
     text-align: left;
     align-items: start;
@@ -76,4 +76,17 @@
   
   .testimonial-rating {
     margin-top: 5px;
+  }
+  @media only screen and (max-width:590px) {
+    .testimonial-slide {
+      margin: 0 auto;
+      text-align: left;
+      align-items: start;
+      background: #2E84461a;
+      border-radius: 10px;
+      min-height: 540px;
+      min-width: 260px;
+      max-width: 350px;
+      padding: 10px;
+    }
   }

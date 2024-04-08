@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 import { NavLink } from "react-router-dom";
 import lan_icon from "../assets/lan_icon.png";
-// import { style } from "@mui/system";
+import { updateLanguage } from "../slices/SettingsSlice.js";
 
 const HomeNavbar = () => {
   const { t } = useTranslation();
@@ -67,6 +67,7 @@ const HomeNavbar = () => {
 
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
+    dispatch(updateLanguage(language));
   };
   return (
     <>
@@ -360,7 +361,7 @@ const HomeNavbar = () => {
                     setToggle1(!toggle1);
                   }}
                 >
-                  <Link to="/udyamsathi">Udyamsathi</Link>
+                  <Link to="/campuspreneur">Campuspreneur</Link>
                 </li>
                 <li
                   onClick={() => {

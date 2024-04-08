@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ed81778d.css",
-    "main.js": "/static/js/main.bdcc9e75.js",
+    "main.css": "/static/css/main.9c106592.css",
+    "main.js": "/static/js/main.d79d6582.js",
     "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.6a64b43e.chunk.js",
     "reactPlayerSoundCloud.js": "/static/js/reactPlayerSoundCloud.74cbc7d5.chunk.js",
     "reactPlayerVimeo.js": "/static/js/reactPlayerVimeo.3ec0685a.chunk.js",
@@ -22,6 +22,7 @@
     "static/media/BANNER.jpg": "/static/media/BANNER.ea8d0fabf7795fd24f67.jpg",
     "static/media/learning_about2.png": "/static/media/learning_about2.bbb520f3792bab3c9039.png",
     "static/media/hand_holding_smartphone.png": "/static/media/hand_holding_smartphone.13156c751b45cf9a0041.png",
+    "static/media/banner_img.png": "/static/media/banner_img.113819440cb73f0ccffd.png",
     "static/media/contact_img.png": "/static/media/contact_img.6e2ab715449c6d0f9816.png",
     "static/media/udyamsathi.png": "/static/media/udyamsathi.a67ac9c733e7db91782c.png",
     "static/media/founder.png": "/static/media/founder.44c93c7c131ccb80ec5e.png",
@@ -45,7 +46,6 @@
     "static/media/news1.jpg": "/static/media/news1.4302959f1039c2bf7979.jpg",
     "static/media/favicon.png": "/static/media/favicon.f5fbbf16df144fa6f6a7.png",
     "static/media/service.png": "/static/media/service.1e9897529629e83d926b.png",
-    "static/media/banner_img.png": "/static/media/banner_img.4d24a1d8d4eba442ded7.png",
     "static/media/landingPageBg_About.jpg": "/static/media/landingPageBg_About.93b7154636a3f15cc32b.jpg",
     "static/media/udyamsheel.png": "/static/media/udyamsheel.f7ee1d72ee5de467a3af.png",
     "static/media/lms.png": "/static/media/lms.a32a0b621896ef93aba7.png",
@@ -58,9 +58,10 @@
     "static/media/Testinomials.png": "/static/media/Testinomials.c5ce2274cbdd47f28fc1.png",
     "static/media/landingPageBg_small.jpg": "/static/media/landingPageBg_small.e282c7c6975070c46bc4.jpg",
     "static/media/sbifoundationlogo.png": "/static/media/sbifoundationlogo.617abc7c12600522863a.png",
-    "static/media/featureIcon1.png": "/static/media/featureIcon1.81a54908af4a8fae9e90.png",
+    "static/media/empowerment.png": "/static/media/empowerment.9bcbe88c889a30121faa.png",
     "static/media/Bg_about.png": "/static/media/Bg_about.580ea419d3c11af2bad1.png",
-    "static/media/featureIcon2.png": "/static/media/featureIcon2.23d2e86dfafd2a95fe6e.png",
+    "static/media/market.png": "/static/media/market.184d28f480d57696728a.png",
+    "static/media/collaboration.png": "/static/media/collaboration.36bb768d4588654f391a.png",
     "static/media/microsoft.png": "/static/media/microsoft.9ad5691b032d8098ee92.png",
     "static/media/ondc.png": "/static/media/ondc.d8bc56622fe0fd05c660.png",
     "static/media/Bg_about2.png": "/static/media/Bg_about2.bb8cced103d8352af67c.png",
@@ -83,8 +84,8 @@
     "static/media/right.svg": "/static/media/right.99e24eb2c7897cf37f127719d6ca78af.svg",
     "static/media/quate.svg": "/static/media/quate.6ae3dc2c4e25a2e49aa154d58a99be99.svg",
     "static/media/play.svg": "/static/media/play.cbab7cd5b0f5af4167777c8cb1f07ee8.svg",
-    "main.ed81778d.css.map": "/static/css/main.ed81778d.css.map",
-    "main.bdcc9e75.js.map": "/static/js/main.bdcc9e75.js.map",
+    "main.9c106592.css.map": "/static/css/main.9c106592.css.map",
+    "main.d79d6582.js.map": "/static/js/main.d79d6582.js.map",
     "reactPlayerYouTube.6a64b43e.chunk.js.map": "/static/js/reactPlayerYouTube.6a64b43e.chunk.js.map",
     "reactPlayerSoundCloud.74cbc7d5.chunk.js.map": "/static/js/reactPlayerSoundCloud.74cbc7d5.chunk.js.map",
     "reactPlayerVimeo.3ec0685a.chunk.js.map": "/static/js/reactPlayerVimeo.3ec0685a.chunk.js.map",
@@ -101,7 +102,7 @@
     "787.fdf30a68.chunk.js.map": "/static/js/787.fdf30a68.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed81778d.css",
-    "static/js/main.bdcc9e75.js"
+    "static/css/main.9c106592.css",
+    "static/js/main.d79d6582.js"
   ]
 }

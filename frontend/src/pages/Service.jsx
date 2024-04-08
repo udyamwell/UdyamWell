@@ -12,7 +12,7 @@ import ondc from "../assets/ondc.png";
 import sbi from "../assets/sbifoundationlogo.png";
 import microsoft from "../assets/microsoft.png";
 import iitmandicatalyst from "../assets/iitmandicatalyst.png";
-import SearchBox from "../components/SearchBox";
+// import SearchBox from "../components/SearchBox";
 const AboutCard = ({ heading, text1, text2, lists, icon }) => {
   return (
     <div
@@ -40,11 +40,11 @@ const AboutCard = ({ heading, text1, text2, lists, icon }) => {
   );
 };
 
-const handleSearch = (query) => {
-  // Perform search logic using the query
-  console.log("Search query:", query);
-  // Add your search logic here, such as making an API request or filtering data
-};
+// const handleSearch = (query) => {
+//   // Perform search logic using the query
+//   console.log("Search query:", query);
+//   // Add your search logic here, such as making an API request or filtering data
+// };
 const Service = () => {
   // const navigate = useNavigate();
   const countBoxRef = useRef(null);
@@ -177,7 +177,7 @@ const Service = () => {
             {t("services_body")}
           </p>
         </div>
-        <SearchBox onSearch={handleSearch} width="360px" marginTop="10px" />
+        {/* <SearchBox onSearch={handleSearch} width="360px" marginTop="10px" /> */}
       </div>
       <div className="ServiceContainer">
         <AboutCard

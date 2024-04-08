@@ -67,21 +67,13 @@ const UdyamSathi = () => {
       >
         <div className="banner" style={{ width: "78%", marginTop: "8rem" }}>
           <div className="bannerText">
-            <h1
-              style={{
-                fontSize: "50px",
-                fontWeight: "600",
-                fontFamily: "Poppins,sans-serif",
-                color: "#046A3A",
-                lineHeight: "60px",
-              }}
-            >
+            <h1 className="bannerText_Campush1">
               {" "}
               <span style={{ color: "black" }}>
-                Be Our Heroes, Be Our
+                Be Our Hero, Be Our
                 <br />
               </span>{" "}
-              CAMPUSPRENEURS{" "}
+              CAMPUSPRENEUR'S{" "}
             </h1>
             <p
               style={{
@@ -108,11 +100,7 @@ const UdyamSathi = () => {
             </p>
           </div>
           <div className="bannerImg">
-            <img
-              src={udyamsathi}
-              alt=""
-              style={{ marginTop: "60px", width: "100%", height: "100%" }}
-            />
+            <img src={udyamsathi} alt="" />
           </div>
         </div>
       </div>
@@ -418,13 +406,7 @@ const UdyamSathi = () => {
       </div>
       <div className="HomeContainer" style={{ margin: "0rem auto 0 auto" }}>
         <div className="content_heading_udyamSathi">
-          <h1
-            style={{
-              fontSize: "50px",
-              color: "#046A3A",
-              sx: { fontSize: "0.5rem", md: { fontSize: "1rem" } },
-            }}
-          >
+          <h1 className=" bannerText_Campush1">
             {" "}
             <span style={{ color: "black" }}>Unleash The Power Of </span>{" "}
             Campuspreneur{" "}
