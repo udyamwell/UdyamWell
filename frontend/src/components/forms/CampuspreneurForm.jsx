@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 import "./CampuspreneurForm.css";
 
 const CampuspreneurForm = () => {
@@ -14,26 +14,9 @@ const CampuspreneurForm = () => {
     setCurrentPage(currentPage - 1);
   };
   const handleFileChange = (e) => {
-    setCvFile(e.target.files[0]); // Store the selected file in state
+    setCvFile(e.target.files[0]);
   };
-  //   function Submit(e) {
-  //     const formEle = document.querySelector("form");
-  //     const formData = new FormData(formEle);
-  //     fetch(
-  //       "https://script.google.com/macros/s/AKfycbz834njh0hNEJLUG6LsBit-qsVddoz91gFeCG624BXlz0NxEMknTDV5xF3ZYqNB43AL0A/exec",
-  //       {
-  //         method: "POST",
-  //         body: formData,
-  //       }
-  //     )
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   }
+
   const scriptURL =
     "https://script.google.com/macros/s/AKfycbzwmVCJ4naoRusbWdh634JDLrK1u8_XBqFq4QUvBXh4aO0ciPt0VgUVXyv08pH3NRYt/exec";
   const formRef = useRef(null);
@@ -45,8 +28,14 @@ const CampuspreneurForm = () => {
     fetch(scriptURL, { method: "POST", body: form })
       .then((response) => {
         console.log("Success!", response);
+        if (currentPage >= 4) {
+          Swal.fire("Thankyou for Submitting !");
+        }
       })
-      .catch((error) => console.error("Error!", error.message));
+      .catch((error) => {
+        Swal.fire("Request not processed, please try again !");
+        console.error("Error!", error.message);
+      });
   };
 
   return (

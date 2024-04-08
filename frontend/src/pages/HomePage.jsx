@@ -58,7 +58,6 @@ const HomePage = () => {
           alt="landing"
           className="landingPageCover__animation"
         />
-        {/* <AnimatedCircles /> */}
       </div>
       <div className="HomeContainer">
         <div
@@ -86,7 +85,7 @@ const HomePage = () => {
                 delaySpeed={1000}
               />
             </h3>
-            <p style={{ width: "80%", textAlign: "justify" }}>
+            <p style={{ textAlign: "justify" }}>
               {/* {" "} */}
               {t("body_home")}
             </p>
@@ -96,7 +95,6 @@ const HomePage = () => {
                 sx={{
                   color: "white",
                   padding: "10px 60px",
-                  // borderRadius: "10px",
                   font: "Poppins,sans-serif",
                   fontWeight: "500",
                   textTransform: "inherit",

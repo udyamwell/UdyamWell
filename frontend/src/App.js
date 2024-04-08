@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
+import { useState } from "react";
 import Footer from "./components/Footer";
 // import Navabar from './components/Navbar';
 import Service from "./pages/Service";
@@ -36,20 +37,34 @@ import VideoUpload from "./components/videoUpload";
 import VisitorsPage from "./pages/admin panel/VisitorsPage.jsx";
 import WhatsAppPopup from "./pages/whatsapppopup";
 import ReactGA from "react-ga4";
+// import { LanguageProvider } from "../src/components/LanguageContext.jsx";
 // import Navabar from "./components/Navbar";
 import i18n from "./i18n.js";
 function App() {
   const greeting = i18n.t("hello");
   const TrackingId = "G-0BT46G4GM2";
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+
+  const changeLanguage = (language) => {
+    setSelectedLanguage(language);
+  };
   ReactGA.initialize(TrackingId);
   console.log(greeting);
   return (
     <>
       <div>
         <ColorMode>
+          {/* <LanguageProvider> */}
           {/* {(location.pathname==='/' || location.pathname==='/register' || location.pathname==='/login' || location.pathname==='/course' || location.pathname==='/profile' || location.pathname==='/about' || location.pathname==='/udyamsheel' ) ? (<HomeNavabar/>) : (<Navabar/>)} */}
-          <HomeNavabar />
-          <WhatsAppPopup />
+          <WhatsAppPopup
+            selectedLanguage={selectedLanguage}
+            changeLanguage={changeLanguage}
+          />
+          <HomeNavabar
+            selectedLanguage={selectedLanguage}
+            changeLanguage={changeLanguage}
+          />
+          {/* </LanguageProvider> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
 

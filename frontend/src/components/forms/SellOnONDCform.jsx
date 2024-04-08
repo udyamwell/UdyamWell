@@ -271,7 +271,7 @@ const SellOnONDCForm = () => {
           sx={{
             color: "white",
             padding: "10px 60px",
-            borderRadius: "20px",
+            borderRadius: "10px",
             fontWeight: "400",
             textTransform: "inherit",
             border: "none",

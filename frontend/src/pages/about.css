@@ -93,23 +93,20 @@ border-radius: 10px;
 .cardContainer2 span{
     margin-bottom: 30px;
     display: inline-block;
-    position: relative;
-    z-index: 1;
+    /* position: relative; */
+    /* z-index: 1; */
     width: 70px;
     height: 70px;
     border-radius: 50%;
     text-align: center;
-    background-color: #f0f4f6;
+    background-color: #f0f4f600;
     display: inline-block;
     line-height: 80px;
     transition: 0.6s;
 
 }
-.cardContainer2 span i{
-    color: #0c2e60;
-    font-size: 24px;
-    transition: 0.6s;
-	line-height: 1;
+.cardContainer2 span img{
+   width: 80px;
 }
 
 .cardContainer2 h4{

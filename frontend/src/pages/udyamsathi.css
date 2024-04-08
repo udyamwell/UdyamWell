@@ -36,8 +36,22 @@ ol {
     text-align: left;
     padding: 40px;
 }
+.bannerImg img{
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+}
 .bannerText{
-    margin-bottom: 20px
+    margin-bottom: 20px;
+  
+}
+.bannerText_Campush1{
+    font-size: 50px;
+    font-weight: 600;
+    font-family: "poppins",sans-serif;
+    color: #046A3A;
+    line-height: 60px;
+   
 }
 .bannerText_udyamsathi {
     width: 70%;
@@ -156,5 +170,12 @@ ol {
    .bannerText_udyamsathi {
     width: 90%;
     margin-top: 40px;
+   }
+   .bannerImg img{
+    margin-top: 0px;
+   }
+   .bannerText_Campush1{
+    font-size: 32px;
+    line-height: 40px;
    }
 }
