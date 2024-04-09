@@ -51,6 +51,7 @@ body {
   color: black;
   font-size: 18px;
   font-weight: 500;
+  width: 80%;
 }
 .homeButtons {
   display: flex;
@@ -73,7 +74,7 @@ body {
 }
 .homeButtons button {
   padding: 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 14px;
   width: 150px;
   text-transform: capitalize;
@@ -513,5 +514,18 @@ body {
   }
   .cardContainer1{
     width: 90%;
+  }
+  .bannerText p {
+    width: 100%;
+  }
+  .homeAbout2 {
+    width: 100%;
+    margin-bottom: none;
+
+  }
+  .aboutInfo2 {
+    margin: none;
+    width: 70%;
+
   }
 }

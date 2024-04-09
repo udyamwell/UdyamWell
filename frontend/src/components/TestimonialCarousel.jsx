@@ -6,7 +6,7 @@ import Quote_Left from "../assets/Quote_Left.png";
 import User0 from "../assets/Testinomials.png";
 import User1 from "../assets/Testinomials1.png";
 import User2 from "../assets/Testinomials2.png";
-import StarIcon from "@mui/icons-material/Star";
+// import StarIcon from "@mui/icons-material/Star";
 const testimonialData = [
   {
     title: "",
@@ -14,8 +14,8 @@ const testimonialData = [
       "उद्यमवेल का उद्यमशील भारत प्रोग्राम और उनका समर्थन मेरे लिए एक वरदान है। इससे मेरे व्यवसाय को बढ़ाने में बहुत मदद मिली है। उद्यमवेल से जुड़े हुए कुछ ही महीनों में मेरे आय के स्रोतों में वृद्धि हुई है। पहले अन्य राज्यों से उद्यमवेल के माध्यम से ऑर्डर आए, फिर आईआईटी मंडी में केवल दो दिनों के मार्ट में बहुत अधिक मुनाफा हुआ। अब अगर मुझे कोई संदेह या समस्या आती है, तो उद्यमवेल से मुझे  सहायता मिल जाती है।",
     name: "Ajay  ",
     company: "Jagriti Bamboo Craft",
-    address: "Una, Himachal",
-    rating: 4,
+    // address: "Una, Himachal",
+    // rating: 4,
     profilePic: User0,
   },
   {
@@ -23,8 +23,8 @@ const testimonialData = [
       "उद्यमवेल ने मुझे कैसे काम को सही तरीके से करके आगे बढ़ा जा सकता है ! उद्यमवेल में  जुड़ने के बाद से मेरा छोटा बिजनेस मुझे एक बड़े बिजनेस का आकार दिखा रहा है इस पूरी टीम को दिल से बहुत बहुत धन्यवाद। उद्यमवेल से मुझे जोड़ने के लिए सचिन जी बहुत-बहुत  धन्यवाद!",
     name: "Kalyani Keerti",
     company: "Anshima Terracota",
-    address: " Gorakhpur,UP",
-    rating: 4,
+    // address: " Gorakhpur,UP",
+    // rating: 4,
     profilePic: User1,
   },
   {
@@ -32,8 +32,8 @@ const testimonialData = [
       "UdyamWell's capacity-building program empowered our rural women entrepreneurs with valuable knowledge and skills. We are grateful for their dedication and look forward to a long-term partnership. ",
     name: "Srinithi Sripelly",
     company: "  UUI, Seva Mandir,",
-    address: " Rajasthan",
-    rating: 5,
+    // address: " Rajasthan",
+    // rating: 5,
     profilePic: User2,
   },
 ];
@@ -69,11 +69,11 @@ const TestimonialCarousel = () => {
               <p className="testimonial-name">{testimonial.name}</p>
               <p className="testimonial-name">{testimonial.company}</p>
               <p className="testimonial-name">{testimonial.address}</p>
-              <p className="testimonial-rating">
+              {/* <p className="testimonial-rating">
                 {new Array(testimonial.rating).fill(null).map(() => (
                   <StarIcon />
                 ))}
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

@@ -2,13 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "./whatsapppopup.css";
 import udyamwelllogo from "../assets/Udyamwell_Logo_Standee.png";
-
+import { updateLanguage } from "../slices/SettingsSlice.js";
+import { useDispatch } from "react-redux";
 const WhatsAppPopup = () => {
   const { i18n } = useTranslation();
   const [showPopup, setShowPopup] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
   const popupRef = useRef(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const popupShownBefore = getCookie("popupShown");
     if (!popupShownBefore) {
@@ -24,8 +25,9 @@ const WhatsAppPopup = () => {
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
     setSelectedLanguage(language);
-    setCookie("language", language, 365); // Set cookie to store the selected language
-    closePopup(); // Close the popup after changing language
+    setCookie("language", language, 365);
+    dispatch(updateLanguage(language)); // Dispatch the renamed action
+    closePopup();
   };
 
   const getCookie = (name) => {
