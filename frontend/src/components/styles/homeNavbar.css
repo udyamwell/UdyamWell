@@ -121,7 +121,7 @@
 .navbar-brand img {
 	margin-right: 100px;
   }
-@media (max-width: 1385px) {
+@media (max-width: 1445px) {
 	
 .nav-link1{
 	padding-left: none;
@@ -129,6 +129,9 @@
 .MaincontainerHome{
 	padding: 0px;
 }
+.navbar-brand img {
+	margin-right: auto;
+  }
 }
 
   @media (max-width: 1310px) {
